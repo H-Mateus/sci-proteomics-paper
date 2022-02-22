@@ -68,7 +68,9 @@ toc: false
 geometry: margin=2cm
 always_allow_html: true
 date: "`r format(Sys.time())`"
-bibliography: extras/paper_and_pkgs.bib
+# subset bib file in progress
+#bibliography: extras/paper_and_pkgs.bib
+bibliography: extras/masterLib.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -79,7 +81,7 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE) #sets thes
 # below fixes kable tables in word output
 # options(kableExtra.auto_format = FALSE)
 ## keep aux file
-options(tinytex.clean = FALSE)
+## options(tinytex.clean = FALSE)
 ```
 
 ```{r load-packages, include=FALSE}
