@@ -1,0 +1,82 @@
+---
+title: "Clean bib file"
+date: "`r Sys.Date()`"
+author: "Gabriel Mateus Bernardo Harrington"
+output:
+  html_document:
+    highlight: tango
+    number_sections: yes
+    theme: united
+    toc: yes
+    toc_float:
+      collapsed: yes
+    code_download: true
+    code_folding: show
+    df_print: paged
+  pdf_document:
+    toc: no
+bibliography: /home/mateus/Documents/masterLib.bib
+csl: /home/mateus/Documents/citation_styles/elsevier-vancouver.csl
+link-citations: true
+---
+
+```{r, label='setup-options', include=FALSE}
+knitr::opts_chunk$set(
+  eval = TRUE, # eval code chunks
+  echo = TRUE, # include source code
+  #fig.width = 6, # set figure dims
+  #fig.height = 6
+  warning = FALSE, # exclude warnings
+  message = FALSE, # exclude messages
+  error = FALSE # exclude errors
+)
+```
+
+This is a function to subset a bib file to references used in a .Rmd file
+
+```{r, label='load-packages'}
+library(stringr)
+
+input_file = "proteomic_paper_2020-02-11.Rmd"
+input_bib = "extras/masterLib.bib"
+filter_emails = 2
+output_bib = "test.bib"
+
+```
+
+```{r, label='clean-bib'}
+clean_bib <- function(input_file, input_bib, output_bib, filter_emails = 0){
+    ## read in .Rmd file
+    lines <- paste(readLines(input_file), collapse = "")
+    ## regex to get unique references in file
+    entries <- unique(str_match_all(lines, "@([a-zA-Z0-9_.-]+)[,\\. \\?\\!\\]\\;]")[[1]][, 2])
+
+    ## filter out any emails in yaml
+    if (filter_emails > 0) {
+        entries <- entries[-(1:filter_emails)]
+        ## entries <- entries[-(18:68)]
+    }
+
+    ## read in bib file including all refs
+    bib <- paste(readLines(input_bib), collapse = "\n")
+    bib <- unlist(strsplit(bib, "\n@"))
+    bib[177]
+
+    ## subset to references in .Rmd file
+    output <- sapply(entries, grep, bib, value = T)
+    output <- paste("@", output, sep = "")
+    output[71]
+    ## problem line?
+    ## output[18]
+
+    ## write to a new bib file
+    writeLines(unlist(output), output_bib)
+    ## writeLines(output, output_bib)
+}
+```
+
+```{r, label='apply-function'}
+## now call the function
+clean_bib("proteomic_paper_2020-02-11.Rmd", "extras/masterLib.bib",
+          "extras/paper.bib", filter_emails = 2)
+```
