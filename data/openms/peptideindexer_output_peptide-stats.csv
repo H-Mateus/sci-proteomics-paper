@@ -1,0 +1,8 @@
+Match,n,Percent,type
+Unmatched,0,0.00%,target/decoy
+Target only,181001,49.00%,target/decoy
+Decoy only,178201,48.00%,target/decoy
+both,9173,2.00%,target/decoy
+Unmatched,0,,mapping to proteins
+Unique,179939,,mapping to proteins
+Non-unique,188436,,mapping to proteins
