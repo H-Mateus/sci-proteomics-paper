@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.1.1)  22 FEB 2022 17:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.1.1)  23 FEB 2022 15:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -770,7 +770,7 @@ LaTeX Warning: Reference `tab:package-table' on page 4 undefined on input line
 381.
 
 
-Overfull \hbox (270.298pt too wide) in paragraph at lines 381--382
+Overfull \hbox (546.70789pt too wide) in paragraph at lines 381--382
 [] \T1/lmr/m/n/10 (-20) for a list of pack-ages used and the re-spec-tive ver-s
 ion numbers.$[]$ 
  []
@@ -784,7 +784,7 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 
 ]
 <proteomic_paper_2020-02-11_files/figure-latex/elisa-quant-duo-compare-1.pdf, i
-d=181, 767.86874pt x 447.6725pt>
+d=199, 767.86874pt x 447.6725pt>
 File: proteomic_paper_2020-02-11_files/figure-latex/elisa-quant-duo-compare-1.p
 df Graphic file (type pdf)
 <use proteomic_paper_2020-02-11_files/figure-latex/elisa-quant-duo-compare-1.pd
@@ -1305,7 +1305,7 @@ Overfull \hbox (1.27885pt too wide) in paragraph at lines 706--706
 
 
 ] [12]
-<proteomic_paper_2020-02-11_files/figure-latex/openms-pp-venn-1.pdf, id=253, 42
+<proteomic_paper_2020-02-11_files/figure-latex/openms-pp-venn-1.pdf, id=271, 42
 9.605pt x 302.12875pt>
 File: proteomic_paper_2020-02-11_files/figure-latex/openms-pp-venn-1.pdf Graphi
 c file (type pdf)
@@ -1313,7 +1313,7 @@ c file (type pdf)
 Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/openms-p
 p-venn-1.pdf  used on input line 715.
 (pdftex.def)             Requested size: 300.29535pt x 211.18901pt.
-<proteomic_paper_2020-02-11_files/figure-latex/openms-pp-updown-1.pdf, id=254, 
+<proteomic_paper_2020-02-11_files/figure-latex/openms-pp-updown-1.pdf, id=272, 
 459.7175pt x 307.1475pt>
 File: proteomic_paper_2020-02-11_files/figure-latex/openms-pp-updown-1.pdf Grap
 hic file (type pdf)
@@ -1409,7 +1409,7 @@ e 744.
 
 ]
 <figures/openms_protein_quantification/stringdb_plots/acute_c_improvers_vs_noni
-mprovers_run1_2021-03-23.pdf, id=286, 650.43pt x 578.16pt>
+mprovers_run1_2021-03-23.pdf, id=304, 650.43pt x 578.16pt>
 File: figures/openms_protein_quantification/stringdb_plots/acute_c_improvers_vs
 _nonimprovers_run1_2021-03-23.pdf Graphic file (type pdf)
 <use figures/openms_protein_quantification/stringdb_plots/acute_c_improvers_vs_
@@ -1417,50 +1417,50 @@ nonimprovers_run1_2021-03-23.pdf>
 Package pdftex.def Info: figures/openms_protein_quantification/stringdb_plots/a
 cute_c_improvers_vs_nonimprovers_run1_2021-03-23.pdf  used on input line 751.
 (pdftex.def)             Requested size: 500.49521pt x 444.88463pt.
-<Images/stringdb_curated_db.png, id=287, 58.2175pt x 23.08624pt>
+<Images/stringdb_curated_db.png, id=305, 58.2175pt x 23.08624pt>
 File: Images/stringdb_curated_db.png Graphic file (type png)
 <use Images/stringdb_curated_db.png>
 Package pdftex.def Info: Images/stringdb_curated_db.png  used on input line 751
 .
 (pdftex.def)             Requested size: 34.36134pt x 13.62604pt.
-<Images/stringdb_experimentally_determined.png, id=288, 57.21375pt x 22.0825pt>
+<Images/stringdb_experimentally_determined.png, id=306, 57.21375pt x 22.0825pt>
 
 File: Images/stringdb_experimentally_determined.png Graphic file (type png)
 <use Images/stringdb_experimentally_determined.png>
 Package pdftex.def Info: Images/stringdb_experimentally_determined.png  used on
  input line 751.
 (pdftex.def)             Requested size: 35.30452pt x 13.6263pt.
-<Images/stringdb_gene_co-occurrence.png, id=289, 61.22874pt x 23.08624pt>
+<Images/stringdb_gene_co-occurrence.png, id=307, 61.22874pt x 23.08624pt>
 File: Images/stringdb_gene_co-occurrence.png Graphic file (type png)
 <use Images/stringdb_gene_co-occurrence.png>
 Package pdftex.def Info: Images/stringdb_gene_co-occurrence.png  used on input 
 line 751.
 (pdftex.def)             Requested size: 36.13864pt x 13.62604pt.
-<Images/stringdb_gene_fusions.png, id=290, 59.22125pt x 22.0825pt>
+<Images/stringdb_gene_fusions.png, id=308, 59.22125pt x 22.0825pt>
 File: Images/stringdb_gene_fusions.png Graphic file (type png)
 <use Images/stringdb_gene_fusions.png>
 Package pdftex.def Info: Images/stringdb_gene_fusions.png  used on input line 7
 51.
 (pdftex.def)             Requested size: 36.54327pt x 13.6263pt.
-<Images/stringdb_gene_neighbour.png, id=291, 58.2175pt x 19.07124pt>
+<Images/stringdb_gene_neighbour.png, id=309, 58.2175pt x 19.07124pt>
 File: Images/stringdb_gene_neighbour.png Graphic file (type png)
 <use Images/stringdb_gene_neighbour.png>
 Package pdftex.def Info: Images/stringdb_gene_neighbour.png  used on input line
  751.
 (pdftex.def)             Requested size: 40.04129pt x 13.11696pt.
-<Images/stringdb_co-expression.png, id=292, 58.2175pt x 22.0825pt>
+<Images/stringdb_co-expression.png, id=310, 58.2175pt x 22.0825pt>
 File: Images/stringdb_co-expression.png Graphic file (type png)
 <use Images/stringdb_co-expression.png>
 Package pdftex.def Info: Images/stringdb_co-expression.png  used on input line 
 751.
 (pdftex.def)             Requested size: 35.9239pt x 13.6263pt.
-<Images/stringdb_text_mining.png, id=293, 57.21375pt x 23.08624pt>
+<Images/stringdb_text_mining.png, id=311, 57.21375pt x 23.08624pt>
 File: Images/stringdb_text_mining.png Graphic file (type png)
 <use Images/stringdb_text_mining.png>
 Package pdftex.def Info: Images/stringdb_text_mining.png  used on input line 75
 1.
 (pdftex.def)             Requested size: 33.76889pt x 13.62604pt.
-<Images/stringdb_protein-homology.png, id=294, 59.22125pt x 24.09pt>
+<Images/stringdb_protein-homology.png, id=312, 59.22125pt x 24.09pt>
 File: Images/stringdb_protein-homology.png Graphic file (type png)
 <use Images/stringdb_protein-homology.png>
 Package pdftex.def Info: Images/stringdb_protein-homology.png  used on input li
@@ -1507,7 +1507,7 @@ Package pdftex.def Info: Images/stringdb_protein-homology.png  used on input li
 ne 751.
 (pdftex.def)             Requested size: 33.4971pt x 13.62593pt.
 <figures/openms_protein_quantification/stringdb_plots/subacute_c_improvers_vs_n
-onimprovers_run1_2021-03-23.pdf, id=295, 650.43pt x 578.16pt>
+onimprovers_run1_2021-03-23.pdf, id=313, 650.43pt x 578.16pt>
 File: figures/openms_protein_quantification/stringdb_plots/subacute_c_improvers
 _vs_nonimprovers_run1_2021-03-23.pdf Graphic file (type pdf)
 <use figures/openms_protein_quantification/stringdb_plots/subacute_c_improvers_
@@ -1641,7 +1641,7 @@ LaTeX Warning: Reference `appen-itraq-hmap' on page 16 undefined on input line
 766.
 
 <proteomic_paper_2020-02-11_files/figure-latex/openms-hmap-acute-c-1-1.pdf, id=
-318, 856.19875pt x 566.115pt>
+337, 856.19875pt x 566.115pt>
 File: proteomic_paper_2020-02-11_files/figure-latex/openms-hmap-acute-c-1-1.pdf
  Graphic file (type pdf)
 <use proteomic_paper_2020-02-11_files/figure-latex/openms-hmap-acute-c-1-1.pdf>
@@ -1650,7 +1650,7 @@ Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/openms-h
 map-acute-c-1-1.pdf  used on input line 781.
 (pdftex.def)             Requested size: 500.48885pt x 330.92111pt.
 <proteomic_paper_2020-02-11_files/figure-latex/openms-hmap-subacute-c-1-1.pdf, 
-id=319, 928.46875pt x 710.655pt>
+id=338, 928.46875pt x 710.655pt>
 File: proteomic_paper_2020-02-11_files/figure-latex/openms-hmap-subacute-c-1-1.
 pdf Graphic file (type pdf)
 <use proteomic_paper_2020-02-11_files/figure-latex/openms-hmap-subacute-c-1-1.p
@@ -1699,23 +1699,23 @@ LaTeX Warning: Reference `appen-itraq-cnet' on page 19 undefined on input line
 804.
 
 <proteomic_paper_2020-02-11_files/figure-latex/openms-cnetp-acute-c-1-1.pdf, id
-=363, 864.22874pt x 689.57625pt>
+=381, 851.18pt x 702.625pt>
 File: proteomic_paper_2020-02-11_files/figure-latex/openms-cnetp-acute-c-1-1.pd
 f Graphic file (type pdf)
 <use proteomic_paper_2020-02-11_files/figure-latex/openms-cnetp-acute-c-1-1.pdf
 >
 Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/openms-c
 netp-acute-c-1-1.pdf  used on input line 819.
-(pdftex.def)             Requested size: 500.48817pt x 399.34422pt.
+(pdftex.def)             Requested size: 500.49042pt x 413.14067pt.
 <proteomic_paper_2020-02-11_files/figure-latex/openms-cnetp-subacute-c-1-1.pdf,
- id=364, 864.22874pt x 702.625pt>
+ id=382, 864.22874pt x 689.57625pt>
 File: proteomic_paper_2020-02-11_files/figure-latex/openms-cnetp-subacute-c-1-1
 .pdf Graphic file (type pdf)
 <use proteomic_paper_2020-02-11_files/figure-latex/openms-cnetp-subacute-c-1-1.
 pdf>
 Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/openms-c
 netp-subacute-c-1-1.pdf  used on input line 833.
-(pdftex.def)             Requested size: 500.48817pt x 406.90096pt.
+(pdftex.def)             Requested size: 500.48817pt x 399.34422pt.
 [19
 
 ] [20 <./proteomic_paper_2020-02-11_files/figure-latex/openms-cnetp-acute-c-1-1
@@ -1723,7 +1723,7 @@ netp-subacute-c-1-1.pdf  used on input line 833.
 te-c-1-1.pdf>] [22
 
 ]
-<proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots1-1.pdf, id=418, 
+<proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots1-1.pdf, id=436, 
 459.7175pt x 312.16624pt>
 File: proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots1-1.pdf Grap
 hic file (type pdf)
@@ -1731,7 +1731,7 @@ hic file (type pdf)
 Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/elisa-si
 g-plots1-1.pdf  used on input line 851.
 (pdftex.def)             Requested size: 459.72337pt x 312.17024pt.
-<proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots2-1.pdf, id=419, 
+<proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots2-1.pdf, id=437, 
 459.7175pt x 312.16624pt>
 File: proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots2-1.pdf Grap
 hic file (type pdf)
@@ -1742,7 +1742,7 @@ g-plots2-1.pdf  used on input line 859.
 [23
 
  <./proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots1-1.pdf>]
-<proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots3-1.pdf, id=434, 
+<proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots3-1.pdf, id=452, 
 459.7175pt x 312.16624pt>
 File: proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots3-1.pdf Grap
 hic file (type pdf)
@@ -1751,7 +1751,7 @@ Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/elisa-si
 g-plots3-1.pdf  used on input line 867.
 (pdftex.def)             Requested size: 459.72337pt x 312.17024pt.
 [24 <./proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots2-1.pdf>]
-<proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots4-1.pdf, id=449, 
+<proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots4-1.pdf, id=468, 
 459.7175pt x 312.16624pt>
 File: proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots4-1.pdf Grap
 hic file (type pdf)
@@ -1760,7 +1760,7 @@ Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/elisa-si
 g-plots4-1.pdf  used on input line 875.
 (pdftex.def)             Requested size: 459.72337pt x 312.17024pt.
 [25 <./proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots3-1.pdf>]
-<figures/kegg_pathways/hsa04610_pathview.png, id=467, 317.5062pt x 196.3335pt>
+<figures/kegg_pathways/hsa04610_pathview.png, id=485, 317.5062pt x 196.3335pt>
 File: figures/kegg_pathways/hsa04610_pathview.png Graphic file (type png)
 <use figures/kegg_pathways/hsa04610_pathview.png>
 Package pdftex.def Info: figures/kegg_pathways/hsa04610_pathview.png  used on i
@@ -1788,7 +1788,7 @@ ine 913.
 
 ]
 <figures/openms_protein_quantification/label_free/openms_volcano_plot_2021-08-1
-0_0008.pdf, id=501, 722.7pt x 722.7pt>
+0_0008.pdf, id=519, 722.7pt x 722.7pt>
 File: figures/openms_protein_quantification/label_free/openms_volcano_plot_2021
 -08-10_0008.pdf Graphic file (type pdf)
 <use figures/openms_protein_quantification/label_free/openms_volcano_plot_2021-
@@ -1797,7 +1797,7 @@ Package pdftex.def Info: figures/openms_protein_quantification/label_free/openm
 s_volcano_plot_2021-08-10_0008.pdf  used on input line 920.
 (pdftex.def)             Requested size: 500.48308pt x 500.48308pt.
 <figures/openms_protein_quantification/label_free/openms_volcano_plot_2021-08-1
-0_0026.pdf, id=502, 722.7pt x 722.7pt>
+0_0026.pdf, id=520, 722.7pt x 722.7pt>
 File: figures/openms_protein_quantification/label_free/openms_volcano_plot_2021
 -08-10_0026.pdf Graphic file (type pdf)
 <use figures/openms_protein_quantification/label_free/openms_volcano_plot_2021-
@@ -1878,7 +1878,7 @@ LaTeX Warning: Reference `appen-labelfree-string' on page 30 undefined on input
  line 937.
 
 <figures/openms_protein_quantification/label_free/stringdb_plots/acute_c_imp_vs
-_acute_c_nonimp_2021-08-06.pdf, id=514, 650.43pt x 578.16pt>
+_acute_c_nonimp_2021-08-06.pdf, id=532, 650.43pt x 578.16pt>
 File: figures/openms_protein_quantification/label_free/stringdb_plots/acute_c_i
 mp_vs_acute_c_nonimp_2021-08-06.pdf Graphic file (type pdf)
 <use figures/openms_protein_quantification/label_free/stringdb_plots/acute_c_im
@@ -1970,7 +1970,7 @@ ne 942.
 [30 <./figures/openms_protein_quantification/label_free/openms_volcano_plot_202
 1-08-10_0026.pdf>]
 <figures/openms_protein_quantification/label_free/stringdb_plots/subacute_c_imp
-_vs_subacute_c_nonimp_2021-08-06.pdf, id=528, 650.43pt x 578.16pt>
+_vs_subacute_c_nonimp_2021-08-06.pdf, id=546, 650.43pt x 578.16pt>
 File: figures/openms_protein_quantification/label_free/stringdb_plots/subacute_
 c_imp_vs_subacute_c_nonimp_2021-08-06.pdf Graphic file (type pdf)
 <use figures/openms_protein_quantification/label_free/stringdb_plots/subacute_c
@@ -2094,7 +2094,7 @@ LaTeX Warning: Reference `appen-labelfree-hmap' on page 32 undefined on input l
 ine 956.
 
 <proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-hmap-acute-c-1-1.pd
-f, id=545, 851.18pt x 566.115pt>
+f, id=563, 851.18pt x 566.115pt>
 File: proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-hmap-acute-c-1
 -1.pdf Graphic file (type pdf)
 <use proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-hmap-acute-c-1-
@@ -2103,7 +2103,7 @@ Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/openms-c
 hap4-hmap-acute-c-1-1.pdf  used on input line 971.
 (pdftex.def)             Requested size: 500.49042pt x 332.87335pt.
 <proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-hmap-subacute-c-1-1
-.pdf, id=546, 851.18pt x 566.115pt>
+.pdf, id=564, 851.18pt x 566.115pt>
 File: proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-hmap-subacute-
 c-1-1.pdf Graphic file (type pdf)
 <use proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-hmap-subacute-c
@@ -2148,16 +2148,16 @@ LaTeX Warning: Reference `appen-labelfree-cnet' on page 35 undefined on input l
 ine 993.
 
 <proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-cnetp-acute-c-1-1.p
-df, id=595, 867.24pt x 689.57625pt>
+df, id=613, 867.24pt x 702.625pt>
 File: proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-cnetp-acute-c-
 1-1.pdf Graphic file (type pdf)
 <use proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-cnetp-acute-c-1
 -1.pdf>
 Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/openms-c
 hap4-cnetp-acute-c-1-1.pdf  used on input line 1008.
-(pdftex.def)             Requested size: 500.48529pt x 397.9553pt.
+(pdftex.def)             Requested size: 500.48529pt x 405.48575pt.
 <proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-cnetp-subacute-c-1-
-1.pdf, id=596, 867.24pt x 689.57625pt>
+1.pdf, id=614, 867.24pt x 689.57625pt>
 File: proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-cnetp-subacute
 -c-1-1.pdf Graphic file (type pdf)
 <use proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-cnetp-subacute-
@@ -2170,7 +2170,7 @@ hap4-cnetp-subacute-c-1-1.pdf  used on input line 1022.
 ] [36 <./proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-cnetp-acute
 -c-1-1.pdf>] [37 <./proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-
 cnetp-subacute-c-1-1.pdf>]
-<figures/kegg_pathways/hsa04610.pathview_label-free.png, id=641, 317.5062pt x 1
+<figures/kegg_pathways/hsa04610.pathview_label-free.png, id=659, 317.5062pt x 1
 96.3335pt>
 File: figures/kegg_pathways/hsa04610.pathview_label-free.png Graphic file (type
  png)
@@ -2179,7 +2179,7 @@ Package pdftex.def Info: figures/kegg_pathways/hsa04610.pathview_label-free.png
   used on input line 1035.
 (pdftex.def)             Requested size: 317.51024pt x 196.336pt.
 <proteomic_paper_2020-02-11_files/figure-latex/itraq-label-free-venn-1.pdf, id=
-643, 429.605pt x 302.12875pt>
+661, 429.605pt x 302.12875pt>
 File: proteomic_paper_2020-02-11_files/figure-latex/itraq-label-free-venn-1.pdf
  Graphic file (type pdf)
 <use proteomic_paper_2020-02-11_files/figure-latex/itraq-label-free-venn-1.pdf>
@@ -2655,7 +2655,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1764--1767
 
  []
 
-
+[52]
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 1768--1771
 [][] []
  []
@@ -2735,7 +2735,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1796--1799
 
  []
 
-[52]
+
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 1800--1803
 [][] []
  []
@@ -2855,7 +2855,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1844--1847
 
  []
 
-
+[53]
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 1848--1851
 [][] []
  []
@@ -2895,7 +2895,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1860--1863
 
  []
 
-[53]
+
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 1864--1867
 [][] []
  []
@@ -3055,7 +3055,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1924--1927
 
  []
 
-
+[54]
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 1928--1931
 [][] []
  []
@@ -3085,7 +3085,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1936--1939
 
  []
 
-[54]
+
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 1940--1943
 [][] []
  []
@@ -3255,7 +3255,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2004--2007
 
  []
 
-
+[55]
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 2008--2011
 [][] []
  []
@@ -3295,7 +3295,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2020--2023
 
  []
 
-[55]
+
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 2024--2027
 [][] []
  []
@@ -3475,7 +3475,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2092--2095
 
  []
 
-
+[56]
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 2096--2099
 [][] []
  []
@@ -3495,7 +3495,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2100--2103
 
  []
 
-[56]
+
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 2104--2107
 [][] []
  []
@@ -3695,7 +3695,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2180--2183
 
  []
 
-
+[57]
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 2184--2187
 [][] []
  []
@@ -3725,7 +3725,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2192--2195
 
  []
 
-[57]
+
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 2196--2199
 [][] []
  []
@@ -3875,7 +3875,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2252--2255
 
  []
 
-
+[58]
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 2256--2259
 [][] []
  []
@@ -3925,7 +3925,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2272--2275
 
  []
 
-[58]
+
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 2276--2279
 [][] []
  []
@@ -4055,7 +4055,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2324--2327
 
  []
 
-
+[59]
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 2328--2331
 [][] []
  []
@@ -4115,7 +4115,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2348--2351
 
  []
 
-[59]
+
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 2352--2355
 [][] []
  []
@@ -4265,7 +4265,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2408--2411
 
  []
 
-
+[60]
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 2412--2415
 [][] []
  []
@@ -4305,7 +4305,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2424--2427
 
  []
 
-[60]
+
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 2428--2431
 [][] []
  []
@@ -4455,7 +4455,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2484--2487
 
  []
 
-
+[61]
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 2488--2491
 [][] []
  []
@@ -4515,7 +4515,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2508--2511
 
  []
 
-[61]
+
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 2512--2515
 [][] []
  []
@@ -4645,7 +4645,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2560--2563
 
  []
 
-
+[62]
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 2564--2567
 [][] []
  []
@@ -4695,7 +4695,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2580--2583
 
  []
 
-[62]
+
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 2584--2587
 [][] []
  []
@@ -4825,7 +4825,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2632--2635
 
  []
 
-
+[63]
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 2636--2639
 [][] []
  []
@@ -4895,7 +4895,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2660--2663
 
  []
 
-[63]
+
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 2664--2667
 [][] []
  []
@@ -5015,7 +5015,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2708--2711
 
  []
 
-
+[64]
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 2712--2715
 [][] []
  []
@@ -5075,7 +5075,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2732--2735
 
  []
 
-[64]
+
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 2736--2739
 [][] []
  []
@@ -5165,147 +5165,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2768--2771
 
  []
 
-
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 2772--2775
-[][] []
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2772--2775
-
- []
-
-
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 2776--2779
-[][] []
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2776--2779
-
- []
-
-
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 2780--2783
-[][] []
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2780--2783
-
- []
-
-
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 2784--2787
-[][] []
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2784--2787
-
- []
-
-
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 2788--2791
-[][] []
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2788--2791
-
- []
-
-
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 2792--2795
-[][] []
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2792--2795
-
- []
-
-
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 2796--2799
-[][] []
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2796--2799
-
- []
-
-
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 2800--2803
-[][] []
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2800--2803
-
- []
-
-
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 2804--2807
-[][] []
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2804--2807
-
- []
-
-[65]
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 2808--2811
-[][] []
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2808--2811
-
- []
-
-
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 2812--2815
-[][] []
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2812--2815
-
- []
-
-
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 2816--2819
-[][] []
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2816--2819
-
- []
-
-
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 2820--2823
-[][] []
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2820--2823
-
- []
-
-
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 2824--2827
-[][] []
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2824--2827
-
- []
-
-[66] (./proteomic_paper_2020-02-11.aux)
+[65] (./proteomic_paper_2020-02-11.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -5314,42 +5174,72 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 18382 strings out of 478353
- 320897 string characters out of 5854636
- 835228 words of memory out of 5000000
+ 18377 strings out of 478353
+ 320866 string characters out of 5854636
+ 834594 words of memory out of 5000000
  35344 multiletter control sequences out of 15000+600000
- 479455 words of font info for 195 fonts, out of 8000000 for 9000
+ 479549 words of font info for 196 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  110i,11n,106p,1767b,542s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{ref-pineau_proinflammatory_2007} has been referen
 ced but does not exist, replaced by a fixed one
 
-pdfTeX warning (dest): name{ref-sauerbeck_spinal_2015} has been referenced but 
-does not exist, replaced by a fixed one
+pdfTeX warning (dest): name{ref-zoo} has been referenced but does not exist, re
+placed by a fixed one
 
 pdfTeX warning (dest): name{ref-utils} has been referenced but does not exist, 
 replaced by a fixed one
 
-pdfTeX warning (dest): name{ref-rmarkdown1} has been referenced but does not ex
-ist, replaced by a fixed one
+pdfTeX warning (dest): name{ref-survival2} has been referenced but does not exi
+st, replaced by a fixed one
 
-pdfTeX warning (dest): name{ref-naniar} has been referenced but does not exist,
- replaced by a fixed one
+pdfTeX warning (dest): name{ref-survival1} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{ref-stringr} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{ref-stats} has been referenced but does not exist, 
+replaced by a fixed one
+
+pdfTeX warning (dest): name{ref-rlang} has been referenced but does not exist, 
+replaced by a fixed one
+
+pdfTeX warning (dest): name{ref-remotes} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{ref-mice} has been referenced but does not exist, r
+eplaced by a fixed one
 
 pdfTeX warning (dest): name{ref-methods} has been referenced but does not exist
 , replaced by a fixed one
 
+pdfTeX warning (dest): name{ref-Matrix} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{ref-lime} has been referenced but does not exist, r
+eplaced by a fixed one
+
+pdfTeX warning (dest): name{ref-lattice} has been referenced but does not exist
+, replaced by a fixed one
+
 pdfTeX warning (dest): name{ref-huxtable} has been referenced but does not exis
 t, replaced by a fixed one
-
-pdfTeX warning (dest): name{ref-Hmisc} has been referenced but does not exist, 
-replaced by a fixed one
 
 pdfTeX warning (dest): name{ref-grDevices} has been referenced but does not exi
 st, replaced by a fixed one
 
 pdfTeX warning (dest): name{ref-graphics} has been referenced but does not exis
 t, replaced by a fixed one
+
+pdfTeX warning (dest): name{ref-glmnet1} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{ref-Formula} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{ref-forcats} has been referenced but does not exist
+, replaced by a fixed one
 
 pdfTeX warning (dest): name{ref-datasets} has been referenced but does not exis
 t, replaced by a fixed one
@@ -5359,12 +5249,6 @@ replaced by a fixed one
 
 pdfTeX warning (dest): name{ref-bookdown1} has been referenced but does not exi
 st, replaced by a fixed one
-
-pdfTeX warning (dest): name{ref-bibtex} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{ref-base} has been referenced but does not exist, r
-eplaced by a fixed one
 
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/font
 s/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-maths
@@ -5381,10 +5265,10 @@ onts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7
 st/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/l
 m/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/share
 /texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on proteomic_paper_2020-02-11.pdf (66 pages, 3696960 bytes).
+Output written on proteomic_paper_2020-02-11.pdf (65 pages, 3696422 bytes).
 PDF statistics:
- 2306 PDF objects out of 2487 (max. 8388607)
- 2084 compressed objects within 21 object streams
- 553 named destinations out of 1000 (max. 500000)
+ 2321 PDF objects out of 2487 (max. 8388607)
+ 2100 compressed objects within 21 object streams
+ 546 named destinations out of 1000 (max. 500000)
  43526 words of extra memory for PDF output out of 51595 (max. 10000000)
 

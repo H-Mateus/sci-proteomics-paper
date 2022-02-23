@@ -69,8 +69,8 @@ geometry: margin=2cm
 always_allow_html: true
 date: "`r format(Sys.time())`"
 # subset bib file in progress
-#bibliography: extras/paper_and_pkgs.bib
-bibliography: extras/masterLib.bib
+bibliography: extras/paper_and_pkgs.bib
+#bibliography: extras/masterLib.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -91,7 +91,7 @@ pkg <- c("kableExtra", "tidyverse", "captioner", "bibtex",
          "knitr", "BiocManager", "purrr", "base", "readxl",
          "lubridate", "DiagrammeR", "ggVennDiagram", "RColorBrewer")
 
-pkg_bioconductor <- c("ReactomePA", "STRINGdb")
+pkg_bioconductor <- c("ReactomePA", "STRINGdb", "MSstats")
 
 ## create function to installing any missing packages and then load them all
 sort_packages <- function(packages, bioconductor = FALSE) {
@@ -362,7 +362,7 @@ MS/MS ion selection threshold was set to $1\times 10^4$ count and 2Da isolation 
 
 ### iTRAQ data processing {#itraq-stats}
 
-Data analyses were performed with the statistical programming language `r R.version$version.string`, please see table \@ref(tab:package-table) for a list of packages used and the respective version numbers.[@base; @bibtex; @BiocManager; @bookdown1; @captioner; @caret; @data.table; @datasets; @DiagrammeR; @dplyr; @forcats; @Formula; @ggplot2; @ggVennDiagram; @glmnet1; @graphics; @grDevices; @Hmisc; @huxtable; @kableExtra; @knitr3; @lattice; @lime; @lubridate; @Matrix; @methods; @mice; @MSstats; @naniar; @psych; @purrr; @RColorBrewer; @ReactomePA; @readr; @readxl; @remotes; @rlang; @rmarkdown1; @rmarkdown2; @rmarkdown3; @stats; @STRINGdb; @stringr; @survival1; @survival2; @thesisdown; @tibble; @tidyr; @tidyverse; @utils; @zoo]
+Data analyses were performed with the statistical programming language `r R.version$version.string`, please see table \@ref(tab:package-table) for a list of packages used and the respective version numbers.[@base; @bibtex; @BiocManager; @bookdown1; @captioner; @caret; @data.table; @datasets; @DiagrammeR; @forcats; @Formula; @ggVennDiagram; @glmnet1; @graphics; @grDevices; @Hmisc; @huxtable; @kableExtra; @knitr3; @lattice; @lime; @lubridate; @Matrix; @methods; @mice; @MSstats; @naniar; @psych; @purrr; @RColorBrewer; @ReactomePA; @readxl; @remotes; @rlang; @stats; @STRINGdb; @stringr; @survival1; @survival2; @tidyverse; @utils; @zoo]
 
 The mass spectrometry data files were combined and analysed using the ProteinPilot 4.5 software with the Paragon$^{TM}$ and ProGroup$^{TM}$ algorithms (ABSciex) against human protein sequences in the SwissProt database.
 Searches were performed with the default iTRAQ settings in ProteinPilot.
@@ -1190,7 +1190,7 @@ Ceramides are lipid signalling molecules and regulators of apoptosis and inflamm
 If released into the circulatory system, ceramides can cause CNS toxicity, including oxidative damage and changes to the aggregation of proteins associated with diseases such as Parkinson's, Huntington's and Alzheimer's.[@pagadala_role_2012; @vidaurre_cerebrospinal_2014; @czubowicz_role_2019]
 Mature and precursors of hepatic ceramides and enzymes which contribute to ceramide synthesis are elevated by 1 day post-injury.[@sauerbeck_spinal_2015]
 Endotoxins can also stimulated the synthesis of ceramides and so the aforementioned "leaky gut" may also contribute to this elevation.[@chang_endotoxin_2011]
-Ceramide synthesis and lipogenesis genes are also stimulated by TNF-$\alpha$, which, as touched on in the general introduction (\@ref(chap-1-biomarkers)), has been found to be elevated post-SCI, and associated with differential neurological recovery.[@davies_clinical_2007; @hasturk_analysis_2009; @biglari_pilot_2015; @sauerbeck_spinal_2015; @bikman_role_2012]
+Ceramide synthesis and lipogenesis genes are also stimulated by TNF-$\alpha$, which, as touched on in the general introduction (\@ref(chap-1-biomarkers)), has been found to be elevated post-SCI, and associated with differential neurological recovery.[@davies_clinical_2007; @hasturk_analysis_2009; @biglari_pilot_2015; @sauerbeck_spinal_2014; @bikman_role_2012]
 
 ### Chronic liver inflammation in SCI
 
@@ -1342,7 +1342,7 @@ The acute absence may be a result of an overwhelmed physiology unable to respond
 
 The neuro-inflammatory response begins immediately post-trauma, and involves a complex series of events that can persist well into the chronic phase.
 The sudden emergence of necrotic cell debris and associated DAMPs lead surviving CNS-resident cells to produce cytokines, complement factors and ROS.
-Within minutes CNS cells at the lesion site have been found to secrete several pro-inflammatory mediators, including TNF-$\alpha$ and interleukins, in both rodent models and human patients with SCI.[@pineau_proinflammatory_2007; @chandrasekar_acute_2017; @dalgard_cytokine_2012; @bastien_il-1_2015]
+Within minutes CNS cells at the lesion site have been found to secrete several pro-inflammatory mediators, including TNF-$\alpha$ and interleukins, in both rodent models and human patients with SCI.[@pineau_proinflammatory_2006; @chandrasekar_acute_2017; @dalgard_cytokine_2012; @bastien_il-1_2015]
 The resulting inflammatory response occurs in parallel to the mechanical destruction of the \nomenclature{BSCB}{Blood-spinal cord barrier}blood-spinal cord barrier, and the development of tissue oedema and ischaemia combine to propagate damage to parts of the cord spared by the initial trauma.[@maikos_immediate_2007; @ahuja_traumatic_2017]
 
 The microglial population at the lesion site have been observed to be significantly depleted immediately post-injury, due to death via both the apoptosis and mechanical injury in a rodent model.[@bellver-landete_microglia_2019]
