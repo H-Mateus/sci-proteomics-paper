@@ -181,23 +181,43 @@ theme_set(custom_theme())
 
 Introduction 
 
-Decisions as to the best treatment options for an individual following a spinal cord injury (SCI) can be difficult due to the limited ability to predict which incomplete injured patients are likely to improve neurologically. Therefore, there is a need to identify prognostic biomarkers that can support clinical decisions. This study aimed to identify differentially abundant proteins in plasma samples of patients following SCI using two independent and complementary proteomic techniques targeting high and low abundance proteins.
+Decisions as to the best treatment options for an individual following a spinal cord injury (SCI) can be difficult due to the limited ability to predict which incomplete injured patients are likely to improve neurologically. 
+Therefore, there is a need to identify prognostic biomarkers that can support clinical decisions. 
+This study aimed to identify differentially abundant proteins in plasma samples of patients following SCI using two independent and complementary proteomic techniques targeting high and low abundance proteins.
 
 Methods and Materials 
 
-Patient blood samples were taken, following informed consent, from AIS grade C “Improvers” (AIS grade improvement, n=19) and “Non-Improvers” (No AIS change, n=13). Improvers were defined as AIS grade improvement at 12 months post-injury. Further, AIS grade A (n=20) and D (n=21) at <2 weeks (“Acute”, n=39) and approx. 3 months (“Sub-acute”, n=34) post-injury were analysed. 
+Patient blood samples were taken, following informed consent, from AIS grade C "Improvers" (AIS grade improvement, $n = 19$) and "Non-Improvers" (No AIS change, $n = 13$). 
+Improvers were defined as AIS grade improvement at 12 months post-injury. 
+Further, AIS grade A ($n = 20$) and D ($n = 21$) at <2 weeks ("Acute", $n = 39$) and approx. 
+3 months ("Sub-acute", $n = 34$) post-injury were analysed.
 
-Equal protein concentrations were pooled for each of the biological groups and subjected to two 4-plex isobaric tag for relative and absolute quantification (iTRAQ) proteomic analyses (to assess high abundance proteins). Further label-free quantitation proteomics was performed to also assess lower abundance proteins, in which proteins were equilibrated using ProteoMiner&trade; beads. Proteins of interest identified from this analysis were further assessed by enzyme-linked immunosorbent assays (ELISAs). OpenMS (version 2.6.0) was used to process the raw spectra data. R (version 4.1.4) and in particular, the R packages MSstats (version 4.0.1), STRINGdb (version 2.4.2) and pathview (version 1.32.0) were used for downstream analysis.
+<!-- Need to add citations for R packages, though probably not in abstract -->
+
+Equal protein concentrations were pooled for each of the biological groups and subjected to two 4-plex isobaric tag for relative and absolute quantification (iTRAQ) proteomic analyses (to assess high abundance proteins). 
+Further label-free quantitation proteomics was performed to also assess lower abundance proteins, in which proteins were equilibrated using ProteoMiner&trade; beads. 
+Proteins of interest identified from this analysis were further assessed by enzyme-linked immunosorbent assays (ELISAs). 
+OpenMS (version 2.6.0) was used to process the raw spectra data. 
+R (version 4.1.4) and in particular, the R packages MSstats (version 4.0.1), STRINGdb (version 2.4.2) and pathview (version 1.32.0) were used for downstream analysis.
 
 Results
 
-A total of 79 and 87 differentially abundant proteins were identified across all groups using iTRAQ and label-free proteomics, respectively. Pathway analysis identified that the majority of differentially abundant proteins are canonically associated with the complement cascade. Many are also associated with liver function, being predominately synthesised or cleared from circulation there. With respect to AIS C “improvers” relative to “non-improvers”, alpha-2-macroglobulin (A2M), retinol binding protein 4 (RBP4), serum amyloid A1 (SAA1), Peroxiredoxin 2 (Prx2) and alipoprotein A1 (ApoA1) were identified for their biological relevance and differential abundance as potential as prognostic biomarkers. A2M, RBP4, SAA1 and ApoA1 assessed via ELISAs demonstrated that the median abundances of each protein followed the patterns identified in the proteomic experiments, however not all of the differences observed were statistically significant.
+A total of 79 and 87 differentially abundant proteins were identified across all groups using iTRAQ and label-free proteomics, respectively. 
+Pathway analysis identified that the majority of differentially abundant proteins are canonically associated with the complement cascade. 
+Many are also associated with liver function, being predominately synthesised or cleared from circulation there. 
+With respect to AIS C "improvers" relative to "non-improvers", alpha-2-macroglobulin (A2M), retinol binding protein 4 (RBP4), serum amyloid A1 (SAA1), Peroxiredoxin 2 (Prx2) and alipoprotein A1 (ApoA1) were identified for their biological relevance and differential abundance as potential as prognostic biomarkers. 
+A2M, RBP4, SAA1 and ApoA1 assessed via ELISAs demonstrated that the median abundances of each protein followed the patterns identified in the proteomic experiments, however not all of the differences observed were statistically significant.
 
 Conclusions
 
-Prx2 was detectable in acute C improvers, but not in acute C non-improvers, demonstrating potential suitability as a binary prognostic biomarker. Peroxiredoxins are a conserved family of enzyme that reduce peroxides. Prx2 acts intracellularly as an anti-oxidant, including in neurons. The absence of detectable Prx2 in non-improvers suggests a lesser anti-oxidant response in these patients which may impact functional recovery. Pathway analyses, in concert with our prior findings support a growing body of work implicating the liver, or perhaps metabolic health more broadly, playing an important role in neurological recovery following SCI.
+Prx2 was detectable in acute C improvers, but not in acute C non-improvers, demonstrating potential suitability as a binary prognostic biomarker. 
+Peroxiredoxins are a conserved family of enzyme that reduce peroxides. 
+Prx2 acts intracellularly as an anti-oxidant, including in neurons. 
+The absence of detectable Prx2 in non-improvers suggests a lesser anti-oxidant response in these patients which may impact functional recovery. 
+Pathway analyses, in concert with our prior findings support a growing body of work implicating the liver, or perhaps metabolic health more broadly, playing an important role in neurological recovery following SCI.
 
-Further validation of our proteomic findings are needed in an independent larger cohort. Additional investigation of the chronology of these protein levels relative to SCI, including from other tissues e.g. cerebrospinal fluid is also required to delineate underlying pathophysiology, including any potentially modifiable targets.
+Further validation of our proteomic findings are needed in an independent larger cohort. 
+Additional investigation of the chronology of these protein levels relative to SCI, including from other tissues e.g. cerebrospinal fluid is also required to delineate underlying pathophysiology, including any potentially modifiable targets.
 
 
 # Introduction
@@ -261,20 +281,20 @@ Plasma samples were taken from `r nrow(prot_demo)` patients (Table \@ref(tab:pat
 ```{r, label='patient-demo-chap3'}
 ## summarise params function
 demo_summary <- function(df, group_var) {
-df2 <- df %>%
+  df2 <- df %>%
     dplyr::group_by(.data[[group_var]]) %>%
     dplyr::summarise(n = n(), group = group_var) %>%
     dplyr::rename(summary = all_of(group_var)) %>%
     dplyr::mutate(percent = round(n / sum(n) * 100))
-return(df2)
+  return(df2)
 }
 ## use function
 demo_sum <- map(names(prot_demo)[-c(2, 6:8)], ~ demo_summary(prot_demo, .x))
 ## get median age
 age_sum <- data.frame(summary = "Age at injury \n(Median years\u00B1IQR)",
                       n = paste(round(median(prot_demo$age_at_injury)),
-                                      "\u00B1",
-                                      round(IQR(prot_demo$age_at_injury)), sep = ""),
+                                "\u00B1",
+                                round(IQR(prot_demo$age_at_injury)), sep = ""),
                       group = "age_at_injury",
                       percent = "-")
 ## rbind
@@ -286,20 +306,19 @@ demo_sum$summary <- ifelse(demo_sum$summary == "1", "Yes",
                            demo_sum$summary)
 ## remove group
 demo_sum <- demo_sum %>%
-    dplyr::select(!group)
+  dplyr::select(!group)
 
 knitr::kable(demo_sum, "latex", longtable = TRUE, booktabs = TRUE,
              caption = "Patient demographics. \u00B1 denotes interquartile range",
              col.names = c("", "n", "Percent")) %>%
-    ## column_spec(1, width = "4cm") %>%
-    kable_styling(latex_options = c("repeat_header")) %>%
-    pack_rows("Polytrauma", 1, 2) %>%
-    pack_rows("Gender", 3, 4) %>%
-    pack_rows("Diabetes", 5, 6) %>%
-    pack_rows("Neurological level", 7, 9) %>%
-    pack_rows("AIS change", 10, 13)
+  ## column_spec(1, width = "4cm") %>%
+  kable_styling(latex_options = c("repeat_header")) %>%
+  pack_rows("Polytrauma", 1, 2) %>%
+  pack_rows("Gender", 3, 4) %>%
+  pack_rows("Diabetes", 5, 6) %>%
+  pack_rows("Neurological level", 7, 9) %>%
+  pack_rows("AIS change", 10, 13)
 ```
-
 
 ### Sample preparation and analysis using iTRAQ proteomics {#itraq-sample-prep}
 
