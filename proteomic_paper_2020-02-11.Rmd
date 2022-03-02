@@ -179,29 +179,56 @@ theme_set(custom_theme())
 
 # Abstract
 
+Introduction 
+
+Decisions as to the best treatment options for an individual following a spinal cord injury (SCI) can be difficult due to the limited ability to predict which incomplete injured patients are likely to improve neurologically. Therefore, there is a need to identify prognostic biomarkers that can support clinical decisions. This study aimed to identify differentially abundant proteins in plasma samples of patients following SCI using two independent and complementary proteomic techniques targeting high and low abundance proteins.
+
+Methods and Materials 
+
+Patient blood samples were taken, following informed consent, from AIS grade C “Improvers” (AIS grade improvement, n=19) and “Non-Improvers” (No AIS change, n=13). Improvers were defined as AIS grade improvement at 12 months post-injury. Further, AIS grade A (n=20) and D (n=21) at <2 weeks (“Acute”, n=39) and approx. 3 months (“Sub-acute”, n=34) post-injury were analysed. 
+
+Equal protein concentrations were pooled for each of the biological groups and subjected to two 4-plex isobaric tag for relative and absolute quantification (iTRAQ) proteomic analyses (to assess high abundance proteins). Further label-free quantitation proteomics was performed to also assess lower abundance proteins, in which proteins were equilibrated using ProteoMiner&trade; beads. Proteins of interest identified from this analysis were further assessed by enzyme-linked immunosorbent assays (ELISAs). OpenMS (version 2.6.0) was used to process the raw spectra data. R (version 4.1.4) and in particular, the R packages MSstats (version 4.0.1), STRINGdb (version 2.4.2) and pathview (version 1.32.0) were used for downstream analysis.
+
+Results
+
+A total of 79 and 87 differentially abundant proteins were identified across all groups using iTRAQ and label-free proteomics, respectively. Pathway analysis identified that the majority of differentially abundant proteins are canonically associated with the complement cascade. Many are also associated with liver function, being predominately synthesised or cleared from circulation there. With respect to AIS C “improvers” relative to “non-improvers”, alpha-2-macroglobulin (A2M), retinol binding protein 4 (RBP4), serum amyloid A1 (SAA1), Peroxiredoxin 2 (Prx2) and alipoprotein A1 (ApoA1) were identified for their biological relevance and differential abundance as potential as prognostic biomarkers. A2M, RBP4, SAA1 and ApoA1 assessed via ELISAs demonstrated that the median abundances of each protein followed the patterns identified in the proteomic experiments, however not all of the differences observed were statistically significant.
+
+Conclusions
+
+Prx2 was detectable in acute C improvers, but not in acute C non-improvers, demonstrating potential suitability as a binary prognostic biomarker. Peroxiredoxins are a conserved family of enzyme that reduce peroxides. Prx2 acts intracellularly as an anti-oxidant, including in neurons. The absence of detectable Prx2 in non-improvers suggests a lesser anti-oxidant response in these patients which may impact functional recovery. Pathway analyses, in concert with our prior findings support a growing body of work implicating the liver, or perhaps metabolic health more broadly, playing an important role in neurological recovery following SCI.
+
+Further validation of our proteomic findings are needed in an independent larger cohort. Additional investigation of the chronology of these protein levels relative to SCI, including from other tissues e.g. cerebrospinal fluid is also required to delineate underlying pathophysiology, including any potentially modifiable targets.
+
+
 # Introduction
 
-Spinal cord injury (SCI) is the transient or permanent loss of normal spinal sensory, motor or autonomic function, and is a major cause of disability.
-Globally, SCI affects around 500,000 people each year and is most commonly the result of road traffic accidents or falls.[@crozier-shaw_management_2020]
-Patients typically require extensive medical, rehabilitative and social care at high financial cost to healthcare providers.
-The lifetime cost of care in the UK is estimated to be £1.12 million (mean value) per SCI, with the total cost of SCI in 2016 in the UK being £1.43 billion.[@mcdaid_understanding_2019]
+Spinal cord injury (SCI) is the transient or permanent loss of normal spinal sensory, motor or autonomic function, and is a major cause of disability. Globally, SCI affects around 500,000 people each year and is most commonly the result of road traffic accidents or falls.[@crozier-shaw_management_2020]
+Patients typically require extensive medical, rehabilitative and social care at high financial cost to healthcare providers. The lifetime cost of care in the UK is estimated to be £1.12 million (mean value) per SCI, with the total cost of SCI in the UK to the NHS being £1.43 billion in 2016.[@mcdaid_understanding_2019]
 Furthermore, patients with SCI show markedly higher rates of mental illness relative to the general population.[@furlan_health_2017]
-The systemic inflammatory response that follows SCI can frequently result in organ complications, particularly in the liver and kidneys.[@gris_systemic_2008; @sun_multiple_2016]
+Complications arising post-SCI can be long-lasting and often include pain, spasticity and cardiovascular disease, where the systemic inflammatory response that follows SCI can frequently result in organ complications, particularly in the liver and kidneys.[@gris_systemic_2008; @sun_multiple_2016] 
 
-The underlying pathological mechanism of SCI remain unclear, recovery of neurological function is highly variable, requiring any clinical trials to have an impractically large sample size to prove efficacy making development of novel therapies extremely difficult.[@spiess_conversion_2009]
-Being able to more accurately predict patient outcomes would aid clinical decisions and facility future clinical trials.
-Therefore, novel biomarkers that allow for stratification of injury severity and capacity for neurological recovery would be of high value to the field.
+- I need to add a reference here - 
 
-Many studies investigating novel biomarkers for SCI use cerebral spinal fluid (CSF) as the closer proximity is thought to be more reflective of the parenchymal injury.[@kwon_neurochemical_2019; @hulme_developing_2017]
-Whilst this makes CSF potentially more informative for elucidating the pathology of SCI, it would be challenging to use for routine biomarkers in clinical care due to the risk and expense associated with the invasive procedure required to collect samples.
-By contrast, blood biomarkers represent a source of information that can be tapped at bother lower cost and risk.
-Studies of traumatic brain injury have also demonstrated that protein markers identified in CSF are also detectable in both plasma and serum.[@wang_update_2018]
-Similarly, inflammatory markers in acute SCI patients were found to be mirrored in blood and CSF, albeit at a lower concentration.[@kwon_cerebrospinal_2010]
+The underlying pathological mechanism of SCI remains unclear; recovery of neurological function is highly variable, requiring any clinical trials to have an impractically large sample size to prove efficacy, hence the translation of novel efficacious therapies is challenging and expensive.[@spiess_conversion_2009]
+Being able to more accurately predict patient outcomes would aid clinical decisions and facilitate future clinical trials. Therefore, novel biomarkers that allow for stratification of injury severity and capacity for neurological recovery would be of high value to the field.
 
-Various proteins have been shown to be altered in the blood of persons with SCI, including multiple interleukins (IL), tumour necrosis factor alpha and C-reactive protein (CRP).[@segal_circulating_1997; @hayes_elevated_2002; @frost_inflammatory_2005]
-Previously we found routinely collected blood measures associated with liver function and inflammation added predictive value to AIS motor and sensor outcomes at discharge and 12-months post-injury.[@bernardo_harrington_routinely_2020; @brown_preliminary_2019]
+Many studies investigating novel biomarkers for SCI use cerebral spinal fluid (CSF) as the closer proximity of this medium is thought to be more reflective of the parenchymal injury.[@kwon_neurochemical_2019; @hulme_developing_2017]
+Whilst this makes CSF potentially more informative for elucidating the pathology of SCI, the repeated use of CSF for routine analysis presents challenges in clinical care due to the risk and expense associated with the invasiveness of the collection procedure. In contrast, systemic biomarkers measurable in the blood represent a source of information that can be accessed and interpreted both a lower cost and risk. Studies of traumatic brain injury have demonstrated that protein markers identified in CSF are also detectable in both plasma and serum.[@wang_update_2018] More recently, circulating white blood cell populations have also been identified as potential SCI injury biomarkers, with a 2021 study showing that elevated levels of neutrophils were associated with no AIS grade conversion, while conversely an increase in lymphocytes during the first week post-SCI were associated with an AIS grade improvement. 
 
-We use an unbiased shotgun proteomic approach to investigate differentially expressed proteins in SCI patients.
+- Another Reference - 
+
+
+Further, inflammatory marker levels detected in acute SCI patients were found to be mirrored in donor-matched blood and CSF, albeit at lower absolute concentrations systemically.[@kwon_cerebrospinal_2010]
+
+A number of individual proteins have been shown to be altered in the bloods post-SCI, including multiple interleukins (IL), tumour necrosis factor alpha (TNF-$\alpha$) and C-reactive protein (CRP).[@segal_circulating_1997; @hayes_elevated_2002; @frost_inflammatory_2005] Glial cells (astrocytes, oligodendrocytes and microglia) have also been shown to be activated post-injury, forming glial scars that worsen inflammation at the lesion site. 
+
+- Reference -
+
+Previously, we have shown that routinely collected blood measures associated with liver function and inflammation added predictive value to AIS motor and sensor outcomes at discharge and 12-months post-injury.[@bernardo_harrington_routinely_2020; @brown_preliminary_2019] The current study uses an unbiased shotgun proteomic approach to investigate differentially expressed proteins in SCI patients, coupled with bioinformatics analyses. 
+
+
+
+
 Here, relative levels of proteins in plasma from American Spinal Injury Association (ASIA) grade C SCI patients (total $n = 17$) contrasting those who experienced an AISA grade conversion ($n = 10$), and those who did not ($n = 7$) collected within 2 weeks, and at approximately 3 months post-injury (Improvers $n = 9$ vs Non-improvers $n = 6$).
 Relative protein expression in AIS grade A ($n = 10$) and grade D ($n = 11$) patients was also examined.
 
