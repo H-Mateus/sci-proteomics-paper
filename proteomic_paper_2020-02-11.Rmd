@@ -88,8 +88,9 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE) #sets thes
 ## create vector of packages used
 pkg <- c("kableExtra", "tidyverse", "captioner", "bibtex",
          "Hmisc", "psych", "naniar", "data.table", "rmarkdown",
-         "knitr", "BiocManager", "purrr", "base", "readxl",
-         "lubridate", "DiagrammeR", "ggVennDiagram", "RColorBrewer")
+         "knitr", "BiocManager", "purrr", "base", "readxl", "cowplot",
+         "patchwork", "lubridate", "DiagrammeR", "ggVennDiagram",
+         "RColorBrewer")
 
 pkg_bioconductor <- c("ReactomePA", "STRINGdb", "MSstats")
 
@@ -830,6 +831,61 @@ elisa_sig_plots[[3]]
 
 ```{r, label='elisa-sig-plots4', fig.cap='(ref:elisa-sig-plots4)'}
 elisa_sig_plots[[4]]
+```
+
+#### example of a plot grid
+
+There's good documentation for using `cowplot` that can be found [here](https://wilkelab.org/cowplot/articles/plot_grid.html)
+Here's an example using the elisa plots
+
+(ref:plot-grid-example) Example of arranging plots in a grid.
+
+```{r, label='plot-grid-example', fig.width=7, fig.height=7, fig.cap='(ref:elisa-sig-plots4)'}
+plot_grid(plotlist = elisa_sig_plots,
+          labels = "AUTO", ncol = 2, axis = "brtl", align = "hv")
+```
+
+Alternative with `patchwork`, docs [here](https://patchwork.data-imaginist.com/index.html)
+Could be improved by cleaning up the x axis, either reduce font size or rotate labels 45 or 90 degrees
+
+```{r, label='patchwork-example'}
+## add plots together
+patchwork_plots <- Reduce("+",elisa_sig_plots)
+
+## Remove x axis from first and second subplots
+patchwork_plots[[1]] = patchwork_plots[[1]] + theme(axis.text.x = element_blank(),
+                                                    axis.title.x = element_blank())
+patchwork_plots[[2]] = patchwork_plots[[2]] + theme(axis.text.x = element_blank(),
+                                                    axis.title.x = element_blank())
+## remove title from third and fourth x axis
+patchwork_plots[[3]] = patchwork_plots[[3]] + theme(axis.title.x = element_blank())
+patchwork_plots[[4]] = patchwork_plots[[4]] + theme(axis.title.x = element_blank())
+## add letter tags
+patchwork_plots +
+  plot_annotation(tag_levels = 'A')
+```
+
+Maybe better in this orientation
+
+```{r, label='patchwork-2', fig.height = 10}
+patchwork_plots <- Reduce("/",elisa_sig_plots)
+
+## Remove x axis from first and second subplots
+patchwork_plots[[1]] = patchwork_plots[[1]] + theme(axis.text.x = element_blank(),
+                                                    axis.title.x = element_blank()) +
+  ylab(str_wrap(str_replace(patchwork_plots[[1]]$labels$y, "foo", " "), width = 25))
+patchwork_plots[[2]] = patchwork_plots[[2]] + theme(axis.text.x = element_blank(),
+                                                    axis.title.x = element_blank()) +
+  ylab(str_wrap(str_replace(patchwork_plots[[2]]$labels$y, "foo", " "), width = 25))
+## remove title from third and fourth x axis
+patchwork_plots[[3]] = patchwork_plots[[3]] + theme(axis.text.x = element_blank(),
+                                                    axis.title.x = element_blank()) +
+  ylab(str_wrap(str_replace(patchwork_plots[[3]]$labels$y, "foo", " "), width = 25))
+patchwork_plots[[4]] = patchwork_plots[[4]] + theme(axis.title.x = element_blank()) +
+  ylab(str_wrap(str_replace(patchwork_plots[[4]]$labels$y, "foo", " "), width = 25))
+## add letter tags
+patchwork_plots +
+  plot_annotation(tag_levels = 'A')
 ```
 
 ### Pathway analysis {#kegg-chap3}
