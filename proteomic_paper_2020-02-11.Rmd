@@ -476,7 +476,7 @@ Samples were diluted 1:600,000 for A2M and RBP4, 1:100 for SAA1 and 1:20,000 for
 Samples that were above the assay detection limit were rerun at 1:300 and 1:40,000 for SAA1 and ApoA1 respectively.
 All ELISAs were carried out according to the manufacturer's protocol.
 Protein concentrations were normalised to the sample dilution factor.
-Statistical analysis was perfomed using the statistical programming language `r R.version$version.string`.
+Statistical analysis was performed using the statistical programming language `r R.version$version.string`.
 Pairwise t tests with bonferroni adjusted P-values with the R `rstatix` package were used to assess differential abundance.
 
 \clearpage
@@ -502,13 +502,6 @@ Clustering of networks with `STRINGdb` used the "fastgreedy" algorithm from the 
 The Bioconductor package ReactomePA, which employs the open-source, open access, manually curated and peer-reviewed pathway database Reactome was used for network analysis.[@yu_reactomepa_2016; @jassal_reactome_2020]
 
 # Results
-
-# Thesis results
-
-## itraq chapter
-
-some stuff
-
 
 ## Results {#chap-3-results}
 
