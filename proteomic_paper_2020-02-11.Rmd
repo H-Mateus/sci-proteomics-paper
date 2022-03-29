@@ -1155,6 +1155,7 @@ ApoA1 is the main protein component of \nomenclature{HDL}{High-Density Lipoprote
 Plasma HDL include two main apolipoproteins, these being ApoA1 and ApoA2 (~70% and ~20% of total HDL protein content respectively), but some HDL particles can also contain small amounts of other apolipoproteins, including ApoA4, ApoA5, ApoC, ApoD, ApoE, ApoJ and ApoL.
 The primary function of HDL in plasma is the transport of cholesterol, which can have dietary origins, but also be produced endogenously in the liver.
 
+<!-- This HDL section can probably be either completely removed or heavily trimmed -->
 ##### HDL Activity
 
 HDLs have serve a wide range of functions, including contributing to anti-inflammatory activity.
@@ -1346,10 +1347,11 @@ This work seeks to address these factors by a combination of Proteominer&trade; 
 ### Proteins identified
 
 A total of `r length(label_free_proteins)` proteins were identified, many of which were only detected in one group.
-Proteins only present in limited groups could be highly suited for use as biomarkers as binary indicotrs are much simpler to test for, and suggest more dramatic biological differences.
+Proteins only present in limited groups could be highly suited for use as biomarkers as binary indictors are much simpler to test for, and suggest more dramatic biological differences.
 Here we explore the potential these proteins have a biomarkers of SCI.
 
-#### Oxidative stress
+<!-- For simplicities sake I've commented out this section, but there may be some useful bits to pull out so I won't delete it for now -->
+<!-- #### Oxidative stress -->
 
 <!--
 NOTES:
@@ -1373,43 +1375,44 @@ Protein only present in the following groups:
  - Acute A 0.9 fc VS subacute D
 -->
 
-Oxidative stress is an important mediator of secondary injury following trauma to the brain or spinal cord.
-Oxygen radical-induced lipid peroxidation is a predominant source of oxidative damage.[@hall_lipid_2016]
-Post-traumatic rapid elevation of intracellular Ca$^{2++}$ triggers a cascade of oxygen radical reactions with a single electron (e$^{-}$) reduction of an oxygen molecule (O$_2$) resulting in a superocide radical (O$_2^{\cdot -}$).
-O$_2^{\cdot -}$ is only modestly reactive in that in can either act as an oxidant by stealing an electron from another oxidisable molecule, thus spawning more potentially damaging radical species, or it can act as a reductant by donating it's unpaired electron to another radical species.
+<!-- Oxidative stress is an important mediator of secondary injury following trauma to the brain or spinal cord. -->
+<!-- Oxygen radical-induced lipid peroxidation is a predominant source of oxidative damage.[@hall_lipid_2016] -->
+<!-- Post-traumatic rapid elevation of intracellular Ca$^{2++}$ triggers a cascade of oxygen radical reactions with a single electron (e$^{-}$) reduction of an oxygen molecule (O$_2$) resulting in a superocide radical (O$_2^{\cdot -}$). -->
+<!-- O$_2^{\cdot -}$ is only modestly reactive in that in can either act as an oxidant by stealing an electron from another oxidisable molecule, thus spawning more potentially damaging radical species, or it can act as a reductant by donating it's unpaired electron to another radical species. -->
 
-Whilst O$_2^{\cdot -}$ itself is less reactive than $\bullet$OH, its reaction with nitric oxide ($\bullet$NO) forms a highly reactive oxidising agent in the form of peroxynitrite (PN, ONOO$-$).
-ONOO$-$ can subsequently either undergo protonation for form peroxynitrous acid (ONOOH) or react with carbon dioxide to form nitrosoperoxocarbonate (ONOOCO$_2$).
-These products can break down to form the highly reactive nitrogen dioxide ($\bullet$NO$_2$) and $\bullet$OH in the case or ONOOH, or into $\bullet$NO$_2$ and carbonate radical ($\bullet$CO$_3$).
-The elevation of reactive free radicals is often termed "oxidative stress", and can lead to "oxidative damage" whereby lipids and proteins suffer functional compromise, potentially leading to cell death.
+<!-- Whilst O$_2^{\cdot -}$ itself is less reactive than $\bullet$OH, its reaction with nitric oxide ($\bullet$NO) forms a highly reactive oxidising agent in the form of peroxynitrite (PN, ONOO$-$). -->
+<!-- ONOO$-$ can subsequently either undergo protonation for form peroxynitrous acid (ONOOH) or react with carbon dioxide to form nitrosoperoxocarbonate (ONOOCO$_2$). -->
+<!-- These products can break down to form the highly reactive nitrogen dioxide ($\bullet$NO$_2$) and $\bullet$OH in the case or ONOOH, or into $\bullet$NO$_2$ and carbonate radical ($\bullet$CO$_3$). -->
+<!-- The elevation of reactive free radicals is often termed "oxidative stress", and can lead to "oxidative damage" whereby lipids and proteins suffer functional compromise, potentially leading to cell death. -->
 
-One manifestation of oxidative damage involves oxidative attack on cell membrane polyunsaturated fatty acids triggering lipid peroxidation, which can be broken down into 3 distinct phases: initiation, propagation and termination.
-The initiation is triggered when a highly reactive (electron seeking) oxygen radical (such as the aforementioned $\bullet$OH, $\bullet$NO$_2$ or $\bullet$CO$_3$) reacts with membrane polyunsaturated fatty acids (e.g., eicosapentaenoic acid, arachidonic acid, docosahexaenoic acid) thus disrupting membrane integrity.
-The propagation stage follows when the resulting lipid radical (L$\bullet$) reacts with O$_2$ to form a lipid peroxyl radical (LOO$\bullet$).
-LOO$\bullet$ then acquires a hydrogen atom from an adjacent polyunsaturated fatty acid yielding lipid hydroperoxide (LOOH) and another L$\bullet$, thus starting a propagating chain reaction.
-This propagation yields in the termination step when the peroxidisable substrate is depleted and/or a lipid radical reacts with another radical or radical scavenger to produce a relatively stable non-radical molecule/s.
-The end products resulting from this termination can be highly toxic.
-Two such aldehydic products of lipid peroxidation are \nomenclature{4-HNE}{4-hydroxynonenal}4-hydroxynonenal (4-HNE) or 2-propenal (acrolein), both of which have to characterised in experimental models of both brain and spinal injury.[@bains_antioxidant_2012; @hamann_acrolein_2009]
-Each of them can covalently bind several amino acids in cellular proteins, altering structure and function.
+<!-- One manifestation of oxidative damage involves oxidative attack on cell membrane polyunsaturated fatty acids triggering lipid peroxidation, which can be broken down into 3 distinct phases: initiation, propagation and termination. -->
+<!-- The initiation is triggered when a highly reactive (electron seeking) oxygen radical (such as the aforementioned $\bullet$OH, $\bullet$NO$_2$ or $\bullet$CO$_3$) reacts with membrane polyunsaturated fatty acids (e.g., eicosapentaenoic acid, arachidonic acid, docosahexaenoic acid) thus disrupting membrane integrity. -->
+<!-- The propagation stage follows when the resulting lipid radical (L$\bullet$) reacts with O$_2$ to form a lipid peroxyl radical (LOO$\bullet$). -->
+<!-- LOO$\bullet$ then acquires a hydrogen atom from an adjacent polyunsaturated fatty acid yielding lipid hydroperoxide (LOOH) and another L$\bullet$, thus starting a propagating chain reaction. -->
+<!-- This propagation yields in the termination step when the peroxidisable substrate is depleted and/or a lipid radical reacts with another radical or radical scavenger to produce a relatively stable non-radical molecule/s. -->
+<!-- The end products resulting from this termination can be highly toxic. -->
+<!-- Two such aldehydic products of lipid peroxidation are \nomenclature{4-HNE}{4-hydroxynonenal}4-hydroxynonenal (4-HNE) or 2-propenal (acrolein), both of which have to characterised in experimental models of both brain and spinal injury.[@bains_antioxidant_2012; @hamann_acrolein_2009] -->
+<!-- Each of them can covalently bind several amino acids in cellular proteins, altering structure and function. -->
 
-Another major mechanism of oxidative damage involves carbonylation by reaction of free radicals with amino acids.
-Free radicals can also cause nitration of some amino acids, either of which can retard protein function.
-For example, $\bullet$NO$_2$ can nitrate the 3 position of tyrosine residues, forming 3-nitrotyrosine (3-NT).[@mustafa_mitochondrial_2010]
+<!-- Another major mechanism of oxidative damage involves carbonylation by reaction of free radicals with amino acids. -->
+<!-- Free radicals can also cause nitration of some amino acids, either of which can retard protein function. -->
+<!-- For example, $\bullet$NO$_2$ can nitrate the 3 position of tyrosine residues, forming 3-nitrotyrosine (3-NT).[@mustafa_mitochondrial_2010] -->
 
-Mitochondrial oxidative stress and the resulting dysfunction is particularly relevant to the post-traumatic cell death present in the injured brain or spinal cord.[@lifshitz_structural_2003; @singh_time_2006; @azbill_impaired_1997; @sullivan_temporal_2007]
-The mitochondria attempt to sequester the aforementioned post-traumatic rise in CA$^{++}$ ions, which results in mitochondrial respiratory dysfunction, lessened CA$^{++}$ buffering capacity and oxidative phosphorylation, and ultimately mitochondrial failure due to mitochondrial permeability transition.[@singh_time_2006; @lifshitz_structural_2003; @sullivan_traumatic_1998; @sullivan_mitochondrial_2005]
-The possible activation of mitochondrial caspase-dependent and caspase-independent cell death cascades is not the only problematic outcome as this mitochondrial failure can also cause disruptions to synaptic function, with synaptic mitochondria being more susceptible than non-synaptic mitochondria.[@sullivan_traumatic_1998]
+<!-- Mitochondrial oxidative stress and the resulting dysfunction is particularly relevant to the post-traumatic cell death present in the injured brain or spinal cord.[@lifshitz_structural_2003; @singh_time_2006; @azbill_impaired_1997; @sullivan_temporal_2007] -->
+<!-- The mitochondria attempt to sequester the aforementioned post-traumatic rise in CA$^{++}$ ions, which results in mitochondrial respiratory dysfunction, lessened CA$^{++}$ buffering capacity and oxidative phosphorylation, and ultimately mitochondrial failure due to mitochondrial permeability transition.[@singh_time_2006; @lifshitz_structural_2003; @sullivan_traumatic_1998; @sullivan_mitochondrial_2005] -->
+<!-- The possible activation of mitochondrial caspase-dependent and caspase-independent cell death cascades is not the only problematic outcome as this mitochondrial failure can also cause disruptions to synaptic function, with synaptic mitochondria being more susceptible than non-synaptic mitochondria.[@sullivan_traumatic_1998] -->
 
-The disruption of respiratory function is either preceded by, or perhaps coincides with, an increase in mitochondrial free radicals and/or free radical-triggered lipid peroxidation-mediated oxidative damage.[@singh_time_2006; @azbill_impaired_1997; @sullivan_temporal_2007]
-Increasing evidence has mounted that the formation of the oxidant peroxynitrite is of particularly importance in the injured spinal cord and brain.[@sullivan_temporal_2007; @bao_peroxynitrite_2002; @bao_peroxynitrite_2003-1; @deng_temporal_2007; @xiong_pharmacological_2009; @xiong_role_2007]
-Studies have reported an increase in peroxynitrite-induced 4-HNE (i.e., lipid peroxidation), 3-NT (i.e., protein nitration) and 4-HNE and protein carbonyl content in mitochondrial proteins preceding post-SCI mitochondrial dysfunction.[@lopez-figueroa_direct_2000; @zanella_mitochondrial_2002]
-Mitochondria exposed to Ca$^{++}$, which causes dysfunction in them, generates peroxynitrite which in turn triggers the release of mitochondrial Ca$^{++}$.[@bringold_peroxynitrite_2000]
-Experiments introducing three forms of peroxynitrite, ONOOCO$_2$, ONOOH and ONOO$^-$, *in vitro*, were found to cause protein nitration and depletion of mitochondrial antioxidant stores, both indicative of peroxynitrite oxidative damage.[@valdez_reactions_2000]
-Additional *in vivo* experiments found early post-trauma treatment with the peroxynitrite radical scavenger tempol, reduced markers of oxidative damage and loss of mitochondrial function, in both TBI and SCI.[@deng_temporal_2007; @xiong_pharmacological_2009]
-Furthermore, acrolein was found to be 10 times more potent than 4-HNE in a study on the concentration-related attenuation of the respiratory function of normal brain or spinal cord mitochondria.[@vaishnav_lipid_2010]
-This study also found spinal cord mitochondria to be more susceptible than mitochondria isolated from the brain.
-Relatedly, the carbonyl scavenging compound phenelzine was reported to reduce both mitochondrial respiratory depression and levels of aldehyde-modified mitochondrial proteins.[@singh_phenelzine_2013]
+<!-- The disruption of respiratory function is either preceded by, or perhaps coincides with, an increase in mitochondrial free radicals and/or free radical-triggered lipid peroxidation-mediated oxidative damage.[@singh_time_2006; @azbill_impaired_1997; @sullivan_temporal_2007] -->
+<!-- Increasing evidence has mounted that the formation of the oxidant peroxynitrite is of particularly importance in the injured spinal cord and brain.[@sullivan_temporal_2007; @bao_peroxynitrite_2002; @bao_peroxynitrite_2003-1; @deng_temporal_2007; @xiong_pharmacological_2009; @xiong_role_2007] -->
+<!-- Studies have reported an increase in peroxynitrite-induced 4-HNE (i.e., lipid peroxidation), 3-NT (i.e., protein nitration) and 4-HNE and protein carbonyl content in mitochondrial proteins preceding post-SCI mitochondrial dysfunction.[@lopez-figueroa_direct_2000; @zanella_mitochondrial_2002] -->
+<!-- Mitochondria exposed to Ca$^{++}$, which causes dysfunction in them, generates peroxynitrite which in turn triggers the release of mitochondrial Ca$^{++}$.[@bringold_peroxynitrite_2000] -->
+<!-- Experiments introducing three forms of peroxynitrite, ONOOCO$_2$, ONOOH and ONOO$^-$, *in vitro*, were found to cause protein nitration and depletion of mitochondrial antioxidant stores, both indicative of peroxynitrite oxidative damage.[@valdez_reactions_2000] -->
+<!-- Additional *in vivo* experiments found early post-trauma treatment with the peroxynitrite radical scavenger tempol, reduced markers of oxidative damage and loss of mitochondrial function, in both TBI and SCI.[@deng_temporal_2007; @xiong_pharmacological_2009] -->
+<!-- Furthermore, acrolein was found to be 10 times more potent than 4-HNE in a study on the concentration-related attenuation of the respiratory function of normal brain or spinal cord mitochondria.[@vaishnav_lipid_2010] -->
+<!-- This study also found spinal cord mitochondria to be more susceptible than mitochondria isolated from the brain. -->
+<!-- Relatedly, the carbonyl scavenging compound phenelzine was reported to reduce both mitochondrial respiratory depression and levels of aldehyde-modified mitochondrial proteins.[@singh_phenelzine_2013] -->
 
+<!-- PRX-2 is an important marker so maybe keep some of this section -->
 ##### Peroxiredoxins
 
 Peroxiredoxins are a large and highly conserved family of enzymes that reduce peroxides.
@@ -1502,6 +1505,7 @@ Furthermore, a rodent model study of chronic SCI, found use of the anti-inflamma
 To summarise, understanding of persistent inflammation during the chronic phase of SCI is lacking, and particularly complicated by the plateaus in locomotive recovery that typically occurs well before the chronic SCI phase is reached.
 Thus, there is a need for further studies to uncover the role of the various immune cell populations with respect to ongoing neurological dysfunction and pathology during the chronic phase of SCI.
 
+<!-- This section on IVIG can be heavily cut down -->
 ##### Intravenous immunoglobulin
 
 \nomenclature{IVIG}{Intravenous immunoglobulin}Intravenous immunoglobulin (IVIG) is increasingly used as an immunomodulatory strategy for managing acute neurological conditions, including neurotrauma.
