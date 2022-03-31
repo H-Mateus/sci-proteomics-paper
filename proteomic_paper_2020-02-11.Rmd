@@ -182,82 +182,62 @@ theme_set(custom_theme())
 
 Introduction 
 
-Decisions as to the best treatment options for an individual following a spinal cord injury (SCI) can be difficult due to the limited ability to predict which incomplete injured patients are likely to improve neurologically. 
-Therefore, there is a need to identify prognostic biomarkers that can support clinical decisions. 
-This study aimed to identify differentially abundant proteins in plasma samples of patients following SCI using two independent and complementary proteomic techniques targeting high and low abundance proteins.
+Spinal Cord Injury (SCI) is a major cause of disability, with complications post-injury often leading to life-long health issues with need of extensive treatment. Neurological outcome post-SCI can be variable and difficult to predict, particularly in incomplete injured patients. The identification of specific SCI biomarkers in blood, may be able to improve prognostics in the field. This study has utilised proteomic and bioinformatics methodologies to investigate differentially expressed proteins in plasma samples across human SCI cohorts with the aim of identifying prognostic biomarkers and biological pathway alterations that relate to neurological outcome.
 
 Methods and Materials 
 
-Patient blood samples were taken, following informed consent, from AIS grade C "Improvers" (AIS grade improvement, $n = 19$) and "Non-Improvers" (No AIS change, $n = 13$). 
-Improvers were defined as AIS grade improvement at 12 months post-injury. 
-Further, AIS grade A ($n = 20$) and D ($n = 21$) at <2 weeks ("Acute", $n = 39$) and approx. 
-3 months ("Sub-acute", $n = 34$) post-injury were analysed.
+Blood samples were taken, following informed consent, from **AIS 
 
-<!-- Need to add citations for R packages, though probably not in abstract -->
+<-- Karinas note: Define --> 
 
-Equal protein concentrations were pooled for each of the biological groups and subjected to two 4-plex isobaric tag for relative and absolute quantification (iTRAQ) proteomic analyses (to assess high abundance proteins). 
-Further label-free quantitation proteomics was performed to also assess lower abundance proteins, in which proteins were equilibrated using ProteoMiner&trade; beads. 
-Proteins of interest identified from this analysis were further assessed by enzyme-linked immunosorbent assays (ELISAs). 
+grade C “Improvers” (AIS grade improvement) and “Non-Improvers” (No AIS change), and AIS grade A and D at <2 weeks (“Acute”) and approx. 3 months (“Sub-acute”) post-injury. The total protein concentration from each sample was extracted, with pooled samples being labelled and non-pooled samples treated with ProteoMiner&trade; beads. Samples were then analysed using two 4-plex isobaric tag for relative and absolute quantification (iTRAQ) analyses and a label-free experiment for comparison, before quantifying with mass spectrometry. Proteomic datasets were analyses using **bioinformatics… 
+
+<!-- Karinas note: In brief description needed here -->
+
+Proteins of interest identified from this analysis were further validated by enzyme-linked immunosorbent assay (ELISA).
 OpenMS (version 2.6.0) was used to process the raw spectra data. 
 R (version 4.1.4) and in particular, the R packages MSstats (version 4.0.1), STRINGdb (version 2.4.2) and pathview (version 1.32.0) were used for downstream analysis.
 
+<!-- Need to add citations for R packages, though probably not in abstract -->
+
 Results
 
-A total of 79 and 87 differentially abundant proteins were identified across all groups using iTRAQ and label-free proteomics, respectively. 
-Pathway analysis identified that the majority of differentially abundant proteins are canonically associated with the complement cascade. 
-Many are also associated with liver function, being predominately synthesised or cleared from circulation there. 
-With respect to AIS C "improvers" relative to "non-improvers", alpha-2-macroglobulin (A2M), retinol binding protein 4 (RBP4), serum amyloid A1 (SAA1), Peroxiredoxin 2 (Prx2) and alipoprotein A1 (ApoA1) were identified for their biological relevance and differential abundance as potential as prognostic biomarkers. 
-A2M, RBP4, SAA1 and ApoA1 assessed via ELISAs demonstrated that the median abundances of each protein followed the patterns identified in the proteomic experiments, however not all of the differences observed were statistically significant.
+The data demonstrated proteomic differences between the cohorts, with the results from the iTRAQ approach supporting those of the label-free analysis. A total of 79 and 87 differentially abundant proteins across AIS and longitudinal groups were identified from the iTRAQ and label-free analyses, respectively. Alpha-2-macroglobulin (A2M), retinol binding protein 4 (RBP4), serum amyloid A1 (SAA1), Peroxiredoxin 2, alipoprotein A1 (ApoA1) and several immunoglobulins were identified as biologically relevant and differentially abundant, with potential as individual prognostic biomarkers of neurological outcome. Bioinformatics analyses revealed that the majority of differentially abundant proteins were components of the complement cascade and most interacted directly with the liver.
 
 Conclusions
 
-Prx2 was detectable in acute C improvers, but not in acute C non-improvers, demonstrating potential suitability as a binary prognostic biomarker. 
-Peroxiredoxins are a conserved family of enzyme that reduce peroxides. 
-Prx2 acts intracellularly as an anti-oxidant, including in neurons. 
-The absence of detectable Prx2 in non-improvers suggests a lesser anti-oxidant response in these patients which may impact functional recovery. 
-Pathway analyses, in concert with our prior findings support a growing body of work implicating the liver, or perhaps metabolic health more broadly, playing an important role in neurological recovery following SCI.
+Many of the proteins of interest identified using proteomics were detected only in a single group and therefore have potential as a binary (present or absent) biomarkers. Additional investigations into the chronology of these proteins, and their levels in other tissues (cerebrospinal fluid in particular) are needed to better understand the underlying pathophysiology, including any potentially modifiable targets. The complement cascasde was confirmed using pathway analysis **as…
 
-Further validation of our proteomic findings are needed in an independent larger cohort. 
-Additional investigation of the chronology of these protein levels relative to SCI, including from other tissues e.g. cerebrospinal fluid is also required to delineate underlying pathophysiology, including any potentially modifiable targets.
+<!-- Karina's note: Expand on this if it is going to form the main narrative --> 
 
 
 # Introduction
 
 Spinal cord injury (SCI) is the transient or permanent loss of normal spinal sensory, motor or autonomic function, and is a major cause of disability. Globally, SCI affects around 500,000 people each year and is most commonly the result of road traffic accidents or falls.[@crozier-shaw_management_2020]
 Patients typically require extensive medical, rehabilitative and social care at high financial cost to healthcare providers. The lifetime cost of care in the UK is estimated to be £1.12 million (mean value) per SCI, with the total cost of SCI in the UK to the NHS being £1.43 billion in 2016.[@mcdaid_understanding_2019]
-Furthermore, patients with SCI show markedly higher rates of mental illness relative to the general population.[@furlan_health_2017]
+Individuals with SCI show markedly higher rates of mental illness relative to the general population.[@furlan_health_2017]
 Complications arising post-SCI can be long-lasting and often include pain, spasticity and cardiovascular disease, where the systemic inflammatory response that follows SCI can frequently result in organ complications, particularly in the liver and kidneys.[@gris_systemic_2008; @sun_multiple_2016] 
 
 - I need to add a reference here - 
 
-The underlying pathological mechanism of SCI remains unclear; recovery of neurological function is highly variable, requiring any clinical trials to have an impractically large sample size to prove efficacy, hence the translation of novel efficacious therapies is challenging and expensive.[@spiess_conversion_2009]
+The recovery of neurological function post-SCI is highly variable, requiring any clinical trials to have an impractically large sample size to prove efficacy, hence the translation of novel efficacious therapies is challenging and expensive.[@spiess_conversion_2009]
 Being able to more accurately predict patient outcomes would aid clinical decisions and facilitate future clinical trials. Therefore, novel biomarkers that allow for stratification of injury severity and capacity for neurological recovery would be of high value to the field.
 
-Many studies investigating novel biomarkers for SCI use cerebral spinal fluid (CSF) as the closer proximity of this medium is thought to be more reflective of the parenchymal injury.[@kwon_neurochemical_2019; @hulme_developing_2017]
+Biomarkers studies in SCI often investigate protein changes in cerebral spinal fluid (CSF) as the closer proximity of this medium is thought to be more reflective of the parenchymal injury.[@kwon_neurochemical_2019; @hulme_developing_2017]
 Whilst this makes CSF potentially more informative for elucidating the pathology of SCI, the repeated use of CSF for routine analysis presents challenges in clinical care due to the risk and expense associated with the invasiveness of the collection procedure. In contrast, systemic biomarkers measurable in the blood represent a source of information that can be accessed and interpreted both a lower cost and risk. Studies of traumatic brain injury have demonstrated that protein markers identified in CSF are also detectable in both plasma and serum.[@wang_update_2018] More recently, circulating white blood cell populations have also been identified as potential SCI injury biomarkers, with a 2021 study showing that elevated levels of neutrophils were associated with no AIS grade conversion, while conversely an increase in lymphocytes during the first week post-SCI were associated with an AIS grade improvement. 
 
 - Another Reference - 
 
+A number of individual proteins have been shown to be altered in the bloods post-SCI, including multiple interleukins (IL), tumour necrosis factor alpha (TNF-$\alpha$) and C-reactive protein (CRP).[@segal_circulating_1997; @hayes_elevated_2002; @frost_inflammatory_2005] 
 
-Further, inflammatory marker levels detected in acute SCI patients were found to be mirrored in donor-matched blood and CSF, albeit at lower absolute concentrations systemically.[@kwon_cerebrospinal_2010]
+Further, changes in inflammatory marker levels detected in acute SCI patients were found to be mirrored in donor-matched blood and CSF, albeit at lower absolute concentrations systemically.[@kwon_cerebrospinal_2010]
 
-A number of individual proteins have been shown to be altered in the bloods post-SCI, including multiple interleukins (IL), tumour necrosis factor alpha (TNF-$\alpha$) and C-reactive protein (CRP).[@segal_circulating_1997; @hayes_elevated_2002; @frost_inflammatory_2005] Glial cells (astrocytes, oligodendrocytes and microglia) have also been shown to be activated post-injury, forming glial scars that worsen inflammation at the lesion site. 
+<!-- I swapped the above 2 sections as per Karinas edit but hopefully the references stay fine --> 
 
-- Reference -
-
-Previously, we have shown that routinely collected blood measures associated with liver function and inflammation added predictive value to AIS motor and sensor outcomes at discharge and 12-months post-injury.[@bernardo_harrington_routinely_2020; @brown_preliminary_2019] The current study uses an unbiased shotgun proteomic approach to investigate differentially expressed proteins in SCI patients, coupled with bioinformatics analyses. 
-
+Previously, we have shown that routinely collected blood measures associated with liver function and inflammation added predictive value to AIS motor and sensor outcomes at discharge and 12-months post-injury.[@bernardo_harrington_routinely_2020; @brown_preliminary_2019] The current study uses an unbiased shotgun proteomic approach to investigate differentially expressed proteins in SCI patients, coupled with bioinformatics pathway and network analyses.
 
 
-
-Here, relative levels of proteins in plasma from American Spinal Injury Association (ASIA) grade C SCI patients (total $n = 17$) contrasting those who experienced an AISA grade conversion ($n = 10$), and those who did not ($n = 7$) collected within 2 weeks, and at approximately 3 months post-injury (Improvers $n = 9$ vs Non-improvers $n = 6$).
-Relative protein expression in AIS grade A ($n = 10$) and grade D ($n = 11$) patients was also examined.
-
-# Method
-
-## Methods from thesis
-
-### Proteomics cohort {#itraq-patient-demo}
+# Methods and Materials 
 
 ```{r, label='load-patient-demo-data-chap3'}
 ## read in data
@@ -275,9 +255,7 @@ proteom_demo$ais_change <- ifelse(proteom_demo$ais_grade_initial == proteom_demo
 prot_demo <- proteom_demo %>%
     dplyr::select(!c(hos_num, dob, doi))
 ```
-
-Plasma samples were taken from `r nrow(prot_demo)` patients (Table \@ref(tab:patient-demo-chap3)).
-"Improvers" were defined as individuals who experienced an AIS grade improvement from admission to a year post-injury, whereas "non-improvers" were defined as patients who saw no change in AIS grade in the same period.
+<!-- this table needs to be moved ? --> 
 
 ```{r, label='patient-demo-chap3'}
 ## summarise params function
@@ -320,49 +298,40 @@ knitr::kable(demo_sum, "latex", longtable = TRUE, booktabs = TRUE,
   pack_rows("Neurological level", 7, 9) %>%
   pack_rows("AIS change", 10, 13)
 ```
+## Patients 
 
-### Sample preparation and analysis using iTRAQ proteomics {#itraq-sample-prep}
+Blood samples were taken from SCI patients who had provided informed consent and in accordance to ethical provided by the National Research Ethics Service [NRES] Committee North West Liverpool East [11/NW/0876]. “Improvers” were defined as individuals who experienced an AIS grade improvement from admission to a year post-injury, whereas “non-improvers” were defined as patients who saw no change in AIS grade in the same period.
 
-#### Protein assay and plasma pooling
+## Plasma collection and storage
 
-$2\mu l$ of thawed plasma were diluted with $98\mu l$distilled water.
-Total protein was quantified using a Pierce&trade; $660 nm$ Protein Assay (Thermo Fisher Scientific, Hemel Hempstead, UK)[@stoscheck_protein_1987].
-In brief, $10\mu l$ of the diluted sample was added to $150\mu l$ of Thermo Pierce 660nm protein assay reagent in triplicate and the optical density was read at 660nm using an FLUOstar&reg; Omega plate reader.
+Plasma samples were collected within 2 weeks of injury (acute) and at approximately 3 months post-injury (subacute). Upon collection in **EDTA 
+
+<!-- define --> 
+
+coated tubes samples were centrifuged at 600g for 15 minutes, to pellet erythrocytes and the resultant plasma fraction was aspirated and divided into aliquots for long-term storage in -80&deg;C briefly and liquid nitrogen in the longer term.
+
+## Sample preparation and analysis using iTRAQ proteomics {#itraq-sample-prep}
+
+Thawed plasma samples ($2\mu l$) each were diluted with distilled water ($98\mu l$). Total protein was quantified using a Pierce&trade; $660 nm$ Protein Assay (Thermo Fisher Scientific, Hemel Hempstead, UK)[@stoscheck_protein_1987].
+
+In brief, $10\mu l$ of the diluted sample was added to $150\mu l$ of Thermo Pierce 660nm protein assay reagent in triplicate and the optical density was read at 660nm. 
+
 A total of $100 mg$ of plasma protein was taken from each sample and pooled equally to form a patient test group.
 For example, the AIS C improver group was pooled from 10 separate patient samples, 10mg of protein per patient.
 
-#### Sample preparation
-
 The pooled plasma samples were then precipitated by incubation of the sample in 6 times the volume of chilled acetone for 1 hour at -20&deg;C.
-Prior to incubation the pooled samples was mixed with the chilled acetone by inverting the tube 3 times.
 The samples were then centrifuged at 6,000G for 10 minutes at 4&deg;C, and re-suspended in $200\mu l$ of triethylammonium bicarbonate buffer.
 Sequencing Grade Modified Trypsin ($10\mu g/85\mu g$ of protein; Promega, Madison, WI, USA) was then added to the samples for overnight digestion at 37&deg;C.
-For each group $85\mu g$ of protein underwent reduction and alkylation (according to the manufacturer's instructions; Applied Biosystems, Bleiswijk, The Netherlands).
-Tryptic digests were labelled with iTRAQ tags (again according to the manufacturer's instructions for the iTRAQ kit), before being pooled into test groups and dried in a vacuum centrifuge (Figure \@ref(fig:mer-itraq-flow)).
+Proteins then underwent reduction and alkylation (according to the manufacturer’s instructions; Applied Biosystems, Bleiswijk, The Netherlands). 
+Tryptic digests were labelled with iTRAQ tags (again according to the manufacturer's instructions for the iTRAQ kit), before being pooled into test groups and dried in a vacuum centrifuge. 
 The following tags were used for each group of patient samples 114 tag - acute improvers, 115 tag - sub-acute improvers, 116 tag - acute non-improvers and 117 tag - sub-acute non-improvers for run 1 and 114 tag - acute improvers, 115 tag - acute non-improvers, 116 tag - AIS grade A and 117 tag - AIS grade D for run 2.
 
-(ref:mer-itraq-flow) Flow diagram illustrating part of the iTRAQ sample processing.
 
-```{r, label='mer-itraq-flow', fig.cap='(ref:mer-itraq-flow)', out.width="100%"}
-## mermaid flowdiagram. note the custom css colours isn't working
-mermaid("
-graph TD
-    A(Peptide mixture of acute AIS C improvers) --> B(Label all peptides with tag-114)
-    B --> C{Mix and separate via<br> Liquid Chromatography}
-    C --> D(Identify and quantify proteins via Mass Spectrometry)
-    E(Peptide mixture of acute AIS C non-improvers) --> F(Label all peptide with tag-115)
-    F --> C
+#### iTraq mass spectrometry analysis 
 
-    style A fill:#f9f;
-    style B fill:#f9f;
-    style E fill:#c28711;
-    style F fill:#c28711;
-")
-```
+The samples were analysed at the BSRC St. Andrews University Mass Spectrometry and Proteomics Facility using methods previously described. 
 
-#### Cation exchange fractionation
-
-The samples were analysed at the Biomedical Sciences Research Complex, St. Andrews University Mass Spectrometry and Proteomics Facility.
+<!-- take out --> 
 iTRAQ-labelled peptides were re-suspended in $0.6 ml$ of loading buffer ($10 mM$ monopotassium phosphate [KH~2~PO~4~], 20% acetonitrile [MeCN], pH 3.0), followed by sonication.
 The pH was adjusted to $3.0$ with $0.5 M$ orthophosphoric acid (H~3~PO~4~).
 The peptides were separated by \nomenclature{SCX}{Strong cation exchange}strong cation exchange chromatography (SCX) on a PolySulfoethyl A column ($200 mm$ x $2.1 mm$, $5\mu l$, $200 nm$ pore size, PolyLC, Columbia, MD, USA).
@@ -370,14 +339,18 @@ The column was washed with 100% buffer Ascx at $1 ml$ min$^{-1}$ for 22 minutes 
 A gradient of 0–50% Bscx (10 mM [KH~2~PO~4~], 20% MeCN, $500 mM$ KCl, pH 3.0) was applied for 20 minutes, 50–100% Bscx for 3 minutes, followed by 100% Bscx for another 3 minutes to wash the column, prior to re-equilibration in 100% Ascx for a further 11 minutes.
 Fractions ($0.5 mL$) were collected every 30 seconds for total of 12 fractions, which were then desalted on C18 spin columns (PepClean C18 spin columns, ThermoFisher Scientific, Waltham, MA, USA) using the manufacturer's instructions, eluting in $20\mu l$ of 70% MeCN.
 The elution solvent was removed by vacuum concentration and the fractions re-suspended in $20 \mu l$ of 0.1% formic acid (FA) prior to mass spectrometric analysis.
+<!-- take out end --> 
 
 #### Mass spectromety analysis
 
 A total of 12 SCX fractions were analysed by nano-electrospray ionisation-liquid chromatography/tandem mass spectrometry (LC-MS/MS) \nomenclature{LC-MS/MS}{Liquid chromatography/tandem mass spectrometry}using a TripleTOF 5600 tandem mass spectrometer (AB Sciex, Framingham, MA, USA) as described previously.[@fuller_stathmin_2015]
 
+<!-- Karinas note: This whole section below- try to re-write in brief -->
+
 Each fraction ($10 \mu l$) was then analysed by nanoflow LC-ESI–MSMS. The peptides were separated using a nanoLC Ultra 2D plus loading pump and nanoLC AS-2 autosampler chromatography system (Eksigent, Redwood City, CA, USA), using a PepMap RSLC column ($75\mu l$ x $15 cm$) and an Acclaim PepMap100 trap ($100\mu m$ x $2 cm$) (ThermoFisher Scientific, Waltham, MA, USA).
 After washing the peptides on the trap column for 20 minutes at $5\mu L$ min$^{-1}$, the trap was switched in line with the column and the peptides eluted with a gradient of increasing MeCN from 95% buffer A (98% H~2~O, 2% MeCN, 0.1% FA), 5% buffer B (2% H~2~O, 98% MeCN, 0.1% FA) to 65% buffer A, 35% buffer B over 60 minutes, then to 50% buffer A, 50% buffer B over a further 20 minutes, before increasing the concentration of buffer B to 95% over a further 10 minutes.
-The column was then washed with 95% buffer B before re-equilibration in 95% buffer A. A flow rate of $300 nL$ min$^{-1}$ was employed. The eluent was sprayed into a TripleTOF 5600 tandem mass spectrometer (ABSciex, Foster City, CA, USA), using a NANOSpray III source, and analyzed in Information Dependent Acquisition (IDA) mode, performing $250 ms$ of MS followed by $100 ms$ MSMS analyses on the 20 most intense peaks with a charge state of +2 to +5. Parent (MS) ions were accepted with a mass tolerance of 50 mDa and MSMS was conducted with a rolling collision energy (CE) inclusive of preset iTRAQ CE adjustments.
+The column was then washed with 95% buffer B before re-equilibration in 95% buffer A. A flow rate of $300 nL$ min$^{-1}$ was employed. The eluent was sprayed into a TripleTOF 5600 tandem mass spectrometer (ABSciex, Foster City, CA, USA), using a NANOSpray III source, and analyzed in Information Dependent Acquisition (IDA) mode, performing $250 ms$ of MS followed by $100 ms$ MSMS analyses on the 20 most intense peaks with a charge state of +2 to +5. 
+Parent (MS) ions were accepted with a mass tolerance of 50 mDa and MSMS was conducted with a rolling collision energy (CE) inclusive of preset iTRAQ CE adjustments.
 Analyzed parent ions were then excluded from analysis for 13 s after 3 occurrences.
 
 ### Sample preparation and analysis using label-free proteomics {#label-free-sample-prep}
@@ -385,22 +358,19 @@ Analyzed parent ions were then excluded from analysis for 13 s after 3 occurrenc
 No sample pooling was used, and so each of the 73 samples were maintained separately throughout protein equalisation, mass spectrometry, and label-free quantification steps.
 Thus, protein abundance was quantified for each sample, whereupon mean protein abundance across experimental groups was calculated to assess protein changes.
 
-#### Plasma preparation and protein equalisation using ProteoMiner&trade;
-
-To reduce the dynamic range of proteins, ProteoMiner&trade; beads (BioRad, Hemel Hempstead, UK) were used.
-
-To being, plasma was treated with 1 $\mu g/mL$ of hyaluronidase.
-Digestion was confirmed with Coomassie stained 1D-SDS PAGE gel.
+To reduce the dynamic range of proteins, ProteoMiner&trade; beads (BioRad, Hemel Hempstead, UK) were used. Firstly, plasma was treated with 1 $\mu g/mL$ of hyaluronidase. Digestion was confirmed with Coomassie stained 1D-SDS PAGE gel.
 The supernatant was centrifuged through a 0.22 $\mu m$ cellulose acetate membrane (Costar Spin-X, Corning, Tokyo, Japan) tube filter (5000*g* for 15 minutes) to remove insoluble material.
-Total protein was quantitated with a Pierce&trade; $660 nm$ Protein Assay (Thermo Fisher Scientific, Hemel Hempstead, UK), whereupon 5 mg of total protein was applied to ProteoMiner&trade; beads.[@stoscheck_protein_1987]
-After a washing step, bead-bound proteins 0.05% (w/v) RapiGest (Waters, Manchester, UK) was applied in 25 mM ammonium bicarbonate for 10 min at 80&deg;C precessing reduction, alkylation, and in-situ protein digestion without removing the beads to ensure the complete proteome is preserved.
-Finally, completion of digestion was achieved via LoBind protein tubes (Eppendorf, Stevenage, UK), followed by acidification of trifluoroacetic acid for a final concentration of 0.5% (v/v).
-This inactivates and precipitates the Rapigest detergent, to be removed by centrifugation.
-The supernatant fractions were frozen at -80&deg;C before LC-MC/MC.
+Total protein was quantitated with a Pierce&trade; $660 nm$ Protein Assay (Thermo Fisher Scientific, Hemel Hempstead, UK), whereupon 5 mg of total protein was applied to ProteoMiner&trade; beads, and processed as described previoulsly.[@stoscheck_protein_1987]
+3.7.3.2	LC separation and Quadrupole-Orbitrap instrument
 
 #### LC separation and Quadrupole-Orbitrap instrument
 
-The tryptic peptide were subjected to LC-MC/MC via a 2-h gradient on a NanoAcquity&trade; ultraperformance LC (Waters, Manchester, UK) connected to a Q-Exactive Quadrupole-Orbitrap instrument (Thermo-Fisher Scientific Hemel Hempstead, UK).
+Tryptic peptides were subjected to LC-MC/MC via a 2-h gradient on a NanoAcquity&trade; ultraperformance LC (Waters, Manchester, UK) connected to a Q-Exactive Quadrupole-Orbitrap instrument (Thermo-Fisher Scientific Hemel Hempstead, UK) as described **previously. 
+
+<!-- Karinas note: Include Hulme and/or Peffers ref --> 
+
+<!-- Karinas note: Try to rewrite the below section in brief --> 
+
 The Q-Exactive was operated in a data dependent positive electrospray ionisation mode, automatically switching between full scan MS and MS/MS acquisition.
 Survey full scan MS spectra (*m/z* 300–2000) were acquired in the Orbitrap with 70,000 resolution (*m/z* 200) following accumulation of ions to $1\times 10^6$ target value based on the predictive automatic gain control values from the previous full scan.
 Dynamic exclusion was set to 20s, the 10 most intense multiply charged ions ($z \geq 2$) were sequentially isolated and fragmented in the octopole collision cell by \nomenclature{HCD}{Higher energy collisional dissociation}higher energy collisional dissociation (HCD), with a fixed injection time of 100ms and 35,000 resolution.
@@ -408,6 +378,8 @@ The following mass spectrometric conditions were used: spray voltage, 1.9kV, no 
 MS/MS ion selection threshold was set to $1\times 10^4$ count and 2Da isolation width was set.
 
 ### iTRAQ data processing {#itraq-stats}
+
+<!--- Karina got rid of this whole section ---> 
 
 Data analyses were performed with the statistical programming language `r R.version$version.string`, please see table \@ref(tab:package-table) for a list of packages used and the respective version numbers.[@base; @bibtex; @BiocManager; @bookdown1; @captioner; @caret; @data.table; @datasets; @DiagrammeR; @forcats; @Formula; @ggVennDiagram; @glmnet1; @graphics; @grDevices; @Hmisc; @huxtable; @kableExtra; @knitr3; @lattice; @lime; @lubridate; @Matrix; @methods; @mice; @MSstats; @naniar; @psych; @purrr; @RColorBrewer; @ReactomePA; @readxl; @remotes; @rlang; @stats; @STRINGdb; @stringr; @survival1; @survival2; @tidyverse; @utils; @zoo]
 
@@ -420,12 +392,11 @@ False Discovery Rate (FDR) \nomenclature{FDR}{False Discovery Rate}analysis was 
 ProteinPilot calculated P-values for the iTRAQ ratios and those with P > 0.05 were considered statistically significant.
 Proteins with iTRAQ ratios $\ge\pm1.2$ \nomenclature{FC}{Fold change}fold change (FC) were used for network analysis.
 
-### OpenMS analysis - iTRAQ {#openms-chap3}
+<!--- up to here ---> 
 
-The TripleTOF 5600 tandem mass spectrometer output files are in the ABSciex proprietary `.wiff` file format.
-For analysis with OpenMS (version 2.6.0) conversion to an open file format, `.mzML` in this case, was needed and the docker image of ProteoWizard version 3.0.20287 was used for conversion, and peak picking was applied on conversion.[@chambers_cross-platform_2012]
+### iTraq OpenMS analysis {#openms-chap3}
 
-OpenMS version 2.6.0 was used for further analysis.[@rost_openms_2016]
+TripleTOF 5600 tandem mass spectrometer output files produced in the ABSciex proprietary `.wiff` file format were converted to an open file format, `.mzML` for analysis with OpenMS (version 2.6.0). The docker image of ProteoWizard version 3.0.20287 was used for conversion, and peak picking was applied on conversion [@chambers_cross-platform_2012]. OpenMS version 2.6.0 was used for further analysis.[@rost_openms_2016]
 Unless otherwise stated, default arguments were used.
 The 12 fraction files were merged and sorted by retention time.
 A decoy database was generated with `DecoyDatabase` and the `-enzyme` flag set to `Trypsin`, the human reference proteome was taken from Uniprot (Proteome ID: UP000005640, downloaded: 2020-10-01), as was the `.fasta` for porcine trypsin (Entry: P00761, downloaded: 2020-10-01).[@the_uniprot_consortium_uniprot_2021]
@@ -445,19 +416,19 @@ Bayesian score estimation and protein inference was performed with `Epifany` and
 Decoys were removed and 0.05 FDR filtering was done via `IDFilter` with `-score:protgroup 0.05 -remove_decoys`.
 Finally, `IDConflictResolver` was used to resolve ambiguous annotations of features with peptide identifications, before quantification with `ProteinQuantifier`.
 
-### OpenMS analysis - label-free {#openms-label-free}
+### Label free OpenMS analysis {#openms-label-free}
 
 For quantification, the raw spectra files were analysed via OpenMS (version 2.6.0) command line tools, with the workflow from the prior section (\@ref(openms-chap3)) adapted to suit a label-free analysis.
 The files were first converted from the proprietary .Raw format to the open .mzML standard with the `FileConverter` tool via the open-source `ThermoRawFileParser`.[@rost_openms_2016; @hulstaert_thermorawfileparser_2020]
 Unless otherwise stated, default arguments were used throughout.
 
-The decoy database generated in the prior chapter was reused here, see section \@ref(openms-chap3) for details.
+The decoy database generated in the prior section (iTRAQ OpenMS analysis) was also re-used. 
 The `CometAdapter` was used to run the search.[@eng_comet_2013]
 Fixed modifications were set to "Carbamidomethyl (C)" and "Oxidation (M)" was set as a variable modification.
 To reflect the instrument the following flags were also set: `-precursor_mass_tolerance 20 -isotope_error 0/1`.
 
 To annotate the identified peptides with proteins the `PeptideIndexer` tool was used.
-As in section \@ref(openms-chap3), `PeptideIndexer` and `PSMFeatureExtractor` were used for annotation.
+`PeptideIndexer` and `PSMFeatureExtractor` were used for annotation.
 For peptide level score estimation and filtering `PercolatorAdapter` was used with the following flags: `-score_type q-value -enzyme trypsin`.
 `IDFilter` was used to filter to a peptide score of 0.01 with `-score:pep 0.01` followed by `IDScoreSwitcher` with the following flags: `-new_score "MS:1001493" -new_score_orientation lower_better -new_score_type "pep" -old_score "q-value"`.
 The `ProteomicsLFQ` was used for subsequent processing with the flags: `-proteinFDR 0.05 -targeted_only true`.
@@ -465,9 +436,10 @@ The `-out_msstats` flag was also used to produce quantitative data for downstrea
 
 \clearpage
 
-### Validation of iTRAQ results using enzyme-linked immunosorbent assay
+### Enzyme-linked immunosorbent assays 
 
-Four proteins identified by the iTRAQ analysis were measured by enzyme-linked immunoabsorbent assay (ELISA) from non-pooled samples to validate the iTRAQ findings (Figure \@ref(fig:elisa-quant-duo-compare)).
+Four proteins identified by the iTRAQ analysis were measured by enzyme-linked immunoabsorbent assay (ELISA) from non-pooled samples to validate the iTRAQ findings. 
+
 These proteins were  \nomenclature{A2M}{Alpha-2-Macroglobulin}alpha-2-macroglobulin (A2M), \nomenclature{RBP4}{Retinol binding protein 4}retinol binding protein 4 (RBP4), \nomenclature{SAA1}{Serum amyloid A1}serum amyloid A1 (SAA1) and \nomenclature{ApoA1}{Apolipoprotein A1}apolipoprotein A1 (ApoA1).
 They were selected for their biological relevance and differential abundance between AIS C improvers and non-improvers, implying potential as biomarkers of neurological outcome prediction.
 A2M, RBP4 and SAA1 were assessed using a human DuoSet&reg; ELISAs (R&D Systems, Abingdon, UK).
@@ -481,19 +453,9 @@ Pairwise t tests with bonferroni adjusted P-values with the R `rstatix` package 
 
 \clearpage
 
-(ref:elisa-quant-duo-compare) Flow diagram illustrating ELISA process.
-
-```{r, label='elisa-quant-duo-compare', fig.cap='(ref:elisa-quant-duo-compare)', out.width="100%"}
-mermaid("
-graph TD
-    A(<b><center>Coating:</center></b><br>Antigen or antibody is absorbed on well in ELISA plate with coating buffer) -- remove liquid and wash plate --> B(<b><center>Blocking:</center></b><br>Buffer containing unrelated protein is used to block free sites in the wells)
-    B -- remove liquid and wash plate --> C(<b><center>Detection:</center></b><br>Enzyme-conjugated antigen or antibody binds target antigen or antibody)
-    C -- remove liquid and wash plate --> D(<b><center>Readout:</center></b><br>Substrate is catalysed by enzyme to generate coloured readout)
-    E(Quatikine kits are optimized and validated for<br> specific sample types, whereas Duosets are<br> less costly and more flexible)
-")
-```
-
 ### Network and pathway analysis {#pathway-analysis-chap3}
+
+<!-- Karinas note: for this section: Can you please review whether or not these methods reflect what has been included --> 
 
 Protein interation networks were created using the Bioconductor package `STRINGdb` which provides an R interface to STRING version 11.[@szklarczyk_string_2019]
 Instantiation of the STRINGdb reference class was done with `species` and `score_threshold` set to `9606`, for *Homo sapiens* , and `400` respectively.
