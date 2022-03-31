@@ -84,7 +84,7 @@ pkg <- c("kableExtra", "tidyverse", "captioner", "bibtex",
          "Hmisc", "psych", "naniar", "data.table", "rmarkdown",
          "knitr", "BiocManager", "purrr", "base", "readxl", "cowplot",
          "patchwork", "lubridate", "DiagrammeR", "ggVennDiagram",
-         "RColorBrewer", "lime", "bookdown1", "stringr", "rlang")
+         "RColorBrewer", "lime", "bookdown", "stringr", "rlang")
 
 pkg_bioconductor <- c("ReactomePA", "STRINGdb", "MSstats")
 
@@ -356,7 +356,7 @@ MS/MS ion selection threshold was set to $1\times 10^4$ count and 2Da isolation 
 
 <!--- Karina got rid of this whole section ---> 
 
-Data analyses were performed with the statistical programming language `r R.version$version.string`, please see table \@ref(tab:package-table) for a list of packages used and the respective version numbers.[@base; @bibtex; @BiocManager; @bookdown1; @captioner; @caret; @data.table; @datasets; @DiagrammeR; @forcats; @Formula; @ggVennDiagram; @glmnet1; @graphics; @grDevices; @Hmisc; @huxtable; @kableExtra; @knitr3; @lattice; @lime; @lubridate; @Matrix; @methods; @mice; @MSstats; @naniar; @psych; @purrr; @RColorBrewer; @ReactomePA; @readxl; @remotes; @rlang; @stats; @STRINGdb; @stringr; @survival1; @survival2; @tidyverse; @utils; @zoo]
+Data analyses were performed with the statistical programming language `r R.version$version.string`, please see table \@ref(tab:package-table) for a list of packages used and the respective version numbers.[@base; @bibtex; @BiocManager; @bookdown; @captioner; @data.table; @datasets; @DiagrammeR; @forcats; @Formula; @ggVennDiagram; @glmnet1; @graphics; @grDevices; @Hmisc; @kableExtra; @knitr3; @lime; @lubridate; @Matrix; @methods;@MSstats; @naniar; @psych; @purrr; @RColorBrewer; @ReactomePA; @readxl; @remotes; @rlang; @stats; @STRINGdb; @stringr; @survival1; @survival2; @tidyverse; @utils; @zoo]
 
 The mass spectrometry data files were combined and analysed using the ProteinPilot 4.5 software with the Paragon$^{TM}$ and ProGroup$^{TM}$ algorithms (ABSciex) against human protein sequences in the SwissProt database.
 Searches were performed with the default iTRAQ settings in ProteinPilot.

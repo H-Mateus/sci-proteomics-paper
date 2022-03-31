@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.3.21)  31 MAR 2022 11:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.3.21)  31 MAR 2022 11:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1066,31 +1066,26 @@ File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `T1/opensans-TLF/b/n' will be
 (Font)              scaled to size 10.0pt on input line 153.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-54.
-(/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
 LaTeX Font Info:    Font shape `T1/opensans-TLF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 159.
+(Font)              scaled to size 10.95pt on input line 155.
 LaTeX Font Info:    Font shape `T1/opensans-TLF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 159.
+(Font)              scaled to size 10.95pt on input line 155.
 LaTeX Font Info:    Trying to load font information for TS1+opensans-TLF on inp
-ut line 167.
+ut line 163.
 (/usr/share/texmf-dist/tex/latex/opensans/TS1opensans-TLF.fd
 File: TS1opensans-TLF.fd 2019/06/24 Font definitions for TS1/opensans-TLF.
 )
 LaTeX Font Info:    Font shape `TS1/opensans-TLF/b/n' will be
-(Font)              scaled to size 9.0pt on input line 167.
+(Font)              scaled to size 9.0pt on input line 163.
 LaTeX Font Info:    Font shape `T1/opensans-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 176.
+(Font)              scaled to size 8.0pt on input line 172.
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `TS1/opensans-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 192.
+(Font)              scaled to size 9.0pt on input line 188.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2
-07.
+03.
 (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (/usr/share/texmf-dist/tex/latex/microtype/mt-cmr.cfg
@@ -1098,66 +1093,66 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (RS)
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
-07.
+03.
 (/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-207.
+203.
 (/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-207.
+203.
 (/usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 207.
+(Font)              <9> on input line 203.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 207.
+(Font)              <6> on input line 203.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 207.
+(Font)              <5> on input line 203.
 (/usr/share/texmf-dist/tex/latex/microtype/mt-ptm.cfg
 File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 )
 LaTeX Font Info:    Trying to load font information for LS1+stixfrak on input l
-ine 207.
+ine 203.
 (/usr/share/texmf-dist/tex/latex/stix/ls1stixfrak.fd
 File: ls1stixfrak.fd 2015/04/17 v1.1.2-latex STIX fraktur LS1 font definitions
 )
 LaTeX Font Info:    Trying to load font information for LS1+stixbb on input lin
-e 207.
+e 203.
 (/usr/share/texmf-dist/tex/latex/stix/ls1stixbb.fd
 File: ls1stixbb.fd 2015/04/17 v1.1.2-latex STIX blackboard LS1 font definitions
 
 )
 LaTeX Font Info:    Trying to load font information for LS2+stixcal on input li
-ne 207.
+ne 203.
 (/usr/share/texmf-dist/tex/latex/stix/ls2stixcal.fd
 File: ls2stixcal.fd 2015/04/17 v1.1.2-latex STIX calligraphic LS2 font definiti
 ons
 )
 LaTeX Font Info:    Trying to load font information for LS1+stixsf on input lin
-e 207.
+e 203.
 (/usr/share/texmf-dist/tex/latex/stix/ls1stixsf.fd
 File: ls1stixsf.fd 2015/04/17 v1.1.2-latex STIX sans-serif LS1 font definitions
 
 )
 LaTeX Font Info:    Trying to load font information for LS2+stixtt on input lin
-e 207.
+e 203.
 (/usr/share/texmf-dist/tex/latex/stix/ls2stixtt.fd
 File: ls2stixtt.fd 2015/04/17 v1.1.2-latex STIX typewriter LS2 font definitions
 
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 207
+LaTeX Font Info:    Trying to load font information for U+msa on input line 203
 .
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/share/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 207
+LaTeX Font Info:    Trying to load font information for U+msb on input line 203
 .
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1165,64 +1160,69 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 ) [2]
 LaTeX Font Info:    Font shape `T1/opensans-TLF/b/n' will be
-(Font)              scaled to size 8.0pt on input line 217.
+(Font)              scaled to size 8.0pt on input line 213.
 LaTeX Font Info:    Font shape `TS1/opensans-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 217.
+(Font)              scaled to size 8.0pt on input line 213.
 LaTeX Font Info:    Font shape `T1/opensans-TLF/m/it' will be
-(Font)              scaled to size 8.0pt on input line 222.
+(Font)              scaled to size 8.0pt on input line 218.
 LaTeX Font Info:    Font shape `T1/opensans-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 259.
+(Font)              scaled to size 10.0pt on input line 255.
 [3]
 LaTeX Font Info:    Font shape `T1/opensans-TLF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 292.
+(Font)              scaled to size 6.0pt on input line 288.
 
-Underfull \hbox (badness 1275) in paragraph at lines 303--304
+Underfull \hbox (badness 1275) in paragraph at lines 299--300
  \T1/opensans-TLF/b/n/9 3.3.0.2 Mass spec-tromety anal-y-sis[] \T1/opensans-TLF
 /m/n/9 A to-tal of 12 SCX frac-tions were anal-ysed by nano-
  []
 
 
-Underfull \hbox (badness 1769) in paragraph at lines 303--304
+Underfull \hbox (badness 1769) in paragraph at lines 299--300
 \T1/opensans-TLF/m/n/9 electrospray ionisation-liquid chro-matog-ra-phy/tandem 
 mass spec-trom-e-try (LC-MS/MS) us-ing
  []
 
 [4]
 LaTeX Font Info:    Font shape `T1/opensans-TLF/m/it' will be
-(Font)              scaled to size 9.0pt on input line 318.
+(Font)              scaled to size 9.0pt on input line 314.
 
 LaTeX Warning: Reference `tab:package-table' on page 5 undefined on input line 
-336.
+332.
 
 [5]
-Underfull \hbox (badness 1622) in paragraph at lines 364--369
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 3
+46.
+(/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Underfull \hbox (badness 1622) in paragraph at lines 360--365
 \T1/opensans-TLF/m/n/9 in-fer-ence was per-formed with \T1/lmtt/m/n/9 Epifany \
 T1/opensans-TLF/m/n/9 and the fol-low-ing flags: \T1/lmtt/m/n/9 -greedy_group_r
 esolution
  []
 
 
-Underfull \hbox (badness 5519) in paragraph at lines 364--369
+Underfull \hbox (badness 5519) in paragraph at lines 360--365
 \T1/lmtt/m/n/9 remove_proteins_wo_evidence -algorithm:keep_best_PSM_only false 
 \T1/opensans-TLF/m/n/9 De-coys were re-moved
  []
 
 
-Underfull \hbox (badness 1303) in paragraph at lines 364--369
+Underfull \hbox (badness 1303) in paragraph at lines 360--365
 \T1/opensans-TLF/m/n/9 and 0.05 FDR fil-ter-ing was done via \T1/lmtt/m/n/9 IDF
 ilter \T1/opensans-TLF/m/n/9 with \T1/lmtt/m/n/9 -score:protgroup 0.05 -remove_
 decoys\T1/opensans-TLF/m/n/9 .
  []
 
 [6]
-Overfull \hbox (5.56216pt too wide) in paragraph at lines 382--388
+Overfull \hbox (5.56216pt too wide) in paragraph at lines 378--384
 []\T1/opensans-TLF/m/n/9 To an-no-tate the iden-ti-fied pep-tides with pro-tein
 s the \T1/lmtt/m/n/9 PeptideIndexer \T1/opensans-TLF/m/n/9 tool was used. \T1/l
 mtt/m/n/9 PeptideIndexer
  []
 
 
-Underfull \hbox (badness 1577) in paragraph at lines 382--388
+Underfull \hbox (badness 1577) in paragraph at lines 378--384
 \T1/opensans-TLF/m/n/9 ter-ing \T1/lmtt/m/n/9 PercolatorAdapter \T1/opensans-TL
 F/m/n/9 was used with the fol-low-ing flags: \T1/lmtt/m/n/9 -score_type q-value
  -enzyme
@@ -1232,120 +1232,120 @@ F/m/n/9 was used with the fol-low-ing flags: \T1/lmtt/m/n/9 -score_type q-value
 
 ]
 
-LaTeX Warning: Reference `appen-itraq' on page 9 undefined on input line 424.
+LaTeX Warning: Reference `appen-itraq' on page 9 undefined on input line 420.
 
 [9
 
 ]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 441.
+(Font)              <8> on input line 437.
 
-Overfull \hbox (1.8651pt too wide) in paragraph at lines 462--462
+Overfull \hbox (1.8651pt too wide) in paragraph at lines 458--458
 []|\T1/opensans-TLF/m/n/5 APOA1|  
  []
 
 
-Overfull \hbox (1.8651pt too wide) in paragraph at lines 463--463
+Overfull \hbox (1.8651pt too wide) in paragraph at lines 459--459
 []|\T1/opensans-TLF/m/n/5 APOA2|  
  []
 
 
-Overfull \hbox (1.8651pt too wide) in paragraph at lines 464--464
+Overfull \hbox (1.8651pt too wide) in paragraph at lines 460--460
 []|\T1/opensans-TLF/m/n/5 APOA4|  
  []
 
 
-Overfull \hbox (1.2961pt too wide) in paragraph at lines 469--469
+Overfull \hbox (1.2961pt too wide) in paragraph at lines 465--465
 []|\T1/opensans-TLF/m/n/5 APOL1|  
  []
 
 
-Overfull \hbox (1.30109pt too wide) in paragraph at lines 473--473
+Overfull \hbox (1.30109pt too wide) in paragraph at lines 469--469
 []|\T1/opensans-TLF/m/n/5 AZGP1|  
  []
 
 
-Overfull \hbox (1.2011pt too wide) in paragraph at lines 480--480
+Overfull \hbox (1.2011pt too wide) in paragraph at lines 476--476
 []|\T1/opensans-TLF/m/n/5 C4BPA|  
  []
 
 
-Overfull \hbox (1.7356pt too wide) in paragraph at lines 506--506
+Overfull \hbox (1.7356pt too wide) in paragraph at lines 502--502
 []|\T1/opensans-TLF/m/n/5 HABP2|  
  []
 
 
-Overfull \hbox (0.51959pt too wide) in paragraph at lines 511--511
+Overfull \hbox (0.51959pt too wide) in paragraph at lines 507--507
 []|\T1/opensans-TLF/m/n/5 IGHA1|  
  []
 
 
-Overfull \hbox (0.99559pt too wide) in paragraph at lines 513--513
+Overfull \hbox (0.99559pt too wide) in paragraph at lines 509--509
 []|\T1/opensans-TLF/m/n/5 IGHG1|  
  []
 
 
-Overfull \hbox (0.99559pt too wide) in paragraph at lines 515--515
+Overfull \hbox (0.99559pt too wide) in paragraph at lines 511--511
 []|\T1/opensans-TLF/m/n/5 IGHG2|  
  []
 
 
-Overfull \hbox (0.99559pt too wide) in paragraph at lines 516--516
+Overfull \hbox (0.99559pt too wide) in paragraph at lines 512--512
 []|\T1/opensans-TLF/m/n/5 IGHG3|  
  []
 
 
-Overfull \hbox (4.96559pt too wide) in paragraph at lines 519--519
+Overfull \hbox (4.96559pt too wide) in paragraph at lines 515--515
 []|\T1/opensans-TLF/m/n/5 IGKV3D- 
  []
 
 
-Overfull \hbox (0.6051pt too wide) in paragraph at lines 525--525
+Overfull \hbox (0.6051pt too wide) in paragraph at lines 521--521
 []|\T1/opensans-TLF/m/n/5 KLKB1|  
  []
 
 
-Overfull \hbox (6.78008pt too wide) in paragraph at lines 531--531
+Overfull \hbox (6.78008pt too wide) in paragraph at lines 527--527
 []|\T1/opensans-TLF/m/n/5 PGLYRP2|  
  []
 
 
-Overfull \hbox (1.3721pt too wide) in paragraph at lines 534--534
+Overfull \hbox (1.3721pt too wide) in paragraph at lines 530--530
 []|\T1/opensans-TLF/m/n/5 PROS1|  
  []
 
 
-Overfull \hbox (8.58656pt too wide) in paragraph at lines 537--537
+Overfull \hbox (8.58656pt too wide) in paragraph at lines 533--533
 []|\T1/opensans-TLF/m/n/5 SERPINA1|  
  []
 
 
-Overfull \hbox (8.58656pt too wide) in paragraph at lines 539--539
+Overfull \hbox (8.58656pt too wide) in paragraph at lines 535--535
 []|\T1/opensans-TLF/m/n/5 SERPINA3|  
  []
 
 
-Overfull \hbox (8.58656pt too wide) in paragraph at lines 540--540
+Overfull \hbox (8.58656pt too wide) in paragraph at lines 536--536
 []|\T1/opensans-TLF/m/n/5 SERPINA4|  
  []
 
 
-Overfull \hbox (8.58656pt too wide) in paragraph at lines 541--541
+Overfull \hbox (8.58656pt too wide) in paragraph at lines 537--537
 []|\T1/opensans-TLF/m/n/5 SERPINA5|  
  []
 
 
-Overfull \hbox (8.57707pt too wide) in paragraph at lines 542--542
+Overfull \hbox (8.57707pt too wide) in paragraph at lines 538--538
 []|\T1/opensans-TLF/m/n/5 SERPINC1|  
  []
 
 
-Overfull \hbox (9.06757pt too wide) in paragraph at lines 543--543
+Overfull \hbox (9.06757pt too wide) in paragraph at lines 539--539
 []|\T1/opensans-TLF/m/n/5 SERPIND1|  
  []
 
 
-Overfull \hbox (9.06256pt too wide) in paragraph at lines 545--545
+Overfull \hbox (9.06256pt too wide) in paragraph at lines 541--541
 []|\T1/opensans-TLF/m/n/5 SERPING1|  
  []
 
@@ -1353,132 +1353,132 @@ Overfull \hbox (9.06256pt too wide) in paragraph at lines 545--545
 
 
 ] [11] [12]
-Overfull \hbox (6.1436pt too wide) in paragraph at lines 558--558
+Overfull \hbox (6.1436pt too wide) in paragraph at lines 554--554
 []|\T1/opensans-TLF/m/n/6 Protein|  
  []
 
 
-Overfull \hbox (6.1436pt too wide) in paragraph at lines 563--563
+Overfull \hbox (6.1436pt too wide) in paragraph at lines 559--559
 []|\T1/opensans-TLF/m/n/6 Protein|  
  []
 
 
-Overfull \hbox (1.25662pt too wide) in paragraph at lines 570--570
+Overfull \hbox (1.25662pt too wide) in paragraph at lines 566--566
 []|\T1/opensans-TLF/m/n/6 A1BG|  
  []
 
 
-Overfull \hbox (1.65802pt too wide) in paragraph at lines 573--573
+Overfull \hbox (1.65802pt too wide) in paragraph at lines 569--569
 []|\T1/opensans-TLF/m/n/6 AHSG|  
  []
 
 
-Overfull \hbox (5.08342pt too wide) in paragraph at lines 576--576
+Overfull \hbox (5.08342pt too wide) in paragraph at lines 572--572
 []|\T1/opensans-TLF/m/n/6 APOA1|  
  []
 
 
-Overfull \hbox (5.08342pt too wide) in paragraph at lines 577--577
+Overfull \hbox (5.08342pt too wide) in paragraph at lines 573--573
 []|\T1/opensans-TLF/m/n/6 APOA2|  
  []
 
 
-Overfull \hbox (5.08342pt too wide) in paragraph at lines 578--578
+Overfull \hbox (5.08342pt too wide) in paragraph at lines 574--574
 []|\T1/opensans-TLF/m/n/6 APOA4|  
  []
 
 
-Overfull \hbox (1.74321pt too wide) in paragraph at lines 579--579
+Overfull \hbox (1.74321pt too wide) in paragraph at lines 575--575
 []|\T1/opensans-TLF/m/n/6 APOB|  
  []
 
 
-Overfull \hbox (5.07202pt too wide) in paragraph at lines 580--580
+Overfull \hbox (5.07202pt too wide) in paragraph at lines 576--576
 []|\T1/opensans-TLF/m/n/6 APOC1|  
  []
 
 
-Overfull \hbox (5.07202pt too wide) in paragraph at lines 582--582
+Overfull \hbox (5.07202pt too wide) in paragraph at lines 578--578
 []|\T1/opensans-TLF/m/n/6 APOC4|  
  []
 
 
-Overfull \hbox (1.19301pt too wide) in paragraph at lines 583--583
+Overfull \hbox (1.19301pt too wide) in paragraph at lines 579--579
 []|\T1/opensans-TLF/m/n/6 APOE|  
  []
 
 
-Overfull \hbox (4.40662pt too wide) in paragraph at lines 584--584
+Overfull \hbox (4.40662pt too wide) in paragraph at lines 580--580
 []|\T1/opensans-TLF/m/n/6 AZGP1|  
  []
 
 
-Overfull \hbox (1.55002pt too wide) in paragraph at lines 585--585
+Overfull \hbox (1.55002pt too wide) in paragraph at lines 581--581
 []|\T1/opensans-TLF/m/n/6 C1QB|  
  []
 
 
-Overfull \hbox (4.28662pt too wide) in paragraph at lines 590--590
+Overfull \hbox (4.28662pt too wide) in paragraph at lines 586--586
 []|\T1/opensans-TLF/m/n/6 C4BPA|  
  []
 
 
-Overfull \hbox (1.31541pt too wide) in paragraph at lines 610--610
+Overfull \hbox (1.31541pt too wide) in paragraph at lines 606--606
 []|\T1/opensans-TLF/m/n/6 HBA1|  
  []
 
 
-Overfull \hbox (1.658pt too wide) in paragraph at lines 616--616
+Overfull \hbox (1.658pt too wide) in paragraph at lines 612--612
 []|\T1/opensans-TLF/m/n/6 IGHM|  
  []
 
 
-Overfull \hbox (5.5814pt too wide) in paragraph at lines 624--624
+Overfull \hbox (5.5814pt too wide) in paragraph at lines 620--620
 []|\T1/opensans-TLF/m/n/6 JCHAIN|  
  []
 
 
-Overfull \hbox (1.77863pt too wide) in paragraph at lines 625--625
+Overfull \hbox (1.77863pt too wide) in paragraph at lines 621--621
 []|\T1/opensans-TLF/m/n/6 KNG1|  
  []
 
 
-Overfull \hbox (3.00322pt too wide) in paragraph at lines 630--630
+Overfull \hbox (3.00322pt too wide) in paragraph at lines 626--626
 []|\T1/opensans-TLF/m/n/6 ORM1|  
  []
 
 
-Overfull \hbox (13.1492pt too wide) in paragraph at lines 636--636
+Overfull \hbox (13.1492pt too wide) in paragraph at lines 632--632
 []|\T1/opensans-TLF/m/n/6 SERPINA1|  
  []
 
 
-Overfull \hbox (13.1492pt too wide) in paragraph at lines 637--637
+Overfull \hbox (13.1492pt too wide) in paragraph at lines 633--633
 []|\T1/opensans-TLF/m/n/6 SERPINA3|  
  []
 
 
-Overfull \hbox (13.1378pt too wide) in paragraph at lines 638--638
+Overfull \hbox (13.1378pt too wide) in paragraph at lines 634--634
 []|\T1/opensans-TLF/m/n/6 SERPINC1|  
  []
 
 
-Overfull \hbox (13.7264pt too wide) in paragraph at lines 639--639
+Overfull \hbox (13.7264pt too wide) in paragraph at lines 635--635
 []|\T1/opensans-TLF/m/n/6 SERPIND1|  
  []
 
 
-Overfull \hbox (12.44899pt too wide) in paragraph at lines 640--640
+Overfull \hbox (12.44899pt too wide) in paragraph at lines 636--636
 []|\T1/opensans-TLF/m/n/6 SERPINF1|  
  []
 
 
-Overfull \hbox (12.44899pt too wide) in paragraph at lines 642--642
+Overfull \hbox (12.44899pt too wide) in paragraph at lines 638--638
 []|\T1/opensans-TLF/m/n/6 SERPINF2|  
  []
 
 
-Overfull \hbox (13.7204pt too wide) in paragraph at lines 643--643
+Overfull \hbox (13.7204pt too wide) in paragraph at lines 639--639
 []|\T1/opensans-TLF/m/n/6 SERPING1|  
  []
 
@@ -1492,7 +1492,7 @@ File: proteomic_paper_2020-02-11_files/figure-latex/openms-pp-venn-1.pdf Graphi
 c file (type pdf)
 <use proteomic_paper_2020-02-11_files/figure-latex/openms-pp-venn-1.pdf>
 Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/openms-p
-p-venn-1.pdf  used on input line 654.
+p-venn-1.pdf  used on input line 650.
 (pdftex.def)             Requested size: 243.95966pt x 171.56975pt.
 <proteomic_paper_2020-02-11_files/figure-latex/openms-pp-updown-1.pdf, id=144, 
 459.7175pt x 307.1475pt>
@@ -1500,7 +1500,7 @@ File: proteomic_paper_2020-02-11_files/figure-latex/openms-pp-updown-1.pdf Grap
 hic file (type pdf)
 <use proteomic_paper_2020-02-11_files/figure-latex/openms-pp-updown-1.pdf>
 Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/openms-p
-p-updown-1.pdf  used on input line 665.
+p-updown-1.pdf  used on input line 661.
 (pdftex.def)             Requested size: 406.61497pt x 271.66852pt.
 [16
 
@@ -1508,83 +1508,83 @@ p-updown-1.pdf  used on input line 665.
 eomic_paper_2020-02-11_files/figure-latex/openms-pp-updown-1.pdf>]
 
 LaTeX Warning: Reference `fig:openms-stringdb-acute-sub-c-imp' on page 17 undef
-ined on input line 674.
+ined on input line 670.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-acute-sub-c-nonimp' on page 17 un
-defined on input line 674.
+defined on input line 670.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-a-vs-d' on page 17 undefined on i
-nput line 674.
+nput line 670.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-c-vs-d' on page 17 undefined on i
-nput line 674.
+nput line 670.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-c-vs-a' on page 17 undefined on i
-nput line 674.
+nput line 670.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-c-nonimp-vs-a' on page 17 undefin
-ed on input line 674.
+ed on input line 670.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-c-nonimp-vs-d' on page 17 undefin
-ed on input line 674.
+ed on input line 670.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-cluster-acute-c-imp-vs-non' on pa
-ge 17 undefined on input line 675.
+ge 17 undefined on input line 671.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-cluster-acute-c-imp-vs-non' on pa
-ge 17 undefined on input line 676.
+ge 17 undefined on input line 672.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-cluster-acute-c-imp-vs-non' on pa
-ge 17 undefined on input line 677.
+ge 17 undefined on input line 673.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-cluster-acute-c-imp-vs-non' on pa
-ge 17 undefined on input line 678.
+ge 17 undefined on input line 674.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-cluster-subacute-c-imp-vs-non' on
- page 17 undefined on input line 680.
+ page 17 undefined on input line 676.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-cluster-acute-sub-c-imp' on page 
-17 undefined on input line 681.
+17 undefined on input line 677.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-cluster-acute-sub-c-nonimp' on pa
-ge 17 undefined on input line 681.
+ge 17 undefined on input line 677.
 
 
 LaTeX Warning: Reference `fig:multi-image-try' on page 17 undefined on input li
-ne 681.
+ne 677.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-cluster-c-vs-d' on page 17 undefi
-ned on input line 681.
+ned on input line 677.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-cluster-c-vs-a' on page 17 undefi
-ned on input line 681.
+ned on input line 677.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-cluster-c-nonimp-vs-a' on page 17
- undefined on input line 681.
+ undefined on input line 677.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-cluster-c-nonimp-vs-d' on page 17
- undefined on input line 681.
+ undefined on input line 677.
 
 
 LaTeX Warning: Reference `appen-itraq-string' on page 17 undefined on input lin
-e 683.
+e 679.
 
 [17
 
@@ -1596,12 +1596,12 @@ _nonimprovers_run1_2021-03-23.pdf Graphic file (type pdf)
 <use figures/openms_protein_quantification/stringdb_plots/acute_c_improvers_vs_
 nonimprovers_run1_2021-03-23.pdf>
 Package pdftex.def Info: figures/openms_protein_quantification/stringdb_plots/a
-cute_c_improvers_vs_nonimprovers_run1_2021-03-23.pdf  used on input line 690.
+cute_c_improvers_vs_nonimprovers_run1_2021-03-23.pdf  used on input line 686.
 (pdftex.def)             Requested size: 406.59714pt x 361.41968pt.
 <Images/stringdb_curated_db.png, id=178, 58.2175pt x 23.08624pt>
 File: Images/stringdb_curated_db.png Graphic file (type png)
 <use Images/stringdb_curated_db.png>
-Package pdftex.def Info: Images/stringdb_curated_db.png  used on input line 690
+Package pdftex.def Info: Images/stringdb_curated_db.png  used on input line 686
 .
 (pdftex.def)             Requested size: 32.52872pt x 12.8993pt.
 <Images/stringdb_experimentally_determined.png, id=179, 57.21375pt x 22.0825pt>
@@ -1609,43 +1609,43 @@ Package pdftex.def Info: Images/stringdb_curated_db.png  used on input line 690
 File: Images/stringdb_experimentally_determined.png Graphic file (type png)
 <use Images/stringdb_experimentally_determined.png>
 Package pdftex.def Info: Images/stringdb_experimentally_determined.png  used on
- input line 690.
+ input line 686.
 (pdftex.def)             Requested size: 32.52922pt x 12.55513pt.
 <Images/stringdb_gene_co-occurrence.png, id=180, 61.22874pt x 23.08624pt>
 File: Images/stringdb_gene_co-occurrence.png Graphic file (type png)
 <use Images/stringdb_gene_co-occurrence.png>
 Package pdftex.def Info: Images/stringdb_gene_co-occurrence.png  used on input 
-line 690.
+line 686.
 (pdftex.def)             Requested size: 32.52861pt x 12.26488pt.
 <Images/stringdb_gene_fusions.png, id=181, 59.22125pt x 22.0825pt>
 File: Images/stringdb_gene_fusions.png Graphic file (type png)
 <use Images/stringdb_gene_fusions.png>
 Package pdftex.def Info: Images/stringdb_gene_fusions.png  used on input line 6
-90.
+86.
 (pdftex.def)             Requested size: 32.5284pt x 12.12923pt.
 <Images/stringdb_gene_neighbour.png, id=182, 58.2175pt x 19.07124pt>
 File: Images/stringdb_gene_neighbour.png Graphic file (type png)
 <use Images/stringdb_gene_neighbour.png>
 Package pdftex.def Info: Images/stringdb_gene_neighbour.png  used on input line
- 690.
+ 686.
 (pdftex.def)             Requested size: 32.52872pt x 10.65594pt.
 <Images/stringdb_co-expression.png, id=183, 58.2175pt x 22.0825pt>
 File: Images/stringdb_co-expression.png Graphic file (type png)
 <use Images/stringdb_co-expression.png>
 Package pdftex.def Info: Images/stringdb_co-expression.png  used on input line 
-690.
+686.
 (pdftex.def)             Requested size: 32.52872pt x 12.33847pt.
 <Images/stringdb_text_mining.png, id=184, 57.21375pt x 23.08624pt>
 File: Images/stringdb_text_mining.png Graphic file (type png)
 <use Images/stringdb_text_mining.png>
-Package pdftex.def Info: Images/stringdb_text_mining.png  used on input line 69
-0.
+Package pdftex.def Info: Images/stringdb_text_mining.png  used on input line 68
+6.
 (pdftex.def)             Requested size: 32.52922pt x 13.12581pt.
 <Images/stringdb_protein-homology.png, id=185, 59.22125pt x 24.09pt>
 File: Images/stringdb_protein-homology.png Graphic file (type png)
 <use Images/stringdb_protein-homology.png>
 Package pdftex.def Info: Images/stringdb_protein-homology.png  used on input li
-ne 690.
+ne 686.
 (pdftex.def)             Requested size: 32.5284pt x 13.23187pt.
 <figures/openms_protein_quantification/stringdb_plots/subacute_c_improvers_vs_n
 onimprovers_run1_2021-03-23.pdf, id=186, 650.43pt x 578.16pt>
@@ -1654,84 +1654,84 @@ _vs_nonimprovers_run1_2021-03-23.pdf Graphic file (type pdf)
 <use figures/openms_protein_quantification/stringdb_plots/subacute_c_improvers_
 vs_nonimprovers_run1_2021-03-23.pdf>
 Package pdftex.def Info: figures/openms_protein_quantification/stringdb_plots/s
-ubacute_c_improvers_vs_nonimprovers_run1_2021-03-23.pdf  used on input line 696
+ubacute_c_improvers_vs_nonimprovers_run1_2021-03-23.pdf  used on input line 692
 .
 (pdftex.def)             Requested size: 406.59714pt x 361.41968pt.
 File: Images/stringdb_curated_db.png Graphic file (type png)
 <use Images/stringdb_curated_db.png>
-Package pdftex.def Info: Images/stringdb_curated_db.png  used on input line 696
+Package pdftex.def Info: Images/stringdb_curated_db.png  used on input line 692
 .
 (pdftex.def)             Requested size: 32.52872pt x 12.8993pt.
 File: Images/stringdb_experimentally_determined.png Graphic file (type png)
 <use Images/stringdb_experimentally_determined.png>
 Package pdftex.def Info: Images/stringdb_experimentally_determined.png  used on
- input line 696.
+ input line 692.
 (pdftex.def)             Requested size: 32.52922pt x 12.55513pt.
 File: Images/stringdb_gene_co-occurrence.png Graphic file (type png)
 <use Images/stringdb_gene_co-occurrence.png>
 Package pdftex.def Info: Images/stringdb_gene_co-occurrence.png  used on input 
-line 696.
+line 692.
 (pdftex.def)             Requested size: 32.52861pt x 12.26488pt.
 File: Images/stringdb_gene_fusions.png Graphic file (type png)
 <use Images/stringdb_gene_fusions.png>
 Package pdftex.def Info: Images/stringdb_gene_fusions.png  used on input line 6
-96.
+92.
 (pdftex.def)             Requested size: 32.5284pt x 12.12923pt.
 File: Images/stringdb_gene_neighbour.png Graphic file (type png)
 <use Images/stringdb_gene_neighbour.png>
 Package pdftex.def Info: Images/stringdb_gene_neighbour.png  used on input line
- 696.
+ 692.
 (pdftex.def)             Requested size: 32.52872pt x 10.65594pt.
 File: Images/stringdb_co-expression.png Graphic file (type png)
 <use Images/stringdb_co-expression.png>
 Package pdftex.def Info: Images/stringdb_co-expression.png  used on input line 
-696.
+692.
 (pdftex.def)             Requested size: 32.52872pt x 12.33847pt.
 File: Images/stringdb_text_mining.png Graphic file (type png)
 <use Images/stringdb_text_mining.png>
 Package pdftex.def Info: Images/stringdb_text_mining.png  used on input line 69
-6.
+2.
 (pdftex.def)             Requested size: 32.52922pt x 13.12581pt.
 File: Images/stringdb_protein-homology.png Graphic file (type png)
 <use Images/stringdb_protein-homology.png>
 Package pdftex.def Info: Images/stringdb_protein-homology.png  used on input li
-ne 696.
+ne 692.
 (pdftex.def)             Requested size: 32.5284pt x 13.23187pt.
 
 LaTeX Warning: Reference `fig:openms-hmap-acute-sacute-imp-c-1' on page 18 unde
-fined on input line 702.
+fined on input line 698.
 
 
 LaTeX Warning: Reference `fig:openms-hmap-acute-sacute-nonimp-c-1' on page 18 u
-ndefined on input line 702.
+ndefined on input line 698.
 
 
 LaTeX Warning: Reference `fig:openms-hmap-acute-c-2' on page 18 undefined on in
-put line 702.
+put line 698.
 
 
 LaTeX Warning: Reference `fig:openms-hmap-acute-a-d-2' on page 18 undefined on 
-input line 702.
+input line 698.
 
 
 LaTeX Warning: Reference `fig:openms-hmap-acute-imp-c-d-2' on page 18 undefined
- on input line 702.
+ on input line 698.
 
 
 LaTeX Warning: Reference `fig:openms-hmap-acute-imp-c-a-2' on page 18 undefined
- on input line 702.
+ on input line 698.
 
 
 LaTeX Warning: Reference `fig:openms-hmap-acute-nonimp-c-a-2' on page 18 undefi
-ned on input line 702.
+ned on input line 698.
 
 
 LaTeX Warning: Reference `fig:openms-hmap-acute-nonimp-c-d-2' on page 18 undefi
-ned on input line 702.
+ned on input line 698.
 
 
 LaTeX Warning: Reference `appen-itraq-hmap' on page 18 undefined on input line 
-705.
+701.
 
 [18
 
@@ -1749,10 +1749,10 @@ File: proteomic_paper_2020-02-11_files/figure-latex/openms-hmap-acute-c-1-1.pdf
 <use proteomic_paper_2020-02-11_files/figure-latex/openms-hmap-acute-c-1-1.pdf>
 
 Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/openms-h
-map-acute-c-1-1.pdf  used on input line 713.
+map-acute-c-1-1.pdf  used on input line 709.
 (pdftex.def)             Requested size: 614.94714pt x 406.60045pt.
 
-LaTeX Warning: Float too large for page by 31.61057pt on input line 718.
+LaTeX Warning: Float too large for page by 31.61057pt on input line 714.
 
 [20 <./proteomic_paper_2020-02-11_files/figure-latex/openms-hmap-acute-c-1-1.pd
 f>]
@@ -1763,48 +1763,48 @@ pdf Graphic file (type pdf)
 <use proteomic_paper_2020-02-11_files/figure-latex/openms-hmap-subacute-c-1-1.p
 df>
 Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/openms-h
-map-subacute-c-1-1.pdf  used on input line 727.
+map-subacute-c-1-1.pdf  used on input line 723.
 (pdftex.def)             Requested size: 531.21611pt x 406.59567pt.
 
-LaTeX Warning: Float too large for page by 31.60579pt on input line 732.
+LaTeX Warning: Float too large for page by 31.60579pt on input line 728.
 
 [21 <./proteomic_paper_2020-02-11_files/figure-latex/openms-hmap-subacute-c-1-1
 .pdf>]
 
 LaTeX Warning: Reference `fig:openms-cnetp-acute-sacute-imp-c-1' on page 22 und
-efined on input line 740.
+efined on input line 736.
 
 
 LaTeX Warning: Reference `fig:openms-cnetp-acute-sacute-nonimp-c-1' on page 22 
-undefined on input line 740.
+undefined on input line 736.
 
 
 LaTeX Warning: Reference `fig:openms-cnetp-acute-c-2' on page 22 undefined on i
-nput line 740.
+nput line 736.
 
 
 LaTeX Warning: Reference `fig:openms-cnetp-acute-a-d-2' on page 22 undefined on
- input line 740.
+ input line 736.
 
 
 LaTeX Warning: Reference `fig:openms-cnetp-acute-imp-c-d-2' on page 22 undefine
-d on input line 740.
+d on input line 736.
 
 
 LaTeX Warning: Reference `fig:openms-cnetp-acute-imp-c-a-2' on page 22 undefine
-d on input line 740.
+d on input line 736.
 
 
 LaTeX Warning: Reference `fig:openms-cnetp-acute-nonimp-c-a-2' on page 22 undef
-ined on input line 740.
+ined on input line 736.
 
 
 LaTeX Warning: Reference `fig:openms-cnetp-acute-nonimp-c-d-2' on page 22 undef
-ined on input line 740.
+ined on input line 736.
 
 
 LaTeX Warning: Reference `appen-itraq-cnet' on page 22 undefined on input line 
-743.
+739.
 
 [22
 
@@ -1814,16 +1814,16 @@ LaTeX Warning: Reference `appen-itraq-cnet' on page 22 undefined on input line
 
 ]
 <proteomic_paper_2020-02-11_files/figure-latex/openms-cnetp-acute-c-1-1.pdf, id
-=265, 864.22874pt x 702.625pt>
+=265, 851.18pt x 702.625pt>
 File: proteomic_paper_2020-02-11_files/figure-latex/openms-cnetp-acute-c-1-1.pd
 f Graphic file (type pdf)
 <use proteomic_paper_2020-02-11_files/figure-latex/openms-cnetp-acute-c-1-1.pdf
 >
 Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/openms-c
-netp-acute-c-1-1.pdf  used on input line 751.
-(pdftex.def)             Requested size: 500.11893pt x 406.60075pt.
+netp-acute-c-1-1.pdf  used on input line 747.
+(pdftex.def)             Requested size: 492.56776pt x 406.60075pt.
 
-LaTeX Warning: Float too large for page by 31.61087pt on input line 756.
+LaTeX Warning: Float too large for page by 31.61087pt on input line 752.
 
 [23 <./proteomic_paper_2020-02-11_files/figure-latex/openms-cnetp-acute-c-1-1.p
 df>]
@@ -1834,10 +1834,10 @@ File: proteomic_paper_2020-02-11_files/figure-latex/openms-cnetp-subacute-c-1-1
 <use proteomic_paper_2020-02-11_files/figure-latex/openms-cnetp-subacute-c-1-1.
 pdf>
 Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/openms-c
-netp-subacute-c-1-1.pdf  used on input line 765.
+netp-subacute-c-1-1.pdf  used on input line 761.
 (pdftex.def)             Requested size: 492.56776pt x 406.60075pt.
 
-LaTeX Warning: Float too large for page by 31.61087pt on input line 770.
+LaTeX Warning: Float too large for page by 31.61087pt on input line 766.
 
 [24 <./proteomic_paper_2020-02-11_files/figure-latex/openms-cnetp-subacute-c-1-
 1.pdf>] [25
@@ -1853,7 +1853,7 @@ File: proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots1-1.pdf Grap
 hic file (type pdf)
 <use proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots1-1.pdf>
 Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/elisa-si
-g-plots1-1.pdf  used on input line 790.
+g-plots1-1.pdf  used on input line 786.
 (pdftex.def)             Requested size: 406.61497pt x 276.10754pt.
 <proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots2-1.pdf, id=315, 
 459.7175pt x 312.16624pt>
@@ -1861,7 +1861,7 @@ File: proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots2-1.pdf Grap
 hic file (type pdf)
 <use proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots2-1.pdf>
 Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/elisa-si
-g-plots2-1.pdf  used on input line 798.
+g-plots2-1.pdf  used on input line 794.
 (pdftex.def)             Requested size: 406.61497pt x 276.10754pt.
 <proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots3-1.pdf, id=316, 
 459.7175pt x 312.16624pt>
@@ -1869,7 +1869,7 @@ File: proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots3-1.pdf Grap
 hic file (type pdf)
 <use proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots3-1.pdf>
 Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/elisa-si
-g-plots3-1.pdf  used on input line 806.
+g-plots3-1.pdf  used on input line 802.
 (pdftex.def)             Requested size: 406.61497pt x 276.10754pt.
 <proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots4-1.pdf, id=317, 
 459.7175pt x 312.16624pt>
@@ -1877,7 +1877,7 @@ File: proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots4-1.pdf Grap
 hic file (type pdf)
 <use proteomic_paper_2020-02-11_files/figure-latex/elisa-sig-plots4-1.pdf>
 Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/elisa-si
-g-plots4-1.pdf  used on input line 814.
+g-plots4-1.pdf  used on input line 810.
 (pdftex.def)             Requested size: 406.61497pt x 276.10754pt.
 <proteomic_paper_2020-02-11_files/figure-latex/plot-grid-example-1.pdf, id=319,
  500.87125pt x 497.86pt>
@@ -1885,7 +1885,7 @@ File: proteomic_paper_2020-02-11_files/figure-latex/plot-grid-example-1.pdf Gra
 phic file (type pdf)
 <use proteomic_paper_2020-02-11_files/figure-latex/plot-grid-example-1.pdf>
 Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/plot-gri
-d-example-1.pdf  used on input line 828.
+d-example-1.pdf  used on input line 824.
 (pdftex.def)             Requested size: 406.60532pt x 404.1608pt.
 <proteomic_paper_2020-02-11_files/figure-latex/patchwork-example-1.pdf, id=321,
  457.71pt x 325.215pt>
@@ -1893,7 +1893,7 @@ File: proteomic_paper_2020-02-11_files/figure-latex/patchwork-example-1.pdf Gra
 phic file (type pdf)
 <use proteomic_paper_2020-02-11_files/figure-latex/patchwork-example-1.pdf>
 Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/patchwor
-k-example-1.pdf  used on input line 835.
+k-example-1.pdf  used on input line 831.
 (pdftex.def)             Requested size: 406.60635pt x 288.9045pt.
 [26
 
@@ -1906,7 +1906,7 @@ File: proteomic_paper_2020-02-11_files/figure-latex/patchwork-2-1.pdf Graphic f
 ile (type pdf)
 <use proteomic_paper_2020-02-11_files/figure-latex/patchwork-2-1.pdf>
 Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/patchwor
-k-2-1.pdf  used on input line 839.
+k-2-1.pdf  used on input line 835.
 (pdftex.def)             Requested size: 406.59868pt x 635.02492pt.
 
 Overfull \vbox (0.55922pt too high) has occurred while \output is active []
@@ -1919,24 +1919,24 @@ Overfull \vbox (0.55922pt too high) has occurred while \output is active []
 File: figures/kegg_pathways/hsa04610_pathview.png Graphic file (type png)
 <use figures/kegg_pathways/hsa04610_pathview.png>
 Package pdftex.def Info: figures/kegg_pathways/hsa04610_pathview.png  used on i
-nput line 851.
+nput line 847.
 (pdftex.def)             Requested size: 317.51024pt x 196.336pt.
 [31 <./figures/kegg_pathways/hsa04610_pathview.png (PNG copy)>]
 
 LaTeX Warning: Reference `appen-labelfree' on page 32 undefined on input line 8
-63.
+59.
 
 
 LaTeX Warning: Reference `fig:volc-plot-acute-c-imp-vs-subacute-imp' on page 32
- undefined on input line 873.
+ undefined on input line 869.
 
 
 LaTeX Warning: Reference `fig:volc-plot-acute-c-nonimp-vs-subacute-nonimp' on p
-age 32 undefined on input line 873.
+age 32 undefined on input line 869.
 
 
 LaTeX Warning: Reference `appen-labelfree-volc' on page 32 undefined on input l
-ine 875.
+ine 871.
 
 [32
 
@@ -1948,7 +1948,7 @@ File: figures/openms_protein_quantification/label_free/openms_volcano_plot_2021
 <use figures/openms_protein_quantification/label_free/openms_volcano_plot_2021-
 08-10_0008.pdf>
 Package pdftex.def Info: figures/openms_protein_quantification/label_free/openm
-s_volcano_plot_2021-08-10_0008.pdf  used on input line 882.
+s_volcano_plot_2021-08-10_0008.pdf  used on input line 878.
 (pdftex.def)             Requested size: 406.59494pt x 406.59494pt.
 <figures/openms_protein_quantification/label_free/openms_volcano_plot_2021-08-1
 0_0026.pdf, id=448, 722.7pt x 722.7pt>
@@ -1957,75 +1957,75 @@ File: figures/openms_protein_quantification/label_free/openms_volcano_plot_2021
 <use figures/openms_protein_quantification/label_free/openms_volcano_plot_2021-
 08-10_0026.pdf>
 Package pdftex.def Info: figures/openms_protein_quantification/label_free/openm
-s_volcano_plot_2021-08-10_0026.pdf  used on input line 888.
+s_volcano_plot_2021-08-10_0026.pdf  used on input line 884.
 (pdftex.def)             Requested size: 406.59494pt x 406.59494pt.
 
 LaTeX Warning: Reference `fig:openms-stringdb-chap4-acute-sub-c-imp' on page 33
- undefined on input line 894.
+ undefined on input line 890.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-chap4-acute-sub-c-nonimp' on page
- 33 undefined on input line 894.
+ 33 undefined on input line 890.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-chap4-a-vs-d' on page 33 undefine
-d on input line 894.
+d on input line 890.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-chap4-c-vs-d' on page 33 undefine
-d on input line 894.
+d on input line 890.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-chap4-c-vs-a' on page 33 undefine
-d on input line 894.
+d on input line 890.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-chap4-c-nonimp-vs-a' on page 33 u
-ndefined on input line 894.
+ndefined on input line 890.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-chap4-c-nonimp-vs-d' on page 33 u
-ndefined on input line 894.
+ndefined on input line 890.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-cluster-chap4-acute-c-imp-vs-noni
-mp' on page 33 undefined on input line 896.
+mp' on page 33 undefined on input line 892.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-cluster-chap4-sub-c-imp-vs-nonimp
-' on page 33 undefined on input line 896.
+' on page 33 undefined on input line 892.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-cluster-chap4-acute-sub-c-imp' on
- page 33 undefined on input line 896.
+ page 33 undefined on input line 892.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-cluster-chap4-acute-sub-c-nonimp'
- on page 33 undefined on input line 896.
+ on page 33 undefined on input line 892.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-cluster-chap4-a-vs-d' on page 33 
-undefined on input line 896.
+undefined on input line 892.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-cluster-chap4-c-vs-a' on page 33 
-undefined on input line 896.
+undefined on input line 892.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-cluster-chap4-c-vs-d' on page 33 
-undefined on input line 896.
+undefined on input line 892.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-cluster-chap4-c-nonimp-vs-a' on p
-age 33 undefined on input line 896.
+age 33 undefined on input line 892.
 
 
 LaTeX Warning: Reference `fig:openms-stringdb-cluster-chap4-c-nonimp-vs-d' on p
-age 33 undefined on input line 896.
+age 33 undefined on input line 892.
 
 
 LaTeX Warning: Reference `appen-labelfree-string' on page 33 undefined on input
- line 899.
+ line 895.
 
 <figures/openms_protein_quantification/label_free/stringdb_plots/acute_c_imp_vs
 _acute_c_nonimp_2021-08-06.pdf, id=451, 650.43pt x 578.16pt>
@@ -2034,48 +2034,48 @@ mp_vs_acute_c_nonimp_2021-08-06.pdf Graphic file (type pdf)
 <use figures/openms_protein_quantification/label_free/stringdb_plots/acute_c_im
 p_vs_acute_c_nonimp_2021-08-06.pdf>
 Package pdftex.def Info: figures/openms_protein_quantification/label_free/strin
-gdb_plots/acute_c_imp_vs_acute_c_nonimp_2021-08-06.pdf  used on input line 904.
+gdb_plots/acute_c_imp_vs_acute_c_nonimp_2021-08-06.pdf  used on input line 900.
 
 (pdftex.def)             Requested size: 406.59714pt x 361.41968pt.
 File: Images/stringdb_curated_db.png Graphic file (type png)
 <use Images/stringdb_curated_db.png>
-Package pdftex.def Info: Images/stringdb_curated_db.png  used on input line 904
+Package pdftex.def Info: Images/stringdb_curated_db.png  used on input line 900
 .
 (pdftex.def)             Requested size: 32.52872pt x 12.8993pt.
 File: Images/stringdb_experimentally_determined.png Graphic file (type png)
 <use Images/stringdb_experimentally_determined.png>
 Package pdftex.def Info: Images/stringdb_experimentally_determined.png  used on
- input line 904.
+ input line 900.
 (pdftex.def)             Requested size: 32.52922pt x 12.55513pt.
 File: Images/stringdb_gene_co-occurrence.png Graphic file (type png)
 <use Images/stringdb_gene_co-occurrence.png>
 Package pdftex.def Info: Images/stringdb_gene_co-occurrence.png  used on input 
-line 904.
+line 900.
 (pdftex.def)             Requested size: 32.52861pt x 12.26488pt.
 File: Images/stringdb_gene_fusions.png Graphic file (type png)
 <use Images/stringdb_gene_fusions.png>
 Package pdftex.def Info: Images/stringdb_gene_fusions.png  used on input line 9
-04.
+00.
 (pdftex.def)             Requested size: 32.5284pt x 12.12923pt.
 File: Images/stringdb_gene_neighbour.png Graphic file (type png)
 <use Images/stringdb_gene_neighbour.png>
 Package pdftex.def Info: Images/stringdb_gene_neighbour.png  used on input line
- 904.
+ 900.
 (pdftex.def)             Requested size: 32.52872pt x 10.65594pt.
 File: Images/stringdb_co-expression.png Graphic file (type png)
 <use Images/stringdb_co-expression.png>
 Package pdftex.def Info: Images/stringdb_co-expression.png  used on input line 
-904.
+900.
 (pdftex.def)             Requested size: 32.52872pt x 12.33847pt.
 File: Images/stringdb_text_mining.png Graphic file (type png)
 <use Images/stringdb_text_mining.png>
 Package pdftex.def Info: Images/stringdb_text_mining.png  used on input line 90
-4.
+0.
 (pdftex.def)             Requested size: 32.52922pt x 13.12581pt.
 File: Images/stringdb_protein-homology.png Graphic file (type png)
 <use Images/stringdb_protein-homology.png>
 Package pdftex.def Info: Images/stringdb_protein-homology.png  used on input li
-ne 904.
+ne 900.
 (pdftex.def)             Requested size: 32.5284pt x 13.23187pt.
 <figures/openms_protein_quantification/label_free/stringdb_plots/subacute_c_imp
 _vs_subacute_c_nonimp_2021-08-06.pdf, id=452, 650.43pt x 578.16pt>
@@ -2085,79 +2085,79 @@ c_imp_vs_subacute_c_nonimp_2021-08-06.pdf Graphic file (type pdf)
 _imp_vs_subacute_c_nonimp_2021-08-06.pdf>
 Package pdftex.def Info: figures/openms_protein_quantification/label_free/strin
 gdb_plots/subacute_c_imp_vs_subacute_c_nonimp_2021-08-06.pdf  used on input lin
-e 910.
+e 906.
 (pdftex.def)             Requested size: 406.59714pt x 361.41968pt.
 File: Images/stringdb_curated_db.png Graphic file (type png)
 <use Images/stringdb_curated_db.png>
-Package pdftex.def Info: Images/stringdb_curated_db.png  used on input line 910
+Package pdftex.def Info: Images/stringdb_curated_db.png  used on input line 906
 .
 (pdftex.def)             Requested size: 32.52872pt x 12.8993pt.
 File: Images/stringdb_experimentally_determined.png Graphic file (type png)
 <use Images/stringdb_experimentally_determined.png>
 Package pdftex.def Info: Images/stringdb_experimentally_determined.png  used on
- input line 910.
+ input line 906.
 (pdftex.def)             Requested size: 32.52922pt x 12.55513pt.
 File: Images/stringdb_gene_co-occurrence.png Graphic file (type png)
 <use Images/stringdb_gene_co-occurrence.png>
 Package pdftex.def Info: Images/stringdb_gene_co-occurrence.png  used on input 
-line 910.
+line 906.
 (pdftex.def)             Requested size: 32.52861pt x 12.26488pt.
 File: Images/stringdb_gene_fusions.png Graphic file (type png)
 <use Images/stringdb_gene_fusions.png>
 Package pdftex.def Info: Images/stringdb_gene_fusions.png  used on input line 9
-10.
+06.
 (pdftex.def)             Requested size: 32.5284pt x 12.12923pt.
 File: Images/stringdb_gene_neighbour.png Graphic file (type png)
 <use Images/stringdb_gene_neighbour.png>
 Package pdftex.def Info: Images/stringdb_gene_neighbour.png  used on input line
- 910.
+ 906.
 (pdftex.def)             Requested size: 32.52872pt x 10.65594pt.
 File: Images/stringdb_co-expression.png Graphic file (type png)
 <use Images/stringdb_co-expression.png>
 Package pdftex.def Info: Images/stringdb_co-expression.png  used on input line 
-910.
+906.
 (pdftex.def)             Requested size: 32.52872pt x 12.33847pt.
 File: Images/stringdb_text_mining.png Graphic file (type png)
 <use Images/stringdb_text_mining.png>
-Package pdftex.def Info: Images/stringdb_text_mining.png  used on input line 91
-0.
+Package pdftex.def Info: Images/stringdb_text_mining.png  used on input line 90
+6.
 (pdftex.def)             Requested size: 32.52922pt x 13.12581pt.
 File: Images/stringdb_protein-homology.png Graphic file (type png)
 <use Images/stringdb_protein-homology.png>
 Package pdftex.def Info: Images/stringdb_protein-homology.png  used on input li
-ne 910.
+ne 906.
 (pdftex.def)             Requested size: 32.5284pt x 13.23187pt.
 
 LaTeX Warning: Reference `fig:openms-chap4-hmap-acute-sacute-imp-c-1' on page 3
-3 undefined on input line 916.
+3 undefined on input line 912.
 
 
 LaTeX Warning: Reference `fig:openms-chap4-hmap-acute-sacute-nonimp-c-1' on pag
-e 33 undefined on input line 916.
+e 33 undefined on input line 912.
 
 
 LaTeX Warning: Reference `fig:openms-chap4-hmap-acute-a-d-2' on page 33 undefin
-ed on input line 916.
+ed on input line 912.
 
 
 LaTeX Warning: Reference `fig:openms-chap4-hmap-acute-imp-c-d-2' on page 33 und
-efined on input line 916.
+efined on input line 912.
 
 
 LaTeX Warning: Reference `fig:openms-chap4-hmap-acute-imp-c-a-2' on page 33 und
-efined on input line 916.
+efined on input line 912.
 
 
 LaTeX Warning: Reference `fig:openms-chap4-hmap-acute-nonimp-c-a-2' on page 33 
-undefined on input line 916.
+undefined on input line 912.
 
 
 LaTeX Warning: Reference `fig:openms-chap4-hmap-acute-nonimp-c-d-2' on page 33 
-undefined on input line 916.
+undefined on input line 912.
 
 
 LaTeX Warning: Reference `appen-labelfree-hmap' on page 33 undefined on input l
-ine 918.
+ine 914.
 
 [33
 
@@ -2174,10 +2174,10 @@ File: proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-hmap-acute-c-1
 <use proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-hmap-acute-c-1-
 1.pdf>
 Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/openms-c
-hap4-hmap-acute-c-1-1.pdf  used on input line 926.
+hap4-hmap-acute-c-1-1.pdf  used on input line 922.
 (pdftex.def)             Requested size: 611.34251pt x 406.60045pt.
 
-LaTeX Warning: Float too large for page by 31.61057pt on input line 931.
+LaTeX Warning: Float too large for page by 31.61057pt on input line 927.
 
 [38 <./proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-hmap-acute-c-
 1-1.pdf>]
@@ -2188,44 +2188,44 @@ c-1-1.pdf Graphic file (type pdf)
 <use proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-hmap-subacute-c
 -1-1.pdf>
 Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/openms-c
-hap4-hmap-subacute-c-1-1.pdf  used on input line 940.
+hap4-hmap-subacute-c-1-1.pdf  used on input line 936.
 (pdftex.def)             Requested size: 611.34251pt x 406.60045pt.
 
-LaTeX Warning: Float too large for page by 31.61057pt on input line 945.
+LaTeX Warning: Float too large for page by 31.61057pt on input line 941.
 
 [39 <./proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-hmap-subacute
 -c-1-1.pdf>]
 
 LaTeX Warning: Reference `fig:openms-chap4-cnetp-acute-sacute-imp-c-1' on page 
-40 undefined on input line 953.
+40 undefined on input line 949.
 
 
 LaTeX Warning: Reference `fig:openms-chap4-cnetp-acute-sacute-nonimp-c-1' on pa
-ge 40 undefined on input line 953.
+ge 40 undefined on input line 949.
 
 
 LaTeX Warning: Reference `fig:openms-chap4-cnetp-acute-a-d-2' on page 40 undefi
-ned on input line 953.
+ned on input line 949.
 
 
 LaTeX Warning: Reference `fig:openms-chap4-cnetp-acute-imp-c-d-2' on page 40 un
-defined on input line 953.
+defined on input line 949.
 
 
 LaTeX Warning: Reference `fig:openms-chap4-cnetp-acute-imp-c-a-2' on page 40 un
-defined on input line 953.
+defined on input line 949.
 
 
 LaTeX Warning: Reference `fig:openms-chap4-cnetp-acute-nonimp-c-a-2' on page 40
- undefined on input line 953.
+ undefined on input line 949.
 
 
 LaTeX Warning: Reference `fig:openms-chap4-cnetp-acute-nonimp-c-d-2' on page 40
- undefined on input line 953.
+ undefined on input line 949.
 
 
 LaTeX Warning: Reference `appen-labelfree-cnet' on page 40 undefined on input l
-ine 955.
+ine 951.
 
 [40
 
@@ -2235,16 +2235,16 @@ ine 955.
 
 ]
 <proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-cnetp-acute-c-1-1.p
-df, id=560, 867.24pt x 689.57625pt>
+df, id=560, 867.24pt x 702.625pt>
 File: proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-cnetp-acute-c-
 1-1.pdf Graphic file (type pdf)
 <use proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-cnetp-acute-c-1
 -1.pdf>
 Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/openms-c
-hap4-cnetp-acute-c-1-1.pdf  used on input line 963.
-(pdftex.def)             Requested size: 511.34958pt x 406.59392pt.
+hap4-cnetp-acute-c-1-1.pdf  used on input line 959.
+(pdftex.def)             Requested size: 501.86153pt x 406.60075pt.
 
-LaTeX Warning: Float too large for page by 31.60403pt on input line 968.
+LaTeX Warning: Float too large for page by 31.61087pt on input line 964.
 
 [41 <./proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-cnetp-acute-c
 -1-1.pdf>]
@@ -2255,10 +2255,10 @@ File: proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-cnetp-subacute
 <use proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-cnetp-subacute-
 c-1-1.pdf>
 Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/openms-c
-hap4-cnetp-subacute-c-1-1.pdf  used on input line 977.
+hap4-cnetp-subacute-c-1-1.pdf  used on input line 973.
 (pdftex.def)             Requested size: 501.86153pt x 406.60075pt.
 
-LaTeX Warning: Float too large for page by 31.61087pt on input line 982.
+LaTeX Warning: Float too large for page by 31.61087pt on input line 978.
 
 [42 <./proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-cnetp-subacut
 e-c-1-1.pdf>]
@@ -2268,7 +2268,7 @@ File: figures/kegg_pathways/hsa04610.pathview_label-free.png Graphic file (type
  png)
 <use figures/kegg_pathways/hsa04610.pathview_label-free.png>
 Package pdftex.def Info: figures/kegg_pathways/hsa04610.pathview_label-free.png
-  used on input line 997.
+  used on input line 993.
 (pdftex.def)             Requested size: 317.51024pt x 196.336pt.
 <proteomic_paper_2020-02-11_files/figure-latex/itraq-label-free-venn-1.pdf, id=
 599, 429.605pt x 302.12875pt>
@@ -2277,7 +2277,7 @@ File: proteomic_paper_2020-02-11_files/figure-latex/itraq-label-free-venn-1.pdf
 <use proteomic_paper_2020-02-11_files/figure-latex/itraq-label-free-venn-1.pdf>
 
 Package pdftex.def Info: proteomic_paper_2020-02-11_files/figure-latex/itraq-la
-bel-free-venn-1.pdf  used on input line 1013.
+bel-free-venn-1.pdf  used on input line 1009.
 (pdftex.def)             Requested size: 243.95966pt x 171.56975pt.
 [43
 
@@ -2288,11 +2288,11 @@ bel-free-venn-1.pdf  used on input line 1013.
  <./figures/kegg_pathways/hsa04610.pathview_label-free.png (PNG copy)> <./prote
 omic_paper_2020-02-11_files/figure-latex/itraq-label-free-venn-1.pdf>]
 
-LaTeX Warning: Reference `chap-2-intro' on page 44 undefined on input line 1026
+LaTeX Warning: Reference `chap-2-intro' on page 44 undefined on input line 1022
 .
 
 
-Underfull \hbox (badness 1509) in paragraph at lines 1032--1037
+Underfull \hbox (badness 1509) in paragraph at lines 1028--1033
 \T1/opensans-TLF/m/n/9 ra-phy), frag-men-ta-tion meth-ods (electron-capture dis
 -so-ci-a-tion, electron-transfer dis-so-ci-a-tion,
  []
@@ -2300,100 +2300,100 @@ Underfull \hbox (badness 1509) in paragraph at lines 1032--1037
 [44] [45] [46] [47] [48] [49]
 
 LaTeX Warning: Reference `chap-1-biomarkers' on page 50 undefined on input line
- 1233.
+ 1229.
 
 [50]
 
 LaTeX Warning: Reference `chap-2-conclusion' on page 51 undefined on input line
- 1277.
+ 1273.
 
 [51] [52]
-Underfull \hbox (badness 1253) in paragraph at lines 1345--1348
+Underfull \hbox (badness 1253) in paragraph at lines 1341--1344
 []\T1/opensans-TLF/m/n/9 Moving for-ward in the SCI pathol-ogy, newly pro-lif-e
 r-ated and re-cruited mi-croglia be-gin ac-
  []
 
 [53]
-Underfull \hbox (badness 1210) in paragraph at lines 1355--1363
+Underfull \hbox (badness 1210) in paragraph at lines 1351--1359
 []\T1/opensans-TLF/m/n/9 Owing to the di-ver-sity of mono-cyte sub-sets and mac
 rophage phe-no-types, a com-plete un-
  []
 
 
-Underfull \hbox (badness 1152) in paragraph at lines 1355--1363
+Underfull \hbox (badness 1152) in paragraph at lines 1351--1359
 \T1/opensans-TLF/m/n/9 der-stand-ing of their role with re-spect to SCI pathol-
 ogy is still lack-ing, and re-quires un-der
  []
 
 
-Underfull \hbox (badness 1102) in paragraph at lines 1355--1363
+Underfull \hbox (badness 1102) in paragraph at lines 1351--1359
 \T1/opensans-TLF/m/n/9 ac-tive re-search.(David and Kro-ner 2011) Some po-lar-i
 -sa-tion states as-so-ci-ated with re-cruited
  []
 
 
-Underfull \hbox (badness 1342) in paragraph at lines 1355--1363
+Underfull \hbox (badness 1342) in paragraph at lines 1351--1359
 \T1/opensans-TLF/m/n/9 Con-versely, oth-ers have found de-ple-tion o cir-cu-lat
 -ing mono-cytes/macrophages sig-nif-i-cantly
  []
 
 [54]
-Underfull \hbox (badness 1400) in paragraph at lines 1391--1395
+Underfull \hbox (badness 1400) in paragraph at lines 1387--1391
  \T1/opensans-TLF/b/n/9 5.2.1.1.1 In-tra-venous im-munoglob-u-lin[] \T1/opensan
 s-TLF/m/n/9 In-tra-venous im-munoglob-u-lin (IVIG) is in-creas-ingly
  []
 
 [55]
-Underfull \hbox (badness 4168) in paragraph at lines 1437--1444
+Underfull \hbox (badness 4168) in paragraph at lines 1433--1440
 []\T1/opensans-TLF/m/n/9 Conversely, ag-o-nis-tic anti-Fas an-ti-bod-ies have a
 lso been re-ported with-ing IVIG prepa-ra-
  []
 
 [56] [57] [58] [59] [60] [61] [62]
-Underfull \hbox (badness 1215) in paragraph at lines 1678--1680
+Underfull \hbox (badness 1215) in paragraph at lines 1674--1676
 []\T1/opensans-TLF/m/n/9 Choi, Meena. 2014. ``MSstats: An r Pack-age for Sta-ti
 s-ti-cal Anal-y-sis of Quan-ti-ta-tive Mass
  []
 
 [63] [64] [65]
-Underfull \hbox (badness 2050) in paragraph at lines 1843--1845
+Underfull \hbox (badness 2050) in paragraph at lines 1839--1841
 \T1/opensans-TLF/m/n/9 Samuel Laman-tia. 2002. ``Retinoic Acid Sig-nal-ing at S
 ites of Plas-tic-ity in the Ma-ture
  []
 
 
-Underfull \hbox (badness 1874) in paragraph at lines 1843--1845
+Underfull \hbox (badness 1874) in paragraph at lines 1839--1841
 \T1/opensans-TLF/m/n/9 Cen-tral Ner-vous Sys-tem.'' \T1/opensans-TLF/m/it/9 Jou
 r-nal of Com-par-a-tive Neu-rol-ogy \T1/opensans-TLF/m/n/9 452 (3): 228--41. []
 $h t t p s :
  []
 
 [66]
-Underfull \hbox (badness 2600) in paragraph at lines 1867--1869
+Underfull \hbox (badness 2600) in paragraph at lines 1863--1865
 \T1/opensans-TLF/m/n/9 Martens, and Yas-set Perez-Riverol. 2020. ``Ther-moRaw-F
 ileParser: Mod-u-lar, Scal-able,
  []
 
 [67] [68] [69]
-Underfull \hbox (badness 4967) in paragraph at lines 2017--2019
+Underfull \hbox (badness 4967) in paragraph at lines 2013--2015
 []\T1/opensans-TLF/m/n/9 Matsuzawa, At-sushi, Kaoru Sae-gusa, Takuya Noguchi, C
 hi-haru Sadamitsu, Hideki Nishi-
  []
 
 
-Underfull \hbox (badness 1629) in paragraph at lines 2017--2019
+Underfull \hbox (badness 1629) in paragraph at lines 2013--2015
 \T1/opensans-TLF/m/n/9 toh, Shigenori Na-gai, Shi-geo Koy-asu, Ku-ni-hiro Mat-s
 umoto, Kohsuke Takeda, and Hi-de-
  []
 
 
-Underfull \hbox (badness 1005) in paragraph at lines 2017--2019
+Underfull \hbox (badness 1005) in paragraph at lines 2013--2015
 \T1/opensans-TLF/m/n/9 nori Ichijo. 2005. ``ROS-dependent Ac-ti-va-tion of the 
 TRAF6-ASK1-p38 Path-way Is Se-lec-
  []
 
 
-Underfull \hbox (badness 1874) in paragraph at lines 2026--2028
+Underfull \hbox (badness 1874) in paragraph at lines 2022--2024
 []\T1/opensans-TLF/m/n/9 Milosevic, Ivana, An-kica Vu-jovic, Alek-san-dra Barac
 , Ma-rina Djelic, Mi-los Ko-rac, Alek-san-dra
  []
@@ -2409,17 +2409,17 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 27766 strings out of 478276
- 527008 string characters out of 5853013
- 1076460 words of memory out of 5000000
- 44945 multiletter control sequences out of 15000+600000
+ 27765 strings out of 478276
+ 527003 string characters out of 5853013
+ 1076457 words of memory out of 5000000
+ 44944 multiletter control sequences out of 15000+600000
  518154 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,12n,131p,2639b,1008s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fo
-nts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/opensans/
-a_jg4h6q.enc}{/usr/share/texmf-dist/fonts/enc/dvips/opensans/a_nvvucy.enc}{/usr
-/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf-dist/fonts/typ
+nts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.
+enc}{/usr/share/texmf-dist/fonts/enc/dvips/opensans/a_jg4h6q.enc}{/usr/share/te
+xmf-dist/fonts/enc/dvips/opensans/a_nvvucy.enc}</usr/share/texmf-dist/fonts/typ
 e1/ascender/opensans/OpenSans-Bold.pfb></usr/share/texmf-dist/fonts/type1/ascen
 der/opensans/OpenSans-Italic.pfb></usr/share/texmf-dist/fonts/type1/ascender/op
 ensans/OpenSans-Regular.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.
@@ -2429,7 +2429,7 @@ st/fonts/type1/public/lm/lmmi9.pfb></usr/share/texmf-dist/fonts/type1/public/lm
 mf-dist/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/lm/lmss8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/sha
 re/texmf-dist/fonts/type1/public/stix/stix-mathcal.pfb>
-Output written on proteomic_paper_2020-02-11.pdf (77 pages, 3522283 bytes).
+Output written on proteomic_paper_2020-02-11.pdf (77 pages, 3521744 bytes).
 PDF statistics:
  1927 PDF objects out of 2073 (max. 8388607)
  1708 compressed objects within 18 object streams
