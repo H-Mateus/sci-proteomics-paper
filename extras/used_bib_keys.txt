@@ -7,10 +7,10 @@ spiess_conversion_2009
 kwon_neurochemical_2019
 hulme_developing_2017
 wang_update_2018
-kwon_cerebrospinal_2010
 segal_circulating_1997
 hayes_elevated_2002
 frost_inflammatory_2005
+kwon_cerebrospinal_2010
 bernardo_harrington_routinely_2020
 brown_preliminary_2019
 stoscheck_protein_1987

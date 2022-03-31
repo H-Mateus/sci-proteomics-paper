@@ -27,13 +27,6 @@
 \usepackage{subfig}
 % for linewrap in kabel tables
 \usepackage{makecell}
-% for the nomenclature (List of Abbreviations)
-\usepackage{nomencl}
-\makenomenclature% generate nomenclature
-\renewcommand{\nomname}{List of Abbreviations} % set heading
-
-% try fix headers - didn't work
-%% \setlength{\headheight}{27.11652pt}
 
 % fix blank landscape page
 \usepackage{blindtext}% MWE only
@@ -67,15 +60,3 @@
     \@ifundefined{SFPage@\theabspage}{}{\global\pdfpageattr{/Rotate 90}}%
   \fi}
 \makeatother
-
-
-% set up link colours
-\hypersetup{
-    bookmarksnumbered=false, % true means bookmarks in left window are numbered
-    bookmarksopen=false,     % true means only level 1 is displayed.
-    colorlinks=true,         % false: boxed links; true: colored links
-    linkcolor=blue,          % color of internal links
-    citecolor=blue,
-    urlcolor=blue,
-    pdfstartview=FitH
-}
