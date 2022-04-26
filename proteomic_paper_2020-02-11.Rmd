@@ -164,8 +164,7 @@ Spinal Cord Injury (SCI) is a major cause of disability, with complications post
 
 Methods and Materials 
 
-<!-- Karinas note: Define --> 
-Blood samples were taken, following informed consent, from **AIS grade C "Improvers" (AIS grade improvement) and "Non-Improvers" (No AIS change), and AIS grade A and D at <2 weeks ("Acute") and approx. 3 months ("Sub-acute") post-injury. The total protein concentration from each sample was extracted, with pooled samples being labelled and non-pooled samples treated with ProteoMiner&trade; beads. Samples were then analysed using two 4-plex isobaric tag for relative and absolute quantification (iTRAQ) analyses and a label-free experiment for comparison, before quantifying with mass spectrometry. Proteomic datasets were analyses using **bioinformatics… 
+Blood samples were taken, following informed consent, from ASIA impairment scale (AIS) grade C "Improvers" (AIS grade improvement) and "Non-Improvers" (No AIS change), and AIS grade A and D at <2 weeks ("Acute") and approx. 3 months ("Sub-acute") post-injury. The total protein concentration from each sample was extracted, with pooled samples being labelled and non-pooled samples treated with ProteoMiner&trade; beads. Samples were then analysed using two 4-plex isobaric tag for relative and absolute quantification (iTRAQ) analyses and a label-free experiment for comparison, before quantifying with mass spectrometry. Proteomic datasets were analysed using **bioinformatics…** 
 
 <!-- Karinas note: In brief description needed here -->
 
@@ -181,7 +180,7 @@ The data demonstrated proteomic differences between the cohorts, with the result
 
 Conclusions
 
-Many of the proteins of interest identified using proteomics were detected only in a single group and therefore have potential as a binary (present or absent) biomarkers. Additional investigations into the chronology of these proteins, and their levels in other tissues (cerebrospinal fluid in particular) are needed to better understand the underlying pathophysiology, including any potentially modifiable targets. The complement cascasde was confirmed using pathway analysis **as…
+Many of the proteins of interest identified using proteomics were detected only in a single group and therefore have potential as a binary (present or absent) biomarkers. Additional investigations into the chronology of these proteins, and their levels in other tissues (cerebrospinal fluid in particular) are needed to better understand the underlying pathophysiology, including any potentially modifiable targets. **The complement cascasde was confirmed using pathway analysis as…**
 
 <!-- Karina's note: Expand on this if it is going to form the main narrative --> 
 
@@ -193,7 +192,7 @@ Patients typically require extensive medical, rehabilitative and social care at 
 Individuals with SCI show markedly higher rates of mental illness relative to the general population.[@furlan_health_2017]
 Complications arising post-SCI can be long-lasting and often include pain, spasticity and cardiovascular disease, where the systemic inflammatory response that follows SCI can frequently result in organ complications, particularly in the liver and kidneys.[@gris_systemic_2008; @sun_multiple_2016] 
 
-- I need to add a reference here - 
+<!-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4303786/ -->
 
 The recovery of neurological function post-SCI is highly variable, requiring any clinical trials to have an impractically large sample size to prove efficacy, hence the translation of novel efficacious therapies is challenging and expensive.[@spiess_conversion_2009]
 Being able to more accurately predict patient outcomes would aid clinical decisions and facilitate future clinical trials. Therefore, novel biomarkers that allow for stratification of injury severity and capacity for neurological recovery would be of high value to the field.
@@ -201,7 +200,7 @@ Being able to more accurately predict patient outcomes would aid clinical decisi
 Biomarkers studies in SCI often investigate protein changes in cerebral spinal fluid (CSF) as the closer proximity of this medium is thought to be more reflective of the parenchymal injury.[@kwon_neurochemical_2019; @hulme_developing_2017]
 Whilst this makes CSF potentially more informative for elucidating the pathology of SCI, the repeated use of CSF for routine analysis presents challenges in clinical care due to the risk and expense associated with the invasiveness of the collection procedure. In contrast, systemic biomarkers measurable in the blood represent a source of information that can be accessed and interpreted both a lower cost and risk. Studies of traumatic brain injury have demonstrated that protein markers identified in CSF are also detectable in both plasma and serum.[@wang_update_2018] More recently, circulating white blood cell populations have also been identified as potential SCI injury biomarkers, with a 2021 study showing that elevated levels of neutrophils were associated with no AIS grade conversion, while conversely an increase in lymphocytes during the first week post-SCI were associated with an AIS grade improvement. 
 
-- Another Reference - 
+<!-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8631147/ -->
 
 A number of individual proteins have been shown to be altered in the bloods post-SCI, including multiple interleukins (IL), tumour necrosis factor alpha (TNF-$\alpha$) and C-reactive protein (CRP).[@segal_circulating_1997; @hayes_elevated_2002; @frost_inflammatory_2005] 
 
@@ -279,11 +278,7 @@ Blood samples were taken from SCI patients who had provided informed consent and
 
 ## Plasma collection and storage
 
-Plasma samples were collected within 2 weeks of injury (acute) and at approximately 3 months post-injury (subacute). Upon collection in **EDTA 
-
-<!-- define --> 
-
-coated tubes samples were centrifuged at 600g for 15 minutes, to pellet erythrocytes and the resultant plasma fraction was aspirated and divided into aliquots for long-term storage in -80&deg;C briefly and liquid nitrogen in the longer term.
+Plasma samples were collected within 2 weeks of injury (acute) and at approximately 3 months post-injury (subacute). Upon collection in EDTA (ethylenediaminetetraacetic acid) coated tubes samples were centrifuged at 600g for 15 minutes, to pellet erythrocytes and the resultant plasma fraction was aspirated and divided into aliquots for long-term storage in -80&deg;C briefly and liquid nitrogen in the longer term.
 
 ## Sample preparation and analysis using iTRAQ proteomics {#itraq-sample-prep}
 
@@ -306,22 +301,10 @@ The following tags were used for each group of patient samples 114 tag - acute i
 
 The samples were analysed at the BSRC St. Andrews University Mass Spectrometry and Proteomics Facility using methods previously described. 
 
-<!-- take out --> 
-iTRAQ-labelled peptides were re-suspended in $0.6 ml$ of loading buffer ($10 mM$ monopotassium phosphate [KH~2~PO~4~], 20% acetonitrile [MeCN], pH 3.0), followed by sonication.
-The pH was adjusted to $3.0$ with $0.5 M$ orthophosphoric acid (H~3~PO~4~).
-The peptides were separated by strong cation exchange chromatography (SCX) on a PolySulfoethyl A column ($200 mm$ x $2.1 mm$, $5\mu l$, $200 nm$ pore size, PolyLC, Columbia, MD, USA).
-The column was washed with 100% buffer Ascx at $1 ml$ min$^{-1}$ for 22 minutes so the optical density on the ultraviolet chromatogram would return to baseline.
-A gradient of 0–50% Bscx (10 mM [KH~2~PO~4~], 20% MeCN, $500 mM$ KCl, pH 3.0) was applied for 20 minutes, 50–100% Bscx for 3 minutes, followed by 100% Bscx for another 3 minutes to wash the column, prior to re-equilibration in 100% Ascx for a further 11 minutes.
-Fractions ($0.5 mL$) were collected every 30 seconds for total of 12 fractions, which were then desalted on C18 spin columns (PepClean C18 spin columns, ThermoFisher Scientific, Waltham, MA, USA) using the manufacturer's instructions, eluting in $20\mu l$ of 70% MeCN.
-The elution solvent was removed by vacuum concentration and the fractions re-suspended in $20 \mu l$ of 0.1% formic acid (FA) prior to mass spectrometric analysis.
-<!-- take out end --> 
-
-#### Mass spectromety analysis
-
 A total of 12 SCX fractions were analysed by nano-electrospray ionisation-liquid chromatography/tandem mass spectrometry (LC-MS/MS) using a TripleTOF 5600 tandem mass spectrometer (AB Sciex, Framingham, MA, USA) as described previously.[@fuller_stathmin_2015]
 
 <!-- Karinas note: This whole section below- try to re-write in brief -->
-
+**SECTION TO BE REWRITTEN** 
 Each fraction ($10 \mu l$) was then analysed by nanoflow LC-ESI–MSMS. The peptides were separated using a nanoLC Ultra 2D plus loading pump and nanoLC AS-2 autosampler chromatography system (Eksigent, Redwood City, CA, USA), using a PepMap RSLC column ($75\mu l$ x $15 cm$) and an Acclaim PepMap100 trap ($100\mu m$ x $2 cm$) (ThermoFisher Scientific, Waltham, MA, USA).
 After washing the peptides on the trap column for 20 minutes at $5\mu L$ min$^{-1}$, the trap was switched in line with the column and the peptides eluted with a gradient of increasing MeCN from 95% buffer A (98% H~2~O, 2% MeCN, 0.1% FA), 5% buffer B (2% H~2~O, 98% MeCN, 0.1% FA) to 65% buffer A, 35% buffer B over 60 minutes, then to 50% buffer A, 50% buffer B over a further 20 minutes, before increasing the concentration of buffer B to 95% over a further 10 minutes.
 The column was then washed with 95% buffer B before re-equilibration in 95% buffer A. A flow rate of $300 nL$ min$^{-1}$ was employed. The eluent was sprayed into a TripleTOF 5600 tandem mass spectrometer (ABSciex, Foster City, CA, USA), using a NANOSpray III source, and analyzed in Information Dependent Acquisition (IDA) mode, performing $250 ms$ of MS followed by $100 ms$ MSMS analyses on the 20 most intense peaks with a charge state of +2 to +5. 
@@ -338,36 +321,19 @@ The supernatant was centrifuged through a 0.22 $\mu m$ cellulose acetate membran
 Total protein was quantitated with a Pierce&trade; $660 nm$ Protein Assay (Thermo Fisher Scientific, Hemel Hempstead, UK), whereupon 5 mg of total protein was applied to ProteoMiner&trade; beads, and processed as described previoulsly.[@stoscheck_protein_1987]
 3.7.3.2	LC separation and Quadrupole-Orbitrap instrument
 
-#### LC separation and Quadrupole-Orbitrap instrument
+#### Label free mass spectrometry analysis
 
-Tryptic peptides were subjected to LC-MC/MC via a 2-h gradient on a NanoAcquity&trade; ultraperformance LC (Waters, Manchester, UK) connected to a Q-Exactive Quadrupole-Orbitrap instrument (Thermo-Fisher Scientific Hemel Hempstead, UK) as described **previously. 
+Tryptic peptides were subjected to LC-MC/MC via a 2-h gradient on a NanoAcquity&trade; ultraperformance LC (Waters, Manchester, UK) connected to a Q-Exactive Quadrupole-Orbitrap instrument (Thermo-Fisher Scientific Hemel Hempstead, UK) as described **previously**. 
 
 <!-- Karinas note: Include Hulme and/or Peffers ref --> 
 
 <!-- Karinas note: Try to rewrite the below section in brief --> 
-
+**REWRITE IN BRIEF** 
 The Q-Exactive was operated in a data dependent positive electrospray ionisation mode, automatically switching between full scan MS and MS/MS acquisition.
 Survey full scan MS spectra (*m/z* 300–2000) were acquired in the Orbitrap with 70,000 resolution (*m/z* 200) following accumulation of ions to $1\times 10^6$ target value based on the predictive automatic gain control values from the previous full scan.
 Dynamic exclusion was set to 20s, the 10 most intense multiply charged ions ($z \geq 2$) were sequentially isolated and fragmented in the octopole collision cell by higher energy collisional dissociation (HCD), with a fixed injection time of 100ms and 35,000 resolution.
 The following mass spectrometric conditions were used: spray voltage, 1.9kV, no sheath or axillary gas flow; normalised HCD collision energy 30%; heated capillary temperature, 250&deg;C.
 MS/MS ion selection threshold was set to $1\times 10^4$ count and 2Da isolation width was set.
-
-### iTRAQ data processing {#itraq-stats}
-
-<!--- Karina got rid of this whole section ---> 
-
-Data analyses were performed with the statistical programming language `r R.version$version.string`, please see table \@ref(tab:package-table) for a list of packages used and the respective version numbers.[@base; @bibtex; @BiocManager; @bookdown; @captioner; @data.table; @datasets; @DiagrammeR; @forcats; @Formula; @ggVennDiagram; @glmnet1; @graphics; @grDevices; @Hmisc; @kableExtra; @knitr3; @lime; @lubridate; @Matrix; @methods;@MSstats; @naniar; @psych; @purrr; @RColorBrewer; @ReactomePA; @readxl; @remotes; @rlang; @stats; @STRINGdb; @stringr; @survival1; @survival2; @tidyverse; @utils; @zoo]
-
-The mass spectrometry data files were combined and analysed using the ProteinPilot 4.5 software with the Paragon$^{TM}$ and ProGroup$^{TM}$ algorithms (ABSciex) against human protein sequences in the SwissProt database.
-Searches were performed with the default iTRAQ settings in ProteinPilot.
-The cleavage enzyme was set to Trypsin and MMTS modification of cysteines with a "Thorough ID" search effort.
-ProteinPilot's Bias correcting setting was used, which assumes no change in protein abundance between groups.
-Detected proteins were reported with a Protein Threshold [Unused ProtScore (confidence)] >0.05 and included in the quantitative analysis if identified with two or more peptides with >95% confidence.
-False Discovery Rate (FDR) analysis was also performed using the ProteinPilot.
-ProteinPilot calculated P-values for the iTRAQ ratios and those with P > 0.05 were considered statistically significant.
-Proteins with iTRAQ ratios $\ge\pm1.2$ fold change (FC) were used for network analysis.
-
-<!--- up to here ---> 
 
 ### iTraq OpenMS analysis {#openms-chap3}
 
@@ -442,7 +408,11 @@ The Bioconductor package ReactomePA, which employs the open-source, open access,
 
 ## Results {#chap-3-results}
 
-In the interest of brevity, only the plots of acute and subactue AIS C improvers VS non-improvers are included here, please see the appendix for the other comparisons (section \@ref(appen-itraq)).
+Plasma from American Spinal Injury Association (ASIA) grade C SCI patients (total n=17) contrasting those who experienced an AISA grade conversion (n=10), and those who did not (n=7) collected within 2 weeks, and at approximately 3 months post-injury (Improvers n=9 vs Non-improvers n=6). Relative protein expression in AIS grade A (n=10) and grade D (n=11) patients was also examined. 
+
+In the interest of brevity, only the plots of acute and subactue AIS C improvers VS non-improvers are included here, please see the **appendix** for the other comparisons (section \@ref(appen-itraq)).
+
+<!-- Karina: have you prepared the appendix? --> 
 
 ```{r}
 ## read in OpenMS data
@@ -570,7 +540,8 @@ updown_compare <- map(unique(pp_long$comparison),
 names(updown_compare) <- unique(pp_long$comparison)
 ```
 
-A total of `r nrow(fc_openms_wide)` and `r nrow(pp_fc_filtered)` unique, largely overlapping, proteins were identified across both runs for OpenMS and ProteinPilot respectively, though OpenMS consistently produced more proteins for each group (Tables \@ref(tab:openms-fc-table), \@ref(tab:proteinpilot-fc-table) and Figure \@ref(fig:openms-pp-venn)).
+<!-- not included in karinas edit --> 
+
 AIS C improvers had `r as.numeric(protein_up[(protein_up$piv_wide == "Acute AIS C improvers vs non-improvers"), 2])` more abundant proteins, and `r as.numeric(protein_down[(protein_down$piv_wide == "Acute AIS C improvers vs non-improvers"), 2])` less abundant proteins at the acute phase with OpenMS, as opposed to `r as.numeric(pp_updown[(pp_updown$piv_wide == "Acute AIS C improvers vs non-improvers"),3][2,])` and `r as.numeric(pp_updown[(pp_updown$piv_wide == "Acute AIS C improvers vs non-improvers"),3][1,])` with ProteinPilot (Figure \@ref(fig:openms-pp-updown)).
 At the subacute phase, AIS C improvers had `r as.numeric(protein_up[(protein_up$piv_wide == "Subacute AIS C improvers vs non-improvers"), 2])` and `r as.numeric(pp_updown[(pp_updown$piv_wide == "Subacute AIS C improvers vs non-improvers"),3][2,])` proteins of increased abundance were found, whereas `r as.numeric(protein_down[(protein_down$piv_wide == "Subacute AIS C improvers vs non-improvers"), 2])` and `r as.numeric(pp_updown[(pp_updown$piv_wide == "Subacute AIS C improvers vs non-improvers"),3][1,])` proteins were less abundant, for OpenMS and ProteinPilot respectively (Figure \@ref(fig:openms-pp-updown)).
 
@@ -614,7 +585,7 @@ kbl(pp_fc_filtered, "latex", longtable = T, booktabs = T,
 
 (ref:openms-pp-venn) Venn diagram of the overlap in unique proteins identified from analysis with ProteinPilot and OpenMS respectively on data from 2 4-plex iTRAQ experiments.
 
-```{r, label='openms-pp-venn', fig.cap='(ref:openms-pp-venn)', fig.align = "center", out.width="60%"}
+```{r, label='openms-pp-venn', fig.cap='(ref:openms-pp-venn)', fig.align = "center", eval = FALSE, out.width="60%"}
 ## make list of proteins from each
 x <- list(OpenMS = fc_openms_wide$gene, ProteinPilot = pp_fc_filtered$Protein)
 ## plot
@@ -625,7 +596,7 @@ ggVennDiagram(x, label_alpha = 0) +
 
 (ref:openms-pp-updown) The number of proteins found to be up- or down-regulated via ProteinPilot and OpenMS.
 
-```{r, label='openms-pp-updown', fig.cap='(ref:openms-pp-updown)'}
+```{r, label='openms-pp-updown', fig.cap='(ref:openms-pp-updown)', eval = FALSE}
 ## rbind data
 updown <- rbind(openms_updown, pp_updown) %>%
     dplyr::filter(!grepl("CROSS", piv_wide))
@@ -645,6 +616,7 @@ updown %>%
 \clearpage
 
 ### STRINGdb network plots
+<!-- sup. material --> 
 
 Network interaction plots generated from the OpenMS processed data via `STRINGdb` revealed that all test groups contained similar proteins, albeit with different abundances, with no distinct group-specific networks observed (Figures \@ref(fig:openms-stringdb-acute-c-imp-vs-non), \@ref(fig:openms-stringdb-sub-cs), \@ref(fig:openms-stringdb-acute-sub-c-imp), \@ref(fig:openms-stringdb-acute-sub-c-nonimp), \@ref(fig:openms-stringdb-a-vs-d), \@ref(fig:openms-stringdb-c-vs-d), \@ref(fig:openms-stringdb-c-vs-a), \@ref(fig:openms-stringdb-c-nonimp-vs-a) and \@ref(fig:openms-stringdb-c-nonimp-vs-d)).
 Clustering of these networks produced three groups of differentially expressed proteins in acute AIS C improvers compared to non-improvers (Figure \@ref(fig:openms-stringdb-cluster-acute-c-imp-vs-non)).
@@ -673,13 +645,18 @@ knitr::include_graphics("figures/openms_protein_quantification/stringdb_plots/ac
 ```{r, label='openms-stringdb-sub-cs', fig.cap='(ref:openms-stringdb-sub-cs)', out.width="1\\linewidth"}
 knitr::include_graphics("figures/openms_protein_quantification/stringdb_plots/subacute_c_improvers_vs_nonimprovers_run1_2021-03-23.png")
 ```
+### iTRAQ analyses 
+
+### Differential protein abundances 
+
+AIS C improvers had 18 more abundant proteins and 49 less abundant proteins at the acute phase, at the subacute phase, AIS C improvers had 34 more abundant proteins and 34 less abundant proteins. The AIS A group had 56 more abundant and 9 less abundant proteins respectively. Acutely, AIS C improvers relative to AIS A and D had 21 and 53 more abundant and 46 and 12 less abundant proteins. Please see the appendix for a full list of protein changes. 
 
 ### Heatmaps {#heatmaps-chap3}
 
-The majority of the pathways associated with the proteins identified by these iTRAQ experiments are related to the complement cascade and clotting via platelets (Figure \@ref(fig:openms-hmap-acute-c-1), \@ref(fig:openms-hmap-subacute-c-1), \@ref(fig:openms-hmap-acute-sacute-imp-c-1), \@ref(fig:openms-hmap-acute-sacute-nonimp-c-1), \@ref(fig:openms-hmap-acute-c-2), \@ref(fig:openms-hmap-acute-a-d-2), \@ref(fig:openms-hmap-acute-imp-c-d-2), \@ref(fig:openms-hmap-acute-imp-c-a-2), \@ref(fig:openms-hmap-acute-nonimp-c-a-2), \@ref(fig:openms-hmap-acute-nonimp-c-d-2)).
+The majority of the pathways associated with the proteins identified by these iTRAQ experiments are related to the complement cascade and platelet activity (Figure \@ref(fig:openms-hmap-acute-c-1), \@ref(fig:openms-hmap-subacute-c-1), \@ref(fig:openms-hmap-acute-sacute-imp-c-1), \@ref(fig:openms-hmap-acute-sacute-nonimp-c-1), \@ref(fig:openms-hmap-acute-c-2), \@ref(fig:openms-hmap-acute-a-d-2), \@ref(fig:openms-hmap-acute-imp-c-d-2), \@ref(fig:openms-hmap-acute-imp-c-a-2), \@ref(fig:openms-hmap-acute-nonimp-c-a-2), \@ref(fig:openms-hmap-acute-nonimp-c-d-2)).
 There are also several pathways implicated in metabolic processes, particularly with apolipoproteins and retinoids.
 
-Please see appendix section \@ref(appen-itraq-hmap) for additional plots.
+<!-- Please see appendix section \@ref(appen-itraq-hmap) for additional plots. -->
 
 \blandscape
 
@@ -703,10 +680,10 @@ heatmap$subacute_c_improvers_vs_nonimprovers_run1
 
 ### Cnetplots {#cnetplot-chap3}
 
-Similar to the heatmaps, network plots highlight the majority of proteins are associated with the complement cascade and pathways linked to platelets (Figure \@ref(fig:openms-cnetp-acute-c-1), \@ref(fig:openms-cnetp-subacute-c-1), \@ref(fig:openms-cnetp-acute-sacute-imp-c-1), \@ref(fig:openms-cnetp-acute-sacute-nonimp-c-1), \@ref(fig:openms-cnetp-acute-c-2), \@ref(fig:openms-cnetp-acute-a-d-2), \@ref(fig:openms-cnetp-acute-imp-c-d-2), \@ref(fig:openms-cnetp-acute-imp-c-a-2), \@ref(fig:openms-cnetp-acute-nonimp-c-a-2), \@ref(fig:openms-cnetp-acute-nonimp-c-d-2)).
-Several proteins are also associated with the regulation of insulin-like growth factor.
+Similar to the heatmaps, network plots highlighted that the majority of proteins changes were associated with the complement cascade and pathways linked to platelet activity (Figure \@ref(fig:openms-cnetp-acute-c-1), \@ref(fig:openms-cnetp-subacute-c-1), \@ref(fig:openms-cnetp-acute-sacute-imp-c-1), \@ref(fig:openms-cnetp-acute-sacute-nonimp-c-1), \@ref(fig:openms-cnetp-acute-c-2), \@ref(fig:openms-cnetp-acute-a-d-2), \@ref(fig:openms-cnetp-acute-imp-c-d-2), \@ref(fig:openms-cnetp-acute-imp-c-a-2), \@ref(fig:openms-cnetp-acute-nonimp-c-a-2), \@ref(fig:openms-cnetp-acute-nonimp-c-d-2)).
+Several proteins were also associated with the regulation of insulin-like growth factor.
 
-Please see appendix section \@ref(appen-itraq-cnet) for additional plots.
+<!-- Please see appendix section \@ref(appen-itraq-cnet) for additional plots. -->
 
 \blandscape
 
@@ -729,6 +706,20 @@ cnetplot$subacute_c_improvers_vs_nonimprovers_run1
 
 \clearpage
 
+### Pathway analysis {#kegg-chap3}
+
+Pathway analysis via the `pathview` R package returned the complement and coagulation cascade to be on the sole significant KEGG pathway to derive from the OpenMS analysed data.
+The majority of the proteins present in this pathway were less abundant in the 2-week post-injury plasma of AIS C patients who experienced an AIS grade conversion and those who did not (Figure \@ref(fig:kegg-complement).
+
+(ref:kegg-complement) KEGG complement cascade pathway annotated with log$_2$ fold change of proteins in plasma collected 2-weeks post-injury. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not.
+
+```{r, label='kegg-complement', fig.cap='(ref:kegg-complement)', fig.align="center"}
+knitr::include_graphics("figures/kegg_pathways/hsa04610_pathview.png")
+```
+
+\clearpage
+
+
 ### ELISAs
 
 No statistically significant difference between groups for A2M abundance in plasma via DuoSet&reg ELISAs, though there were outliers in the AIS A and D groups, and particularly in the AIS C patients at 3-months who did not experience an AIS grade conversion (Figure \@ref(fig:elisa-sig-plots1)).
@@ -738,39 +729,18 @@ A statistically significant difference was also found between AIS C improvers an
 
 \clearpage
 
-(ref:elisa-sig-plots1) Normalised estimated concentration of $\alpha$-2-macroglobulin. Estimates were calculated from the optical density of a standard curve produced via a DuoSet&reg ELISA. Plasma from each patient that made up the pooled iTRAQ samples was assayed and pairwise t-tests with bonferroni adjusted P-values were preformed to assess differential abundance.
-
-```{r, label='elisa-sig-plots1', fig.cap='(ref:elisa-sig-plots1)'}
-elisa_sig_plots <- readRDS("data/elisas/sig_plots_2021-03-16.rds")
-elisa_sig_plots[[1]]
-```
-
-(ref:elisa-sig-plots2) Normalised estimated concentration of serum amyloid A1. Estimates were calculated from the optical density of a standard curve produced via a DuoSet&reg ELISA. Plasma from each patient that made up the pooled iTRAQ samples was assayed and pairwise t-tests with bonferroni adjusted P-values were preformed to assess differential abundance.
-
-```{r, label='elisa-sig-plots2', fig.cap='(ref:elisa-sig-plots2)'}
-elisa_sig_plots[[2]]
-```
-
-(ref:elisa-sig-plots3) Normalised estimated concentration of apolipoprotein A1. Estimates were calculated from the optical density of a standard curve produced via a Quantikine&reg ELISA. Plasma from each patient that made up the pooled iTRAQ samples was assayed and pairwise t-tests with bonferroni adjusted P-values were preformed to assess differential abundance.
-
-```{r, label='elisa-sig-plots3', fig.cap='(ref:elisa-sig-plots3)'}
-elisa_sig_plots[[3]]
-```
-
-(ref:elisa-sig-plots4) Normalised estimated concentration of retinol binding protein 4. Estimates were calculated from the optical density of a standard curve produced via a DuoSet&reg ELISA. Plasma from each patient that made up the pooled iTRAQ samples was assayed and pairwise t-tests with bonferroni adjusted P-values were preformed to assess differential abundance.
-
-```{r, label='elisa-sig-plots4', fig.cap='(ref:elisa-sig-plots4)'}
-elisa_sig_plots[[4]]
-```
-
 #### example of a plot grid
+
+```{r, label='elisa-sig-plots1'}
+elisa_sig_plots <- readRDS("data/elisas/sig_plots_2021-03-16.rds")
+```
 
 There's good documentation for using `cowplot` that can be found [here](https://wilkelab.org/cowplot/articles/plot_grid.html)
 Here's an example using the elisa plots
 
 (ref:plot-grid-example) Example of arranging plots in a grid.
 
-```{r, label='plot-grid-example', fig.width=7, fig.height=7, fig.cap='(ref:elisa-sig-plots4)'}
+```{r, label='plot-grid-example', fig.width=7, fig.height=7, fig.cap='(ref:elisa-sig-plots4)', eval = FALSE}
 plot_grid(plotlist = elisa_sig_plots,
           labels = "AUTO", ncol = 2, axis = "brtl", align = "hv")
 ```
@@ -778,7 +748,7 @@ plot_grid(plotlist = elisa_sig_plots,
 Alternative with `patchwork`, docs [here](https://patchwork.data-imaginist.com/index.html)
 Could be improved by cleaning up the x axis, either reduce font size or rotate labels 45 or 90 degrees
 
-```{r, label='patchwork-example'}
+```{r, label='patchwork-example', eval = FALSE}
 ## add plots together
 patchwork_plots <- Reduce("+",elisa_sig_plots)
 
@@ -796,6 +766,9 @@ patchwork_plots +
 ```
 
 Maybe better in this orientation
+
+Normalised estimated concentration of $\alpha$-2-macroglobulin (A), serum amyloid A1 (B), apolipoprotein A1 (C) and retinol binding protein 4 (D). Estimates were calculated from the optical density of a standard curve produced via a DuoSet&reg; ELISA. Plasma from each patient that made up the pooled iTRAQ samples was assayed and pairwise t-tests with bonferroni adjusted P-values were performed to assess differential abundance.
+
 
 ```{r, label='patchwork-2', fig.height = 10}
 patchwork_plots <- Reduce("/",elisa_sig_plots)
@@ -818,22 +791,8 @@ patchwork_plots +
   plot_annotation(tag_levels = 'A')
 ```
 
-### Pathway analysis {#kegg-chap3}
-
-Pathway analysis via the `pathview` R package returned the complement and coagulation cascade to be on the sole significant KEGG pathway to derive from the OpenMS analysed data.
-The majority of the proteins present in this pathway were less abundant in the 2-week post-injury plasma of AIS C patients who experienced an AIS grade conversion and those who did not (Figure \@ref(fig:kegg-complement).
-
-(ref:kegg-complement) KEGG complement cascade pathway annotated with log$_2$ fold change of proteins in plasma collected 2-weeks post-injury. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not.
-
-```{r, label='kegg-complement', fig.cap='(ref:kegg-complement)', fig.align="center"}
-knitr::include_graphics("figures/kegg_pathways/hsa04610_pathview.png")
-```
-
-\clearpage
-
 ## Label-free results {#chap-4-results}
-
-In the interest of brevity, only the plots of acute and subactue AIS C improvers VS non-improvers are included here, please see the appendix for the other comparisons (section \@ref(appen-labelfree)).
+<!-- not included? -->
 
 ```{r, label='load-fc-data-chap4'}
 load("data/label_free_openms_foldchange_df.rda")
@@ -865,11 +824,11 @@ pos_neg <- map(groups, ~ pos_neg_filter(.x, foldchange_df))
 names(pos_neg) <- groups
 ```
 
-The data processed by `MSstats` was filtered to proteins with a adjusted P-value of < 0.05 and a log$_2$ FC of > $\pm1.2$.
-The total number of significant proteins is `nrow(foldchange_df)`.
+<!-- The data processed by `MSstats` was filtered to proteins with a adjusted P-value of < 0.05 and a log$_2$ FC of > $\pm1.2$.
+The total number of significant proteins is `nrow(foldchange_df)`. --> 
 
 ### Volcano plots
-
+<!-- sup. material -->
 The mean number of down-regulated and up-regulated significant proteins in each group is `r mean(fc_summary_df$down_reg)`, and `r mean(fc_summary_df$up_reg)`.
 Between AIS C improvers and non-improvers, `r nrow(pos_neg$acute_c_imp_vs_acute_c_nonimp$pos)` and `r nrow(pos_neg$acute_c_imp_vs_acute_c_nonimp$neg)` proteins were up- and down-regulated acutely, whereas `r nrow(pos_neg$subacute_c_imp_vs_subacute_c_nonimp$pos)` and `r nrow(pos_neg$subacute_c_imp_vs_subacute_c_nonimp$neg)` were up- and down-regulated subacutely (Figures \@ref(fig:volc-plot-c-imp-vs-nonimp) and \@ref(fig:volc-plot-subacute-c-imp-vs-nonimp)).
 Longitudinally, AIS C acute improvers had `r nrow(pos_neg$acute_c_imp_vs_subacute_c_imp$pos)` up-regulated and `r nrow(pos_neg$acute_c_imp_vs_subacute_c_imp$neg)` down-regulated proteins relative to subacute improvers, while for non-improvers `r nrow(pos_neg$acute_c_nonimp_vs_subacute_c_nonimp$pos)` and `r nrow(pos_neg$acute_c_nonimp_vs_subacute_c_nonimp$neg)` were up- and down-regulated respectively (Figures \@ref(fig:volc-plot-acute-c-imp-vs-subacute-imp) and \@ref(fig:volc-plot-acute-c-nonimp-vs-subacute-nonimp)).
@@ -899,7 +858,7 @@ knitr::include_graphics("figures/openms_protein_quantification/label_free/openms
 ```
 
 ### STRINGdb network plots
-
+<!-- sup. material --> 
 Network interaction plots generated of the significant proteins via `STRINGdb` revealed that all groups contained similarly smaller networks, with many proteins with no know interactions in the STRING database (Figures \@ref(fig:openms-stringdb-chap4-acute-c-imp-vs-nonimp), \@ref(fig:openms-stringdb-chap4-sub-cs), \@ref(fig:openms-stringdb-chap4-acute-sub-c-imp), \@ref(fig:openms-stringdb-chap4-acute-sub-c-nonimp), \@ref(fig:openms-stringdb-chap4-a-vs-d), \@ref(fig:openms-stringdb-chap4-c-vs-d), \@ref(fig:openms-stringdb-chap4-c-vs-a), \@ref(fig:openms-stringdb-chap4-c-nonimp-vs-a), \@ref(fig:openms-stringdb-chap4-c-nonimp-vs-d).
 
 Clustering of these plots furhter highlights the smaller groups of interacting proteins, many of which are linear networks of proteins interacting in a chain (Figures \@ref(fig:openms-stringdb-cluster-chap4-acute-c-imp-vs-nonimp), \@ref(fig:openms-stringdb-cluster-chap4-sub-c-imp-vs-nonimp), \@ref(fig:openms-stringdb-cluster-chap4-acute-sub-c-imp), \@ref(fig:openms-stringdb-cluster-chap4-acute-sub-c-nonimp), \@ref(fig:openms-stringdb-cluster-chap4-a-vs-d), \@ref(fig:openms-stringdb-cluster-chap4-c-vs-a), \@ref(fig:openms-stringdb-cluster-chap4-c-vs-d), \@ref(fig:openms-stringdb-cluster-chap4-c-nonimp-vs-a), \@ref(fig:openms-stringdb-cluster-chap4-c-nonimp-vs-d)).
@@ -924,9 +883,9 @@ knitr::include_graphics("figures/openms_protein_quantification/label_free/string
 
 ### Heatmaps
 
-Similarly to the iTRAQ data (\@ref(heatmaps-chap3)), many of the Reactome pathways are associated with the complement cascade, platelets and clotting (Figures \@ref(fig:openms-chap4-hmap-acute-c-1), \@ref(fig:openms-chap4-hmap-subacute-c-1), \@ref(fig:openms-chap4-hmap-acute-sacute-imp-c-1), \@ref(fig:openms-chap4-hmap-acute-sacute-nonimp-c-1), \@ref(fig:openms-chap4-hmap-acute-a-d-2), \@ref(fig:openms-chap4-hmap-acute-imp-c-d-2), \@ref(fig:openms-chap4-hmap-acute-imp-c-a-2), \@ref(fig:openms-chap4-hmap-acute-nonimp-c-a-2), \@ref(fig:openms-chap4-hmap-acute-nonimp-c-d-2)).
+Similarly to the iTRAQ data (\@ref(heatmaps-chap3)), many of the Reactome pathways are associated with the complement cascade and platelets activation (Figures \@ref(fig:openms-chap4-hmap-acute-c-1), \@ref(fig:openms-chap4-hmap-subacute-c-1), \@ref(fig:openms-chap4-hmap-acute-sacute-imp-c-1), \@ref(fig:openms-chap4-hmap-acute-sacute-nonimp-c-1), \@ref(fig:openms-chap4-hmap-acute-a-d-2), \@ref(fig:openms-chap4-hmap-acute-imp-c-d-2), \@ref(fig:openms-chap4-hmap-acute-imp-c-a-2), \@ref(fig:openms-chap4-hmap-acute-nonimp-c-a-2), \@ref(fig:openms-chap4-hmap-acute-nonimp-c-d-2)).
 
-Please see appendix section \@ref(appen-labelfree-hmap) for additional plots.
+<!-- Please see appendix section \@ref(appen-labelfree-hmap) for additional plots. --> 
 
 \blandscape
 
@@ -952,9 +911,9 @@ heatmap$subacute_c_imp_vs_subacute_c_nonimp
 
 ### Cnetplots
 
-Similarly to the heatmaps and the iTRAQ data (\@ref(cnetplot-chap3)),network plots highlight the majority of proteins are associated with the complement cascade and pathways linked to platelets (Figures \@ref(fig:openms-chap4-cnetp-acute-c-1), \@ref(fig:openms-chap4-cnetp-subacute-c-1), \@ref(fig:openms-chap4-cnetp-acute-sacute-imp-c-1), \@ref(fig:openms-chap4-cnetp-acute-sacute-nonimp-c-1), \@ref(fig:openms-chap4-cnetp-acute-a-d-2), \@ref(fig:openms-chap4-cnetp-acute-imp-c-d-2), \@ref(fig:openms-chap4-cnetp-acute-imp-c-a-2), \@ref(fig:openms-chap4-cnetp-acute-nonimp-c-a-2), \@ref(fig:openms-chap4-cnetp-acute-nonimp-c-d-2)).
+Similarly to the heatmaps and the iTRAQ data (\@ref(cnetplot-chap3)),network plots highlight the majority of differential proteins are associated with the complement cascade and pathways linked to platelets (Figures \@ref(fig:openms-chap4-cnetp-acute-c-1), \@ref(fig:openms-chap4-cnetp-subacute-c-1), \@ref(fig:openms-chap4-cnetp-acute-sacute-imp-c-1), \@ref(fig:openms-chap4-cnetp-acute-sacute-nonimp-c-1), \@ref(fig:openms-chap4-cnetp-acute-a-d-2), \@ref(fig:openms-chap4-cnetp-acute-imp-c-d-2), \@ref(fig:openms-chap4-cnetp-acute-imp-c-a-2), \@ref(fig:openms-chap4-cnetp-acute-nonimp-c-a-2), \@ref(fig:openms-chap4-cnetp-acute-nonimp-c-d-2)).
 
-Please see appendix section \@ref(appen-labelfree-cnet) for additional plots.
+<!-- Please see appendix section \@ref(appen-labelfree-cnet) for additional plots. --> 
 
 \blandscape
 
@@ -980,8 +939,8 @@ cnetplot$subacute_c_imp_vs_subacute_c_nonimp
 
 ### Pathway analysis
 
-As with the iTRAQ data (section \@ref(kegg-chap3)), pathway analysis via the `pathview` R package returned the complement and coagulation cascade to be on the sole significant KEGG pathway.
-The majority of the proteins present in this pathway were less abundant in the 2-week post-injury plasma of AIS C patients who experienced an AIS grade conversion and those who did not, much the same as the iTRAQ data (Figure \@ref(fig:kegg-complement-chap4) and section \@ref(kegg-chap3)).
+Similarly to the iTRAQ pathway analysis (section \@ref(kegg-chap3)), he label free data analysed via the pathview R package returned the complement and coagulation cascade to be the sole significant KEGG pathway derived from the OpenMS analysed data.
+The majority of the proteins present in this pathway were less abundant 2-weeks post-injury in the plasma of AIS C patients who experienced an AIS grade conversion than those who did not (Figure \@ref(fig:kegg-complement-chap4) and section \@ref(kegg-chap3)).
 
 (ref:kegg-complement-chap4) KEGG complement cascade pathway annotated with log$_2$ fold change of proteins in plasma collected 2-weeks post-injury. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not.
 
@@ -991,7 +950,9 @@ knitr::include_graphics("figures/kegg_pathways/hsa04610.pathview_label-free.png"
 
 ### Comparing iTRAQ and label-free proteins
 
-A total of `r length(label_free_proteins)` and `r nrow(fc_openms_wide)` unique proteins were identified across the label-free and iTRAQ experiments respectively, with modest overlap in those identified (Figure \@ref(fig:itraq-label-free-venn)).
+A total of `r length(label_free_proteins)` and `r nrow(fc_openms_wide)` unique proteinswere identified across the label-free and iTRAQ experiments respectively, with a modest overlap of 26 proteins found using both techniques (Figure \@ref(fig:itraq-label-free-venn)).
+
+(bar plot) 
 
 (ref:itraq-label-free-venn) Venn diagram of the overlap in unique proteins identified from iTRAQ and label-free proteomic experiments analysed via OpenMS.
 
