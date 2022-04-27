@@ -766,8 +766,6 @@ patchwork_plots +
   plot_annotation(tag_levels = 'A')
 ```
 
-<!-- not included? -->
-
 ```{r, label='load-fc-data-chap4'}
 load("data/label_free_openms_foldchange_df.rda")
 ## get all unique proteins for venn diagram
@@ -1450,7 +1448,7 @@ knitr::kable(package_table, longtable = TRUE, booktabs = TRUE, caption = "Packag
 
 \clearpage
 
-## Fold changes {#sup=foldchanges}
+## Fold changes {#sup-foldchanges}
 
 ```{r, label='openms-fc-table'}
 ## add "\n" for column line breaks
