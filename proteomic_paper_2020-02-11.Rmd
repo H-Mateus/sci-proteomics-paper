@@ -7,6 +7,7 @@ output:
     keep_tex: yes
     df_print: kable
     template: extras/elife-template.tex
+    #fig_crop: no
     #includes:
       #in_header: "extras/preamble.tex"
       #in_header: "extras/elife_template.tex" # not working as is, needs fixing
@@ -65,6 +66,8 @@ header-includes:
    - \usepackage{pdflscape}
    - \newcommand{\blandscape}{\begin{landscape}}
    - \newcommand{\elandscape}{\end{landscape}}
+   - \usepackage{float} \floatplacement{figure}{H} 
+   - \newcommand{\beginsupplement}{\setcounter{table}{0}  \renewcommand{\thetable}{S\arabic{table}} \setcounter{figure}{0} \renewcommand{\thefigure}{S\arabic{figure}}}
 ---
 
 ```{r setup, include=FALSE}
@@ -272,6 +275,7 @@ knitr::kable(demo_sum, "latex", longtable = TRUE, booktabs = TRUE,
   pack_rows("Neurological level", 7, 9) %>%
   pack_rows("AIS change", 10, 13)
 ```
+
 ## Patients 
 
 Blood samples were taken from SCI patients who had provided informed consent and in accordance to ethical provided by the National Research Ethics Service [NRES] Committee North West Liverpool East [11/NW/0876]. "Improvers" were defined as individuals who experienced an AIS grade improvement from admission to a year post-injury, whereas "non-improvers" were defined as patients who saw no change in AIS grade in the same period.
@@ -319,7 +323,9 @@ Thus, protein abundance was quantified for each sample, whereupon mean protein a
 To reduce the dynamic range of proteins, ProteoMiner&trade; beads (BioRad, Hemel Hempstead, UK) were used. Firstly, plasma was treated with 1 $\mu g/mL$ of hyaluronidase. Digestion was confirmed with Coomassie stained 1D-SDS PAGE gel.
 The supernatant was centrifuged through a 0.22 $\mu m$ cellulose acetate membrane (Costar Spin-X, Corning, Tokyo, Japan) tube filter (5000*g* for 15 minutes) to remove insoluble material.
 Total protein was quantitated with a Pierce&trade; $660 nm$ Protein Assay (Thermo Fisher Scientific, Hemel Hempstead, UK), whereupon 5 mg of total protein was applied to ProteoMiner&trade; beads, and processed as described previoulsly.[@stoscheck_protein_1987]
-3.7.3.2	LC separation and Quadrupole-Orbitrap instrument
+
+<!-- Note MH: dunno what this is  -->
+<!-- 3.7.3.2	LC separation and Quadrupole-Orbitrap instrument -->
 
 #### Label free mass spectrometry analysis
 
@@ -397,6 +403,7 @@ Pairwise t tests with bonferroni adjusted P-values with the R `rstatix` package 
 ### Network and pathway analysis {#pathway-analysis-chap3}
 
 <!-- Karinas note: for this section: Can you please review whether or not these methods reflect what has been included --> 
+<!-- MH note: if we are including the string plots in the supplementary data then all of this is relevant. If we don't include it at all then the first paragraph can be deleted -->
 
 Protein interation networks were created using the Bioconductor package `STRINGdb` which provides an R interface to STRING version 11.[@szklarczyk_string_2019]
 Instantiation of the STRINGdb reference class was done with `species` and `score_threshold` set to `9606`, for *Homo sapiens* , and `400` respectively.
@@ -410,14 +417,16 @@ The Bioconductor package ReactomePA, which employs the open-source, open access,
 
 Plasma from American Spinal Injury Association (ASIA) grade C SCI patients (total n=17) contrasting those who experienced an AISA grade conversion (n=10), and those who did not (n=7) collected within 2 weeks, and at approximately 3 months post-injury (Improvers n=9 vs Non-improvers n=6). Relative protein expression in AIS grade A (n=10) and grade D (n=11) patients was also examined. 
 
-In the interest of brevity, only the plots of acute and subactue AIS C improvers VS non-improvers are included here, please see the **appendix** for the other comparisons (section \@ref(appen-itraq)).
+In the interest of brevity, only the plots of acute and subactue AIS C improvers VS non-improvers are included here, please see the supplemental data for the other comparisons (section \@ref(sup-data)).
 
 <!-- Karina: have you prepared the appendix? --> 
+<!-- MH note: I've made the appendix, but the section references will need to be updated, Iv'e done the ones I've noticed, but a good double check will probably be needed -->
+<!-- Example appendix references: see section \@ref(sup-string-plots) -->
 
 ```{r}
 ## read in OpenMS data
 heatmap <- readRDS("data/openms/reactomepa_heatmaps_quantification_output.rds")
-cnetplot <- readRDS("data/openms/reactomepa_cnetplots_quantification_output_2021-01-18.rds")
+cnetplot_itraq <- readRDS("data/openms/reactomepa_cnetplots_quantification_output_2021-01-18.rds")
 volcano <- readRDS("data/openms/msstats_volcano_plots_boot.rds")
 foldchange_list <- readRDS("data/openms/protein_quantification_foldchanges.rds")
 ## stringdb data
@@ -542,46 +551,13 @@ names(updown_compare) <- unique(pp_long$comparison)
 
 <!-- not included in karinas edit --> 
 
-AIS C improvers had `r as.numeric(protein_up[(protein_up$piv_wide == "Acute AIS C improvers vs non-improvers"), 2])` more abundant proteins, and `r as.numeric(protein_down[(protein_down$piv_wide == "Acute AIS C improvers vs non-improvers"), 2])` less abundant proteins at the acute phase with OpenMS, as opposed to `r as.numeric(pp_updown[(pp_updown$piv_wide == "Acute AIS C improvers vs non-improvers"),3][2,])` and `r as.numeric(pp_updown[(pp_updown$piv_wide == "Acute AIS C improvers vs non-improvers"),3][1,])` with ProteinPilot (Figure \@ref(fig:openms-pp-updown)).
-At the subacute phase, AIS C improvers had `r as.numeric(protein_up[(protein_up$piv_wide == "Subacute AIS C improvers vs non-improvers"), 2])` and `r as.numeric(pp_updown[(pp_updown$piv_wide == "Subacute AIS C improvers vs non-improvers"),3][2,])` proteins of increased abundance were found, whereas `r as.numeric(protein_down[(protein_down$piv_wide == "Subacute AIS C improvers vs non-improvers"), 2])` and `r as.numeric(pp_updown[(pp_updown$piv_wide == "Subacute AIS C improvers vs non-improvers"),3][1,])` proteins were less abundant, for OpenMS and ProteinPilot respectively (Figure \@ref(fig:openms-pp-updown)).
+<!-- AIS C improvers had `r as.numeric(protein_up[(protein_up$piv_wide == "Acute AIS C improvers vs non-improvers"), 2])` more abundant proteins, and `r as.numeric(protein_down[(protein_down$piv_wide == "Acute AIS C improvers vs non-improvers"), 2])` less abundant proteins at the acute phase with OpenMS, as opposed to `r as.numeric(pp_updown[(pp_updown$piv_wide == "Acute AIS C improvers vs non-improvers"),3][2,])` and `r as.numeric(pp_updown[(pp_updown$piv_wide == "Acute AIS C improvers vs non-improvers"),3][1,])` with ProteinPilot (Figure \@ref(fig:openms-pp-updown)). -->
+<!-- At the subacute phase, AIS C improvers had `r as.numeric(protein_up[(protein_up$piv_wide == "Subacute AIS C improvers vs non-improvers"), 2])` and `r as.numeric(pp_updown[(pp_updown$piv_wide == "Subacute AIS C improvers vs non-improvers"),3][2,])` proteins of increased abundance were found, whereas `r as.numeric(protein_down[(protein_down$piv_wide == "Subacute AIS C improvers vs non-improvers"), 2])` and `r as.numeric(pp_updown[(pp_updown$piv_wide == "Subacute AIS C improvers vs non-improvers"),3][1,])` proteins were less abundant, for OpenMS and ProteinPilot respectively (Figure \@ref(fig:openms-pp-updown)). -->
+
+<!-- MH note: I've commented out the above, and I assume the below is the rewritten version, maybe double check it all matches Jess -->
 
 The AIS A group had `r as.numeric(protein_up[(protein_up$piv_wide == "AIS A vs D"), 2])` and `r as.numeric(pp_updown[(pp_updown$piv_wide == "AIS A vs D"),3][2,])` more abundant and `r as.numeric(protein_down[(protein_down$piv_wide == "AIS A vs D"), 2])` and `r as.numeric(pp_updown[(pp_updown$piv_wide == "AIS A vs D"),3][1,])` less abundant proteins respectively.
 Acutely, AIS C improvers relative to AIS A and D had `r as.numeric(protein_up[(protein_up$piv_wide == "AIS C non-improvers vs A"), 2])` and `r as.numeric(protein_up[(protein_up$piv_wide == "AIS C non-improvers vs D"), 2])` more abundant and  `r as.numeric(protein_down[(protein_down$piv_wide == "AIS C non-improvers vs A"), 2])` and `r as.numeric(protein_down[(protein_down$piv_wide == "AIS C non-improvers vs D"), 2])` less abundant for OpenMS, whereas ProteinPilot had `r as.numeric(pp_updown[(pp_updown$piv_wide == "AIS C non-improvers vs A"),3][2,])` and `r as.numeric(pp_updown[(pp_updown$piv_wide == "AIS C non-improvers vs D"),3][2,])` more abundant proteins, and  `r as.numeric(pp_updown[(pp_updown$piv_wide == "AIS C non-improvers vs A"),3][1,])` and `r as.numeric(pp_updown[(pp_updown$piv_wide == "AIS C non-improvers vs D"),3][1,])` less abundant.
-
-\clearpage
-
-```{r, label='openms-fc-table'}
-## add "\n" for column line breaks
-## names(fc_openms_wide) <- unlist(map(names(fc_openms_wide), ~
-##                                                                paste(c(substr(.x, 1, 14),
-##                                                                        substr(.x, 15,nchar(.x))),
-##                                                                      collapse="\n")))
-## names(fc_openms_wide)[1] <- "gene"
-knitr::kable(fc_openms_wide, "latex", longtable = T, booktabs = T,
-             caption = "OpenMS log$_2$ fold changes in the plasma proteome of SCI patients. 'Acute' and 'Subacute' samples collected within 2 week and approximately 3-months post-injury repectively.") %>%
-    kable_styling(latex_options =c("repeat_header"), font_size = 5) %>%
-    column_spec(2:ncol(fc_openms_wide), width = "1.6cm") %>%
-    column_spec(1, width = "0.5cm") %>%
-    ## kable_styling(latex_options =c("scale_down")) %>%
-    landscape()
-```
-
-```{r, label='proteinpilot-fc-table'}
-## print table
-
-kbl(pp_fc_filtered, "latex", longtable = T, booktabs = T,
-    caption = "ProteinPilot fold changes in the plasma proteome of SCI patients. 'Acute' and 'Subacute' samples collected within 2 week and approximately 3-months post-injury repectively.") %>%
-    kable_styling(latex_options =c("repeat_header"), font_size = 6) %>%
-    column_spec(2:ncol(fc_openms_wide), width = "1.6cm") %>%
-    column_spec(1, width = "0.5cm") %>%
-    landscape() #%>%
-    ## column_spec(2:4, width = "4cm") # adding this messes up the scaling and the table is off the page
-## kbl(pp_fc_filtered, "latex", longtable = FALSE, booktabs = TRUE,
-##     caption = "ProteinPilot fold changes in the plasma proteome of SCI patients. 'Acute' and 'Subacute' samples collected within 2 week and approximately 3-months post-injury repectively.") %>%
-##     kable_styling(latex_options =c("scale_down")) %>%
-##     landscape() #%>%
-    ## column_spec(2:4, width = "4cm") # adding this messes up the scaling and the table is off the page
-```
 
 (ref:openms-pp-venn) Venn diagram of the overlap in unique proteins identified from analysis with ProteinPilot and OpenMS respectively on data from 2 4-plex iTRAQ experiments.
 
@@ -615,36 +591,6 @@ updown %>%
 
 \clearpage
 
-### STRINGdb network plots
-<!-- sup. material --> 
-
-Network interaction plots generated from the OpenMS processed data via `STRINGdb` revealed that all test groups contained similar proteins, albeit with different abundances, with no distinct group-specific networks observed (Figures \@ref(fig:openms-stringdb-acute-c-imp-vs-non), \@ref(fig:openms-stringdb-sub-cs), \@ref(fig:openms-stringdb-acute-sub-c-imp), \@ref(fig:openms-stringdb-acute-sub-c-nonimp), \@ref(fig:openms-stringdb-a-vs-d), \@ref(fig:openms-stringdb-c-vs-d), \@ref(fig:openms-stringdb-c-vs-a), \@ref(fig:openms-stringdb-c-nonimp-vs-a) and \@ref(fig:openms-stringdb-c-nonimp-vs-d)).
-Clustering of these networks produced three groups of differentially expressed proteins in acute AIS C improvers compared to non-improvers (Figure \@ref(fig:openms-stringdb-cluster-acute-c-imp-vs-non)).
-The first cluster is comprised of proteins from the compliment and coagulation cascade (Figure \@ref(fig:openms-stringdb-cluster-acute-c-imp-vs-non) ($a$)).
-The second cluster is comprised of proteins associated with cholesterol metabolism (Figure \@ref(fig:openms-stringdb-cluster-acute-c-imp-vs-non) ($b$)).
-The final cluster is a single protein; ATRN, AKA attractin, which is implicated in immune cell clustering during inflammatory responses and may regulate the chemotactic activity of chemokines (Figure \@ref(fig:openms-stringdb-cluster-acute-c-imp-vs-non) ($c$)).
-
-These three clusters are also represented in the subacute AIS C improvers compared to non-improvers, with an additional fourth small cluster made up of proteins predominately associated with the complement cascade (Figure \@ref(fig:openms-stringdb-cluster-subacute-c-imp-vs-non) ($a,b,c$)).
-This pattern of clusters is replicated in all of the remaining comparison groups (Figures \@ref(fig:openms-stringdb-cluster-acute-sub-c-imp), \@ref(fig:openms-stringdb-cluster-acute-sub-c-nonimp), \@ref(fig:multi-image-try), \@ref(fig:openms-stringdb-cluster-c-vs-d), \@ref(fig:openms-stringdb-cluster-c-vs-a), \@ref(fig:openms-stringdb-cluster-c-nonimp-vs-a) and \@ref(fig:openms-stringdb-cluster-c-nonimp-vs-d)).
-
-Please see appendix section \@ref(appen-itraq-string) for additional plots.
-
-\clearpage
-
-(ref:openms-stringdb-first) The interaction network of differentially abundant proteins found in plasma 2-weeks post-injury, between AIS C patients who experienced an AIS grade conversion and those who did not. The coloured "halo" denotes fold change whereby green indicates that protein is less abundant and red indicates greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases ![stringdb-curated](Images/stringdb_curated_db.png){ width=8% height=2%} and those that are experimentally determined ![stringdb-experiment-determ](Images/stringdb_experimentally_determined.png){ width=8% height=2%}. Predicted interactions from: gene co-occurence ![stringdb-co-occurance](Images/stringdb_gene_co-occurrence.png){ width=8% height=2%}; gene fusions ![stringdb-fusions](Images/stringdb_gene_fusions.png){ width=8% height=2%}; gene neighbourhood ![stringdb-neighbour](Images/stringdb_gene_neighbour.png){ width=8% height=2%}. Others are from gene co-expression ![stringdb-co-exp](Images/stringdb_co-expression.png){ width=8% height=2%}; text-mining ![stringdb-text-min](Images/stringdb_text_mining.png){ width=8% height=2%} and protein homology ![stringdb-protein-homol](Images/stringdb_protein-homology.png){ width=8% height=2%}.
-
-```{r, label='openms-stringdb-acute-c-imp-vs-non', fig.cap='(ref:openms-stringdb-first)', out.width="1\\linewidth"}
-## to check the number of clusters use:
-## map(stringdb_results, ~ length(.x$clusters))
-## plots saved as .png
-knitr::include_graphics("figures/openms_protein_quantification/stringdb_plots/acute_c_improvers_vs_nonimprovers_run1_2021-03-23.png")
-```
-
-(ref:openms-stringdb-sub-cs) Interaction network of differentially abundant proteins from plasma 3-months post-injury, between AIS C patients who experienced an AIS grade conversion and those who did not. The coloured "halo" denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases ![stringdb-curated](Images/stringdb_curated_db.png){ width=8% height=2%} and those that are experimentally determined ![stringdb-experiment-determ](Images/stringdb_experimentally_determined.png){ width=8% height=2%}. Predicted interactions from: gene co-occurence ![stringdb-co-occurance](Images/stringdb_gene_co-occurrence.png){ width=8% height=2%}; gene fusions ![stringdb-fusions](Images/stringdb_gene_fusions.png){ width=8% height=2%}; gene neighbourhood ![stringdb-neighbour](Images/stringdb_gene_neighbour.png){ width=8% height=2%}. Others are from gene co-expression ![stringdb-co-exp](Images/stringdb_co-expression.png){ width=8% height=2%}; text-mining ![stringdb-text-min](Images/stringdb_text_mining.png){ width=8% height=2%} and protein homology ![stringdb-protein-homol](Images/stringdb_protein-homology.png){ width=8% height=2%}.
-
-```{r, label='openms-stringdb-sub-cs', fig.cap='(ref:openms-stringdb-sub-cs)', out.width="1\\linewidth"}
-knitr::include_graphics("figures/openms_protein_quantification/stringdb_plots/subacute_c_improvers_vs_nonimprovers_run1_2021-03-23.png")
-```
 ### iTRAQ analyses 
 
 ### Differential protein abundances 
@@ -656,14 +602,14 @@ AIS C improvers had 18 more abundant proteins and 49 less abundant proteins at t
 The majority of the pathways associated with the proteins identified by these iTRAQ experiments are related to the complement cascade and platelet activity (Figure \@ref(fig:openms-hmap-acute-c-1), \@ref(fig:openms-hmap-subacute-c-1), \@ref(fig:openms-hmap-acute-sacute-imp-c-1), \@ref(fig:openms-hmap-acute-sacute-nonimp-c-1), \@ref(fig:openms-hmap-acute-c-2), \@ref(fig:openms-hmap-acute-a-d-2), \@ref(fig:openms-hmap-acute-imp-c-d-2), \@ref(fig:openms-hmap-acute-imp-c-a-2), \@ref(fig:openms-hmap-acute-nonimp-c-a-2), \@ref(fig:openms-hmap-acute-nonimp-c-d-2)).
 There are also several pathways implicated in metabolic processes, particularly with apolipoproteins and retinoids.
 
-<!-- Please see appendix section \@ref(appen-itraq-hmap) for additional plots. -->
-
+\clearpage
 \blandscape
 
 (ref:openms-hmap-acute-c-1) Heatmap denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not.
 
-```{r, label='openms-hmap-acute-c-1', fig.cap='(ref:openms-hmap-acute-c-1)', fig.align="center", fig.width=12, fig.height=8}
-heatmap$acute_c_improvers_vs_nonimprovers_run1
+```{r, label='openms-hmap-acute-c-1', fig.cap='(ref:openms-hmap-acute-c-1)', fig.align="center", fig.asp = 0.5, fig.width = 11}
+heatmap$acute_c_improvers_vs_nonimprovers_run1 +
+  theme(axis.text = element_text(size=6))
 ```
 
 \elandscape
@@ -671,8 +617,43 @@ heatmap$acute_c_improvers_vs_nonimprovers_run1
 
 (ref:openms-hmap-subacute-c-1) Heatmap denoting the log$_2$ fold change of proteins in plasma collected 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not.
 
-```{r, label='openms-hmap-subacute-c-1', fig.cap='(ref:openms-hmap-subacute-c-1)', fig.align="center", fig.width=13, fig.height=10}
+```{r, label='openms-hmap-subacute-c-1', fig.cap='(ref:openms-hmap-subacute-c-1)', fig.align="center", fig.asp = 0.5, fig.width = 11}
+heatmap$subacute_c_improvers_vs_nonimprovers_run1 +
+  theme(axis.text = element_text(size=6))
+heatmap_itraq <- heatmap
+```
+
+```{r, label='openms-hmap-subacute-c-12', fig.cap='(ref:openms-hmap-subacute-c-1)', fig.align="center", fig.width = 14, fig.height = 7, eval=FALSE}
 heatmap$subacute_c_improvers_vs_nonimprovers_run1
+heatmap_itraq <- heatmap
+```
+
+\elandscape
+\clearpage
+
+Similarly to the iTRAQ data, many of the Reactome pathways are associated with the complement cascade and platelets activation (Figures \@ref(fig:openms-chap4-hmap-acute-c-1), \@ref(fig:openms-chap4-hmap-subacute-c-1), \@ref(fig:openms-chap4-hmap-acute-sacute-imp-c-1), \@ref(fig:openms-chap4-hmap-acute-sacute-nonimp-c-1), \@ref(fig:openms-chap4-hmap-acute-a-d-2), \@ref(fig:openms-chap4-hmap-acute-imp-c-d-2), \@ref(fig:openms-chap4-hmap-acute-imp-c-a-2), \@ref(fig:openms-chap4-hmap-acute-nonimp-c-a-2), \@ref(fig:openms-chap4-hmap-acute-nonimp-c-d-2)).
+
+Please see appendix section \@ref(sup-heatmaps) for additional plots. 
+
+\blandscape
+
+(ref:openms-chap4-hmap-acute-c-1) Heatmap denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not. Grey blocks denote proteins not present in the comparison.
+
+```{r, label='openms-chap4-hmap-acute-c-1', fig.cap='(ref:openms-chap4-hmap-acute-c-1)', fig.align="center", fig.asp = 0.5, fig.width = 10.5}
+## read in heatmaps
+load("data/openms_reactomepa_heatmaps_output.rda")
+heatmap$acute_c_imp_vs_acute_c_nonimp +
+  theme(axis.text = element_text(size=7))
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-chap4-hmap-subacute-c-1) Heatmap denoting the log$_2$ fold change of proteins in plasma collected 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not. Grey blocks denote proteins not present in the comparison.
+
+```{r, label='openms-chap4-hmap-subacute-c-1', fig.cap='(ref:openms-chap4-hmap-subacute-c-1)', fig.align="center", fig.asp = 0.5, fig.width = 10.5}
+heatmap$subacute_c_imp_vs_subacute_c_nonimp +
+  theme(axis.text = element_text(size=7))
 ```
 
 \elandscape
@@ -683,14 +664,12 @@ heatmap$subacute_c_improvers_vs_nonimprovers_run1
 Similar to the heatmaps, network plots highlighted that the majority of proteins changes were associated with the complement cascade and pathways linked to platelet activity (Figure \@ref(fig:openms-cnetp-acute-c-1), \@ref(fig:openms-cnetp-subacute-c-1), \@ref(fig:openms-cnetp-acute-sacute-imp-c-1), \@ref(fig:openms-cnetp-acute-sacute-nonimp-c-1), \@ref(fig:openms-cnetp-acute-c-2), \@ref(fig:openms-cnetp-acute-a-d-2), \@ref(fig:openms-cnetp-acute-imp-c-d-2), \@ref(fig:openms-cnetp-acute-imp-c-a-2), \@ref(fig:openms-cnetp-acute-nonimp-c-a-2), \@ref(fig:openms-cnetp-acute-nonimp-c-d-2)).
 Several proteins were also associated with the regulation of insulin-like growth factor.
 
-<!-- Please see appendix section \@ref(appen-itraq-cnet) for additional plots. -->
-
 \blandscape
 
 (ref:openms-cnetp-acute-c-1) Network plot denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not.
 
-```{r, label='openms-cnetp-acute-c-1', fig.cap='(ref:openms-cnetp-acute-c-1)', fig.align="center", fig.width=12, fig.height=10}
-cnetplot$acute_c_improvers_vs_nonimprovers_run1
+```{r, label='openms-cnetp-acute-c-1', fig.cap='(ref:openms-cnetp-acute-c-1)', fig.align="center", fig.asp = 0.5, fig.width = 11}
+cnetplot_itraq$acute_c_improvers_vs_nonimprovers_run1
 ```
 
 \elandscape
@@ -698,18 +677,44 @@ cnetplot$acute_c_improvers_vs_nonimprovers_run1
 
 (ref:openms-cnetp-subacute-c-1) Network plot denoting the log$_2$ fold change of proteins in plasma collected 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not.
 
-```{r, label='openms-cnetp-subacute-c-1', fig.cap='(ref:openms-cnetp-subacute-c-1)', fig.align="center", fig.width=12, fig.height=10}
-cnetplot$subacute_c_improvers_vs_nonimprovers_run1
+```{r, label='openms-cnetp-subacute-c-1', fig.cap='(ref:openms-cnetp-subacute-c-1)', fig.align="center", fig.asp = 0.5, fig.width = 11}
+cnetplot_itraq$subacute_c_improvers_vs_nonimprovers_run1
 ```
 
 \elandscape
 
 \clearpage
 
+Similarly to the heatmaps and the iTRAQ data,network plots highlight the majority of differential proteins are associated with the complement cascade and pathways linked to platelets (Figures \@ref(fig:openms-chap4-cnetp-acute-c-1), \@ref(fig:openms-chap4-cnetp-subacute-c-1), \@ref(fig:openms-chap4-cnetp-acute-sacute-imp-c-1), \@ref(fig:openms-chap4-cnetp-acute-sacute-nonimp-c-1), \@ref(fig:openms-chap4-cnetp-acute-a-d-2), \@ref(fig:openms-chap4-cnetp-acute-imp-c-d-2), \@ref(fig:openms-chap4-cnetp-acute-imp-c-a-2), \@ref(fig:openms-chap4-cnetp-acute-nonimp-c-a-2), \@ref(fig:openms-chap4-cnetp-acute-nonimp-c-d-2)).
+
+Please see appendix section \@ref(sup-cnetplots) for additional plots. 
+
+\blandscape
+
+(ref:openms-chap4-cnetp-acute-c-1) Network plot denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not.
+
+```{r, label='openms-chap4-cnetp-acute-c-1', fig.cap='(ref:openms-chap4-cnetp-acute-c-1)', fig.align="center", fig.asp = 0.5, fig.width = 11}
+## load data
+load("data/openms_reactomepa_cnetplots_output_2021-08-09.rda")
+cnetplot$acute_c_imp_vs_acute_c_nonimp
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-chap4-cnetp-subacute-c-1) Network plot denoting the log$_2$ fold change of proteins in plasma collected 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not.
+
+```{r, label='openms-chap4-cnetp-subacute-c-1', fig.cap='(ref:openms-chap4-cnetp-subacute-c-1)', fig.align="center", fig.asp = 0.5, fig.width = 11}
+cnetplot$subacute_c_imp_vs_subacute_c_nonimp
+```
+
+\elandscape
+\clearpage
+
 ### Pathway analysis {#kegg-chap3}
 
 Pathway analysis via the `pathview` R package returned the complement and coagulation cascade to be on the sole significant KEGG pathway to derive from the OpenMS analysed data.
-The majority of the proteins present in this pathway were less abundant in the 2-week post-injury plasma of AIS C patients who experienced an AIS grade conversion and those who did not (Figure \@ref(fig:kegg-complement).
+The majority of the proteins present in this pathway were less abundant in the 2-week post-injury plasma of AIS C patients who experienced an AIS grade conversion and those who did not (Figure \@ref(fig:kegg-complement)).
 
 (ref:kegg-complement) KEGG complement cascade pathway annotated with log$_2$ fold change of proteins in plasma collected 2-weeks post-injury. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not.
 
@@ -717,60 +722,30 @@ The majority of the proteins present in this pathway were less abundant in the 2
 knitr::include_graphics("figures/kegg_pathways/hsa04610_pathview.png")
 ```
 
-\clearpage
+Similarly to the iTRAQ pathway analysis, the label free data analysed via the pathview R package returned the complement and coagulation cascade to be the sole significant KEGG pathway derived from the OpenMS analysed data.
+The majority of the proteins present in this pathway were less abundant 2-weeks post-injury in the plasma of AIS C patients who experienced an AIS grade conversion than those who did not (Figure \@ref(fig:kegg-complement-chap4)).
 
+(ref:kegg-complement-chap4) KEGG complement cascade pathway annotated with log$_2$ fold change of proteins in plasma collected 2-weeks post-injury. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not.
+
+```{r, label='kegg-complement-chap4', fig.cap='(ref:kegg-complement-chap4)', fig.align="center"}
+knitr::include_graphics("figures/kegg_pathways/hsa04610.pathview_label-free.png")
+```
 
 ### ELISAs
 
-No statistically significant difference between groups for A2M abundance in plasma via DuoSet&reg ELISAs, though there were outliers in the AIS A and D groups, and particularly in the AIS C patients at 3-months who did not experience an AIS grade conversion (Figure \@ref(fig:elisa-sig-plots1)).
-A significant difference was found between AIS C non-improvers at 2-weeks and AIS D for SAA1, with outliers in AIS C non-improvers at 2-weeks, and both AIS C improvers and non-improvers at 3-months post-injury (Figure \@ref(fig:elisa-sig-plots2)).
-For ApoA1 plasma abundance estimated via Quantikine&reg ELISAs, statistically significant differences were found between AIS C improvers at 2-weeks and both AIS C improvers and non-improvers at 3-months, AIS C 3-month improvers and AIS A and D, and AIS C 3-month non-improvers and AIS A and D (Figure \@ref(fig:elisa-sig-plots3)).
-A statistically significant difference was also found between AIS C improvers and non-improvers at 2-weeks post-injury for RBP4 (Figure \@ref(fig:elisa-sig-plots4)).
+No statistically significant difference between groups for A2M abundance in plasma via DuoSet&reg ELISAs, though there were outliers in the AIS A and D groups, and particularly in the AIS C patients at 3-months who did not experience an AIS grade conversion (Figure \@ref(fig:patchwork-2)).
+A significant difference was found between AIS C non-improvers at 2-weeks and AIS D for SAA1, with outliers in AIS C non-improvers at 2-weeks, and both AIS C improvers and non-improvers at 3-months post-injury (Figure \@ref(fig:patchwork-2)).
+For ApoA1 plasma abundance estimated via Quantikine&reg ELISAs, statistically significant differences were found between AIS C improvers at 2-weeks and both AIS C improvers and non-improvers at 3-months, AIS C 3-month improvers and AIS A and D, and AIS C 3-month non-improvers and AIS A and D (Figure \@ref(fig:patchwork-2)).
+A statistically significant difference was also found between AIS C improvers and non-improvers at 2-weeks post-injury for RBP4 (Figure \@ref(fig:patchwork-2)).
 
-\clearpage
-
-#### example of a plot grid
+(ref:patchwork-2) Normalised estimated concentration of $\alpha$-2-macroglobulin (A), serum amyloid A1 (B), apolipoprotein A1 (C) and retinol binding protein 4 (D). Estimates were calculated from the optical density of a standard curve produced via a DuoSet&reg; ELISA. Plasma from each patient that made up the pooled iTRAQ samples was assayed and pairwise t-tests with bonferroni adjusted P-values were performed to assess differential abundance.
 
 ```{r, label='elisa-sig-plots1'}
+## get the plot objects to be put into a grid
 elisa_sig_plots <- readRDS("data/elisas/sig_plots_2021-03-16.rds")
 ```
 
-There's good documentation for using `cowplot` that can be found [here](https://wilkelab.org/cowplot/articles/plot_grid.html)
-Here's an example using the elisa plots
-
-(ref:plot-grid-example) Example of arranging plots in a grid.
-
-```{r, label='plot-grid-example', fig.width=7, fig.height=7, fig.cap='(ref:elisa-sig-plots4)', eval = FALSE}
-plot_grid(plotlist = elisa_sig_plots,
-          labels = "AUTO", ncol = 2, axis = "brtl", align = "hv")
-```
-
-Alternative with `patchwork`, docs [here](https://patchwork.data-imaginist.com/index.html)
-Could be improved by cleaning up the x axis, either reduce font size or rotate labels 45 or 90 degrees
-
-```{r, label='patchwork-example', eval = FALSE}
-## add plots together
-patchwork_plots <- Reduce("+",elisa_sig_plots)
-
-## Remove x axis from first and second subplots
-patchwork_plots[[1]] = patchwork_plots[[1]] + theme(axis.text.x = element_blank(),
-                                                    axis.title.x = element_blank())
-patchwork_plots[[2]] = patchwork_plots[[2]] + theme(axis.text.x = element_blank(),
-                                                    axis.title.x = element_blank())
-## remove title from third and fourth x axis
-patchwork_plots[[3]] = patchwork_plots[[3]] + theme(axis.title.x = element_blank())
-patchwork_plots[[4]] = patchwork_plots[[4]] + theme(axis.title.x = element_blank())
-## add letter tags
-patchwork_plots +
-  plot_annotation(tag_levels = 'A')
-```
-
-Maybe better in this orientation
-
-Normalised estimated concentration of $\alpha$-2-macroglobulin (A), serum amyloid A1 (B), apolipoprotein A1 (C) and retinol binding protein 4 (D). Estimates were calculated from the optical density of a standard curve produced via a DuoSet&reg; ELISA. Plasma from each patient that made up the pooled iTRAQ samples was assayed and pairwise t-tests with bonferroni adjusted P-values were performed to assess differential abundance.
-
-
-```{r, label='patchwork-2', fig.height = 10}
+```{r, label='patchwork-2', fig.cap='(ref:patchwork-2)', fig.height = 10}
 patchwork_plots <- Reduce("/",elisa_sig_plots)
 
 ## Remove x axis from first and second subplots
@@ -791,7 +766,6 @@ patchwork_plots +
   plot_annotation(tag_levels = 'A')
 ```
 
-## Label-free results {#chap-4-results}
 <!-- not included? -->
 
 ```{r, label='load-fc-data-chap4'}
@@ -825,134 +799,27 @@ names(pos_neg) <- groups
 ```
 
 <!-- The data processed by `MSstats` was filtered to proteins with a adjusted P-value of < 0.05 and a log$_2$ FC of > $\pm1.2$.
-The total number of significant proteins is `nrow(foldchange_df)`. --> 
+The total number of significant proteins is `nrow(foldchange_df)`. -->
+
+<!-- MH note: I've moved the plots to the supplementary data, and put these two datasets together, but the text probably needs cleaning up. I think we decided not to include the cluster plots, so I removed that text. -->
+
+### STRINGdb plots
+
+Network interaction plots generated from the OpenMS processed data via `STRINGdb` revealed that all test groups contained similar proteins, albeit with different abundances, with no distinct group-specific networks observed (Figures \@ref(fig:openms-stringdb-acute-c-imp-vs-non), \@ref(fig:openms-stringdb-sub-cs), \@ref(fig:openms-stringdb-acute-sub-c-imp), \@ref(fig:openms-stringdb-acute-sub-c-nonimp), \@ref(fig:openms-stringdb-a-vs-d), \@ref(fig:openms-stringdb-c-vs-d), \@ref(fig:openms-stringdb-c-vs-a), \@ref(fig:openms-stringdb-c-nonimp-vs-a) and \@ref(fig:openms-stringdb-c-nonimp-vs-d)).
+
+Network interaction plots generated of the significant proteins via `STRINGdb` revealed that all groups contained similarly smaller networks, with many proteins with no know interactions in the STRING database (Figures \@ref(fig:openms-stringdb-chap4-acute-c-imp-vs-nonimp), \@ref(fig:openms-stringdb-chap4-sub-cs), \@ref(fig:openms-stringdb-chap4-acute-sub-c-imp), \@ref(fig:openms-stringdb-chap4-acute-sub-c-nonimp), \@ref(fig:openms-stringdb-chap4-a-vs-d), \@ref(fig:openms-stringdb-chap4-c-vs-d), \@ref(fig:openms-stringdb-chap4-c-vs-a), \@ref(fig:openms-stringdb-chap4-c-nonimp-vs-a), \@ref(fig:openms-stringdb-chap4-c-nonimp-vs-d)).
 
 ### Volcano plots
-<!-- sup. material -->
-The mean number of down-regulated and up-regulated significant proteins in each group is `r mean(fc_summary_df$down_reg)`, and `r mean(fc_summary_df$up_reg)`.
+
+The mean number of down-regulated and up-regulated significant proteins in each group is `r round(mean(fc_summary_df$down_reg), 1)`, and `r round(mean(fc_summary_df$up_reg), 1)`.
 Between AIS C improvers and non-improvers, `r nrow(pos_neg$acute_c_imp_vs_acute_c_nonimp$pos)` and `r nrow(pos_neg$acute_c_imp_vs_acute_c_nonimp$neg)` proteins were up- and down-regulated acutely, whereas `r nrow(pos_neg$subacute_c_imp_vs_subacute_c_nonimp$pos)` and `r nrow(pos_neg$subacute_c_imp_vs_subacute_c_nonimp$neg)` were up- and down-regulated subacutely (Figures \@ref(fig:volc-plot-c-imp-vs-nonimp) and \@ref(fig:volc-plot-subacute-c-imp-vs-nonimp)).
 Longitudinally, AIS C acute improvers had `r nrow(pos_neg$acute_c_imp_vs_subacute_c_imp$pos)` up-regulated and `r nrow(pos_neg$acute_c_imp_vs_subacute_c_imp$neg)` down-regulated proteins relative to subacute improvers, while for non-improvers `r nrow(pos_neg$acute_c_nonimp_vs_subacute_c_nonimp$pos)` and `r nrow(pos_neg$acute_c_nonimp_vs_subacute_c_nonimp$neg)` were up- and down-regulated respectively (Figures \@ref(fig:volc-plot-acute-c-imp-vs-subacute-imp) and \@ref(fig:volc-plot-acute-c-nonimp-vs-subacute-nonimp)).
-
-Please see appendix section \@ref(appen-labelfree-volc) for additional plots.
-
-\clearpage
-
-<!--
-***NOTE: maybe easier to just have a table showing the numbers?***
-```{r, label='up-down-reg-table-chap4', eval=FALSE}
-knitr::kable(fc_summary_df)
-```
--->
-
-(ref:volc-plot-c-imp-vs-nonimp) Volcano plot of log$_10$ fold change and log$_10$ adjusted p-value for plasma proteins from 2-weeks post-injury between AIS C patients who experienced an AIS grade conversion and those who did not. Proteins with a fold changes beyond $\pm 1.2$ and an adjusted p-value less than 0.05 are labelled.
-
-```{r, label='volc-plot-c-imp-vs-nonimp', fig.cap='(ref:volc-plot-c-imp-vs-nonimp)', out.width="1\\linewidth"}
-## get volcano plot
-knitr::include_graphics("figures/openms_protein_quantification/label_free/openms_volcano_plot_2021-08-10_0008.pdf")
-```
-
-(ref:volc-plot-subacute-c-imp-vs-nonimp) Volcano plot of log$_10$ fold change and log$_10$ adjusted p-value for plasma proteins from 3-months post-injury between AIS C patients who experienced an AIS grade conversion and those who did not. Proteins with a fold changes beyond $\pm 1.2$ and an adjusted p-value less than 0.05 are labelled.
-
-```{r, label='volc-plot-subacute-c-imp-vs-nonimp', fig.cap='(ref:volc-plot-subacute-c-imp-vs-nonimp)', out.width="1\\linewidth"}
-knitr::include_graphics("figures/openms_protein_quantification/label_free/openms_volcano_plot_2021-08-10_0026.pdf")
-```
-
-### STRINGdb network plots
-<!-- sup. material --> 
-Network interaction plots generated of the significant proteins via `STRINGdb` revealed that all groups contained similarly smaller networks, with many proteins with no know interactions in the STRING database (Figures \@ref(fig:openms-stringdb-chap4-acute-c-imp-vs-nonimp), \@ref(fig:openms-stringdb-chap4-sub-cs), \@ref(fig:openms-stringdb-chap4-acute-sub-c-imp), \@ref(fig:openms-stringdb-chap4-acute-sub-c-nonimp), \@ref(fig:openms-stringdb-chap4-a-vs-d), \@ref(fig:openms-stringdb-chap4-c-vs-d), \@ref(fig:openms-stringdb-chap4-c-vs-a), \@ref(fig:openms-stringdb-chap4-c-nonimp-vs-a), \@ref(fig:openms-stringdb-chap4-c-nonimp-vs-d).
-
-Clustering of these plots furhter highlights the smaller groups of interacting proteins, many of which are linear networks of proteins interacting in a chain (Figures \@ref(fig:openms-stringdb-cluster-chap4-acute-c-imp-vs-nonimp), \@ref(fig:openms-stringdb-cluster-chap4-sub-c-imp-vs-nonimp), \@ref(fig:openms-stringdb-cluster-chap4-acute-sub-c-imp), \@ref(fig:openms-stringdb-cluster-chap4-acute-sub-c-nonimp), \@ref(fig:openms-stringdb-cluster-chap4-a-vs-d), \@ref(fig:openms-stringdb-cluster-chap4-c-vs-a), \@ref(fig:openms-stringdb-cluster-chap4-c-vs-d), \@ref(fig:openms-stringdb-cluster-chap4-c-nonimp-vs-a), \@ref(fig:openms-stringdb-cluster-chap4-c-nonimp-vs-d)).
-Please note that only clusters containing more than one protein are shown.
-
-Please see appendix section \@ref(appen-labelfree-string) for additional plots.
-
-(ref:openms-stringdb-chap4-acute-c-imp-vs-nonimp) The interaction network of differentially abundant proteins found in plasma 2-weeks post-injury, between AIS C patients who experienced an AIS grade conversion and those who did not. The coloured "halo" denotes fold change whereby green indicates that protein is less abundant and red indicates greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases ![stringdb-curated](Images/stringdb_curated_db.png){ width=8% height=2%} and those that are experimentally determined ![stringdb-experiment-determ](Images/stringdb_experimentally_determined.png){ width=8% height=2%}. Predicted interactions from: gene co-occurence ![stringdb-co-occurance](Images/stringdb_gene_co-occurrence.png){ width=8% height=2%}; gene fusions ![stringdb-fusions](Images/stringdb_gene_fusions.png){ width=8% height=2%}; gene neighbourhood ![stringdb-neighbour](Images/stringdb_gene_neighbour.png){ width=8% height=2%}. Others are from gene co-expression ![stringdb-co-exp](Images/stringdb_co-expression.png){ width=8% height=2%}; text-mining ![stringdb-text-min](Images/stringdb_text_mining.png){ width=8% height=2%} and protein homology ![stringdb-protein-homol](Images/stringdb_protein-homology.png){ width=8% height=2%}.
-
-```{r, label='openms-stringdb-chap4-acute-c-imp-vs-nonimp', fig.cap='(ref:openms-stringdb-chap4-acute-c-imp-vs-nonimp)', out.width="1\\linewidth"}
-## to check the number of clusters use:
-## map(stringdb_results, ~ length(.x$clusters))
-## plots saved as .png
-knitr::include_graphics("figures/openms_protein_quantification/label_free/stringdb_plots/acute_c_imp_vs_acute_c_nonimp_2021-08-06.pdf")
-```
-
-(ref:openms-stringdb-chap4-sub-cs) Interaction network of differentially abundant proteins from plasma 3-months post-injury, between AIS C patients who experienced an AIS grade conversion and those who did not. The coloured "halo" denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases ![stringdb-curated](Images/stringdb_curated_db.png){ width=8% height=2%} and those that are experimentally determined ![stringdb-experiment-determ](Images/stringdb_experimentally_determined.png){ width=8% height=2%}. Predicted interactions from: gene co-occurence ![stringdb-co-occurance](Images/stringdb_gene_co-occurrence.png){ width=8% height=2%}; gene fusions ![stringdb-fusions](Images/stringdb_gene_fusions.png){ width=8% height=2%}; gene neighbourhood ![stringdb-neighbour](Images/stringdb_gene_neighbour.png){ width=8% height=2%}. Others are from gene co-expression ![stringdb-co-exp](Images/stringdb_co-expression.png){ width=8% height=2%}; text-mining ![stringdb-text-min](Images/stringdb_text_mining.png){ width=8% height=2%} and protein homology ![stringdb-protein-homol](Images/stringdb_protein-homology.png){ width=8% height=2%}.
-
-```{r, label='openms-stringdb-chap4-sub-cs', fig.cap='(ref:openms-stringdb-chap4-sub-cs)', out.width="1\\linewidth"}
-knitr::include_graphics("figures/openms_protein_quantification/label_free/stringdb_plots/subacute_c_imp_vs_subacute_c_nonimp_2021-08-06.pdf")
-```
-
-### Heatmaps
-
-Similarly to the iTRAQ data (\@ref(heatmaps-chap3)), many of the Reactome pathways are associated with the complement cascade and platelets activation (Figures \@ref(fig:openms-chap4-hmap-acute-c-1), \@ref(fig:openms-chap4-hmap-subacute-c-1), \@ref(fig:openms-chap4-hmap-acute-sacute-imp-c-1), \@ref(fig:openms-chap4-hmap-acute-sacute-nonimp-c-1), \@ref(fig:openms-chap4-hmap-acute-a-d-2), \@ref(fig:openms-chap4-hmap-acute-imp-c-d-2), \@ref(fig:openms-chap4-hmap-acute-imp-c-a-2), \@ref(fig:openms-chap4-hmap-acute-nonimp-c-a-2), \@ref(fig:openms-chap4-hmap-acute-nonimp-c-d-2)).
-
-<!-- Please see appendix section \@ref(appen-labelfree-hmap) for additional plots. --> 
-
-\blandscape
-
-(ref:openms-chap4-hmap-acute-c-1) Heatmap denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not. Grey blocks denote proteins not present in the comparison.
-
-```{r, label='openms-chap4-hmap-acute-c-1', fig.cap='(ref:openms-chap4-hmap-acute-c-1)', fig.align="center", fig.width=12, fig.height=8}
-## read in heatmaps
-load("data/openms_reactomepa_heatmaps_output.rda")
-heatmap$acute_c_imp_vs_acute_c_nonimp
-```
-
-\elandscape
-\blandscape
-
-(ref:openms-chap4-hmap-subacute-c-1) Heatmap denoting the log$_2$ fold change of proteins in plasma collected 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not. Grey blocks denote proteins not present in the comparison.
-
-```{r, label='openms-chap4-hmap-subacute-c-1', fig.cap='(ref:openms-chap4-hmap-subacute-c-1)', fig.align="center", fig.width=12, fig.height=8}
-heatmap$subacute_c_imp_vs_subacute_c_nonimp
-```
-
-\elandscape
-\clearpage
-
-### Cnetplots
-
-Similarly to the heatmaps and the iTRAQ data (\@ref(cnetplot-chap3)),network plots highlight the majority of differential proteins are associated with the complement cascade and pathways linked to platelets (Figures \@ref(fig:openms-chap4-cnetp-acute-c-1), \@ref(fig:openms-chap4-cnetp-subacute-c-1), \@ref(fig:openms-chap4-cnetp-acute-sacute-imp-c-1), \@ref(fig:openms-chap4-cnetp-acute-sacute-nonimp-c-1), \@ref(fig:openms-chap4-cnetp-acute-a-d-2), \@ref(fig:openms-chap4-cnetp-acute-imp-c-d-2), \@ref(fig:openms-chap4-cnetp-acute-imp-c-a-2), \@ref(fig:openms-chap4-cnetp-acute-nonimp-c-a-2), \@ref(fig:openms-chap4-cnetp-acute-nonimp-c-d-2)).
-
-<!-- Please see appendix section \@ref(appen-labelfree-cnet) for additional plots. --> 
-
-\blandscape
-
-(ref:openms-chap4-cnetp-acute-c-1) Network plot denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not.
-
-```{r, label='openms-chap4-cnetp-acute-c-1', fig.cap='(ref:openms-chap4-cnetp-acute-c-1)', fig.align="center", fig.width=12, fig.height=10}
-## load data
-load("data/openms_reactomepa_cnetplots_output_2021-08-09.rda")
-cnetplot$acute_c_imp_vs_acute_c_nonimp
-```
-
-\elandscape
-\blandscape
-
-(ref:openms-chap4-cnetp-subacute-c-1) Network plot denoting the log$_2$ fold change of proteins in plasma collected 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not.
-
-```{r, label='openms-chap4-cnetp-subacute-c-1', fig.cap='(ref:openms-chap4-cnetp-subacute-c-1)', fig.align="center", fig.width=12, fig.height=10}
-cnetplot$subacute_c_imp_vs_subacute_c_nonimp
-```
-
-\elandscape
-\clearpage
-
-### Pathway analysis
-
-Similarly to the iTRAQ pathway analysis (section \@ref(kegg-chap3)), he label free data analysed via the pathview R package returned the complement and coagulation cascade to be the sole significant KEGG pathway derived from the OpenMS analysed data.
-The majority of the proteins present in this pathway were less abundant 2-weeks post-injury in the plasma of AIS C patients who experienced an AIS grade conversion than those who did not (Figure \@ref(fig:kegg-complement-chap4) and section \@ref(kegg-chap3)).
-
-(ref:kegg-complement-chap4) KEGG complement cascade pathway annotated with log$_2$ fold change of proteins in plasma collected 2-weeks post-injury. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not.
-
-```{r, label='kegg-complement-chap4', fig.cap='(ref:kegg-complement-chap4)', fig.align="center"}
-knitr::include_graphics("figures/kegg_pathways/hsa04610.pathview_label-free.png")
-```
 
 ### Comparing iTRAQ and label-free proteins
 
 A total of `r length(label_free_proteins)` and `r nrow(fc_openms_wide)` unique proteinswere identified across the label-free and iTRAQ experiments respectively, with a modest overlap of 26 proteins found using both techniques (Figure \@ref(fig:itraq-label-free-venn)).
 
-(bar plot) 
+<!-- MH note: ask KW is bar plot would be better than venn diagram? -->
 
 (ref:itraq-label-free-venn) Venn diagram of the overlap in unique proteins identified from iTRAQ and label-free proteomic experiments analysed via OpenMS.
 
@@ -981,7 +848,6 @@ itraq_up_down$comparison <- itraq_up_down$comparison %>%
     str_replace("d_vs", "acute_d_vs")
 ## some of the comparisons are the other way around - would need to fix
 ```
-
 
 # Discussion
 
@@ -1547,5 +1413,592 @@ The small number of statistically significant proteins speaks to the variability
 Post-hoc power analysis of the data reveals that to identify a 2.5 fold change with an FDR of 0.5 and a power of 0.9, 14 biological replicates would be needed, in contrast to the 7-11 replicates used across groups here.
 Thus, a repeat of this experiment with a larger sample size will likely reveal many more proteins of potential interest.
 Furthermore, a metabolomic analysis with a similar sample size would greatly compliment this work, particularly with regards to investigating further links to the liver.
+
+\newpage
+
+# Supplementary material {.unnumbered #sup-data}
+
+\beginsupplement
+
+## Session Information
+
+```{r session-info, echo=FALSE}
+R.version
+```
+
+```{r package-table, echo=FALSE}
+# devtools::session_info()
+package_versions = function(packages=NULL, base=TRUE, sort=FALSE) {
+    # extract package versions
+    if (is.null(packages))
+        packages <- names(sessionInfo()$otherPkgs)
+    if (base)
+        packages <- c("base", packages)
+    if (sort)
+        packages <- sort(packages)
+    if (!is.null(packages)) {
+        tmp <- data.frame(sapply(sapply(packages, packageVersion, simplify=FALSE), as.character))
+        tmp2 = data.frame(sapply(sapply(packages, packageDate, simplify=FALSE), as.character))
+        colnames(tmp) = "version"
+        colnames(tmp2) = "date"
+        data.frame(package=rownames(tmp), version=tmp[1], date=tmp2[1], row.names=NULL)
+    }
+}
+package_table = package_versions()
+knitr::kable(package_table, longtable = TRUE, booktabs = TRUE, caption = "Packages Used")
+```
+
+\clearpage
+
+## Fold changes {#sup=foldchanges}
+
+```{r, label='openms-fc-table'}
+## add "\n" for column line breaks
+## names(fc_openms_wide) <- unlist(map(names(fc_openms_wide), ~
+##                                                                paste(c(substr(.x, 1, 14),
+##                                                                        substr(.x, 15,nchar(.x))),
+##                                                                      collapse="\n")))
+## names(fc_openms_wide)[1] <- "gene"
+knitr::kable(fc_openms_wide, "latex", longtable = T, booktabs = T,
+             caption = "OpenMS log$_2$ fold changes in the plasma proteome of SCI patients. 'Acute' and 'Subacute' samples collected within 2 week and approximately 3-months post-injury repectively.") %>%
+    kable_styling(latex_options =c("repeat_header"), font_size = 5) %>%
+    column_spec(2:ncol(fc_openms_wide), width = "1.6cm") %>%
+    column_spec(1, width = "0.5cm") %>%
+    ## kable_styling(latex_options =c("scale_down")) %>%
+    landscape()
+```
+
+```{r, label='proteinpilot-fc-table'}
+## print table
+
+kbl(pp_fc_filtered, "latex", longtable = T, booktabs = T,
+    caption = "ProteinPilot fold changes in the plasma proteome of SCI patients. 'Acute' and 'Subacute' samples collected within 2 week and approximately 3-months post-injury repectively.") %>%
+    kable_styling(latex_options =c("repeat_header"), font_size = 6) %>%
+    column_spec(2:ncol(fc_openms_wide), width = "1.6cm") %>%
+    column_spec(1, width = "0.5cm") %>%
+    landscape() #%>%
+    ## column_spec(2:4, width = "4cm") # adding this messes up the scaling and the table is off the page
+## kbl(pp_fc_filtered, "latex", longtable = FALSE, booktabs = TRUE,
+##     caption = "ProteinPilot fold changes in the plasma proteome of SCI patients. 'Acute' and 'Subacute' samples collected within 2 week and approximately 3-months post-injury repectively.") %>%
+##     kable_styling(latex_options =c("scale_down")) %>%
+##     landscape() #%>%
+    ## column_spec(2:4, width = "4cm") # adding this messes up the scaling and the table is off the page
+```
+
+## Heatmaps {#sup-heatmaps}
+
+### iTRAQ data
+
+\blandscape
+
+(ref:openms-hmap-acute-sacute-imp-c-1) Heatmap denoting the log$_2$ fold change of proteins in plasma collected 2-weeks and 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement at 2-weeks and 3-months post-injury.
+
+```{r, label='openms-hmap-acute-sacute-imp-c-1', fig.cap='(ref:openms-hmap-acute-sacute-imp-c-1)', fig.align="center", fig.asp = 0.5, fig.width = 11, fig.scap='Heatmap - iTRAQ - Acute C Improvers VS Subacute Improvers'}
+heatmap_itraq[[3]] +
+  theme(axis.text = element_text(size=6))
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-hmap-acute-sacute-nonimp-c-1) Heatmap denoting the log$_2$ fold change of proteins in plasma collected 2-weeks and 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement at 2-weeks and 3-months post-injury.
+
+```{r, label='openms-hmap-acute-sacute-nonimp-c-1', fig.cap='(ref:openms-hmap-acute-sacute-nonimp-c-1)', fig.align="center", fig.asp = 0.5, fig.width = 11, fig.scap='Heatmap - iTRAQ - Acute Non-Improvers VS Subacute Non-Improvers'}
+heatmap_itraq[[4]] +
+  theme(axis.text = element_text(size=6))
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-hmap-acute-c-2) Heatmap denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not from the second 4-plex iTRAQ experiment.
+
+```{r, label='openms-hmap-acute-c-2', fig.cap='(ref:openms-hmap-acute-c-2)', fig.align="center", fig.asp = 0.5, fig.width = 11, fig.scap='Heatmap - iTRAQ - Acute C Improvers VS Subacute Improvers'}
+heatmap_itraq$acute_c_improvers_vs_nonimprovers_run2 +
+  theme(axis.text = element_text(size=6))
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-hmap-acute-a-d-2) Heatmap denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS A and AIS D SCI patients.
+
+```{r, label='openms-hmap-acute-a-d-2', fig.cap='(ref:openms-hmap-acute-a-d-2)', fig.align="center", fig.asp = 0.5, fig.width = 11, fig.scap='Heatmap - iTRAQ - Acute A VS Acute D'}
+heatmap_itraq$a_vs_d_run2 +
+  theme(axis.text = element_text(size=6))
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-hmap-acute-imp-c-d-2) Heatmap denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and AIS D patients.
+
+```{r, label='openms-hmap-acute-imp-c-d-2', fig.cap='(ref:openms-hmap-acute-imp-c-d-2)', fig.align="center", fig.asp = 0.5, fig.width = 11, fig.scap='Heatmap - iTRAQ - Acute C Improvers VS Acute D'}
+heatmap_itraq$acute_c_improvers_vs_d_run2 +
+  theme(axis.text = element_text(size=6))
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-hmap-acute-imp-c-a-2) Heatmap denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and AIS A patients.
+
+```{r, label='openms-hmap-acute-imp-c-a-2', fig.cap='(ref:openms-hmap-acute-imp-c-a-2)', fig.align="center", fig.asp = 0.5, fig.width = 11, fig.scap='Heatmap - iTRAQ - Acute C Improvers VS Acute A'}
+heatmap_itraq$acute_c_improvers_vs_a_run2 +
+  theme(axis.text = element_text(size=6))
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-hmap-acute-nonimp-c-a-2) Heatmap denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement and AIS A patients.
+
+```{r, label='openms-hmap-acute-nonimp-c-a-2', fig.cap='(ref:openms-hmap-acute-nonimp-c-a-2)', fig.align="center", fig.asp = 0.5, fig.width = 11, fig.scap='Heatmap - iTRAQ - Acute C Non-Improvers VS Acute A'}
+heatmap_itraq$acute_c_nonimprovers_vs_a_run2 +
+  theme(axis.text = element_text(size=6))
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-hmap-acute-nonimp-c-d-2) Heatmap denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement and AIS D patients.
+
+```{r, label='openms-hmap-acute-nonimp-c-d-2', fig.cap='(ref:openms-hmap-acute-nonimp-c-d-2)', fig.align="center", fig.asp = 0.5, fig.width = 11, fig.scap='Heatmap - iTRAQ - Acute C Non-Improvers VS Acute D'}
+heatmap_itraq$acute_c_nonimprovers_vs_d_run2 +
+  theme(axis.text = element_text(size=6))
+```
+
+\elandscape
+\clearpage
+
+
+### Label-free data
+
+\clearpage
+\blandscape
+
+(ref:openms-chap4-hmap-acute-sacute-imp-c-1) Heatmap denoting the log$_2$ fold change of proteins in plasma collected 2-weeks and 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement at 2-weeks and 3-months post-injury. Grey blocks denote proteins not present in the comparison.
+
+```{r, label='openms-chap4-hmap-acute-sacute-imp-c-1', fig.cap='(ref:openms-chap4-hmap-acute-sacute-imp-c-1)', fig.align="center", fig.asp = 0.5, fig.width = 10.5, fig.scap='Heatmap - label-free - Acute C Improvers VS Subacute Improvers'}
+heatmap$acute_c_imp_vs_subacute_c_imp +
+  theme(axis.text = element_text(size=7))
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-chap4-hmap-acute-sacute-nonimp-c-1) Heatmap denoting the log$_2$ fold change of proteins in plasma collected 2-weeks and 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement at 2-weeks and 3-months post-injury. Grey blocks denote proteins not present in the comparison.
+
+```{r, label='openms-chap4-hmap-acute-sacute-nonimp-c-1', fig.cap='(ref:openms-chap4-hmap-acute-sacute-nonimp-c-1)', fig.align="center", fig.asp = 0.5, fig.width = 10.5, fig.scap='Heatmap - label-free - Acute C Non-Improvers VS Subacute Non-Improvers'}
+heatmap$acute_c_nonimp_vs_subacute_c_nonimp +
+  theme(axis.text = element_text(size=7))
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-chap4-hmap-acute-a-d-2) Heatmap denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS A and AIS D SCI patients. Grey blocks denote proteins not present in the comparison.
+
+```{r, label='openms-chap4-hmap-acute-a-d-2', fig.cap='(ref:openms-chap4-hmap-acute-a-d-2)', fig.align="center", fig.asp = 0.5, fig.width = 10.5, fig.scap='Heatmap - label-free - Acute A VS Acute D'}
+heatmap$acute_a_vs_acute_d +
+  theme(axis.text = element_text(size=7))
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-chap4-hmap-acute-imp-c-d-2) Heatmap denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and AIS D patients. Grey blocks denote proteins not present in the comparison.
+
+```{r, label='openms-chap4-hmap-acute-imp-c-d-2', fig.cap='(ref:openms-chap4-hmap-acute-imp-c-d-2)', fig.align="center", fig.asp = 0.5, fig.width = 10.5, fig.scap='Heatmap - label-free - Acute C Improvers VS Acute D'}
+heatmap$acute_c_imp_vs_acute_d +
+  theme(axis.text = element_text(size=7))
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-chap4-hmap-acute-imp-c-a-2) Heatmap denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and AIS A patients. Grey blocks denote proteins not present in the comparison.
+
+```{r, label='openms-chap4-hmap-acute-imp-c-a-2', fig.cap='(ref:openms-chap4-hmap-acute-imp-c-a-2)', fig.align="center", fig.asp = 0.5, fig.width = 10.5, fig.scap='Heatmap - label-free - Acute A VS Acute C Improvers'}
+heatmap$acute_a_vs_acute_c_imp +
+  theme(axis.text = element_text(size=7))
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-chap4-hmap-acute-nonimp-c-a-2) Heatmap denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement and AIS A patients. Grey blocks denote proteins not present in the comparison.
+
+```{r, label='openms-chap4-hmap-acute-nonimp-c-a-2', fig.cap='(ref:openms-chap4-hmap-acute-nonimp-c-a-2)', fig.align="center", fig.asp = 0.5, fig.width = 10.5, fig.scap='Heatmap - label-free - Acute A VS Acute C Non-Improvers'}
+heatmap$acute_a_vs_acute_c_nonimp +
+  theme(axis.text = element_text(size=7))
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-chap4-hmap-acute-nonimp-c-d-2) Heatmap denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement and AIS D patients. Grey blocks denote proteins not present in the comparison.
+
+```{r, label='openms-chap4-hmap-acute-nonimp-c-d-2', fig.cap='(ref:openms-chap4-hmap-acute-nonimp-c-d-2)', fig.align="center", fig.asp = 0.5, fig.width = 10.5, fig.scap='Heatmap - label-free - Acute C Non-Improver VS Acute D'}
+heatmap$acute_c_nonimp_vs_acute_d +
+  theme(axis.text = element_text(size=7))
+```
+
+\elandscape
+\clearpage
+
+
+## Cnetplots {#sup-cnetplots} 
+
+### iTRAQ data
+
+\blandscape
+
+(ref:openms-cnetp-acute-sacute-imp-c-1) Network plot denoting the log$_2$ fold change of proteins in plasma collected 2-weeks and 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement at 2-weeks and 3-months post-injury.
+
+```{r, label='openms-cnetp-acute-sacute-imp-c-1', fig.cap='(ref:openms-cnetp-acute-sacute-imp-c-1)', fig.align="center", fig.asp = 0.5, fig.width = 11, fig.scap='Network plot - iTRAQ - Acute C Improvers VS Subacute Improvers'}
+cnetplot_itraq[[3]]
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-cnetp-acute-sacute-nonimp-c-1) Network plot denoting the log$_2$ fold change of proteins in plasma collected 2-weeks and 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement at 2-weeks and 3-months post-injury.
+
+```{r, label='openms-cnetp-acute-sacute-nonimp-c-1', fig.cap='(ref:openms-cnetp-acute-sacute-nonimp-c-1)', fig.align="center", fig.asp = 0.5, fig.width = 11, fig.scap='Network plot - iTRAQ - Acute C Non-Improvers VS Subacute Non-Improvers'}
+cnetplot_itraq[[4]]
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-cnetp-acute-c-2) Network plot denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not from the second 4-plex iTRAQ experiment.
+
+```{r, label='openms-cnetp-acute-c-2', fig.cap='(ref:openms-cnetp-acute-c-2)', fig.align="center", fig.asp = 0.5, fig.width = 11, fig.scap='Network plot - iTRAQ - Acute C Improvers VS Non-Improvers'}
+cnetplot_itraq$acute_c_improvers_vs_nonimprovers_run2
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-cnetp-acute-a-d-2) Network plot denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS A and AIS D SCI patients.
+
+```{r, label='openms-cnetp-acute-a-d-2', fig.cap='(ref:openms-cnetp-acute-a-d-2)', fig.align="center", fig.asp = 0.5, fig.width = 11, fig.scap='Network plot - iTRAQ - Acute A VS Acute D'}
+cnetplot_itraq$a_vs_d_run2
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-cnetp-acute-imp-c-d-2) Network plot denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and AIS D patients.
+
+```{r, label='openms-cnetp-acute-imp-c-d-2', fig.cap='(ref:openms-cnetp-acute-imp-c-d-2)', fig.align="center", fig.asp = 0.5, fig.width = 11, fig.scap='Network plot - iTRAQ - Acute C Improvers VS Acute D'}
+cnetplot_itraq$acute_c_improvers_vs_d_run2
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-cnetp-acute-imp-c-a-2) Network plot denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and AIS A patients.
+
+```{r, label='openms-cnetp-acute-imp-c-a-2', fig.cap='(ref:openms-cnetp-acute-imp-c-a-2)', fig.align="center", fig.asp = 0.5, fig.width = 11, fig.scap='Network plot - iTRAQ - Acute C Improvers VS Acute A'}
+cnetplot_itraq$acute_c_improvers_vs_a_run2
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-cnetp-acute-nonimp-c-a-2) Network plot denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement and AIS A patients.
+
+```{r, label='openms-cnetp-acute-nonimp-c-a-2', fig.cap='(ref:openms-cnetp-acute-nonimp-c-a-2)', fig.align="center", fig.asp = 0.5, fig.width = 11, fig.scap='Network plot - iTRAQ - Acute C Non-Improvers VS Acute A'}
+cnetplot_itraq$acute_c_nonimprovers_vs_a_run2
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-cnetp-acute-nonimp-c-d-2) Network plot denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement and AIS D patients.
+
+```{r, label='openms-cnetp-acute-nonimp-c-d-2', fig.cap='(ref:openms-cnetp-acute-nonimp-c-d-2)', fig.align="center", fig.asp = 0.5, fig.width = 11, fig.scap='Network plot - iTRAQ - Acute C Non-Improvers VS Acute D'}
+cnetplot_itraq$acute_c_nonimprovers_vs_d_run2
+```
+
+\elandscape
+\clearpage
+
+### Label-free data
+
+\blandscape
+
+(ref:openms-chap4-cnetp-acute-sacute-imp-c-1) Network plot denoting the log$_2$ fold change of proteins in plasma collected 2-weeks and 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement at 2-weeks and 3-months post-injury.
+
+```{r, label='openms-chap4-cnetp-acute-sacute-imp-c-1', fig.cap='(ref:openms-chap4-cnetp-acute-sacute-imp-c-1)', fig.align="center", fig.asp = 0.5, fig.width = 11, fig.scap='Network plot - label-free - Acute C Improvers VS Subacute C Improvers'}
+cnetplot$acute_c_imp_vs_subacute_c_imp
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-chap4-cnetp-acute-sacute-nonimp-c-1) Network plot denoting the log$_2$ fold change of proteins in plasma collected 2-weeks and 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement at 2-weeks and 3-months post-injury.
+
+```{r, label='openms-chap4-cnetp-acute-sacute-nonimp-c-1', fig.cap='(ref:openms-chap4-cnetp-acute-sacute-nonimp-c-1)', fig.align="center", fig.asp = 0.5, fig.width = 11, fig.scap='Network plot - label-free - Acute C Non-Imporvers VS Subacute C Non-Improvers'}
+cnetplot$acute_c_nonimp_vs_subacute_c_nonimp
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-chap4-cnetp-acute-a-d-2) Network plot denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS A and AIS D SCI patients.
+
+```{r, label='openms-chap4-cnetp-acute-a-d-2', fig.cap='(ref:openms-chap4-cnetp-acute-a-d-2)', fig.align="center", fig.asp = 0.5, fig.width = 11, fig.scap='Network plot - label-free - Acute A VS Acute D'}
+cnetplot$acute_a_vs_acute_d
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-chap4-cnetp-acute-imp-c-d-2) Network plot denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and AIS D patients.
+
+```{r, label='openms-chap4-cnetp-acute-imp-c-d-2', fig.cap='(ref:openms-chap4-cnetp-acute-imp-c-d-2)', fig.align="center", fig.asp = 0.5, fig.width = 11, fig.scap='Network plot - label-free - Acute C Improvers VS Acute D'}
+cnetplot$acute_c_imp_vs_acute_d
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-chap4-cnetp-acute-imp-c-a-2) Network plot denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and AIS A patients.
+
+```{r, label='openms-chap4-cnetp-acute-imp-c-a-2', fig.cap='(ref:openms-chap4-cnetp-acute-imp-c-a-2)', fig.align="center", fig.asp=0.5, fig.width = 11, fig.scap='Network plot - label-free - Acute A VS Acute C Improvers'}
+cnetplot$acute_a_vs_acute_c_imp
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-chap4-cnetp-acute-nonimp-c-a-2) Network plot denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement and AIS A patients.
+
+```{r, label='openms-chap4-cnetp-acute-nonimp-c-a-2', fig.cap='(ref:openms-chap4-cnetp-acute-nonimp-c-a-2)', fig.align="center", fig.asp=0.5, fig.width = 11, fig.scap='Network plot - label-free - Acute A VS Acute C Non-Improvers'}
+cnetplot$acute_a_vs_acute_c_nonimp
+```
+
+\elandscape
+\blandscape
+
+(ref:openms-chap4-cnetp-acute-nonimp-c-d-2) Network plot denoting the log$_2$ fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement and AIS D patients.
+
+```{r, label='openms-chap4-cnetp-acute-nonimp-c-d-2', fig.cap='(ref:openms-chap4-cnetp-acute-nonimp-c-d-2)', fig.align="center", fig.asp=0.5, fig.width = 11, fig.scap='Network plot - label-free - Acute C Non-Improvers VS Acute D'}
+cnetplot$acute_c_nonimp_vs_acute_d
+```
+
+\elandscape
+
+## STRINGdb network plots {#sup-string-plots}
+
+### iTRAQ data
+
+(ref:openms-stringdb-first) The interaction network of differentially abundant proteins found in plasma 2-weeks post-injury, between AIS C patients who experienced an AIS grade conversion and those who did not. The coloured "halo" denotes fold change whereby green indicates that protein is less abundant and red indicates greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases ![stringdb-curated](Images/stringdb_curated_db.png){ width=8% height=2%} and those that are experimentally determined ![stringdb-experiment-determ](Images/stringdb_experimentally_determined.png){ width=8% height=2%}. Predicted interactions from: gene co-occurence ![stringdb-co-occurance](Images/stringdb_gene_co-occurrence.png){ width=8% height=2%}; gene fusions ![stringdb-fusions](Images/stringdb_gene_fusions.png){ width=8% height=2%}; gene neighbourhood ![stringdb-neighbour](Images/stringdb_gene_neighbour.png){ width=8% height=2%}. Others are from gene co-expression ![stringdb-co-exp](Images/stringdb_co-expression.png){ width=8% height=2%}; text-mining ![stringdb-text-min](Images/stringdb_text_mining.png){ width=8% height=2%} and protein homology ![stringdb-protein-homol](Images/stringdb_protein-homology.png){ width=8% height=2%}.
+
+```{r, label='openms-stringdb-acute-c-imp-vs-non', fig.cap='(ref:openms-stringdb-first)', out.width="1\\linewidth"}
+## to check the number of clusters use:
+## map(stringdb_results, ~ length(.x$clusters))
+## plots saved as .png
+knitr::include_graphics("figures/openms_protein_quantification/stringdb_plots/acute_c_improvers_vs_nonimprovers_run1_2021-03-23.png")
+```
+
+(ref:openms-stringdb-sub-cs) Interaction network of differentially abundant proteins from plasma 3-months post-injury, between AIS C patients who experienced an AIS grade conversion and those who did not. The coloured "halo" denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases ![stringdb-curated](Images/stringdb_curated_db.png){ width=8% height=2%} and those that are experimentally determined ![stringdb-experiment-determ](Images/stringdb_experimentally_determined.png){ width=8% height=2%}. Predicted interactions from: gene co-occurence ![stringdb-co-occurance](Images/stringdb_gene_co-occurrence.png){ width=8% height=2%}; gene fusions ![stringdb-fusions](Images/stringdb_gene_fusions.png){ width=8% height=2%}; gene neighbourhood ![stringdb-neighbour](Images/stringdb_gene_neighbour.png){ width=8% height=2%}. Others are from gene co-expression ![stringdb-co-exp](Images/stringdb_co-expression.png){ width=8% height=2%}; text-mining ![stringdb-text-min](Images/stringdb_text_mining.png){ width=8% height=2%} and protein homology ![stringdb-protein-homol](Images/stringdb_protein-homology.png){ width=8% height=2%}.
+
+```{r, label='openms-stringdb-sub-cs', fig.cap='(ref:openms-stringdb-sub-cs)', out.width="1\\linewidth"}
+knitr::include_graphics("figures/openms_protein_quantification/stringdb_plots/subacute_c_improvers_vs_nonimprovers_run1_2021-03-23.png")
+```
+
+(ref:openms-stringdb-acute-sub-c-imp) Interaction network of differentially abundant proteins from plasma 2-weeks and 3-months post-injury for AIS C patients who experienced an AIS grade conversion. The coloured "halo" denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases ![stringdb-curated](Images/stringdb_curated_db.png){ width=8% height=2%} and those that are experimentally determined ![stringdb-experiment-determ](Images/stringdb_experimentally_determined.png){ width=8% height=2%}. Predicted interactions from: gene co-occurence ![stringdb-co-occurance](Images/stringdb_gene_co-occurrence.png){ width=8% height=2%}; gene fusions ![stringdb-fusions](Images/stringdb_gene_fusions.png){ width=8% height=2%}; gene neighbourhood ![stringdb-neighbour](Images/stringdb_gene_neighbour.png){ width=8% height=2%}. Others are from gene co-expression ![stringdb-co-exp](Images/stringdb_co-expression.png){ width=8% height=2%}; text-mining ![stringdb-text-min](Images/stringdb_text_mining.png){ width=8% height=2%} and protein homology ![stringdb-protein-homol](Images/stringdb_protein-homology.png){ width=8% height=2%}.
+
+```{r, label='openms-stringdb-acute-sub-c-imp', fig.cap='(ref:openms-stringdb-acute-sub-c-imp)', out.width="1\\linewidth", fig.scap='StringDB network plot - iTRAQ - Acute C Improvers VS Subacute Improvers'}
+knitr::include_graphics("figures/openms_protein_quantification/stringdb_plots/acute_c_improvers_vs_subacute_improvers_run1_2021-03-23.pdf")
+```
+
+(ref:openms-stringdb-acute-sub-c-nonimp) Interaction network of differentially abundant proteins from plasma 2-weeks and 3-months post-injury for AIS C patients who did not experience an AIS grade conversion. The coloured "halo" denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases ![stringdb-curated](Images/stringdb_curated_db.png){ width=8% height=2%} and those that are experimentally determined ![stringdb-experiment-determ](Images/stringdb_experimentally_determined.png){ width=8% height=2%}. Predicted interactions from: gene co-occurence ![stringdb-co-occurance](Images/stringdb_gene_co-occurrence.png){ width=8% height=2%}; gene fusions ![stringdb-fusions](Images/stringdb_gene_fusions.png){ width=8% height=2%}; gene neighbourhood ![stringdb-neighbour](Images/stringdb_gene_neighbour.png){ width=8% height=2%}. Others are from gene co-expression ![stringdb-co-exp](Images/stringdb_co-expression.png){ width=8% height=2%}; text-mining ![stringdb-text-min](Images/stringdb_text_mining.png){ width=8% height=2%} and protein homology ![stringdb-protein-homol](Images/stringdb_protein-homology.png){ width=8% height=2%}.
+
+```{r, label='openms-stringdb-acute-sub-c-nonimp', fig.cap='(ref:openms-stringdb-acute-sub-c-nonimp)', out.width="1\\linewidth", fig.scap='StringDB network plot - iTRAQ - Acute C Non-Improvers VS Subacute Non-Improvers'}
+knitr::include_graphics("figures/openms_protein_quantification/stringdb_plots/acute_c_nonimprovers_vs_subacute_nonimprovers_run1_2021-03-23.pdf")
+```
+
+(ref:openms-stringdb-a-vs-d) Interaction network of differentially abundant proteins from plasma 2-week post-injury, between AIS A and D. The coloured "halo" denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases ![stringdb-curated](Images/stringdb_curated_db.png){ width=8% height=2%} and those that are experimentally determined ![stringdb-experiment-determ](Images/stringdb_experimentally_determined.png){ width=8% height=2%}. Predicted interactions from: gene co-occurence ![stringdb-co-occurance](Images/stringdb_gene_co-occurrence.png){ width=8% height=2%}; gene fusions ![stringdb-fusions](Images/stringdb_gene_fusions.png){ width=8% height=2%}; gene neighbourhood ![stringdb-neighbour](Images/stringdb_gene_neighbour.png){ width=8% height=2%}. Others are from gene co-expression ![stringdb-co-exp](Images/stringdb_co-expression.png){ width=8% height=2%}; text-mining ![stringdb-text-min](Images/stringdb_text_mining.png){ width=8% height=2%} and protein homology ![stringdb-protein-homol](Images/stringdb_protein-homology.png){ width=8% height=2%}.
+
+```{r, label='openms-stringdb-a-vs-d', fig.cap='(ref:openms-stringdb-a-vs-d)', out.width="1\\linewidth", fig.scap='StringDB network plot - iTRAQ - Acute A VS Acute D'}
+knitr::include_graphics("figures/openms_protein_quantification/stringdb_plots/a_vs_d_run2_2021-03-23.pdf")
+```
+
+(ref:openms-stringdb-c-vs-d) Interaction network of differentially abundant proteins from plasma 2-week post-injury, between AIS C improvers and D. The coloured "halo" denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases ![stringdb-curated](Images/stringdb_curated_db.png){ width=8% height=2%} and those that are experimentally determined ![stringdb-experiment-determ](Images/stringdb_experimentally_determined.png){ width=8% height=2%}. Predicted interactions from: gene co-occurence ![stringdb-co-occurance](Images/stringdb_gene_co-occurrence.png){ width=8% height=2%}; gene fusions ![stringdb-fusions](Images/stringdb_gene_fusions.png){ width=8% height=2%}; gene neighbourhood ![stringdb-neighbour](Images/stringdb_gene_neighbour.png){ width=8% height=2%}. Others are from gene co-expression ![stringdb-co-exp](Images/stringdb_co-expression.png){ width=8% height=2%}; text-mining ![stringdb-text-min](Images/stringdb_text_mining.png){ width=8% height=2%} and protein homology ![stringdb-protein-homol](Images/stringdb_protein-homology.png){ width=8% height=2%}.
+
+```{r, label='openms-stringdb-c-vs-d', fig.cap='(ref:openms-stringdb-c-vs-d)', out.width="1\\linewidth", fig.scap='StringDB network plot - iTRAQ - Acute C Improvers VS Acute D'}
+knitr::include_graphics("figures/openms_protein_quantification/stringdb_plots/acute_c_improvers_vs_d_run2_2021-03-23.pdf")
+```
+
+(ref:openms-stringdb-c-vs-a) Interaction network of differentially abundant proteins from plasma 2-week post-injury, between AIS C improvers and A. The coloured "halo" denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases ![stringdb-curated](Images/stringdb_curated_db.png){ width=8% height=2%} and those that are experimentally determined ![stringdb-experiment-determ](Images/stringdb_experimentally_determined.png){ width=8% height=2%}. Predicted interactions from: gene co-occurence ![stringdb-co-occurance](Images/stringdb_gene_co-occurrence.png){ width=8% height=2%}; gene fusions ![stringdb-fusions](Images/stringdb_gene_fusions.png){ width=8% height=2%}; gene neighbourhood ![stringdb-neighbour](Images/stringdb_gene_neighbour.png){ width=8% height=2%}. Others are from gene co-expression ![stringdb-co-exp](Images/stringdb_co-expression.png){ width=8% height=2%}; text-mining ![stringdb-text-min](Images/stringdb_text_mining.png){ width=8% height=2%} and protein homology ![stringdb-protein-homol](Images/stringdb_protein-homology.png){ width=8% height=2%}.
+
+```{r, label='openms-stringdb-c-vs-a', fig.cap='(ref:openms-stringdb-c-vs-a)', out.width="1\\linewidth", fig.scap='StringDB network plot - iTRAQ - Acute C Improvers VS Acute A'}
+knitr::include_graphics("figures/openms_protein_quantification/stringdb_plots/acute_c_improvers_vs_a_run2_2021-03-23.pdf")
+```
+
+(ref:openms-stringdb-c-nonimp-vs-a) Interaction network of differentially abundant proteins from plasma 2-week post-injury, between AIS C non-improvers and A. The coloured "halo" denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases ![stringdb-curated](Images/stringdb_curated_db.png){ width=8% height=2%} and those that are experimentally determined ![stringdb-experiment-determ](Images/stringdb_experimentally_determined.png){ width=8% height=2%}. Predicted interactions from: gene co-occurence ![stringdb-co-occurance](Images/stringdb_gene_co-occurrence.png){ width=8% height=2%}; gene fusions ![stringdb-fusions](Images/stringdb_gene_fusions.png){ width=8% height=2%}; gene neighbourhood ![stringdb-neighbour](Images/stringdb_gene_neighbour.png){ width=8% height=2%}. Others are from gene co-expression ![stringdb-co-exp](Images/stringdb_co-expression.png){ width=8% height=2%}; text-mining ![stringdb-text-min](Images/stringdb_text_mining.png){ width=8% height=2%} and protein homology ![stringdb-protein-homol](Images/stringdb_protein-homology.png){ width=8% height=2%}.
+
+```{r, label='openms-stringdb-c-nonimp-vs-a', fig.cap='(ref:openms-stringdb-c-nonimp-vs-a)', out.width="1\\linewidth", fig.scap='StringDB network plot - iTRAQ - Acute C Non-Improvers VS Acute A'}
+knitr::include_graphics("figures/openms_protein_quantification/stringdb_plots/acute_c_nonimprovers_vs_a_run2_2021-03-23.pdf")
+```
+
+(ref:openms-stringdb-c-nonimp-vs-d) Interaction network of differentially abundant proteins from plasma 2-week post-injury, between AIS C non-improvers and D. The coloured "halo" denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases ![stringdb-curated](Images/stringdb_curated_db.png){ width=8% height=2%} and those that are experimentally determined ![stringdb-experiment-determ](Images/stringdb_experimentally_determined.png){ width=8% height=2%}. Predicted interactions from: gene co-occurence ![stringdb-co-occurance](Images/stringdb_gene_co-occurrence.png){ width=8% height=2%}; gene fusions ![stringdb-fusions](Images/stringdb_gene_fusions.png){ width=8% height=2%}; gene neighbourhood ![stringdb-neighbour](Images/stringdb_gene_neighbour.png){ width=8% height=2%}. Others are from gene co-expression ![stringdb-co-exp](Images/stringdb_co-expression.png){ width=8% height=2%}; text-mining ![stringdb-text-min](Images/stringdb_text_mining.png){ width=8% height=2%} and protein homology ![stringdb-protein-homol](Images/stringdb_protein-homology.png){ width=8% height=2%}.
+
+```{r, label='openms-stringdb-c-nonimp-vs-d', fig.cap='(ref:openms-stringdb-c-nonimp-vs-d)', out.width="1\\linewidth", fig.scap='StringDB network plot - iTRAQ - Acute C Non-Improvers VS Acute D'}
+knitr::include_graphics("figures/openms_protein_quantification/stringdb_plots/acute_c_nonimprovers_vs_d_run2_2021-03-23.pdf")
+```
+
+### Label-free data
+
+(ref:openms-stringdb-chap4-acute-c-imp-vs-nonimp) The interaction network of differentially abundant proteins found in plasma 2-weeks post-injury, between AIS C patients who experienced an AIS grade conversion and those who did not. The coloured "halo" denotes fold change whereby green indicates that protein is less abundant and red indicates greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases ![stringdb-curated](Images/stringdb_curated_db.png){ width=8% height=2%} and those that are experimentally determined ![stringdb-experiment-determ](Images/stringdb_experimentally_determined.png){ width=8% height=2%}. Predicted interactions from: gene co-occurence ![stringdb-co-occurance](Images/stringdb_gene_co-occurrence.png){ width=8% height=2%}; gene fusions ![stringdb-fusions](Images/stringdb_gene_fusions.png){ width=8% height=2%}; gene neighbourhood ![stringdb-neighbour](Images/stringdb_gene_neighbour.png){ width=8% height=2%}. Others are from gene co-expression ![stringdb-co-exp](Images/stringdb_co-expression.png){ width=8% height=2%}; text-mining ![stringdb-text-min](Images/stringdb_text_mining.png){ width=8% height=2%} and protein homology ![stringdb-protein-homol](Images/stringdb_protein-homology.png){ width=8% height=2%}.
+
+```{r, label='openms-stringdb-chap4-acute-c-imp-vs-nonimp', fig.cap='(ref:openms-stringdb-chap4-acute-c-imp-vs-nonimp)', out.width="1\\linewidth"}
+## to check the number of clusters use:
+## map(stringdb_results, ~ length(.x$clusters))
+## plots saved as .png
+knitr::include_graphics("figures/openms_protein_quantification/label_free/stringdb_plots/acute_c_imp_vs_acute_c_nonimp_2021-08-06.pdf")
+```
+
+(ref:openms-stringdb-chap4-sub-cs) Interaction network of differentially abundant proteins from plasma 3-months post-injury, between AIS C patients who experienced an AIS grade conversion and those who did not. The coloured "halo" denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases ![stringdb-curated](Images/stringdb_curated_db.png){ width=8% height=2%} and those that are experimentally determined ![stringdb-experiment-determ](Images/stringdb_experimentally_determined.png){ width=8% height=2%}. Predicted interactions from: gene co-occurence ![stringdb-co-occurance](Images/stringdb_gene_co-occurrence.png){ width=8% height=2%}; gene fusions ![stringdb-fusions](Images/stringdb_gene_fusions.png){ width=8% height=2%}; gene neighbourhood ![stringdb-neighbour](Images/stringdb_gene_neighbour.png){ width=8% height=2%}. Others are from gene co-expression ![stringdb-co-exp](Images/stringdb_co-expression.png){ width=8% height=2%}; text-mining ![stringdb-text-min](Images/stringdb_text_mining.png){ width=8% height=2%} and protein homology ![stringdb-protein-homol](Images/stringdb_protein-homology.png){ width=8% height=2%}.
+
+```{r, label='openms-stringdb-chap4-sub-cs', fig.cap='(ref:openms-stringdb-chap4-sub-cs)', out.width="1\\linewidth"}
+knitr::include_graphics("figures/openms_protein_quantification/label_free/stringdb_plots/subacute_c_imp_vs_subacute_c_nonimp_2021-08-06.pdf")
+```
+
+(ref:openms-stringdb-cluster-chap4-acute-c-imp-vs-nonimp) Clustered interaction network of differentially abundant proteins from plasma 2-weeks post-injury, between AIS C patients who experienced an AIS grade conversion and those who did not. The coloured "halo" denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases ![stringdb-curated](Images/stringdb_curated_db.png){ width=8% height=2%} and those that are experimentally determined ![stringdb-experiment-determ](Images/stringdb_experimentally_determined.png){ width=8% height=2%}. Predicted interactions from: gene co-occurence ![stringdb-co-occurance](Images/stringdb_gene_co-occurrence.png){ width=8% height=2%}; gene fusions ![stringdb-fusions](Images/stringdb_gene_fusions.png){ width=8% height=2%}; gene neighbourhood ![stringdb-neighbour](Images/stringdb_gene_neighbour.png){ width=8% height=2%}. Others are from gene co-expression ![stringdb-co-exp](Images/stringdb_co-expression.png){ width=8% height=2%}; text-mining ![stringdb-text-min](Images/stringdb_text_mining.png){ width=8% height=2%} and protein homology ![stringdb-protein-homol](Images/stringdb_protein-homology.png){ width=8% height=2%}.
+
+```{r, label='openms-stringdb-cluster-chap4-acute-c-imp-vs-nonimp', fig.cap='(ref:openms-stringdb-cluster-chap4-acute-c-imp-vs-nonimp)', fig.subcap=c('Cluster 1','Cluster 2'), fig.ncol = 2, fig.align = "center", out.width = "40%", fig.scap='StringDB cluster network plot - label-free - Acute C Improvers VS Non-Improvers'}
+## load file list
+load(file = "data/opems_stringdb_clusterplot_file_list.rda")
+## plot another set
+## doesn't work
+## map(file_list$acute_a_vs_acute_c_imp, ~ knitr::include_graphics(.x))
+
+## also not working
+## for(i in 1:length(file_list$acute_a_vs_acute_c_imp)){
+##     knitr::include_graphics(file_list$acute_a_vs_acute_c_imp[[i]])
+## }
+
+## knitr::include_graphics(file_list$acute_c_imp_vs_acute_c_nonimp[[1]])
+## knitr::include_graphics(file_list$acute_c_imp_vs_acute_c_nonimp[[2]])
+```
+
+(ref:openms-stringdb-chap4-acute-sub-c-imp) Interaction network of differentially abundant proteins from plasma 2-weeks and 3-months post-injury for AIS C patients who experienced an AIS grade conversion. The coloured "halo" denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases ![stringdb-curated](Images/stringdb_curated_db.png){ width=8% height=2%} and those that are experimentally determined ![stringdb-experiment-determ](Images/stringdb_experimentally_determined.png){ width=8% height=2%}. Predicted interactions from: gene co-occurence ![stringdb-co-occurance](Images/stringdb_gene_co-occurrence.png){ width=8% height=2%}; gene fusions ![stringdb-fusions](Images/stringdb_gene_fusions.png){ width=8% height=2%}; gene neighbourhood ![stringdb-neighbour](Images/stringdb_gene_neighbour.png){ width=8% height=2%}. Others are from gene co-expression ![stringdb-co-exp](Images/stringdb_co-expression.png){ width=8% height=2%}; text-mining ![stringdb-text-min](Images/stringdb_text_mining.png){ width=8% height=2%} and protein homology ![stringdb-protein-homol](Images/stringdb_protein-homology.png){ width=8% height=2%}.
+
+```{r, label='openms-stringdb-chap4-acute-sub-c-imp', fig.cap='(ref:openms-stringdb-chap4-acute-sub-c-imp)', out.width="1\\linewidth", fig.scap='StringDB network plot - label-free - Acute C Improvers VS Subacute Improvers'}
+knitr::include_graphics("figures/openms_protein_quantification/label_free/stringdb_plots/acute_c_imp_vs_subacute_c_imp_2021-08-06.pdf")
+```
+
+(ref:openms-stringdb-chap4-acute-sub-c-nonimp) Interaction network of differentially abundant proteins from plasma 2-weeks and 3-months post-injury for AIS C patients who did not experience an AIS grade conversion. The coloured "halo" denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases ![stringdb-curated](Images/stringdb_curated_db.png){ width=8% height=2%} and those that are experimentally determined ![stringdb-experiment-determ](Images/stringdb_experimentally_determined.png){ width=8% height=2%}. Predicted interactions from: gene co-occurence ![stringdb-co-occurance](Images/stringdb_gene_co-occurrence.png){ width=8% height=2%}; gene fusions ![stringdb-fusions](Images/stringdb_gene_fusions.png){ width=8% height=2%}; gene neighbourhood ![stringdb-neighbour](Images/stringdb_gene_neighbour.png){ width=8% height=2%}. Others are from gene co-expression ![stringdb-co-exp](Images/stringdb_co-expression.png){ width=8% height=2%}; text-mining ![stringdb-text-min](Images/stringdb_text_mining.png){ width=8% height=2%} and protein homology ![stringdb-protein-homol](Images/stringdb_protein-homology.png){ width=8% height=2%}.
+
+```{r, label='openms-stringdb-chap4-acute-sub-c-nonimp', fig.cap='(ref:openms-stringdb-chap4-acute-sub-c-nonimp)', out.width="1\\linewidth", fig.scap='StringDB network plot - label-free - Acute C Non-Improvers VS Subacute Non-Improvers'}
+knitr::include_graphics("figures/openms_protein_quantification/label_free/stringdb_plots/acute_c_nonimp_vs_subacute_c_nonimp_2021-08-06.pdf")
+```
+
+(ref:openms-stringdb-chap4-a-vs-d) Interaction network of differentially abundant proteins from plasma 2-week post-injury, between AIS A and D. The coloured "halo" denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases ![stringdb-curated](Images/stringdb_curated_db.png){ width=8% height=2%} and those that are experimentally determined ![stringdb-experiment-determ](Images/stringdb_experimentally_determined.png){ width=8% height=2%}. Predicted interactions from: gene co-occurence ![stringdb-co-occurance](Images/stringdb_gene_co-occurrence.png){ width=8% height=2%}; gene fusions ![stringdb-fusions](Images/stringdb_gene_fusions.png){ width=8% height=2%}; gene neighbourhood ![stringdb-neighbour](Images/stringdb_gene_neighbour.png){ width=8% height=2%}. Others are from gene co-expression ![stringdb-co-exp](Images/stringdb_co-expression.png){ width=8% height=2%}; text-mining ![stringdb-text-min](Images/stringdb_text_mining.png){ width=8% height=2%} and protein homology ![stringdb-protein-homol](Images/stringdb_protein-homology.png){ width=8% height=2%}.
+
+```{r, label='openms-stringdb-chap4-a-vs-d', fig.cap='(ref:openms-stringdb-chap4-a-vs-d)', out.width="1\\linewidth", fig.scap='StringDB network plot - label-free - Acute A VS Acute D'}
+knitr::include_graphics("figures/openms_protein_quantification/label_free/stringdb_plots/acute_a_vs_acute_d_2021-08-06.pdf")
+```
+
+(ref:openms-stringdb-chap4-c-vs-d) Interaction network of differentially abundant proteins from plasma 2-week post-injury, between AIS C improvers and D. The coloured "halo" denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases ![stringdb-curated](Images/stringdb_curated_db.png){ width=8% height=2%} and those that are experimentally determined ![stringdb-experiment-determ](Images/stringdb_experimentally_determined.png){ width=8% height=2%}. Predicted interactions from: gene co-occurence ![stringdb-co-occurance](Images/stringdb_gene_co-occurrence.png){ width=8% height=2%}; gene fusions ![stringdb-fusions](Images/stringdb_gene_fusions.png){ width=8% height=2%}; gene neighbourhood ![stringdb-neighbour](Images/stringdb_gene_neighbour.png){ width=8% height=2%}. Others are from gene co-expression ![stringdb-co-exp](Images/stringdb_co-expression.png){ width=8% height=2%}; text-mining ![stringdb-text-min](Images/stringdb_text_mining.png){ width=8% height=2%} and protein homology ![stringdb-protein-homol](Images/stringdb_protein-homology.png){ width=8% height=2%}.
+
+```{r, label='openms-stringdb-chap4-c-vs-d', fig.cap='(ref:openms-stringdb-chap4-c-vs-d)', out.width="1\\linewidth", fig.scap='StringDB network plot - label-free - Acute C Improvers VS Acute D'}
+knitr::include_graphics("figures/openms_protein_quantification/label_free/stringdb_plots/acute_c_imp_vs_acute_d_2021-08-06.pdf")
+```
+
+(ref:openms-stringdb-chap4-c-vs-a) Interaction network of differentially abundant proteins from plasma 2-week post-injury, between AIS C improvers and A. The coloured "halo" denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases ![stringdb-curated](Images/stringdb_curated_db.png){ width=8% height=2%} and those that are experimentally determined ![stringdb-experiment-determ](Images/stringdb_experimentally_determined.png){ width=8% height=2%}. Predicted interactions from: gene co-occurence ![stringdb-co-occurance](Images/stringdb_gene_co-occurrence.png){ width=8% height=2%}; gene fusions ![stringdb-fusions](Images/stringdb_gene_fusions.png){ width=8% height=2%}; gene neighbourhood ![stringdb-neighbour](Images/stringdb_gene_neighbour.png){ width=8% height=2%}. Others are from gene co-expression ![stringdb-co-exp](Images/stringdb_co-expression.png){ width=8% height=2%}; text-mining ![stringdb-text-min](Images/stringdb_text_mining.png){ width=8% height=2%} and protein homology ![stringdb-protein-homol](Images/stringdb_protein-homology.png){ width=8% height=2%}.
+
+```{r, label='openms-stringdb-chap4-c-vs-a', fig.cap='(ref:openms-stringdb-chap4-c-vs-a)', out.width="1\\linewidth", fig.scap='StringDB network plot - label-free - Acute C Improvers VS Acute A'}
+knitr::include_graphics("figures/openms_protein_quantification/label_free/stringdb_plots/acute_a_vs_acute_c_imp_2021-08-06.pdf")
+```
+
+(ref:openms-stringdb-chap4-c-nonimp-vs-a) Interaction network of differentially abundant proteins from plasma 2-week post-injury, between AIS C non-improvers and A. The coloured "halo" denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases ![stringdb-curated](Images/stringdb_curated_db.png){ width=8% height=2%} and those that are experimentally determined ![stringdb-experiment-determ](Images/stringdb_experimentally_determined.png){ width=8% height=2%}. Predicted interactions from: gene co-occurence ![stringdb-co-occurance](Images/stringdb_gene_co-occurrence.png){ width=8% height=2%}; gene fusions ![stringdb-fusions](Images/stringdb_gene_fusions.png){ width=8% height=2%}; gene neighbourhood ![stringdb-neighbour](Images/stringdb_gene_neighbour.png){ width=8% height=2%}. Others are from gene co-expression ![stringdb-co-exp](Images/stringdb_co-expression.png){ width=8% height=2%}; text-mining ![stringdb-text-min](Images/stringdb_text_mining.png){ width=8% height=2%} and protein homology ![stringdb-protein-homol](Images/stringdb_protein-homology.png){ width=8% height=2%}.
+
+```{r, label='openms-stringdb-chap4-c-nonimp-vs-a', fig.cap='(ref:openms-stringdb-chap4-c-nonimp-vs-a)', out.width="1\\linewidth", fig.scap='StringDB network plot - label-free - Acute C Non-Improvers VS Acute A'}
+knitr::include_graphics("figures/openms_protein_quantification/label_free/stringdb_plots/acute_a_vs_acute_c_nonimp_2021-08-06.pdf")
+```
+
+(ref:openms-stringdb-chap4-c-nonimp-vs-d) Interaction network of differentially abundant proteins from plasma 2-week post-injury, between AIS C non-improvers and D. The coloured "halo" denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases ![stringdb-curated](Images/stringdb_curated_db.png){ width=8% height=2%} and those that are experimentally determined ![stringdb-experiment-determ](Images/stringdb_experimentally_determined.png){ width=8% height=2%}. Predicted interactions from: gene co-occurence ![stringdb-co-occurance](Images/stringdb_gene_co-occurrence.png){ width=8% height=2%}; gene fusions ![stringdb-fusions](Images/stringdb_gene_fusions.png){ width=8% height=2%}; gene neighbourhood ![stringdb-neighbour](Images/stringdb_gene_neighbour.png){ width=8% height=2%}. Others are from gene co-expression ![stringdb-co-exp](Images/stringdb_co-expression.png){ width=8% height=2%}; text-mining ![stringdb-text-min](Images/stringdb_text_mining.png){ width=8% height=2%} and protein homology ![stringdb-protein-homol](Images/stringdb_protein-homology.png){ width=8% height=2%}.
+
+```{r, label='openms-stringdb-chap4-c-nonimp-vs-d', fig.cap='(ref:openms-stringdb-chap4-c-nonimp-vs-d)', out.width="1\\linewidth", fig.scap='StringDB network plot - label-free - Acute C Non-Improvers VS Acute D'}
+knitr::include_graphics("figures/openms_protein_quantification/label_free/stringdb_plots/acute_c_nonimp_vs_acute_d_2021-08-06.pdf")
+```
+
+\clearpage
+
+## Volcano plots {#sup-volc-plots}
+
+(ref:volc-plot-c-imp-vs-nonimp) Volcano plot of log$_10$ fold change and log$_10$ adjusted p-value for plasma proteins from 2-weeks post-injury between AIS C patients who experienced an AIS grade conversion and those who did not. Proteins with a fold changes beyond $\pm 1.2$ and an adjusted p-value less than 0.05 are labelled.
+
+```{r, label='volc-plot-c-imp-vs-nonimp', fig.cap='(ref:volc-plot-c-imp-vs-nonimp)', out.width="1\\linewidth"}
+## get volcano plot
+knitr::include_graphics("figures/openms_protein_quantification/label_free/volcano_plots/openms_volcano_plot_2021-08-10_0008.pdf")
+```
+
+(ref:volc-plot-subacute-c-imp-vs-nonimp) Volcano plot of log$_10$ fold change and log$_10$ adjusted p-value for plasma proteins from 3-months post-injury between AIS C patients who experienced an AIS grade conversion and those who did not. Proteins with a fold changes beyond $\pm 1.2$ and an adjusted p-value less than 0.05 are labelled.
+
+```{r, label='volc-plot-subacute-c-imp-vs-nonimp', fig.cap='(ref:volc-plot-subacute-c-imp-vs-nonimp)', out.width="1\\linewidth"}
+knitr::include_graphics("figures/openms_protein_quantification/label_free/volcano_plots/openms_volcano_plot_2021-08-10_0026.pdf")
+```
+
+(ref:volc-plot-acute-c-imp-vs-subacute-imp) Volcano plot of log$_10$ fold change and log$_10$ adjusted p-value for plasma proteins from 2-weeks and 3-months post-injury from AIS C patients who experienced an AIS grade conversion. Proteins with a fold changes beyond $\pm 1.2$ and an adjusted p-value less than 0.05 are labelled.
+
+```{r, label='volc-plot-acute-c-imp-vs-subacute-imp', fig.cap='(ref:volc-plot-acute-c-imp-vs-subacute-imp)', out.width="1\\linewidth"}
+knitr::include_graphics("figures/openms_protein_quantification/label_free/volcano_plots/openms_volcano_plot_2021-08-10_0011.pdf")
+```
+
+(ref:volc-plot-acute-c-nonimp-vs-subacute-nonimp) Volcano plot of log$_10$ fold change and log$_10$ adjusted p-value for plasma proteins from 2-weeks and 3-months post-injury from AIS C patients who did not experience an AIS grade conversion. Proteins with a fold changes beyond $\pm 1.2$ and an adjusted p-value less than 0.05 are labelled.
+
+```{r, label='volc-plot-acute-c-nonimp-vs-subacute-nonimp', fig.cap='(ref:volc-plot-acute-c-nonimp-vs-subacute-nonimp)', out.width="1\\linewidth"}
+knitr::include_graphics("figures/openms_protein_quantification/label_free/volcano_plots/openms_volcano_plot_2021-08-10_0017.pdf")
+```
+
+(ref:volc-plot-acute-a-vs-acute-d) Volcano plot of log$_10$ fold change and log$_10$ adjusted p-value for plasma proteins from 2-weeks post-injury between AIS A and AIS D patients. Proteins with a fold changes beyond $\pm 1.2$ and an adjusted p-value less than 0.05 are labelled.
+
+```{r, label='volc-plot-acute-a-vs-acute-d', fig.cap='(ref:volc-plot-acute-a-vs-acute-d)', out.width="1\\linewidth"}
+knitr::include_graphics("figures/openms_protein_quantification/label_free/volcano_plots/openms_volcano_plot_2021-08-10_0003.pdf")
+```
+
+(ref:volc-plot-acute-a-vs-subacute-a) Volcano plot of log$_10$ fold change and log$_10$ adjusted p-value for plasma proteins from 2-weeks and 3-months post-injury from AIS A patients. Proteins with a fold changes beyond $\pm 1.2$ and an adjusted p-value less than 0.05 are labelled.
+
+```{r, label='volc-plot-acute-a-vs-subacute-a', fig.cap='(ref:volc-plot-acute-a-vs-subacute-a)', out.width="1\\linewidth"}
+knitr::include_graphics("figures/openms_protein_quantification/label_free/volcano_plots/openms_volcano_plot_2021-08-10_0004.pdf")
+```
+
+(ref:volc-plot-acute-d-vs-subacute-d) Volcano plot of log$_10$ fold change and log$_10$ adjusted p-value for plasma proteins from 2-weeks and 3-months post-injury from AIS D patients. Proteins with a fold changes beyond $\pm 1.2$ and an adjusted p-value less than 0.05 are labelled.
+
+```{r, label='volc-plot-acute-d-vs-subacute-d', fig.cap='(ref:volc-plot-acute-d-vs-subacute-d)', out.width="1\\linewidth"}
+knitr::include_graphics("figures/openms_protein_quantification/label_free/volcano_plots/openms_volcano_plot_2021-08-10_0022.pdf")
+```
+
+(ref:volc-plot-acute-c-imp-vs-acute-d) Volcano plot of log$_10$ fold change and log$_10$ adjusted p-value for plasma proteins from 2-weeks post-injury between AIS C patients who experienced an AIS grade conversion and AIS D patients. Proteins with a fold changes beyond $\pm 1.2$ and an adjusted p-value less than 0.05 are labelled.
+
+```{r, label='volc-plot-acute-c-imp-vs-acute-d', fig.cap='(ref:volc-plot-acute-c-imp-vs-acute-d)', out.width="1\\linewidth"}
+knitr::include_graphics("figures/openms_protein_quantification/label_free/volcano_plots/openms_volcano_plot_2021-08-10_0009.pdf")
+```
+
+(ref:volc-plot-acute-a-vs-acute-c-imp) Volcano plot of log$_10$ fold change and log$_10$ adjusted p-value for plasma proteins from 2-weeks post-injury between AIS A patients and AIS C patients who experienced an AIS grade conversion. Proteins with a fold changes beyond $\pm 1.2$ and an adjusted p-value less than 0.05 are labelled.
+
+```{r, label='volc-plot-acute-a-vs-acute-c-imp', fig.cap='(ref:volc-plot-acute-a-vs-acute-c-imp)', out.width="1\\linewidth"}
+knitr::include_graphics("figures/openms_protein_quantification/label_free/volcano_plots/openms_volcano_plot_2021-08-10_0001.pdf")
+```
+
+(ref:volc-plot-acute-a-vs-acute-c-nonimp) Volcano plot of log$_10$ fold change and log$_10$ adjusted p-value for plasma proteins from 2-weeks post-injury between AIS A patients and AIS C patients who did not experience an AIS grade conversion. Proteins with a fold changes beyond $\pm 1.2$ and an adjusted p-value less than 0.05 are labelled.
+
+```{r, label='volc-plot-acute-a-vs-acute-c-nonimp', fig.cap='(ref:volc-plot-acute-a-vs-acute-c-nonimp)', out.width="1\\linewidth"}
+knitr::include_graphics("figures/openms_protein_quantification/label_free/volcano_plots/openms_volcano_plot_2021-08-10_0002.pdf")
+```
+
+(ref:volc-plot-acute-c-nonimp-vs-acute-d) Volcano plot of log$_10$ fold change and log$_10$ adjusted p-value for plasma proteins from 2-weeks post-injury between AIS C patients who did not experience an AIS grade conversion and AIS D patients. Proteins with a fold changes beyond $\pm 1.2$ and an adjusted p-value less than 0.05 are labelled.
+
+```{r, label='volc-plot-acute-c-nonimp-vs-acute-d', fig.cap='(ref:volc-plot-acute-c-nonimp-vs-acute-d)', out.width="1\\linewidth"}
+knitr::include_graphics("figures/openms_protein_quantification/label_free/volcano_plots/openms_volcano_plot_2021-08-10_0014.pdf")
+```
 
 # References
