@@ -308,12 +308,18 @@ The samples were analysed at the BSRC St. Andrews University Mass Spectrometry a
 A total of 12 SCX fractions were analysed by nano-electrospray ionisation-liquid chromatography/tandem mass spectrometry (LC-MS/MS) using a TripleTOF 5600 tandem mass spectrometer (AB Sciex, Framingham, MA, USA) as described previously.[@fuller_stathmin_2015]
 
 <!-- Karinas note: This whole section below- try to re-write in brief -->
+
 **SECTION TO BE REWRITTEN** 
-Each fraction ($10 \mu l$) was then analysed by nanoflow LC-ESI–MSMS. The peptides were separated using a nanoLC Ultra 2D plus loading pump and nanoLC AS-2 autosampler chromatography system (Eksigent, Redwood City, CA, USA), using a PepMap RSLC column ($75\mu l$ x $15 cm$) and an Acclaim PepMap100 trap ($100\mu m$ x $2 cm$) (ThermoFisher Scientific, Waltham, MA, USA).
+
+Each fraction ($10 \mu l$) was then analysed by nanoflow LC-ESI–MSMS, as described previously. 
+
+<!-- which reference would this be? Also does anything else from this method need adding in as descriptive? --> 
+
+<!-- Each fraction ($10 \mu l$) was then analysed by nanoflow LC-ESI–MSMS. The peptides were separated using a nanoLC Ultra 2D plus loading pump and nanoLC AS-2 autosampler chromatography system (Eksigent, Redwood City, CA, USA), using a PepMap RSLC column ($75\mu l$ x $15 cm$) and an Acclaim PepMap100 trap ($100\mu m$ x $2 cm$) (ThermoFisher Scientific, Waltham, MA, USA).
 After washing the peptides on the trap column for 20 minutes at $5\mu L$ min$^{-1}$, the trap was switched in line with the column and the peptides eluted with a gradient of increasing MeCN from 95% buffer A (98% H~2~O, 2% MeCN, 0.1% FA), 5% buffer B (2% H~2~O, 98% MeCN, 0.1% FA) to 65% buffer A, 35% buffer B over 60 minutes, then to 50% buffer A, 50% buffer B over a further 20 minutes, before increasing the concentration of buffer B to 95% over a further 10 minutes.
-The column was then washed with 95% buffer B before re-equilibration in 95% buffer A. A flow rate of $300 nL$ min$^{-1}$ was employed. The eluent was sprayed into a TripleTOF 5600 tandem mass spectrometer (ABSciex, Foster City, CA, USA), using a NANOSpray III source, and analyzed in Information Dependent Acquisition (IDA) mode, performing $250 ms$ of MS followed by $100 ms$ MSMS analyses on the 20 most intense peaks with a charge state of +2 to +5. 
-Parent (MS) ions were accepted with a mass tolerance of 50 mDa and MSMS was conducted with a rolling collision energy (CE) inclusive of preset iTRAQ CE adjustments.
-Analyzed parent ions were then excluded from analysis for 13 s after 3 occurrences.
+The column was then washed with 95% buffer B before re-equilibration in 95% buffer A. A flow rate of $300 nL$ min$^{-1}$ was employed. The eluent was sprayed into a TripleTOF 5600 tandem mass spectrometer (ABSciex, Foster City, CA, USA), using a NANOSpray III source, and analyzed in Information Dependent Acquisition (IDA) mode, performing $250 ms$ of MS followed by $100 ms$ MSMS analyses on the 20 most intense peaks with a charge state of +2 to +5. -->
+
+Parent (MS) ions were accepted with a mass tolerance of 50 mDa and MSMS was conducted with a rolling collision energy (CE) inclusive of preset iTRAQ CE adjustments. Analyzed parent ions were then excluded from analysis for 13 s after 3 occurrences.
 
 ### Sample preparation and analysis using label-free proteomics {#label-free-sample-prep}
 
@@ -325,6 +331,7 @@ The supernatant was centrifuged through a 0.22 $\mu m$ cellulose acetate membran
 Total protein was quantitated with a Pierce&trade; $660 nm$ Protein Assay (Thermo Fisher Scientific, Hemel Hempstead, UK), whereupon 5 mg of total protein was applied to ProteoMiner&trade; beads, and processed as described previoulsly.[@stoscheck_protein_1987]
 
 <!-- Note MH: dunno what this is  -->
+<!-- Note JFS: I cant remember, possibly a title of an image/graph? --> 
 <!-- 3.7.3.2	LC separation and Quadrupole-Orbitrap instrument -->
 
 #### Label free mass spectrometry analysis
@@ -334,7 +341,11 @@ Tryptic peptides were subjected to LC-MC/MC via a 2-h gradient on a NanoAcquity&
 <!-- Karinas note: Include Hulme and/or Peffers ref --> 
 
 <!-- Karinas note: Try to rewrite the below section in brief --> 
+
 **REWRITE IN BRIEF** 
+
+<!-- Note JFS: Im not really sure out of this what is important to keep in and what can be kept out? --> 
+
 The Q-Exactive was operated in a data dependent positive electrospray ionisation mode, automatically switching between full scan MS and MS/MS acquisition.
 Survey full scan MS spectra (*m/z* 300–2000) were acquired in the Orbitrap with 70,000 resolution (*m/z* 200) following accumulation of ions to $1\times 10^6$ target value based on the predictive automatic gain control values from the previous full scan.
 Dynamic exclusion was set to 20s, the 10 most intense multiply charged ions ($z \geq 2$) were sequentially isolated and fragmented in the octopole collision cell by higher energy collisional dissociation (HCD), with a fixed injection time of 100ms and 35,000 resolution.
@@ -555,6 +566,7 @@ names(updown_compare) <- unique(pp_long$comparison)
 <!-- At the subacute phase, AIS C improvers had `r as.numeric(protein_up[(protein_up$piv_wide == "Subacute AIS C improvers vs non-improvers"), 2])` and `r as.numeric(pp_updown[(pp_updown$piv_wide == "Subacute AIS C improvers vs non-improvers"),3][2,])` proteins of increased abundance were found, whereas `r as.numeric(protein_down[(protein_down$piv_wide == "Subacute AIS C improvers vs non-improvers"), 2])` and `r as.numeric(pp_updown[(pp_updown$piv_wide == "Subacute AIS C improvers vs non-improvers"),3][1,])` proteins were less abundant, for OpenMS and ProteinPilot respectively (Figure \@ref(fig:openms-pp-updown)). -->
 
 <!-- MH note: I've commented out the above, and I assume the below is the rewritten version, maybe double check it all matches Jess -->
+<!-- Note JFS: I think its all the same, just writted slightly differently> --> 
 
 The AIS A group had `r as.numeric(protein_up[(protein_up$piv_wide == "AIS A vs D"), 2])` and `r as.numeric(pp_updown[(pp_updown$piv_wide == "AIS A vs D"),3][2,])` more abundant and `r as.numeric(protein_down[(protein_down$piv_wide == "AIS A vs D"), 2])` and `r as.numeric(pp_updown[(pp_updown$piv_wide == "AIS A vs D"),3][1,])` less abundant proteins respectively.
 Acutely, AIS C improvers relative to AIS A and D had `r as.numeric(protein_up[(protein_up$piv_wide == "AIS C non-improvers vs A"), 2])` and `r as.numeric(protein_up[(protein_up$piv_wide == "AIS C non-improvers vs D"), 2])` more abundant and  `r as.numeric(protein_down[(protein_down$piv_wide == "AIS C non-improvers vs A"), 2])` and `r as.numeric(protein_down[(protein_down$piv_wide == "AIS C non-improvers vs D"), 2])` less abundant for OpenMS, whereas ProteinPilot had `r as.numeric(pp_updown[(pp_updown$piv_wide == "AIS C non-improvers vs A"),3][2,])` and `r as.numeric(pp_updown[(pp_updown$piv_wide == "AIS C non-improvers vs D"),3][2,])` more abundant proteins, and  `r as.numeric(pp_updown[(pp_updown$piv_wide == "AIS C non-improvers vs A"),3][1,])` and `r as.numeric(pp_updown[(pp_updown$piv_wide == "AIS C non-improvers vs D"),3][1,])` less abundant.
@@ -815,7 +827,7 @@ Longitudinally, AIS C acute improvers had `r nrow(pos_neg$acute_c_imp_vs_subacut
 
 ### Comparing iTRAQ and label-free proteins
 
-A total of `r length(label_free_proteins)` and `r nrow(fc_openms_wide)` unique proteinswere identified across the label-free and iTRAQ experiments respectively, with a modest overlap of 26 proteins found using both techniques (Figure \@ref(fig:itraq-label-free-venn)).
+A total of `r length(label_free_proteins)` and `r nrow(fc_openms_wide)` unique proteins were identified across the label-free and iTRAQ experiments respectively, with a modest overlap of 26 proteins found using both techniques (Figure \@ref(fig:itraq-label-free-venn)).
 
 <!-- MH note: ask KW is bar plot would be better than venn diagram? -->
 
