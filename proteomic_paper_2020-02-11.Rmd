@@ -1,6 +1,10 @@
 ---
 title: "A comprehensive proteomic and bioinformatics analysis of human spinal cord injury plasma identifies proteins associated with the complement cascade as potential prognostic indicators of neurological outcome"
 output:
+  bookdown::word_document2:
+    toc: no
+    number_sections: yes
+    df_print: kable
   bookdown::pdf_document2:
     toc: no
     #number_sections: yes
@@ -11,10 +15,6 @@ output:
     #includes:
       #in_header: "extras/preamble.tex"
       #in_header: "extras/elife_template.tex" # not working as is, needs fixing
-  bookdown::word_document2:
-    toc: no
-    number_sections: yes
-    df_print: kable
 #documentclass: elife
 #classoption: 9pt,lineno
 authors:
