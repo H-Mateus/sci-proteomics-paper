@@ -288,16 +288,15 @@ Plasma samples were collected within 2 weeks of injury (acute) and at approximat
 
 Thawed plasma samples ($2\mu l$) each were diluted with distilled water ($98\mu l$). Total protein was quantified using a Pierce&trade; $660 nm$ Protein Assay (Thermo Fisher Scientific, Hemel Hempstead, UK)[@stoscheck_protein_1987].
 
-In brief, $10\mu l$ of the diluted sample was added to $150\mu l$ of Thermo Pierce 660nm protein assay reagent in triplicate and the optical density was read at 660nm. 
-
 A total of $100 mg$ of plasma protein was taken from each sample and pooled equally to form a patient test group.
 For example, the AIS C improver group was pooled from 10 separate patient samples, 10mg of protein per patient.
 
-The pooled plasma samples were then precipitated by incubation of the sample in 6 times the volume of chilled acetone for 1 hour at -20&deg;C.
+The pooled plasma samples were precipitated by incubation of the sample in six times the volume of chilled acetone for 1 hour at -20&deg;C.
 The samples were then centrifuged at 6,000G for 10 minutes at 4&deg;C, and re-suspended in $200\mu l$ of triethylammonium bicarbonate buffer.
 Sequencing Grade Modified Trypsin ($10\mu g/85\mu g$ of protein; Promega, Madison, WI, USA) was then added to the samples for overnight digestion at 37&deg;C.
-Proteins then underwent reduction and alkylation (according to the manufacturer’s instructions; Applied Biosystems, Bleiswijk, The Netherlands). 
+Peptides underwent reduction and alkylation (according to the manufacturer’s instructions; Applied Biosystems, Bleiswijk, The Netherlands). 
 Tryptic digests were labelled with iTRAQ tags (again according to the manufacturer's instructions for the iTRAQ kit), before being pooled into test groups and dried in a vacuum centrifuge. 
+Two individual iTRAQ experiments were set up, the first to assess acute and sub-acute improvers or non-improvers and the second to assess acute improvers and non-improvers to AIS grade A and D patients. 
 The following tags were used for each group of patient samples 114 tag - acute improvers, 115 tag - sub-acute improvers, 116 tag - acute non-improvers and 117 tag - sub-acute non-improvers for run 1 and 114 tag - acute improvers, 115 tag - acute non-improvers, 116 tag - AIS grade A and 117 tag - AIS grade D for run 2.
 
 
@@ -326,9 +325,8 @@ Parent (MS) ions were accepted with a mass tolerance of 50 mDa and MSMS was cond
 No sample pooling was used, and so each of the 73 samples were maintained separately throughout protein equalisation, mass spectrometry, and label-free quantification steps.
 Thus, protein abundance was quantified for each sample, whereupon mean protein abundance across experimental groups was calculated to assess protein changes.
 
-To reduce the dynamic range of proteins, ProteoMiner&trade; beads (BioRad, Hemel Hempstead, UK) were used. Firstly, plasma was treated with 1 $\mu g/mL$ of hyaluronidase. Digestion was confirmed with Coomassie stained 1D-SDS PAGE gel.
-The supernatant was centrifuged through a 0.22 $\mu m$ cellulose acetate membrane (Costar Spin-X, Corning, Tokyo, Japan) tube filter (5000*g* for 15 minutes) to remove insoluble material.
-Total protein was quantitated with a Pierce&trade; $660 nm$ Protein Assay (Thermo Fisher Scientific, Hemel Hempstead, UK), whereupon 5 mg of total protein was applied to ProteoMiner&trade; beads, and processed as described previoulsly.[@stoscheck_protein_1987]
+To reduce the dynamic range of proteins, ProteoMiner&trade; beads (BioRad, Hemel Hempstead, UK) were used.[@boschetti_proteominer_2008] 
+Total protein was quantitated with a Pierce&trade; $660 nm$ Protein Assay (Thermo Fisher Scientific, Hemel Hempstead, UK), whereupon 5 mg of total protein was applied to ProteoMiner&trade; beads, and processed as described previously.[@stoscheck_protein_1987]
 
 <!-- Note MH: dunno what this is  -->
 <!-- Note JFS: I cant remember, possibly a title of an image/graph? --> 
@@ -392,7 +390,16 @@ For peptide level score estimation and filtering `PercolatorAdapter` was used wi
 The `ProteomicsLFQ` was used for subsequent processing with the flags: `-proteinFDR 0.05 -targeted_only true`.
 The `-out_msstats` flag was also used to produce quantitative data for downstream statistical analysis with the R package `MSstats`.[@choi_msstats_2014]
 
-\clearpage
+### Network and pathway analysis {#pathway-analysis-chap3}
+
+<!-- Karinas note: for this section: Can you please review whether or not these methods reflect what has been included --> 
+<!-- MH note: if we are including the string plots in the supplementary data then all of this is relevant. If we don't include it at all then the first paragraph can be deleted -->
+
+Protein interation networks were created using the Bioconductor package `STRINGdb` which provides an R interface to STRING version 11.[@szklarczyk_string_2019]
+Instantiation of the STRINGdb reference class was done with `species` and `score_threshold` set to `9606`, for *Homo sapiens* , and `400` respectively.
+Clustering of networks with `STRINGdb` used the "fastgreedy" algorithm from the `iGraph` package.
+
+The Bioconductor package ReactomePA, which employs the open-source, open access, manually curated and peer-reviewed pathway database Reactome was used for network analysis.[@yu_reactomepa_2016; @jassal_reactome_2020]
 
 ### Enzyme-linked immunosorbent assays 
 
@@ -411,22 +418,12 @@ Pairwise t tests with bonferroni adjusted P-values with the R `rstatix` package 
 
 \clearpage
 
-### Network and pathway analysis {#pathway-analysis-chap3}
-
-<!-- Karinas note: for this section: Can you please review whether or not these methods reflect what has been included --> 
-<!-- MH note: if we are including the string plots in the supplementary data then all of this is relevant. If we don't include it at all then the first paragraph can be deleted -->
-
-Protein interation networks were created using the Bioconductor package `STRINGdb` which provides an R interface to STRING version 11.[@szklarczyk_string_2019]
-Instantiation of the STRINGdb reference class was done with `species` and `score_threshold` set to `9606`, for *Homo sapiens* , and `400` respectively.
-Clustering of networks with `STRINGdb` used the "fastgreedy" algorithm from the `iGraph` package.
-
-The Bioconductor package ReactomePA, which employs the open-source, open access, manually curated and peer-reviewed pathway database Reactome was used for network analysis.[@yu_reactomepa_2016; @jassal_reactome_2020]
-
 # Results
 
 ## Results {#chap-3-results}
 
-Plasma from American Spinal Injury Association (ASIA) grade C SCI patients (total n=17) contrasting those who experienced an AISA grade conversion (n=10), and those who did not (n=7) collected within 2 weeks, and at approximately 3 months post-injury (Improvers n=9 vs Non-improvers n=6). Relative protein expression in AIS grade A (n=10) and grade D (n=11) patients was also examined. 
+Plasma from American Spinal Injury Association (ASIA) grade C SCI patients (total n=17) contrasting those who experienced an AISA grade conversion (n=10), and those who did not (n=7) collected within 2 weeks, and at approximately 3 months post-injury (Improvers n=9 vs Non-improvers n=6). 
+Relative protein abundance in AIS grade A (n=10) and grade D (n=11) patients was also examined. 
 
 In the interest of brevity, only the plots of acute and subactue AIS C improvers VS non-improvers are included here, please see the supplemental data for the other comparisons (section \@ref(sup-data)).
 
