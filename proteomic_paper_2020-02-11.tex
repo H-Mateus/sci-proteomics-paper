@@ -102,27 +102,13 @@
 \newcommand{\elandscape}{\end{landscape}}
 \usepackage{float} \floatplacement{figure}{H}
 \newcommand{\beginsupplement}{\setcounter{table}{0}  \renewcommand{\thetable}{S\arabic{table}} \setcounter{figure}{0} \renewcommand{\thefigure}{S\arabic{figure}}}
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{array}
-\usepackage{multirow}
-\usepackage{wrapfig}
-\usepackage{float}
-\usepackage{colortbl}
-\usepackage{pdflscape}
-\usepackage{tabu}
-\usepackage{threeparttable}
-\usepackage{threeparttablex}
-\usepackage[normalem]{ulem}
-\usepackage{makecell}
-\usepackage{xcolor}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 
 \title{A comprehensive proteomic and bioinformatics analysis of human spinal cord injury plasma identifies proteins associated with the complement cascade as potential prognostic indicators of neurological outcome}
 \author{}
-\date{2022-05-10 16:47:11}
+\date{2022-05-25 11:56:10}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% ELIFE ARTICLE TEMPLATE again
@@ -270,16 +256,15 @@ Plasma samples were collected within 2 weeks of injury (acute) and at approximat
 
 Thawed plasma samples (\(2\mu l\)) each were diluted with distilled water (\(98\mu l\)). Total protein was quantified using a Pierce™ \(660 nm\) Protein Assay (Thermo Fisher Scientific, Hemel Hempstead, UK)(Stoscheck 1987).
 
-In brief, \(10\mu l\) of the diluted sample was added to \(150\mu l\) of Thermo Pierce 660nm protein assay reagent in triplicate and the optical density was read at 660nm.
-
 A total of \(100 mg\) of plasma protein was taken from each sample and pooled equally to form a patient test group.
 For example, the AIS C improver group was pooled from 10 separate patient samples, 10mg of protein per patient.
 
-The pooled plasma samples were then precipitated by incubation of the sample in 6 times the volume of chilled acetone for 1 hour at -20°C.
+The pooled plasma samples were precipitated by incubation of the sample in six times the volume of chilled acetone for 1 hour at -20°C.
 The samples were then centrifuged at 6,000G for 10 minutes at 4°C, and re-suspended in \(200\mu l\) of triethylammonium bicarbonate buffer.
 Sequencing Grade Modified Trypsin (\(10\mu g/85\mu g\) of protein; Promega, Madison, WI, USA) was then added to the samples for overnight digestion at 37°C.
-Proteins then underwent reduction and alkylation (according to the manufacturer's instructions; Applied Biosystems, Bleiswijk, The Netherlands).
+Peptides underwent reduction and alkylation (according to the manufacturer's instructions; Applied Biosystems, Bleiswijk, The Netherlands).
 Tryptic digests were labelled with iTRAQ tags (again according to the manufacturer's instructions for the iTRAQ kit), before being pooled into test groups and dried in a vacuum centrifuge.
+Two individual iTRAQ experiments were set up, the first to assess acute and sub-acute improvers or non-improvers and the second to assess acute improvers and non-improvers to AIS grade A and D patients.
 The following tags were used for each group of patient samples 114 tag - acute improvers, 115 tag - sub-acute improvers, 116 tag - acute non-improvers and 117 tag - sub-acute non-improvers for run 1 and 114 tag - acute improvers, 115 tag - acute non-improvers, 116 tag - AIS grade A and 117 tag - AIS grade D for run 2.
 
 \hypertarget{itraq-mass-spectrometry-analysis}{%
@@ -290,11 +275,10 @@ The samples were analysed at the BSRC St.~Andrews University Mass Spectrometry a
 A total of 12 SCX fractions were analysed by nano-electrospray ionisation-liquid chromatography/tandem mass spectrometry (LC-MS/MS) using a TripleTOF 5600 tandem mass spectrometer (AB Sciex, Framingham, MA, USA) as described previously.(Fuller et al. 2015)
 
 \textbf{SECTION TO BE REWRITTEN}
-Each fraction (\(10 \mu l\)) was then analysed by nanoflow LC-ESI--MSMS. The peptides were separated using a nanoLC Ultra 2D plus loading pump and nanoLC AS-2 autosampler chromatography system (Eksigent, Redwood City, CA, USA), using a PepMap RSLC column (\(75\mu l\) x \(15 cm\)) and an Acclaim PepMap100 trap (\(100\mu m\) x \(2 cm\)) (ThermoFisher Scientific, Waltham, MA, USA).
-After washing the peptides on the trap column for 20 minutes at \(5\mu L\) min\(^{-1}\), the trap was switched in line with the column and the peptides eluted with a gradient of increasing MeCN from 95\% buffer A (98\% H\textsubscript{2}O, 2\% MeCN, 0.1\% FA), 5\% buffer B (2\% H\textsubscript{2}O, 98\% MeCN, 0.1\% FA) to 65\% buffer A, 35\% buffer B over 60 minutes, then to 50\% buffer A, 50\% buffer B over a further 20 minutes, before increasing the concentration of buffer B to 95\% over a further 10 minutes.
-The column was then washed with 95\% buffer B before re-equilibration in 95\% buffer A. A flow rate of \(300 nL\) min\(^{-1}\) was employed. The eluent was sprayed into a TripleTOF 5600 tandem mass spectrometer (ABSciex, Foster City, CA, USA), using a NANOSpray III source, and analyzed in Information Dependent Acquisition (IDA) mode, performing \(250 ms\) of MS followed by \(100 ms\) MSMS analyses on the 20 most intense peaks with a charge state of +2 to +5.
-Parent (MS) ions were accepted with a mass tolerance of 50 mDa and MSMS was conducted with a rolling collision energy (CE) inclusive of preset iTRAQ CE adjustments.
-Analyzed parent ions were then excluded from analysis for 13 s after 3 occurrences.
+
+Each fraction (\(10 \mu l\)) was then analysed by nanoflow LC-ESI--MSMS, as described previously.
+
+Parent (MS) ions were accepted with a mass tolerance of 50 mDa and MSMS was conducted with a rolling collision energy (CE) inclusive of preset iTRAQ CE adjustments. Analyzed parent ions were then excluded from analysis for 13 s after 3 occurrences.
 
 \hypertarget{label-free-sample-prep}{%
 \subsubsection{Sample preparation and analysis using label-free proteomics}\label{label-free-sample-prep}}
@@ -302,9 +286,8 @@ Analyzed parent ions were then excluded from analysis for 13 s after 3 occurrenc
 No sample pooling was used, and so each of the 73 samples were maintained separately throughout protein equalisation, mass spectrometry, and label-free quantification steps.
 Thus, protein abundance was quantified for each sample, whereupon mean protein abundance across experimental groups was calculated to assess protein changes.
 
-To reduce the dynamic range of proteins, ProteoMiner™ beads (BioRad, Hemel Hempstead, UK) were used. Firstly, plasma was treated with 1 \(\mu g/mL\) of hyaluronidase. Digestion was confirmed with Coomassie stained 1D-SDS PAGE gel.
-The supernatant was centrifuged through a 0.22 \(\mu m\) cellulose acetate membrane (Costar Spin-X, Corning, Tokyo, Japan) tube filter (5000\emph{g} for 15 minutes) to remove insoluble material.
-Total protein was quantitated with a Pierce™ \(660 nm\) Protein Assay (Thermo Fisher Scientific, Hemel Hempstead, UK), whereupon 5 mg of total protein was applied to ProteoMiner™ beads, and processed as described previoulsly.(Stoscheck 1987)
+To reduce the dynamic range of proteins, ProteoMiner™ beads (BioRad, Hemel Hempstead, UK) were used.(\textbf{boschetti\_proteominer\_2008?})
+Total protein was quantitated with a Pierce™ \(660 nm\) Protein Assay (Thermo Fisher Scientific, Hemel Hempstead, UK), whereupon 5 mg of total protein was applied to ProteoMiner™ beads, and processed as described previously.(Stoscheck 1987)
 
 \hypertarget{label-free-mass-spectrometry-analysis}{%
 \paragraph{Label free mass spectrometry analysis}\label{label-free-mass-spectrometry-analysis}}
@@ -312,6 +295,7 @@ Total protein was quantitated with a Pierce™ \(660 nm\) Protein Assay (Thermo 
 Tryptic peptides were subjected to LC-MC/MC via a 2-h gradient on a NanoAcquity™ ultraperformance LC (Waters, Manchester, UK) connected to a Q-Exactive Quadrupole-Orbitrap instrument (Thermo-Fisher Scientific Hemel Hempstead, UK) as described \textbf{previously}.
 
 \textbf{REWRITE IN BRIEF}
+
 The Q-Exactive was operated in a data dependent positive electrospray ionisation mode, automatically switching between full scan MS and MS/MS acquisition.
 Survey full scan MS spectra (\emph{m/z} 300--2000) were acquired in the Orbitrap with 70,000 resolution (\emph{m/z} 200) following accumulation of ions to \(1\times 10^6\) target value based on the predictive automatic gain control values from the previous full scan.
 Dynamic exclusion was set to 20s, the 10 most intense multiply charged ions (\(z \geq 2\)) were sequentially isolated and fragmented in the octopole collision cell by higher energy collisional dissociation (HCD), with a fixed injection time of 100ms and 35,000 resolution.
@@ -360,7 +344,14 @@ For peptide level score estimation and filtering \texttt{PercolatorAdapter} was 
 The \texttt{ProteomicsLFQ} was used for subsequent processing with the flags: \texttt{-proteinFDR\ 0.05\ -targeted\_only\ true}.
 The \texttt{-out\_msstats} flag was also used to produce quantitative data for downstream statistical analysis with the R package \texttt{MSstats}.(Choi et al. 2014)
 
-\clearpage
+\hypertarget{pathway-analysis-chap3}{%
+\subsubsection{Network and pathway analysis}\label{pathway-analysis-chap3}}
+
+Protein interation networks were created using the Bioconductor package \texttt{STRINGdb} which provides an R interface to STRING version 11.(Szklarczyk et al. 2019)
+Instantiation of the STRINGdb reference class was done with \texttt{species} and \texttt{score\_threshold} set to \texttt{9606}, for \emph{Homo sapiens} , and \texttt{400} respectively.
+Clustering of networks with \texttt{STRINGdb} used the ``fastgreedy'' algorithm from the \texttt{iGraph} package.
+
+The Bioconductor package ReactomePA, which employs the open-source, open access, manually curated and peer-reviewed pathway database Reactome was used for network analysis.(G. Yu and He 2016; Jassal et al. 2020)
 
 \hypertarget{enzyme-linked-immunosorbent-assays}{%
 \subsubsection{Enzyme-linked immunosorbent assays}\label{enzyme-linked-immunosorbent-assays}}
@@ -380,22 +371,14 @@ Pairwise t tests with bonferroni adjusted P-values with the R \texttt{rstatix} p
 
 \clearpage
 
-\hypertarget{pathway-analysis-chap3}{%
-\subsubsection{Network and pathway analysis}\label{pathway-analysis-chap3}}
-
-Protein interation networks were created using the Bioconductor package \texttt{STRINGdb} which provides an R interface to STRING version 11.(Szklarczyk et al. 2019)
-Instantiation of the STRINGdb reference class was done with \texttt{species} and \texttt{score\_threshold} set to \texttt{9606}, for \emph{Homo sapiens} , and \texttt{400} respectively.
-Clustering of networks with \texttt{STRINGdb} used the ``fastgreedy'' algorithm from the \texttt{iGraph} package.
-
-The Bioconductor package ReactomePA, which employs the open-source, open access, manually curated and peer-reviewed pathway database Reactome was used for network analysis.(G. Yu and He 2016; Jassal et al. 2020)
-
 \hypertarget{results}{%
 \section{Results}\label{results}}
 
 \hypertarget{chap-3-results}{%
 \subsection{Results}\label{chap-3-results}}
 
-Plasma from American Spinal Injury Association (ASIA) grade C SCI patients (total n=17) contrasting those who experienced an AISA grade conversion (n=10), and those who did not (n=7) collected within 2 weeks, and at approximately 3 months post-injury (Improvers n=9 vs Non-improvers n=6). Relative protein expression in AIS grade A (n=10) and grade D (n=11) patients was also examined.
+Plasma from American Spinal Injury Association (ASIA) grade C SCI patients (total n=17) contrasting those who experienced an AISA grade conversion (n=10), and those who did not (n=7) collected within 2 weeks, and at approximately 3 months post-injury (Improvers n=9 vs Non-improvers n=6).
+Relative protein abundance in AIS grade A (n=10) and grade D (n=11) patients was also examined.
 
 In the interest of brevity, only the plots of acute and subactue AIS C improvers VS non-improvers are included here, please see the supplemental data for the other comparisons (section \ref{sup-data}).
 
@@ -417,7 +400,11 @@ Acutely, AIS C improvers relative to AIS A and D had 21 and 53 more abundant and
 \hypertarget{differential-protein-abundances}{%
 \subsubsection{Differential protein abundances}\label{differential-protein-abundances}}
 
-AIS C improvers had 18 more abundant proteins and 49 less abundant proteins at the acute phase, at the subacute phase, AIS C improvers had 34 more abundant proteins and 34 less abundant proteins. The AIS A group had 56 more abundant and 9 less abundant proteins respectively. Acutely, AIS C improvers relative to AIS A and D had 21 and 53 more abundant and 46 and 12 less abundant proteins. Please see the appendix for a full list of protein changes.
+AIS C improvers had 18 more abundant proteins and 49 less abundant proteins at the acute phase relative to non-improvers.
+Similarly, at the subacute phase, AIS C improvers had 34 more abundant proteins and 34 less abundant proteins relative to non-improvers.
+The AIS A group had 56 more abundant and 9 less abundant proteins respectively relative to non-improvers.
+Acutely, AIS C improvers relative to AIS A and D had 21 and 53 more abundant and 46 and 12 less abundant proteins.
+Please see the appendix for a full list of protein changes.
 
 \hypertarget{heatmaps-chap3}{%
 \subsubsection{Heatmaps}\label{heatmaps-chap3}}
@@ -491,7 +478,7 @@ Please see appendix section \ref{sup-heatmaps} for additional plots.
 \clearpage
 
 \hypertarget{cnetplot-chap3}{%
-\subsubsection{Cnetplots}\label{cnetplot-chap3}}
+\subsubsection{Network analysis of Differentially Abundant Proteins between AIS C improvers and non-improvers}\label{cnetplot-chap3}}
 
 Similar to the heatmaps, network plots highlighted that the majority of proteins changes were associated with the complement cascade and pathways linked to platelet activity (Figure \ref{fig:openms-cnetp-acute-c-1}, \ref{fig:openms-cnetp-subacute-c-1}, \ref{fig:openms-cnetp-acute-sacute-imp-c-1}, \ref{fig:openms-cnetp-acute-sacute-nonimp-c-1}, \ref{fig:openms-cnetp-acute-c-2}, \ref{fig:openms-cnetp-acute-a-d-2}, \ref{fig:openms-cnetp-acute-imp-c-d-2}, \ref{fig:openms-cnetp-acute-imp-c-a-2}, \ref{fig:openms-cnetp-acute-nonimp-c-a-2}, \ref{fig:openms-cnetp-acute-nonimp-c-d-2}).
 Several proteins were also associated with the regulation of insulin-like growth factor.
@@ -527,7 +514,7 @@ Several proteins were also associated with the regulation of insulin-like growth
 
 \clearpage
 
-Similarly to the heatmaps and the iTRAQ data,network plots highlight the majority of differential proteins are associated with the complement cascade and pathways linked to platelets (Figures \ref{fig:openms-chap4-cnetp-acute-c-1}, \ref{fig:openms-chap4-cnetp-subacute-c-1}, \ref{fig:openms-chap4-cnetp-acute-sacute-imp-c-1}, \ref{fig:openms-chap4-cnetp-acute-sacute-nonimp-c-1}, \ref{fig:openms-chap4-cnetp-acute-a-d-2}, \ref{fig:openms-chap4-cnetp-acute-imp-c-d-2}, \ref{fig:openms-chap4-cnetp-acute-imp-c-a-2}, \ref{fig:openms-chap4-cnetp-acute-nonimp-c-a-2}, \ref{fig:openms-chap4-cnetp-acute-nonimp-c-d-2}).
+Similarly to the heatmaps and the iTRAQ data, network plots derived using the label-free data highlight the majority of differential proteins are associated with the complement cascade and pathways linked to platelets (Figures \ref{fig:openms-chap4-cnetp-acute-c-1}, \ref{fig:openms-chap4-cnetp-subacute-c-1}, \ref{fig:openms-chap4-cnetp-acute-sacute-imp-c-1}, \ref{fig:openms-chap4-cnetp-acute-sacute-nonimp-c-1}, \ref{fig:openms-chap4-cnetp-acute-a-d-2}, \ref{fig:openms-chap4-cnetp-acute-imp-c-d-2}, \ref{fig:openms-chap4-cnetp-acute-imp-c-a-2}, \ref{fig:openms-chap4-cnetp-acute-nonimp-c-a-2}, \ref{fig:openms-chap4-cnetp-acute-nonimp-c-d-2}).
 
 Please see appendix section \ref{sup-cnetplots} for additional plots.
 
@@ -562,7 +549,7 @@ Please see appendix section \ref{sup-cnetplots} for additional plots.
 \clearpage
 
 \hypertarget{kegg-chap3}{%
-\subsubsection{Pathway analysis}\label{kegg-chap3}}
+\subsubsection{Pathway analysis of Differentially Abundant Proteins between AIS C improvers and non-improvers}\label{kegg-chap3}}
 
 Pathway analysis via the \texttt{pathview} R package returned the complement and coagulation cascade to be on the sole significant KEGG pathway to derive from the OpenMS analysed data.
 The majority of the proteins present in this pathway were less abundant in the 2-week post-injury plasma of AIS C patients who experienced an AIS grade conversion and those who did not (Figure \ref{fig:kegg-complement}).
@@ -592,12 +579,13 @@ The majority of the proteins present in this pathway were less abundant 2-weeks 
 \caption{KEGG complement cascade pathway annotated with log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not.}\label{fig:kegg-complement-chap4}
 \end{figure}
 
-\hypertarget{elisas}{%
-\subsubsection{ELISAs}\label{elisas}}
+\hypertarget{validation-of-proteomic-data-using-elisa}{%
+\subsubsection{Validation of Proteomic Data using ELISA}\label{validation-of-proteomic-data-using-elisa}}
 
-No statistically significant difference between groups for A2M abundance in plasma via DuoSet\&reg ELISAs, though there were outliers in the AIS A and D groups, and particularly in the AIS C patients at 3-months who did not experience an AIS grade conversion (Figure \ref{fig:patchwork-2}).
+No statistically significant difference between groups for A2M abundance in plasma via DuoSet® ELISAs, though there were outliers in the AIS A and D groups, and particularly in the AIS C patients at 3-months who did not experience an AIS grade conversion (Figure \ref{fig:patchwork-2}).
+
 A significant difference was found between AIS C non-improvers at 2-weeks and AIS D for SAA1, with outliers in AIS C non-improvers at 2-weeks, and both AIS C improvers and non-improvers at 3-months post-injury (Figure \ref{fig:patchwork-2}).
-For ApoA1 plasma abundance estimated via Quantikine\&reg ELISAs, statistically significant differences were found between AIS C improvers at 2-weeks and both AIS C improvers and non-improvers at 3-months, AIS C 3-month improvers and AIS A and D, and AIS C 3-month non-improvers and AIS A and D (Figure \ref{fig:patchwork-2}).
+For ApoA1 plasma abundance estimated via Quantikine® ELISAs, statistically significant differences were found between AIS C improvers at 2-weeks and both AIS C improvers and non-improvers at 3-months, AIS C 3-month improvers and AIS A and D, and AIS C 3-month non-improvers and AIS A and D (Figure \ref{fig:patchwork-2}).
 A statistically significant difference was also found between AIS C improvers and non-improvers at 2-weeks post-injury for RBP4 (Figure \ref{fig:patchwork-2}).
 
 
@@ -625,24 +613,52 @@ Longitudinally, AIS C acute improvers had 10 up-regulated and 7 down-regulated p
 \hypertarget{comparing-itraq-and-label-free-proteins}{%
 \subsubsection{Comparing iTRAQ and label-free proteins}\label{comparing-itraq-and-label-free-proteins}}
 
-A total of 87 and 79 unique proteinswere identified across the label-free and iTRAQ experiments respectively, with a modest overlap of 26 proteins found using both techniques (Figure \ref{fig:itraq-label-free-venn}).
+A total of 87 and 79 unique proteins were identified across the label-free and iTRAQ experiments respectively, with a modest overlap of 26 proteins found using both techniques.
 
 
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.6\linewidth]{proteomic_paper_2020-02-11_files/figure-latex/itraq-label-free-venn-1} 
-
-}
-
-\caption{Venn diagram of the overlap in unique proteins identified from iTRAQ and label-free proteomic experiments analysed via OpenMS.}\label{fig:itraq-label-free-venn}
-\end{figure}
 
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}
 
-\hypertarget{thesis-itraq-discussion}{%
-\subsection{thesis iTRAQ discussion}\label{thesis-itraq-discussion}}
+This is the first study, to our knowledge, to comprehensively investigate the plasma proteome in SCI patients whose AIS scores either improved or did not improve post injury and also to compare these to AIS grade A and D patients.
+We have used two proteomic techniques allowing us to profile both high and low abundance proteins, in order to identify proteins which may have potential to predict neurological improvement within the acute setting.
+Moreover, this data can better inform us of the biology underlying neurological improvement or stability in a cohort of patients being conservatively managed post SCI.
+
+This study has highlighted a number of proteins that may be able to discriminate in, the acute phase following injury, between AIS grade C patients who either improve or do not improve by an AIS grade following SCI.
+The most promising of these is Retinol Binding Protein 4 (RBP4) which was demonstrated to be increased in non-improvers compared to improvers in the acute phase.
+Further this change could be confirmed using ELISA, which may provide a more clinically useful means of assessing this protein on a wide scale.
+
+RBP4 is synthesised in the liver and binds retinol that is released following vitamin A deficiency.(P. A. Peterson 1971)
+Once delivered to target cells, retinol can either be converted to retinaldehyde, which is required for functional vision, or oxidised to retinoic acid, which is a ligand for nuclear receptors, thus regulating gene expression.(Lane and Bailey 2005; J. E. Balmer and Blomhoff 2002)
+The role of retinoid signalling in spinal cord and motor neuron differentiation, including development of regions of the spinal cord has been outlined, and implies a possible involvement in maintaining motor neuron integrity.(Colbert et al. 1995; Sockanathan and Jessell 1998)
+The mRNA of a rodent homologue of RBP was found to be up-regulated at 24 hours post-SCI and may promote cell proliferation and regeneration by increasing retinoid metabolism.(Song et al. 2001; Hurst et al. 1999)
+
+Another study of amyotrophic lateral sclerosis (ALS), a neurodegenerative disease, comparing gene expression between post-mortem spinal cord samples of ALS and controls also observed up-regulation of RBP1 in ALS spinal cord.(Malaspina, Kaushik, and Belleroche 2001)
+Furthermore, a transgenic mouse study reported retinoid signalling may contribute to the retained plasticity and regenerative potential of the mature spinal cord.(Haskell et al. 2002)
+The results found here support these findings for AIS C improvers relative to non-improvers as improver had increased levels of RBP4.
+Whether this is due to increased expression or due to higher vitamin A intake is unclear from this data, though at 3-months post-injury this is still that case even though patients diets could be more similar throughout hospital admission.
+
+Alongside RBP4, a number of other protein abundance differences across the different biological comparisons were identified in proteins associated with liver function.
+Furthermore, the network and pathway analyses also implicated altered liver function.
+Our previous work investigating the potential of routinely measured haematological analytes for predicting neurological outcome in SCI patients also highlighted several proteins that were linked with liver function; thus providing further support to this theory.(Brown et al. 2019; Bernardo Harrington et al. 2020)
+The pathway analysis specifically indicated that the acute phase response (APR) is implicated.
+
+The APR is the bodies first response to injury or infections, including SCI.
+This systemic response is largely coordinated by factors released from the liver, but the APRs effects extend to multiple peripheral organs including the kidneys, lungs and spleen.(Bao et al. 2012; S. J. Campbell, Zahid, et al. 2008; Fleming et al. 2012; Gris, Hamilton, and Weaver 2008)
+This hepatic response is typically transient and quickly fades, but prolonged liver inflammation and pathology has been observed in rodent SCI models.(Goodus et al. 2018; Sauerbeck et al. 2014)
+Basic liver functions are chronically impaired by SCI, including metabolising carbohydrates, fats and proteins, storage of minerals vitamins and glycogen and filtering blood from the digestive tract.(García-López et al. 2007; DeLeve 2007; Farkas and Gater 2018; Chow et al. 2012; Sauerbeck et al. 2014)
+The acute (1-7 days) liver response to SCI is well documented; the inflammatory cytokines including TNF\(\alpha\), IL-1\(\alpha\), IL-1\(\beta\) and IL-6, released at the injury site, reach the liver through the bloodstream.(Fleming et al. 2012; Hundt et al. 2011)
+This provokes the liver to enter the APR and produce acute phase proteins thus stimulating a greater immune response.(Anthony and Couch 2014; Fleming et al. 2012)
+The hepatocytes that make up the majority of the liver biomass, express receptors that bind the aforementioned inflammatory cytokines; similarly the hepatic macrophage Kupffer cells also bind these cytokines, complement proteins and lipopolysaccharide (LPS) and swiftly remove microorganisms, endotoxins and other debris from the blood.(C.-Y. Yang et al. 2013; Szalai et al. 2000; Crispe 2016; S. J. Campbell et al. 2005)
+
+Furthermore, it has been suggested that liver inflammation and Kupffer cells activity promote recruitment of leukocytes to the injury site in brain or spinal trauma, potentially enhancing CNS injury.(Anthony and Couch 2014; S. J. Campbell et al. 2005)
+For example, a rodent study demonstrated depletion of Kupffer cells prior to injury resulted in few neutrophils infiltrating the injury site.(S. J. Campbell, Zahid, et al. 2008; S. J. Campbell, Anthony, et al. 2008)
+
+\hypertarget{copied-from-thesis}{%
+\subsection{COPIED FROM THESIS}\label{copied-from-thesis}}
+
+\hypertarget{itraq-discussion}{%
+\subsection{iTRAQ discussion}\label{itraq-discussion}}
 
 This work builds on the previous chapters (\ref{chap-2-intro}) modelling of routine bloods by analysing the plasma proteome of SCI patients grouped by injury severity and improver status.
 In addition to continuing the pursuit of novel biomarkers of SCI, the link between the liver and neurological recovery hinted at in the aforementioned chapter is examined here.
@@ -658,7 +674,7 @@ This complexity necessitates a multi-interdependent-step workflow tailored to th
 
 The manufacturers of mass spectrometers often offer software tailored to their instruments which is often used in the literature.
 However, the source code for these software suits is not publicly available, and indeed manufactures often boast of their particular inscrutable proprietary algorithms, often related to peak picking.
-This combination of completixy and opacity in analysis methodolotgy can make it extremely difficult to reproducle results from other labs, or even analysis from one's own lab.({``Devil in the Details''} 2011)
+This combination of complexity and opacity in analysis methodology can make it extremely difficult to reproducible results from other labs, or even analysis from one's own lab.({``Devil in the Details''} 2011)
 
 To address this issue many open-source (meaning the source code is publicly available) software packages which may perform one or several steps of a complex analysis workflow have been developed.
 This issue here is that incorporating multiple software packages together can be both time-consuming and error-prone, and require significant maintenance and documentation to maintain reproducibility.
@@ -882,9 +898,9 @@ Future experiments investigating neurological outcomes of SCI may benefit from e
 The ELISAs used to validate the proteomic data often did not demonstrate significant differences between the groups (Figures \ref{fig:elisa-sig-plots1}, \ref{fig:elisa-sig-plots2}, \ref{fig:elisa-sig-plots3} and \ref{fig:elisa-sig-plots4}).
 This may be in part to the individual variability of the samples.
 However, the trends of the data do largely reflect those found in the iTRAQ data, suggesting that with greater statistical power there may be a more robust validation.
-Furthermore, the ApoA1 ELISAs resulted in the most significant differences, and was the only Quantikine\&reg kit used (Figure \ref{fig:elisa-sig-plots3}).
-As the Quantikine\&reg kits are highly optimised, including for use with plasma, whereas the DuoSet\&regs, which were used for the other proteins, are not.
-Future studies should therefore consider either simply using Quantikine\&reg kits, or ensure good optimisation of the DuoSet\&reg kits in advance.
+Furthermore, the ApoA1 ELISAs resulted in the most significant differences, and was the only Quantikine® kit used (Figure \ref{fig:elisa-sig-plots3}).
+As the Quantikine® kits are highly optimised, including for use with plasma, whereas the DuoSet®s, which were used for the other proteins, are not.
+Future studies should therefore consider either simply using Quantikine® kits, or ensure good optimisation of the DuoSet® kits in advance.
 These results are also corroborated by a recent label-free proteomic SCI study, using a rodent model, which reported similar proteins associated with complement cascade, including A2M and C3.(Yao et al. 2021)
 
 \hypertarget{chap-3-conc}{%
@@ -1151,56 +1167,241 @@ Furthermore, a metabolomic analysis with a similar sample size would greatly com
 ## nickname       One Push-Up
 \end{verbatim}
 
-\begin{longtable}[t]{lll}
-\caption{\label{tab:package-table}Packages Used}\\
-\toprule
-package & version & date\\
-\midrule
-base & 4.1.3 & 2022-03-18\\
-MSstats & 4.2.0 & 2021-05-31\\
-STRINGdb & 2.6.5 & 2020-01-10\\
-ReactomePA & 1.38.0 & 2021-10-26\\
-rlang & 1.0.2 & 2022-03-04\\
-\addlinespace
-bookdown & 0.25 & 2022-03-16\\
-lime & 0.5.2 & 2021-02-24\\
-RColorBrewer & 1.1.3 & 2022-04-03\\
-ggVennDiagram & 1.2.0 & 2021-10-19\\
-DiagrammeR & 1.0.9 & 2022-03-04\\
-\addlinespace
-lubridate & 1.8.0 & 2021-10-03\\
-patchwork & 1.1.1 & 2020-12-15\\
-cowplot & 1.1.1 & 2020-12-15\\
-readxl & 1.4.0 & 2022-03-28\\
-BiocManager & 1.30.16 & 2021-06-15\\
-\addlinespace
-knitr & 1.38 & 2022-03-25\\
-rmarkdown & 2.13 & 2022-03-09\\
-data.table & 1.14.2 & 2021-09-23\\
-naniar & 0.6.1 & 2021-05-14\\
-psych & 2.2.3 & 2022-03-17\\
-\addlinespace
-Hmisc & 4.6.0 & 2021-10-05\\
-Formula & 1.2.4 & 2020-10-16\\
-survival & 3.2.13 & 2021-08-23\\
-lattice & 0.20.45 & 2021-09-18\\
-bibtex & 0.4.2.3 & 2020-09-19\\
-\addlinespace
-captioner & 2.2.3 & 2015-07-15\\
-forcats & 0.5.1 & 2021-01-27\\
-stringr & 1.4.0 & 2019-02-09\\
-dplyr & 1.0.8 & 2022-02-07\\
-purrr & 0.3.4 & 2020-04-16\\
-\addlinespace
-readr & 2.1.2 & 2022-01-30\\
-tidyr & 1.2.0 & 2022-01-27\\
-tibble & 3.1.6 & 2021-10-25\\
-ggplot2 & 3.3.5 & 2021-06-24\\
-tidyverse & 1.3.1 & 2021-04-15\\
-\addlinespace
-kableExtra & 1.3.4 & 2021-02-19\\
-\bottomrule
-\end{longtable}
+\label{tab:package-table}Packages Used
+
+package
+
+version
+
+date
+
+base
+
+4.1.3
+
+2022-03-18
+
+MSstats
+
+4.2.0
+
+2021-05-31
+
+STRINGdb
+
+2.6.5
+
+2020-01-10
+
+ReactomePA
+
+1.38.0
+
+2021-10-26
+
+rlang
+
+1.0.2
+
+2022-03-04
+
+bookdown
+
+0.25
+
+2022-03-16
+
+lime
+
+0.5.2
+
+2021-02-24
+
+RColorBrewer
+
+1.1.3
+
+2022-04-03
+
+ggVennDiagram
+
+1.2.0
+
+2021-10-19
+
+DiagrammeR
+
+1.0.9
+
+2022-03-04
+
+lubridate
+
+1.8.0
+
+2021-10-03
+
+patchwork
+
+1.1.1
+
+2020-12-15
+
+cowplot
+
+1.1.1
+
+2020-12-15
+
+BiocManager
+
+1.30.16
+
+2021-06-15
+
+data.table
+
+1.14.2
+
+2021-09-23
+
+naniar
+
+0.6.1
+
+2021-05-14
+
+psych
+
+2.2.3
+
+2022-03-17
+
+Hmisc
+
+4.6.0
+
+2021-10-05
+
+Formula
+
+1.2.4
+
+2020-10-16
+
+survival
+
+3.2.13
+
+2021-08-23
+
+lattice
+
+0.20.45
+
+2021-09-18
+
+bibtex
+
+0.4.2.3
+
+2020-09-19
+
+captioner
+
+2.2.3
+
+2015-07-15
+
+kableExtra
+
+1.3.4
+
+2021-02-19
+
+knitr
+
+1.38
+
+2022-03-25
+
+rmarkdown
+
+2.13
+
+2022-03-09
+
+magrittr
+
+2.0.3
+
+2022-03-29
+
+janitor
+
+2.1.0
+
+2021-01-04
+
+readxl
+
+1.4.0
+
+2022-03-28
+
+forcats
+
+0.5.1
+
+2021-01-27
+
+stringr
+
+1.4.0
+
+2019-02-09
+
+dplyr
+
+1.0.8
+
+2022-02-07
+
+purrr
+
+0.3.4
+
+2020-04-16
+
+readr
+
+2.1.2
+
+2022-01-30
+
+tidyr
+
+1.2.0
+
+2022-01-27
+
+tibble
+
+3.1.6
+
+2021-10-25
+
+ggplot2
+
+3.3.5
+
+2021-06-24
+
+tidyverse
+
+1.3.1
+
+2021-04-15
 
 \clearpage
 

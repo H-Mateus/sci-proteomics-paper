@@ -604,7 +604,11 @@ updown %>%
 
 ### Differential protein abundances 
 
-AIS C improvers had 18 more abundant proteins and 49 less abundant proteins at the acute phase, at the subacute phase, AIS C improvers had 34 more abundant proteins and 34 less abundant proteins. The AIS A group had 56 more abundant and 9 less abundant proteins respectively. Acutely, AIS C improvers relative to AIS A and D had 21 and 53 more abundant and 46 and 12 less abundant proteins. Please see the appendix for a full list of protein changes. 
+AIS C improvers had 18 more abundant proteins and 49 less abundant proteins at the acute phase relative to non-improvers. 
+Similarly, at the subacute phase, AIS C improvers had 34 more abundant proteins and 34 less abundant proteins relative to non-improvers. 
+The AIS A group had 56 more abundant and 9 less abundant proteins respectively relative to non-improvers. 
+Acutely, AIS C improvers relative to AIS A and D had 21 and 53 more abundant and 46 and 12 less abundant proteins. 
+Please see the appendix for a full list of protein changes. 
 
 ### Heatmaps {#heatmaps-chap3}
 
@@ -668,7 +672,7 @@ heatmap$subacute_c_imp_vs_subacute_c_nonimp +
 \elandscape
 \clearpage
 
-### Cnetplots {#cnetplot-chap3}
+### Network analysis of Differentially Abundant Proteins between AIS C improvers and non-improvers {#cnetplot-chap3}
 
 Similar to the heatmaps, network plots highlighted that the majority of proteins changes were associated with the complement cascade and pathways linked to platelet activity (Figure \@ref(fig:openms-cnetp-acute-c-1), \@ref(fig:openms-cnetp-subacute-c-1), \@ref(fig:openms-cnetp-acute-sacute-imp-c-1), \@ref(fig:openms-cnetp-acute-sacute-nonimp-c-1), \@ref(fig:openms-cnetp-acute-c-2), \@ref(fig:openms-cnetp-acute-a-d-2), \@ref(fig:openms-cnetp-acute-imp-c-d-2), \@ref(fig:openms-cnetp-acute-imp-c-a-2), \@ref(fig:openms-cnetp-acute-nonimp-c-a-2), \@ref(fig:openms-cnetp-acute-nonimp-c-d-2)).
 Several proteins were also associated with the regulation of insulin-like growth factor.
@@ -694,7 +698,7 @@ cnetplot_itraq$subacute_c_improvers_vs_nonimprovers_run1
 
 \clearpage
 
-Similarly to the heatmaps and the iTRAQ data,network plots highlight the majority of differential proteins are associated with the complement cascade and pathways linked to platelets (Figures \@ref(fig:openms-chap4-cnetp-acute-c-1), \@ref(fig:openms-chap4-cnetp-subacute-c-1), \@ref(fig:openms-chap4-cnetp-acute-sacute-imp-c-1), \@ref(fig:openms-chap4-cnetp-acute-sacute-nonimp-c-1), \@ref(fig:openms-chap4-cnetp-acute-a-d-2), \@ref(fig:openms-chap4-cnetp-acute-imp-c-d-2), \@ref(fig:openms-chap4-cnetp-acute-imp-c-a-2), \@ref(fig:openms-chap4-cnetp-acute-nonimp-c-a-2), \@ref(fig:openms-chap4-cnetp-acute-nonimp-c-d-2)).
+Similarly to the heatmaps and the iTRAQ data, network plots derived using the label-free data highlight the majority of differential proteins are associated with the complement cascade and pathways linked to platelets (Figures \@ref(fig:openms-chap4-cnetp-acute-c-1), \@ref(fig:openms-chap4-cnetp-subacute-c-1), \@ref(fig:openms-chap4-cnetp-acute-sacute-imp-c-1), \@ref(fig:openms-chap4-cnetp-acute-sacute-nonimp-c-1), \@ref(fig:openms-chap4-cnetp-acute-a-d-2), \@ref(fig:openms-chap4-cnetp-acute-imp-c-d-2), \@ref(fig:openms-chap4-cnetp-acute-imp-c-a-2), \@ref(fig:openms-chap4-cnetp-acute-nonimp-c-a-2), \@ref(fig:openms-chap4-cnetp-acute-nonimp-c-d-2)).
 
 Please see appendix section \@ref(sup-cnetplots) for additional plots. 
 
@@ -720,7 +724,7 @@ cnetplot$subacute_c_imp_vs_subacute_c_nonimp
 \elandscape
 \clearpage
 
-### Pathway analysis {#kegg-chap3}
+### Pathway analysis of Differentially Abundant Proteins between AIS C improvers and non-improvers {#kegg-chap3}
 
 Pathway analysis via the `pathview` R package returned the complement and coagulation cascade to be on the sole significant KEGG pathway to derive from the OpenMS analysed data.
 The majority of the proteins present in this pathway were less abundant in the 2-week post-injury plasma of AIS C patients who experienced an AIS grade conversion and those who did not (Figure \@ref(fig:kegg-complement)).
@@ -740,11 +744,12 @@ The majority of the proteins present in this pathway were less abundant 2-weeks 
 knitr::include_graphics("figures/kegg_pathways/hsa04610.pathview_label-free.png")
 ```
 
-### ELISAs
+### Validation of Proteomic Data using ELISA
 
-No statistically significant difference between groups for A2M abundance in plasma via DuoSet&reg ELISAs, though there were outliers in the AIS A and D groups, and particularly in the AIS C patients at 3-months who did not experience an AIS grade conversion (Figure \@ref(fig:patchwork-2)).
+No statistically significant difference between groups for A2M abundance in plasma via DuoSet&reg; ELISAs, though there were outliers in the AIS A and D groups, and particularly in the AIS C patients at 3-months who did not experience an AIS grade conversion (Figure \@ref(fig:patchwork-2)).
+
 A significant difference was found between AIS C non-improvers at 2-weeks and AIS D for SAA1, with outliers in AIS C non-improvers at 2-weeks, and both AIS C improvers and non-improvers at 3-months post-injury (Figure \@ref(fig:patchwork-2)).
-For ApoA1 plasma abundance estimated via Quantikine&reg ELISAs, statistically significant differences were found between AIS C improvers at 2-weeks and both AIS C improvers and non-improvers at 3-months, AIS C 3-month improvers and AIS A and D, and AIS C 3-month non-improvers and AIS A and D (Figure \@ref(fig:patchwork-2)).
+For ApoA1 plasma abundance estimated via Quantikine&reg; ELISAs, statistically significant differences were found between AIS C improvers at 2-weeks and both AIS C improvers and non-improvers at 3-months, AIS C 3-month improvers and AIS A and D, and AIS C 3-month non-improvers and AIS A and D (Figure \@ref(fig:patchwork-2)).
 A statistically significant difference was also found between AIS C improvers and non-improvers at 2-weeks post-injury for RBP4 (Figure \@ref(fig:patchwork-2)).
 
 (ref:patchwork-2) Normalised estimated concentration of $\alpha$-2-macroglobulin (A), serum amyloid A1 (B), apolipoprotein A1 (C) and retinol binding protein 4 (D). Estimates were calculated from the optical density of a standard curve produced via a DuoSet&reg; ELISA. Plasma from each patient that made up the pooled iTRAQ samples was assayed and pairwise t-tests with bonferroni adjusted P-values were performed to assess differential abundance.
@@ -824,13 +829,13 @@ Longitudinally, AIS C acute improvers had `r nrow(pos_neg$acute_c_imp_vs_subacut
 
 ### Comparing iTRAQ and label-free proteins
 
-A total of `r length(label_free_proteins)` and `r nrow(fc_openms_wide)` unique proteins were identified across the label-free and iTRAQ experiments respectively, with a modest overlap of 26 proteins found using both techniques (Figure \@ref(fig:itraq-label-free-venn)).
+A total of `r length(label_free_proteins)` and `r nrow(fc_openms_wide)` unique proteins were identified across the label-free and iTRAQ experiments respectively, with a modest overlap of 26 proteins found using both techniques.
 
 <!-- MH note: ask KW is bar plot would be better than venn diagram? -->
 
 (ref:itraq-label-free-venn) Venn diagram of the overlap in unique proteins identified from iTRAQ and label-free proteomic experiments analysed via OpenMS.
 
-```{r, label='itraq-label-free-venn', fig.cap='(ref:itraq-label-free-venn)', out.width="60%", fig.align="center"}
+```{r, label='itraq-label-free-venn', fig.cap='(ref:itraq-label-free-venn)', out.width="60%", fig.align="center", eval = FALSE}
 ## make list of proteins from each
 x <- list("iTRAQ" = fc_openms_wide$gene, "Label-free" = label_free_proteins)
 save(x, file = "data/itraq_vs_label-free_venn_list.rda")
@@ -858,7 +863,45 @@ itraq_up_down$comparison <- itraq_up_down$comparison %>%
 
 # Discussion
 
-## thesis iTRAQ discussion
+This is the first study, to our knowledge, to comprehensively investigate the plasma proteome in SCI patients whose AIS scores either improved or did not improve post injury and also to compare these to AIS grade A and D patients.
+We have used two proteomic techniques allowing us to profile both high and low abundance proteins, in order to identify proteins which may have potential to predict neurological improvement within the acute setting. 
+Moreover, this data can better inform us of the biology underlying neurological improvement or stability in a cohort of patients being conservatively managed post SCI.
+
+This study has highlighted a number of proteins that may be able to discriminate in, the acute phase following injury, between AIS grade C patients who either improve or do not improve by an AIS grade following SCI.
+The most promising of these is Retinol Binding Protein 4 (RBP4) which was demonstrated to be increased in non-improvers compared to improvers in the acute phase. 
+Further this change could be confirmed using ELISA, which may provide a more clinically useful means of assessing this protein on a wide scale.
+
+RBP4 is synthesised in the liver and binds retinol that is released following vitamin A deficiency.[@peterson_studies_1971]
+Once delivered to target cells, retinol can either be converted to retinaldehyde, which is required for functional vision, or oxidised to retinoic acid, which is a ligand for nuclear receptors, thus regulating gene expression.[@lane_role_2005; @balmer_gene_2002]
+The role of retinoid signalling in spinal cord and motor neuron differentiation, including development of regions of the spinal cord has been outlined, and implies a possible involvement in maintaining motor neuron integrity.[@colbert_retinoid_1995; @sockanathan_motor_1998]
+The mRNA of a rodent homologue of RBP was found to be up-regulated at 24 hours post-SCI and may promote cell proliferation and regeneration by increasing retinoid metabolism.[@song_genechip_2001; @hurst_complexity_1999]
+
+Another study of amyotrophic lateral sclerosis (ALS), a neurodegenerative disease, comparing gene expression between post-mortem spinal cord samples of ALS and controls also observed up-regulation of RBP1 in ALS spinal cord.[@malaspina_differential_2001]
+Furthermore, a transgenic mouse study reported retinoid signalling may contribute to the retained plasticity and regenerative potential of the mature spinal cord.[@haskell_retinoic_2002]
+The results found here support these findings for AIS C improvers relative to non-improvers as improver had increased levels of RBP4. 
+Whether this is due to increased expression or due to higher vitamin A intake is unclear from this data, though at 3-months post-injury this is still that case even though patients diets could be more similar throughout hospital admission.
+
+<!-- MH NOTE: should probably temper the above line by mentioning that the ELISA wasn't significant... -->
+
+Alongside RBP4, a number of other protein abundance differences across the different biological comparisons were identified in proteins associated with liver function.
+Furthermore, the network and pathway analyses also implicated altered liver function.
+Our previous work investigating the potential of routinely measured haematological analytes for predicting neurological outcome in SCI patients also highlighted several proteins that were linked with liver function; thus providing further support to this theory.[@brown_preliminary_2019; @bernardo_harrington_routinely_2020] 
+The pathway analysis specifically indicated that the acute phase response (APR) is implicated.
+
+The APR is the bodies first response to injury or infections, including SCI.
+This systemic response is largely coordinated by factors released from the liver, but the APRs effects extend to multiple peripheral organs including the kidneys, lungs and spleen.[@bao_systemic_2012; @campbell_liver_2008; @fleming_remote_2012; @gris_systemic_2008]
+This hepatic response is typically transient and quickly fades, but prolonged liver inflammation and pathology has been observed in rodent SCI models.[@goodus_dietary_2018; @sauerbeck_spinal_2015]
+Basic liver functions are chronically impaired by SCI, including metabolising carbohydrates, fats and proteins, storage of minerals vitamins and glycogen and filtering blood from the digestive tract.[@garcia-lopez_acute_2007; @deleve_hepatic_2007; @farkas_neurogenic_2018; @chow_pharmacology_2012; @sauerbeck_spinal_2015]
+The acute (1-7 days) liver response to SCI is well documented; the inflammatory cytokines including TNF$\alpha$, IL-1$\alpha$, IL-1$\beta$ and IL-6, released at the injury site, reach the liver through the bloodstream.[@fleming_remote_2012; @hundt_assessment_2011]
+This provokes the liver to enter the APR and produce acute phase proteins thus stimulating a greater immune response.[@anthony_systemic_2014; @fleming_remote_2012]
+The hepatocytes that make up the majority of the liver biomass, express receptors that bind the aforementioned inflammatory cytokines; similarly the hepatic macrophage Kupffer cells also bind these cytokines, complement proteins and lipopolysaccharide (LPS) and swiftly remove microorganisms, endotoxins and other debris from the blood.[@yang_clec4f_2013; @szalai_complement-dependent_2000; @crispe_hepatocytes_2016; @campbell_central_2005]
+
+Furthermore, it has been suggested that liver inflammation and Kupffer cells activity promote recruitment of leukocytes to the injury site in brain or spinal trauma, potentially enhancing CNS injury.[@anthony_systemic_2014; @campbell_central_2005]
+For example, a rodent study demonstrated depletion of Kupffer cells prior to injury resulted in few neutrophils infiltrating the injury site.[@campbell_liver_2008; @campbell_hepatic_2008]
+
+## COPIED FROM THESIS
+
+## iTRAQ discussion
 
 This work builds on the previous chapters (\@ref(chap-2-intro)) modelling of routine bloods by analysing the plasma proteome of SCI patients grouped by injury severity and improver status.
 In addition to continuing the pursuit of novel biomarkers of SCI, the link between the liver and neurological recovery hinted at in the aforementioned chapter is examined here.
@@ -873,7 +916,7 @@ This complexity necessitates a multi-interdependent-step workflow tailored to th
 
 The manufacturers of mass spectrometers often offer software tailored to their instruments which is often used in the literature.
 However, the source code for these software suits is not publicly available, and indeed manufactures often boast of their particular inscrutable proprietary algorithms, often related to peak picking.
-This combination of completixy and opacity in analysis methodolotgy can make it extremely difficult to reproducle results from other labs, or even analysis from one's own lab.[@noauthor_devil_2011]
+This combination of complexity and opacity in analysis methodology can make it extremely difficult to reproducible results from other labs, or even analysis from one's own lab.[@noauthor_devil_2011]
 
 To address this issue many open-source (meaning the source code is publicly available) software packages which may perform one or several steps of a complex analysis workflow have been developed.
 This issue here is that incorporating multiple software packages together can be both time-consuming and error-prone, and require significant maintenance and documentation to maintain reproducibility.
@@ -1085,9 +1128,9 @@ Future experiments investigating neurological outcomes of SCI may benefit from e
 The ELISAs used to validate the proteomic data often did not demonstrate significant differences between the groups (Figures \@ref(fig:elisa-sig-plots1), \@ref(fig:elisa-sig-plots2), \@ref(fig:elisa-sig-plots3) and  \@ref(fig:elisa-sig-plots4)).
 This may be in part to the individual variability of the samples.
 However, the trends of the data do largely reflect those found in the iTRAQ data, suggesting that with greater statistical power there may be a more robust validation.
-Furthermore, the ApoA1 ELISAs resulted in the most significant differences, and was the only Quantikine&reg kit used (Figure \@ref(fig:elisa-sig-plots3)).
-As the Quantikine&reg kits are highly optimised, including for use with plasma, whereas the DuoSet&regs, which were used for the other proteins, are not.
-Future studies should therefore consider either simply using Quantikine&reg kits, or ensure good optimisation of the DuoSet&reg kits in advance.
+Furthermore, the ApoA1 ELISAs resulted in the most significant differences, and was the only Quantikine&reg; kit used (Figure \@ref(fig:elisa-sig-plots3)).
+As the Quantikine&reg; kits are highly optimised, including for use with plasma, whereas the DuoSet&reg;s, which were used for the other proteins, are not.
+Future studies should therefore consider either simply using Quantikine&reg; kits, or ensure good optimisation of the DuoSet&reg; kits in advance.
 These results are also corroborated by a recent label-free proteomic SCI study, using a rodent model, which reported similar proteins associated with complement cascade, including A2M and C3.[@yao_proteomics_2021]
 
 ### Conclusion {#chap-3-conc}
