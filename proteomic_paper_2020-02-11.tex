@@ -108,7 +108,7 @@
 
 \title{A comprehensive proteomic and bioinformatics analysis of human spinal cord injury plasma identifies proteins associated with the complement cascade as potential prognostic indicators of neurological outcome}
 \author{}
-\date{2022-05-25 11:56:10}
+\date{2022-06-10 15:16:26}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% ELIFE ARTICLE TEMPLATE again
@@ -158,11 +158,18 @@
 
 Introduction
 
-Spinal Cord Injury (SCI) is a major cause of disability, with complications post-injury often leading to life-long health issues with need of extensive treatment. Neurological outcome post-SCI can be variable and difficult to predict, particularly in incomplete injured patients. The identification of specific SCI biomarkers in blood, may be able to improve prognostics in the field. This study has utilised proteomic and bioinformatics methodologies to investigate differentially expressed proteins in plasma samples across human SCI cohorts with the aim of identifying prognostic biomarkers and biological pathway alterations that relate to neurological outcome.
+Spinal Cord Injury (SCI) is a major cause of disability, with complications post-injury often leading to life-long health issues with need of extensive treatment.
+Neurological outcome post-SCI can be variable and difficult to predict, particularly in incomplete injured patients.
+The identification of specific SCI biomarkers in blood, may be able to improve prognostics in the field.
+This study has utilised proteomic and bioinformatics methodologies to investigate differentially expressed proteins in plasma samples across human SCI cohorts with the aim of identifying prognostic biomarkers and biological pathway alterations that relate to neurological outcome.
 
 Methods and Materials
 
-Blood samples were taken, following informed consent, from ASIA impairment scale (AIS) grade C ``Improvers'' (AIS grade improvement) and ``Non-Improvers'' (No AIS change), and AIS grade A and D at \textless2 weeks (``Acute'') and approx. 3 months (``Sub-acute'') post-injury. The total protein concentration from each sample was extracted, with pooled samples being labelled and non-pooled samples treated with ProteoMiner™ beads. Samples were then analysed using two 4-plex isobaric tag for relative and absolute quantification (iTRAQ) analyses and a label-free experiment for comparison, before quantifying with mass spectrometry. Proteomic datasets were analysed using \textbf{bioinformatics\ldots{}}
+Blood samples were taken, following informed consent, from ASIA impairment scale (AIS) grade C ``Improvers'' (AIS grade improvement) and ``Non-Improvers'' (No AIS change), and AIS grade A and D at \textless2 weeks (``Acute'') and approx.
+3 months (``Sub-acute'') post-injury.
+The total protein concentration from each sample was extracted, with pooled samples being labelled and non-pooled samples treated with ProteoMiner™ beads.
+Samples were then analysed using two 4-plex isobaric tag for relative and absolute quantification (iTRAQ) analyses and a label-free experiment for comparison, before quantifying with mass spectrometry.
+Proteomic datasets were analysed using \textbf{bioinformatics\ldots{}}
 
 Proteins of interest identified from this analysis were further validated by enzyme-linked immunosorbent assay (ELISA).
 OpenMS (version 2.6.0) was used to process the raw spectra data.
@@ -170,25 +177,29 @@ R (version 4.1.4) and in particular, the R packages MSstats (version 4.0.1), STR
 
 Results
 
-The data demonstrated proteomic differences between the cohorts, with the results from the iTRAQ approach supporting those of the label-free analysis. A total of 79 and 87 differentially abundant proteins across AIS and longitudinal groups were identified from the iTRAQ and label-free analyses, respectively. Alpha-2-macroglobulin (A2M), retinol binding protein 4 (RBP4), serum amyloid A1 (SAA1), Peroxiredoxin 2, alipoprotein A1 (ApoA1) and several immunoglobulins were identified as biologically relevant and differentially abundant, with potential as individual prognostic biomarkers of neurological outcome. Bioinformatics analyses revealed that the majority of differentially abundant proteins were components of the complement cascade and most interacted directly with the liver.
+The data demonstrated proteomic differences between the cohorts, with the results from the iTRAQ approach supporting those of the label-free analysis.
+A total of 79 and 87 differentially abundant proteins across AIS and longitudinal groups were identified from the iTRAQ and label-free analyses, respectively.
+Alpha-2-macroglobulin (A2M), retinol binding protein 4 (RBP4), serum amyloid A1 (SAA1), Peroxiredoxin 2, alipoprotein A1 (ApoA1) and several immunoglobulins were identified as biologically relevant and differentially abundant, with potential as individual prognostic biomarkers of neurological outcome.
+Bioinformatics analyses revealed that the majority of differentially abundant proteins were components of the complement cascade and most interacted directly with the liver.
 
 Conclusions
 
-Many of the proteins of interest identified using proteomics were detected only in a single group and therefore have potential as a binary (present or absent) biomarkers. Additional investigations into the chronology of these proteins, and their levels in other tissues (cerebrospinal fluid in particular) are needed to better understand the underlying pathophysiology, including any potentially modifiable targets. \textbf{The complement cascasde was confirmed using pathway analysis as\ldots{}}
+Many of the proteins of interest identified using proteomics were detected only in a single group and therefore have potential as a binary (present or absent) biomarkers.
+Additional investigations into the chronology of these proteins, and their levels in other tissues (cerebrospinal fluid in particular) are needed to better understand the underlying pathophysiology, including any potentially modifiable targets.
+\textbf{The complement cascasde was confirmed using pathway analysis as\ldots{}}
 
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
-Spinal cord injury (SCI) is the transient or permanent loss of normal spinal sensory, motor or autonomic function, and is a major cause of disability. Globally, SCI affects around 500,000 people each year and is most commonly the result of road traffic accidents or falls.(Crozier-Shaw, Denton, and Morris 2020)
-Patients typically require extensive medical, rehabilitative and social care at high financial cost to healthcare providers. The lifetime cost of care in the UK is estimated to be £1.12 million (mean value) per SCI, with the total cost of SCI in the UK to the NHS being £1.43 billion in 2016.(McDaid et al. 2019)
-Individuals with SCI show markedly higher rates of mental illness relative to the general population.(Furlan, Gulasingam, and Craven 2017)
-Complications arising post-SCI can be long-lasting and often include pain, spasticity and cardiovascular disease, where the systemic inflammatory response that follows SCI can frequently result in organ complications, particularly in the liver and kidneys.(Gris, Hamilton, and Weaver 2008; X. Sun et al. 2016)
+Spinal cord injury (SCI) is the transient or permanent loss of normal spinal sensory, motor or autonomic function, and is a major cause of disability.
+Globally, SCI affects around 500,000 people each year and is most commonly the result of road traffic accidents or falls.(Crozier-Shaw, Denton, and Morris 2020) Patients typically require extensive medical, rehabilitative and social care at high financial cost to healthcare providers. The lifetime cost of care in the UK is estimated to be £1.12 million (mean value) per SCI, with the total cost of SCI in the UK to the NHS being £1.43 billion in 2016.(McDaid et al. 2019) Individuals with SCI show markedly higher rates of mental illness relative to the general population.(Furlan, Gulasingam, and Craven 2017) Complications arising post-SCI can be long-lasting and often include pain, spasticity and cardiovascular disease, where the systemic inflammatory response that follows SCI can frequently result in organ complications, particularly in the liver and kidneys.(Gris, Hamilton, and Weaver 2008; X. Sun et al. 2016)
 
-The recovery of neurological function post-SCI is highly variable, requiring any clinical trials to have an impractically large sample size to prove efficacy, hence the translation of novel efficacious therapies is challenging and expensive.(Spiess et al. 2009)
-Being able to more accurately predict patient outcomes would aid clinical decisions and facilitate future clinical trials. Therefore, novel biomarkers that allow for stratification of injury severity and capacity for neurological recovery would be of high value to the field.
+The recovery of neurological function post-SCI is highly variable, requiring any clinical trials to have an impractically large sample size to prove efficacy, hence the translation of novel efficacious therapies is challenging and expensive.(Spiess et al. 2009) Being able to more accurately predict patient outcomes would aid clinical decisions and facilitate future clinical trials.
+Therefore, novel biomarkers that allow for stratification of injury severity and capacity for neurological recovery would be of high value to the field.
 
-Biomarkers studies in SCI often investigate protein changes in cerebral spinal fluid (CSF) as the closer proximity of this medium is thought to be more reflective of the parenchymal injury.(Brian K. Kwon et al. 2019; Hulme et al. 2017)
-Whilst this makes CSF potentially more informative for elucidating the pathology of SCI, the repeated use of CSF for routine analysis presents challenges in clinical care due to the risk and expense associated with the invasiveness of the collection procedure. In contrast, systemic biomarkers measurable in the blood represent a source of information that can be accessed and interpreted both a lower cost and risk. Studies of traumatic brain injury have demonstrated that protein markers identified in CSF are also detectable in both plasma and serum.(Wang et al. 2018) More recently, circulating white blood cell populations have also been identified as potential SCI injury biomarkers, with a 2021 study showing that elevated levels of neutrophils were associated with no AIS grade conversion, while conversely an increase in lymphocytes during the first week post-SCI were associated with an AIS grade improvement.
+Biomarkers studies in SCI often investigate protein changes in cerebral spinal fluid (CSF) as the closer proximity of this medium is thought to be more reflective of the parenchymal injury.(Brian K. Kwon et al. 2019; Hulme et al. 2017) Whilst this makes CSF potentially more informative for elucidating the pathology of SCI, the repeated use of CSF for routine analysis presents challenges in clinical care due to the risk and expense associated with the invasiveness of the collection procedure.
+In contrast, systemic biomarkers measurable in the blood represent a source of information that can be accessed and interpreted both a lower cost and risk.
+Studies of traumatic brain injury have demonstrated that protein markers identified in CSF are also detectable in both plasma and serum.(Wang et al. 2018) More recently, circulating white blood cell populations have also been identified as potential SCI injury biomarkers, with a 2021 study showing that elevated levels of neutrophils were associated with no AIS grade conversion, while conversely an increase in lymphocytes during the first week post-SCI were associated with an AIS grade improvement.
 
 A number of individual proteins have been shown to be altered in the bloods post-SCI, including multiple interleukins (IL), tumour necrosis factor alpha (TNF-\(\alpha\)) and C-reactive protein (CRP).(Segal et al. 1997; Hayes et al. 2002; Frost et al. 2005)
 
@@ -244,17 +255,20 @@ Age at injury
 \hypertarget{patients}{%
 \subsection{Patients}\label{patients}}
 
-Blood samples were taken from SCI patients who had provided informed consent and in accordance to ethical provided by the National Research Ethics Service {[}NRES{]} Committee North West Liverpool East {[}11/NW/0876{]}. ``Improvers'' were defined as individuals who experienced an AIS grade improvement from admission to a year post-injury, whereas ``non-improvers'' were defined as patients who saw no change in AIS grade in the same period.
+Blood samples were taken from SCI patients who had provided informed consent and in accordance to ethical provided by the National Research Ethics Service {[}NRES{]} Committee North West Liverpool East {[}11/NW/0876{]}.
+``Improvers'' were defined as individuals who experienced an AIS grade improvement from admission to a year post-injury, whereas ``non-improvers'' were defined as patients who saw no change in AIS grade in the same period.
 
 \hypertarget{plasma-collection-and-storage}{%
 \subsection{Plasma collection and storage}\label{plasma-collection-and-storage}}
 
-Plasma samples were collected within 2 weeks of injury (acute) and at approximately 3 months post-injury (subacute). Upon collection in EDTA (ethylenediaminetetraacetic acid) coated tubes samples were centrifuged at 600g for 15 minutes, to pellet erythrocytes and the resultant plasma fraction was aspirated and divided into aliquots for long-term storage in -80°C briefly and liquid nitrogen in the longer term.
+Plasma samples were collected within 2 weeks of injury (acute) and at approximately 3 months post-injury (subacute).
+Upon collection in EDTA (ethylenediaminetetraacetic acid) coated tubes samples were centrifuged at 600g for 15 minutes, to pellet erythrocytes and the resultant plasma fraction was aspirated and divided into aliquots for long-term storage in -80°C briefly and liquid nitrogen in the longer term.
 
 \hypertarget{itraq-sample-prep}{%
 \subsection{Sample preparation and analysis using iTRAQ proteomics}\label{itraq-sample-prep}}
 
-Thawed plasma samples (\(2\mu l\)) each were diluted with distilled water (\(98\mu l\)). Total protein was quantified using a Pierce™ \(660 nm\) Protein Assay (Thermo Fisher Scientific, Hemel Hempstead, UK)(Stoscheck 1987).
+Thawed plasma samples (\(2\mu l\)) each were diluted with distilled water (\(98\mu l\)).
+Total protein was quantified using a Pierce™ \(660 nm\) Protein Assay (Thermo Fisher Scientific, Hemel Hempstead, UK)(Stoscheck 1987).
 
 A total of \(100 mg\) of plasma protein was taken from each sample and pooled equally to form a patient test group.
 For example, the AIS C improver group was pooled from 10 separate patient samples, 10mg of protein per patient.
@@ -278,7 +292,8 @@ A total of 12 SCX fractions were analysed by nano-electrospray ionisation-liquid
 
 Each fraction (\(10 \mu l\)) was then analysed by nanoflow LC-ESI--MSMS, as described previously.
 
-Parent (MS) ions were accepted with a mass tolerance of 50 mDa and MSMS was conducted with a rolling collision energy (CE) inclusive of preset iTRAQ CE adjustments. Analyzed parent ions were then excluded from analysis for 13 s after 3 occurrences.
+Parent (MS) ions were accepted with a mass tolerance of 50 mDa and MSMS was conducted with a rolling collision energy (CE) inclusive of preset iTRAQ CE adjustments.
+Analyzed parent ions were then excluded from analysis for 13 s after 3 occurrences.
 
 \hypertarget{label-free-sample-prep}{%
 \subsubsection{Sample preparation and analysis using label-free proteomics}\label{label-free-sample-prep}}
@@ -286,8 +301,7 @@ Parent (MS) ions were accepted with a mass tolerance of 50 mDa and MSMS was cond
 No sample pooling was used, and so each of the 73 samples were maintained separately throughout protein equalisation, mass spectrometry, and label-free quantification steps.
 Thus, protein abundance was quantified for each sample, whereupon mean protein abundance across experimental groups was calculated to assess protein changes.
 
-To reduce the dynamic range of proteins, ProteoMiner™ beads (BioRad, Hemel Hempstead, UK) were used.(\textbf{boschetti\_proteominer\_2008?})
-Total protein was quantitated with a Pierce™ \(660 nm\) Protein Assay (Thermo Fisher Scientific, Hemel Hempstead, UK), whereupon 5 mg of total protein was applied to ProteoMiner™ beads, and processed as described previously.(Stoscheck 1987)
+To reduce the dynamic range of proteins, ProteoMiner™ beads (BioRad, Hemel Hempstead, UK) were used.(Boschetti and Righetti 2008) Total protein was quantitated with a Pierce™ \(660 nm\) Protein Assay (Thermo Fisher Scientific, Hemel Hempstead, UK), whereupon 5 mg of total protein was applied to ProteoMiner™ beads, and processed as described previously.(Stoscheck 1987)
 
 \hypertarget{label-free-mass-spectrometry-analysis}{%
 \paragraph{Label free mass spectrometry analysis}\label{label-free-mass-spectrometry-analysis}}
@@ -305,8 +319,9 @@ MS/MS ion selection threshold was set to \(1\times 10^4\) count and 2Da isolatio
 \hypertarget{openms-chap3}{%
 \subsubsection{iTraq OpenMS analysis}\label{openms-chap3}}
 
-TripleTOF 5600 tandem mass spectrometer output files produced in the ABSciex proprietary \texttt{.wiff} file format were converted to an open file format, \texttt{.mzML} for analysis with OpenMS (version 2.6.0). The docker image of ProteoWizard version 3.0.20287 was used for conversion, and peak picking was applied on conversion (Chambers et al. 2012). OpenMS version 2.6.0 was used for further analysis.(Röst et al. 2016)
-Unless otherwise stated, default arguments were used.
+TripleTOF 5600 tandem mass spectrometer output files produced in the ABSciex proprietary \texttt{.wiff} file format were converted to an open file format, \texttt{.mzML} for analysis with OpenMS (version 2.6.0).
+The docker image of ProteoWizard version 3.0.20287 was used for conversion, and peak picking was applied on conversion (Chambers et al. 2012).
+OpenMS version 2.6.0 was used for further analysis.(Röst et al. 2016) Unless otherwise stated, default arguments were used.
 The 12 fraction files were merged and sorted by retention time.
 A decoy database was generated with \texttt{DecoyDatabase} and the \texttt{-enzyme} flag set to \texttt{Trypsin}, the human reference proteome was taken from Uniprot (Proteome ID: UP000005640, downloaded: 2020-10-01), as was the \texttt{.fasta} for porcine trypsin (Entry: P00761, downloaded: 2020-10-01).(The UniProt Consortium 2021)
 
@@ -321,20 +336,17 @@ For peptide level score estimation and filtering \texttt{PercolatorAdapter} was 
 
 \texttt{IsobaricAnalyzer} with \texttt{-type\ itraq4plex} was used with the merged \texttt{.mzML} files to assign protein-peptide identifications to features or consensus features with \texttt{IDMApper}.
 The files for each run output by \texttt{IDMapper} were then merged with \texttt{FileMerger}.
-Bayesian score estimation and protein inference was performed with \texttt{Epifany} and the following flags: \texttt{-greedy\_group\_resolution\ remove\_proteins\_wo\_evidence\ -algorithm:keep\_best\_PSM\_only\ false}
-Decoys were removed and 0.05 FDR filtering was done via \texttt{IDFilter} with \texttt{-score:protgroup\ 0.05\ -remove\_decoys}.
+Bayesian score estimation and protein inference was performed with \texttt{Epifany} and the following flags: \texttt{-greedy\_group\_resolution\ remove\_proteins\_wo\_evidence\ -algorithm:keep\_best\_PSM\_only\ false} Decoys were removed and 0.05 FDR filtering was done via \texttt{IDFilter} with \texttt{-score:protgroup\ 0.05\ -remove\_decoys}.
 Finally, \texttt{IDConflictResolver} was used to resolve ambiguous annotations of features with peptide identifications, before quantification with \texttt{ProteinQuantifier}.
 
 \hypertarget{openms-label-free}{%
 \subsubsection{Label free OpenMS analysis}\label{openms-label-free}}
 
 For quantification, the raw spectra files were analysed via OpenMS (version 2.6.0) command line tools, with the workflow from the prior section (\ref{openms-chap3}) adapted to suit a label-free analysis.
-The files were first converted from the proprietary .Raw format to the open .mzML standard with the \texttt{FileConverter} tool via the open-source \texttt{ThermoRawFileParser}.(Röst et al. 2016; Hulstaert et al. 2020)
-Unless otherwise stated, default arguments were used throughout.
+The files were first converted from the proprietary .Raw format to the open .mzML standard with the \texttt{FileConverter} tool via the open-source \texttt{ThermoRawFileParser}.(Röst et al. 2016; Hulstaert et al. 2020) Unless otherwise stated, default arguments were used throughout.
 
 The decoy database generated in the prior section (iTRAQ OpenMS analysis) was also re-used.
-The \texttt{CometAdapter} was used to run the search.(Eng, Jahan, and Hoopmann 2013)
-Fixed modifications were set to ``Carbamidomethyl (C)'' and ``Oxidation (M)'' was set as a variable modification.
+The \texttt{CometAdapter} was used to run the search.(Eng, Jahan, and Hoopmann 2013) Fixed modifications were set to ``Carbamidomethyl (C)'' and ``Oxidation (M)'' was set as a variable modification.
 To reflect the instrument the following flags were also set: \texttt{-precursor\_mass\_tolerance\ 20\ -isotope\_error\ 0/1}.
 
 To annotate the identified peptides with proteins the \texttt{PeptideIndexer} tool was used.
@@ -347,8 +359,7 @@ The \texttt{-out\_msstats} flag was also used to produce quantitative data for d
 \hypertarget{pathway-analysis-chap3}{%
 \subsubsection{Network and pathway analysis}\label{pathway-analysis-chap3}}
 
-Protein interation networks were created using the Bioconductor package \texttt{STRINGdb} which provides an R interface to STRING version 11.(Szklarczyk et al. 2019)
-Instantiation of the STRINGdb reference class was done with \texttt{species} and \texttt{score\_threshold} set to \texttt{9606}, for \emph{Homo sapiens} , and \texttt{400} respectively.
+Protein interation networks were created using the Bioconductor package \texttt{STRINGdb} which provides an R interface to STRING version 11.(Szklarczyk et al. 2019) Instantiation of the STRINGdb reference class was done with \texttt{species} and \texttt{score\_threshold} set to \texttt{9606}, for \emph{Homo sapiens} , and \texttt{400} respectively.
 Clustering of networks with \texttt{STRINGdb} used the ``fastgreedy'' algorithm from the \texttt{iGraph} package.
 
 The Bioconductor package ReactomePA, which employs the open-source, open access, manually curated and peer-reviewed pathway database Reactome was used for network analysis.(G. Yu and He 2016; Jassal et al. 2020)
@@ -413,7 +424,7 @@ The majority of the pathways associated with the proteins identified by these iT
 There are also several pathways implicated in metabolic processes, particularly with apolipoproteins and retinoids.
 
 \clearpage
-\begin{landscape}
+\blandscape
 
 
 
@@ -426,8 +437,8 @@ There are also several pathways implicated in metabolic processes, particularly 
 \caption{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not.}\label{fig:openms-hmap-acute-c-1}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -440,7 +451,7 @@ There are also several pathways implicated in metabolic processes, particularly 
 \caption{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not.}\label{fig:openms-hmap-subacute-c-1}
 \end{figure}
 
-\end{landscape}
+\elandscape
 \clearpage
 
 Similarly to the iTRAQ data, many of the Reactome pathways are associated with the complement cascade and platelets activation (Figures \ref{fig:openms-chap4-hmap-acute-c-1}, \ref{fig:openms-chap4-hmap-subacute-c-1}, \ref{fig:openms-chap4-hmap-acute-sacute-imp-c-1}, \ref{fig:openms-chap4-hmap-acute-sacute-nonimp-c-1}, \ref{fig:openms-chap4-hmap-acute-a-d-2}, \ref{fig:openms-chap4-hmap-acute-imp-c-d-2}, \ref{fig:openms-chap4-hmap-acute-imp-c-a-2}, \ref{fig:openms-chap4-hmap-acute-nonimp-c-a-2}, \ref{fig:openms-chap4-hmap-acute-nonimp-c-d-2}).
@@ -460,8 +471,8 @@ Please see appendix section \ref{sup-heatmaps} for additional plots.
 \caption{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not. Grey blocks denote proteins not present in the comparison.}\label{fig:openms-chap4-hmap-acute-c-1}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -474,7 +485,7 @@ Please see appendix section \ref{sup-heatmaps} for additional plots.
 \caption{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not. Grey blocks denote proteins not present in the comparison.}\label{fig:openms-chap4-hmap-subacute-c-1}
 \end{figure}
 
-\end{landscape}
+\elandscape
 \clearpage
 
 \hypertarget{cnetplot-chap3}{%
@@ -496,8 +507,8 @@ Several proteins were also associated with the regulation of insulin-like growth
 \caption{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not.}\label{fig:openms-cnetp-acute-c-1}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -531,8 +542,8 @@ Please see appendix section \ref{sup-cnetplots} for additional plots.
 \caption{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not.}\label{fig:openms-chap4-cnetp-acute-c-1}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -545,7 +556,7 @@ Please see appendix section \ref{sup-cnetplots} for additional plots.
 \caption{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not.}\label{fig:openms-chap4-cnetp-subacute-c-1}
 \end{figure}
 
-\end{landscape}
+\elandscape
 \clearpage
 
 \hypertarget{kegg-chap3}{%
@@ -628,34 +639,62 @@ This study has highlighted a number of proteins that may be able to discriminate
 The most promising of these is Retinol Binding Protein 4 (RBP4) which was demonstrated to be increased in non-improvers compared to improvers in the acute phase.
 Further this change could be confirmed using ELISA, which may provide a more clinically useful means of assessing this protein on a wide scale.
 
-RBP4 is synthesised in the liver and binds retinol that is released following vitamin A deficiency.(P. A. Peterson 1971)
-Once delivered to target cells, retinol can either be converted to retinaldehyde, which is required for functional vision, or oxidised to retinoic acid, which is a ligand for nuclear receptors, thus regulating gene expression.(Lane and Bailey 2005; J. E. Balmer and Blomhoff 2002)
-The role of retinoid signalling in spinal cord and motor neuron differentiation, including development of regions of the spinal cord has been outlined, and implies a possible involvement in maintaining motor neuron integrity.(Colbert et al. 1995; Sockanathan and Jessell 1998)
-The mRNA of a rodent homologue of RBP was found to be up-regulated at 24 hours post-SCI and may promote cell proliferation and regeneration by increasing retinoid metabolism.(Song et al. 2001; Hurst et al. 1999)
+RBP4 is synthesised in the liver and binds retinol that is released following vitamin A deficiency.(P. A. Peterson 1971) Once delivered to target cells, retinol can either be converted to retinaldehyde, which is required for functional vision, or oxidised to retinoic acid, which is a ligand for nuclear receptors, thus regulating gene expression.(Lane and Bailey 2005; J. E. Balmer and Blomhoff 2002) The role of retinoid signalling in spinal cord and motor neuron differentiation, including development of regions of the spinal cord has been outlined, and implies a possible involvement in maintaining motor neuron integrity.(Colbert et al. 1995; Sockanathan and Jessell 1998) The mRNA of a rodent homologue of RBP was found to be up-regulated at 24 hours post-SCI and may promote cell proliferation and regeneration by increasing retinoid metabolism.(Song et al. 2001; Hurst et al. 1999)
 
-Another study of amyotrophic lateral sclerosis (ALS), a neurodegenerative disease, comparing gene expression between post-mortem spinal cord samples of ALS and controls also observed up-regulation of RBP1 in ALS spinal cord.(Malaspina, Kaushik, and Belleroche 2001)
-Furthermore, a transgenic mouse study reported retinoid signalling may contribute to the retained plasticity and regenerative potential of the mature spinal cord.(Haskell et al. 2002)
-The results found here support these findings for AIS C improvers relative to non-improvers as improver had increased levels of RBP4.
+Another study of amyotrophic lateral sclerosis (ALS), a neurodegenerative disease, comparing gene expression between post-mortem spinal cord samples of ALS and controls also observed up-regulation of RBP1 in ALS spinal cord.(Malaspina, Kaushik, and Belleroche 2001) Furthermore, a transgenic mouse study reported retinoid signalling may contribute to the retained plasticity and regenerative potential of the mature spinal cord.(Haskell et al. 2002) The results found here support these findings for AIS C improvers relative to non-improvers as improver had increased levels of RBP4.
 Whether this is due to increased expression or due to higher vitamin A intake is unclear from this data, though at 3-months post-injury this is still that case even though patients diets could be more similar throughout hospital admission.
 
 Alongside RBP4, a number of other protein abundance differences across the different biological comparisons were identified in proteins associated with liver function.
-Furthermore, the network and pathway analyses also implicated altered liver function.
-Our previous work investigating the potential of routinely measured haematological analytes for predicting neurological outcome in SCI patients also highlighted several proteins that were linked with liver function; thus providing further support to this theory.(Brown et al. 2019; Bernardo Harrington et al. 2020)
-The pathway analysis specifically indicated that the acute phase response (APR) is implicated.
+Our previous work investigating the potential of routinely measured haematological analytes for predicting neurological outcome in SCI patients also highlighted several proteins that were linked with liver function; thus providing further support to this theory.(Brown et al. 2019; Bernardo Harrington et al. 2020) The pathway analysis specifically indicated that the acute phase response (APR) is implicated.
 
 The APR is the bodies first response to injury or infections, including SCI.
-This systemic response is largely coordinated by factors released from the liver, but the APRs effects extend to multiple peripheral organs including the kidneys, lungs and spleen.(Bao et al. 2012; S. J. Campbell, Zahid, et al. 2008; Fleming et al. 2012; Gris, Hamilton, and Weaver 2008)
-This hepatic response is typically transient and quickly fades, but prolonged liver inflammation and pathology has been observed in rodent SCI models.(Goodus et al. 2018; Sauerbeck et al. 2014)
-Basic liver functions are chronically impaired by SCI, including metabolising carbohydrates, fats and proteins, storage of minerals vitamins and glycogen and filtering blood from the digestive tract.(García-López et al. 2007; DeLeve 2007; Farkas and Gater 2018; Chow et al. 2012; Sauerbeck et al. 2014)
-The acute (1-7 days) liver response to SCI is well documented; the inflammatory cytokines including TNF\(\alpha\), IL-1\(\alpha\), IL-1\(\beta\) and IL-6, released at the injury site, reach the liver through the bloodstream.(Fleming et al. 2012; Hundt et al. 2011)
-This provokes the liver to enter the APR and produce acute phase proteins thus stimulating a greater immune response.(Anthony and Couch 2014; Fleming et al. 2012)
-The hepatocytes that make up the majority of the liver biomass, express receptors that bind the aforementioned inflammatory cytokines; similarly the hepatic macrophage Kupffer cells also bind these cytokines, complement proteins and lipopolysaccharide (LPS) and swiftly remove microorganisms, endotoxins and other debris from the blood.(C.-Y. Yang et al. 2013; Szalai et al. 2000; Crispe 2016; S. J. Campbell et al. 2005)
+This systemic response is largely coordinated by factors released from the liver, but the APRs effects extend to multiple peripheral organs including the kidneys, lungs and spleen.(Bao et al. 2012; S. J. Campbell, Zahid, et al. 2008; Fleming et al. 2012; Gris, Hamilton, and Weaver 2008) This hepatic response is typically transient and quickly fades, but prolonged liver inflammation and pathology has been observed in rodent SCI models.(Goodus et al. 2018; Sauerbeck et al. 2014) Basic liver functions are chronically impaired by SCI, including metabolising carbohydrates, fats and proteins, storage of minerals vitamins and glycogen and filtering blood from the digestive tract.(García-López et al. 2007; DeLeve 2007; Farkas and Gater 2018; Chow et al. 2012; Sauerbeck et al. 2014) The acute (1-7 days) liver response to SCI is well documented; the inflammatory cytokines including TNF\(\alpha\), IL-1\(\alpha\), IL-1\(\beta\) and IL-6, released at the injury site, reach the liver through the bloodstream.(Fleming et al. 2012; Hundt et al. 2011) This provokes the liver to enter the APR and produce acute phase proteins thus stimulating a greater immune response.(Anthony and Couch 2014; Fleming et al. 2012) The hepatocytes that make up the majority of the liver biomass, express receptors that bind the aforementioned inflammatory cytokines; similarly the hepatic macrophage Kupffer cells also bind these cytokines, complement proteins and lipopolysaccharide (LPS) and swiftly remove microorganisms, endotoxins and other debris from the blood.(C.-Y. Yang et al. 2013; Szalai et al. 2000; Crispe 2016; S. J. Campbell et al. 2005)
 
-Furthermore, it has been suggested that liver inflammation and Kupffer cells activity promote recruitment of leukocytes to the injury site in brain or spinal trauma, potentially enhancing CNS injury.(Anthony and Couch 2014; S. J. Campbell et al. 2005)
-For example, a rodent study demonstrated depletion of Kupffer cells prior to injury resulted in few neutrophils infiltrating the injury site.(S. J. Campbell, Zahid, et al. 2008; S. J. Campbell, Anthony, et al. 2008)
+Furthermore, it has been suggested that liver inflammation and Kupffer cells activity promote recruitment of leukocytes to the injury site in brain or spinal trauma, potentially enhancing CNS injury.(Anthony and Couch 2014; S. J. Campbell et al. 2005) For example, a rodent study demonstrated depletion of Kupffer cells prior to injury resulted in few neutrophils infiltrating the injury site.(S. J. Campbell, Zahid, et al. 2008; S. J. Campbell, Anthony, et al. 2008)
 
-\hypertarget{copied-from-thesis}{%
-\subsection{COPIED FROM THESIS}\label{copied-from-thesis}}
+\begin{itemize}
+\tightlist
+\item
+  MH NOTE: PRX-2 was one of the most promising proteins from the label-free data. We didn't do any elisas for it, but I think we can argue that the label-free is more statistically robust due to the biological and technical replicates. We could argue that it may not have turned up in the iTRAQ as we didn't use the proteominer beads too I suppose
+\end{itemize}
+
+Another protein this data highlights is Peroxiredoxin 2 (PRX-2), which was detected acutely in AIS C improvers and AIS D patients, and subacutely in AIS A and AIS D. Peroxiredoxins are a large and highly conserved family of enzymes that reduce peroxides.
+PRX-2 is highly abundant in RBCs and intracellularly serves as an important anti-oxidant role in various cells types, including neurons.(Low, Hampton, and Winterbourn 2008) By contrast, extracellular PRX-2 has been suggested to act as an inflammatory DAMP, leading microglia and macrophages to release a plethora of pro-inflammatory factors.(Salzano et al. 2014; Garcia-Bonilla and Iadecola 2012; Shichita et al. 2012) An \emph{in vitro} primary neurons and microglia co-culture study reported PRX-2 activating microglia via TLR-4, potentially leading to neuronal apoptosis.(Y. Lu et al. 2018) A mouse study found over-expression of PRX-2 attenuated oxidative stress and neuronal apoptosis following subarachnoid haemorrhage.(Y. Lu et al. 2019) Over-expression of PRX-2 is speculated to protect again ischaemic neuronal injury by modulating the redox-sensitive thioredoxin-apoptosis signal-regulating kinase (ASK) 1 signalling complex.(Gan et al. 2012) Several molecular chaperones can interact with ASK1, including thioredoxin and TNF receptor-associated factor 6.(Matsuzawa et al. 2005) The dissociation of the thioredoxin-ASK1 complex activates ASK1.
+PRX-2 is oxidised after scavenging free radicals, whereupon its antioxidantive activity is reduced.
+This inactivation can be reversed by the thioredoxin-thioredoxin reductase system, whereby oxidised PRX-2 can regain its activity by reducing thioredoxin, leading to the dissociation of the thioredoxin-ASK1 complex.(Rhee and Woo 2011) Additionally, oxidised PRX-1 can inhibit ASK1-induced apoptosis via the thioredoxin-binding domain on ASK1.(S. Y. Kim, Kim, and Lee 2008)
+
+The presence of PRX-2 in acute AIS C improvers and absence in acute C non-improvers suggests the protein could indicate a more protective action against oxidative stress, and implies the protein has potential value as a biomarker of functional outcomes.
+Similarly, PRX-2 may be acting as a healthy response to trauma-induced oxidative stress in both acute AIS D, although the persistence to the subacute time-point is less clear.
+Likewise, the presence of PRX-2 in AIS A subacutely, but not acutely is more perplexing.
+It should be noted that as plasma was used and cells were lysed, there is no distinction between intracellular and extracellular PRX-2 in this data.
+Perhaps in the more severe AIS A injury, secondary injuries, including oxidative stress, are greater and so persist to the subacute time-point.
+The acute absence may be a result of an overwhelmed physiology unable to respond or prioritise managing oxidative stress.
+
+Pathway analysis from both the iTRAQ and label-free experiments identified the complement and coagulation cascades as a significant pathway.
+More broadly, the trend in this data is for proteins in the complement pathway is lower abundance, or inhibitory proteins such as C4BP to be more abundant, in the acute improvers.
+C3 for instance, cleavage of which is vital for complement activation, was less abundant in acute AIS C improvers relative to non-improvers.
+This is in line with a genetic C3 knockout study in mice which reported better neurological scores 2 days post-injury, reduced residual consolidated neurological deficit at 21 days and display minor change inreduced gliosis (20\% decrease at 1h timepoint) but a three-to-fourfold decrease in neutrophil infiltration, resulting in enhanced regeneration of axons.(Qiao et al. 2006) Another study using a similar C3 knockout model reported improved neurological scores at acute and long-term time points.(Guo et al. 2010)
+
+This result implies the complement cascade is a particularly important component of a differential response to injury which ultimately leads to greater functional recovery.
+Given the complexity of the complement cascade and the limited time points in this study, further work is needed to elucidate which facets of the cascade are outcome modifying, and at which stages post-injury.
+The small number of statistically significant proteins speaks to the variability of human plasma samples, and is likely exacerbated by the inconstant timing of sample collection relative to injury.
+Post-hoc power analysis of the data reveals that to identify a 2.5 fold change with an FDR of 0.5 and a power of 0.9, 14 biological replicates would be needed, in contrast to the 7-11 replicates used across groups here.
+
+Thus, a repeat of this experiment with a larger sample size will likely reveal many more proteins of potential interest.
+Furthermore, a metabolomic analysis with a similar sample size would greatly compliment this work, particularly with regards to investigating further links to the liver.
+Additional investigation of the key proteins, RPB4 and PRX-2 in particular, but also the complement cascade more broadly would also be valuable.
+Quantitation of these proteins both at more acute and chronic time points would be of greatest immediate interest.
+
+\begin{itemize}
+\tightlist
+\item
+  MH note: Haven't added anything about comparing vendor proprietary software and openMS. I go back on forth thinking that could easily be a paper onto itself. Maybe just add a line or two mentioning OpenMS was chosen as it performed similarly to the proprietary stuff and allows for more openness and reproducibility
+\item
+  small point, but would it be worth adding subsection to the discussion as I did in the thesis? I think it makes it a more pleasant read personally
+\end{itemize}
+
+\hypertarget{the-follow-is-copied-from-thesis}{%
+\subsection{THE FOLLOW IS COPIED FROM THESIS}\label{the-follow-is-copied-from-thesis}}
 
 \hypertarget{itraq-discussion}{%
 \subsection{iTRAQ discussion}\label{itraq-discussion}}
@@ -689,7 +728,8 @@ As the results are similar we choose to focus on the OpenMS results due to afore
 \hypertarget{proteins-identified}{%
 \subsubsection{Proteins identified}\label{proteins-identified}}
 
-A total of 79 proteins were identified across both runs for OpenMS, many of which are related in function. (Figure \ref{fig:openms-pp-venn}).
+A total of 79 proteins were identified across both runs for OpenMS, many of which are related in function.
+(Figure \ref{fig:openms-pp-venn}).
 Here we explore the potential these proteins have a biomarkers of SCI.
 
 \hypertarget{alpha-2-macroglobulin}{%
@@ -699,28 +739,23 @@ A2M is an inhibitor of an unusually diverse array of proteinases by a unique `tr
 The protein achieves this with a peptide stretch, called the ``bait region'', which contains specific cleavage sites for different proteinases.
 When a proteinase cleaves the bait region, a conformational change is induced whereby A2M traps the proteinase.
 The entrapped enzyme retains active against low molecular weight substrates, whereas activity against high molecular weight substrates is greatly reduced.
-Following cleavage in the bait region, a thioester bond is hydrolysed and mediates the covalent binding of the protein to the proteinase.(P. K. Hall et al. 1981; Sottrup-Jensen et al. 1984)
-A2M is unique in it's ability to inhibit virtually any protease regardless of it's specificity, origin or catalytic mechanism.(Khan 2004; Lin et al. 2012)
+Following cleavage in the bait region, a thioester bond is hydrolysed and mediates the covalent binding of the protein to the proteinase.(P. K. Hall et al. 1981; Sottrup-Jensen et al. 1984) A2M is unique in it's ability to inhibit virtually any protease regardless of it's specificity, origin or catalytic mechanism.(Khan 2004; Lin et al. 2012)
 
-Alpha macroglobulins are an integral part of innate immunity and thus are evolutionarily conserved.(Buresova et al. 2009)
-Alpha macroglobulins have significant primary sequence homology with complement components C3, C4 and C5.
-The A2M-proteinase complex is cleared from circulation primarily by receptors on hepatocytes.(Bond, Cianciolo, and Pizzo 2007; Travis and Salvesen 1983)
-The mammalian receptor for proteinase‐reacted A2M is a low‐density lipoprotein receptor related protein.(Fujiyoshi et al. 2011; Larios and Marzolo 2012; Wyatt and Wilson 2013)
+Alpha macroglobulins are an integral part of innate immunity and thus are evolutionarily conserved.(\textbf{buresova\_iram2-macroglobulin\_2009?}) Alpha macroglobulins have significant primary sequence homology with complement components C3, C4 and C5. The A2M-proteinase complex is cleared from circulation primarily by receptors on hepatocytes.(Bond, Cianciolo, and Pizzo 2007; Travis and Salvesen 1983) The mammalian receptor for proteinase‐reacted A2M is a low‐density lipoprotein receptor related protein.(Fujiyoshi et al. 2011; Larios and Marzolo 2012; Wyatt and Wilson 2013)
 
 A2Ms definitive function is the delivery of proteinase to an endocytotic proteinase clearance pathway.
 A2Ms trap the proteinases released by granulocytes and other cells during inflammation and also regulate the extracellular proteolytic activity resulting from clotting and fibrinolysis.
 A2M can also help protect against pathogens as it can trap proteinases from non-human origins as well.
 A2M can be recognised and phagocytosed by macrophages and hepatocytes, and it has been proposed to aid in the clearance of defensins and other peptide mediators in inflamed tissues, thus contributing to the regulation and containment of inflammation.(Rehman, Ahsan, and Khan 2013)
 
-Myelin basic protein is released into the circulation following traumatic injury and A2M has been seen to be the only major myelin basic protein-binding protein in human plasma, suggesting A2M protects the immunogenic protein from degradation by proteases and help in its clearance from circulation.(Gunnarsson and Jensen 1998)
-A study looking at male infertility after SCI with proteomics found A2M to be elevated approximately 3-fold in the sperm plasma of SCI patients relative to normal controls.(Silva et al. 2016)
+Myelin basic protein is released into the circulation following traumatic injury and A2M has been seen to be the only major myelin basic protein-binding protein in human plasma, suggesting A2M protects the immunogenic protein from degradation by proteases and help in its clearance from circulation.(Gunnarsson and Jensen 1998) A study looking at male infertility after SCI with proteomics found A2M to be elevated approximately 3-fold in the sperm plasma of SCI patients relative to normal controls.(Silva et al. 2016)
 
 We observe A2M to be less abundant in AIS C improvers, within 2-weeks post injury and at 3-months, albeit to a lesser extent (Tables \ref{tab:openms-fc-table} and \ref{tab:proteinpilot-fc-table}).
-Similarly, A2M was more abundant is AIS As relative to all groups, and whilst A2M was less abundant in AIS C improvers at 2-weeks compared to AIS Ds, AIS C non-improvers had more A2M than AIS Ds. (Table \ref{tab:openms-fc-table}).
+Similarly, A2M was more abundant is AIS As relative to all groups, and whilst A2M was less abundant in AIS C improvers at 2-weeks compared to AIS Ds, AIS C non-improvers had more A2M than AIS Ds.
+(Table \ref{tab:openms-fc-table}).
 With less A2M there would be more protease activity in these individuals, which may aid in the clearance of damaged tissue, and in particular may lessen the development of an astroglial scar, thus aiding repair.
 However, glial scaring is not entirely negative, the primary benefit it offerers is minimising the extent of secondary damage to neighbouring areas by functioning as a barrier around the injury site.
-Animal studies have demonstrated that prevention of astroglial scar formation following CNS injury leads to greater lesion size and poorer function outcomes.(Anderson et al. 2016; Wilhelmsson et al. 2006)
-Interestingly, a rat study using quantitative liquid chromatography-mass spectrometry with CSF, found A2M to be more abundant in moderately injured animals compared to more severe injuries.(Lubieniecka et al. 2011)
+Animal studies have demonstrated that prevention of astroglial scar formation following CNS injury leads to greater lesion size and poorer function outcomes.(Anderson et al. 2016; Wilhelmsson et al. 2006) Interestingly, a rat study using quantitative liquid chromatography-mass spectrometry with CSF, found A2M to be more abundant in moderately injured animals compared to more severe injuries.(Lubieniecka et al. 2011)
 
 \hypertarget{apolipoproteins}{%
 \paragraph{Apolipoproteins}\label{apolipoproteins}}
@@ -734,65 +769,33 @@ The primary function of HDL in plasma is the transport of cholesterol, which can
 \subparagraph{HDL Activity}\label{hdl-activity}}
 
 HDLs have serve a wide range of functions, including contributing to anti-inflammatory activity.
-They can limit chemokine secretion from multiple cells types including endothelial cells and monocytes.(Cockerill Gillian W. et al. 1995; Vorst et al. 2013; Bursill Christina A. et al. 2010)
-Rats injected with ApoA1 showed significant reduction in expression of CCR2 and CX\(_3\)CR1, the receptors for chemokines of the same name, which play a role in leukocyte migration. (Bursill Christina A. et al. 2010)
+They can limit chemokine secretion from multiple cells types including endothelial cells and monocytes.(Cockerill Gillian W. et al. 1995; Vorst et al. 2013; Bursill Christina A. et al. 2010) Rats injected with ApoA1 showed significant reduction in expression of CCR2 and CX\(_3\)CR1, the receptors for chemokines of the same name, which play a role in leukocyte migration.
+(Bursill Christina A. et al. 2010)
 
-HDL is also associated with protection from oxidative damage, also inhibiting the potentially atherogenic oxidised LDL formation.(Anatol, Sandrine, and John 2003)
-The exact mechanisms of these antioxidant effect is still actively researched, the enzyme paraoxonase-1, which is present on HDL particles are likely important.(Mackness, Durrington, and Mackness 2004)
-Apolipoproteins, including ApoA4 and ApoAE also have antioxidant properties, for example phospholipid hydroperoxidase can be reduced by methionine residues of ApoA1, forming redox-inactive phospholipid hydroxides.(Christison, Rye, and Stocker 1995; Zerrad-Saadi Amal et al. 2009)
+HDL is also associated with protection from oxidative damage, also inhibiting the potentially atherogenic oxidised LDL formation.(Anatol, Sandrine, and John 2003) The exact mechanisms of these antioxidant effect is still actively researched, the enzyme paraoxonase-1, which is present on HDL particles are likely important.(Mackness, Durrington, and Mackness 2004) Apolipoproteins, including ApoA4 and ApoAE also have antioxidant properties, for example phospholipid hydroperoxidase can be reduced by methionine residues of ApoA1, forming redox-inactive phospholipid hydroxides.(Christison, Rye, and Stocker 1995; Zerrad-Saadi Amal et al. 2009)
 
-HDLs can also suppress proliferation of haematopoietic stem cells, thus reducing leucocytosis and monocytosis.(Yvan-Charvet et al. 2010)
-Furthermore, HDLs are implicated in the transport of microRNAs, though the mechanisms of loading the microRNAs and their biological significance is still under study.(Vickers et al. 2011)
+HDLs can also suppress proliferation of haematopoietic stem cells, thus reducing leucocytosis and monocytosis.(Yvan-Charvet et al. 2010) Furthermore, HDLs are implicated in the transport of microRNAs, though the mechanisms of loading the microRNAs and their biological significance is still under study.(Vickers et al. 2011)
 
 ApoE was less abundant in AIS C improvers within 2-weeks and more abundant at 3-months, and more abundant in more severe injury, such as AIS A relative to D or C and in AIS C relative to D (Table \ref{tab:openms-fc-table}).
-ApoE is primarily produced by hepatocytes in the liver, but second-most in the brain, synthesised in and secreted by astrocytes, and has been found to an important determinant in response to types of CNS injuries in both animal and human studies.(Teasdale et al. 1997; Poirier 1994)
-A key function of ApoE is as a ligand for the LDL receptor family of proteins, which mediate trafficking of cholesterol to neurons, which is vital for axonal growth, and for synapse formation and remodelling.(Xu, Finkelstein, and Adlard 2014)
-Additionally, ApoE is implicated in the clearance of neuronal apoptotic bodies.(Elliott et al. 2007)
-In humans there are three variants/alleles of ApoE: ApoE2, ApoE3 and ApoE4, which have a frequency of 8.4\%, 77.9\% and 13.7\% globally.(C.-C. Liu et al. 2013)
-The variant proteins differ by one or two amino acids and have been found to result in substantial physiological alterations.(Mahley and Rall 2000; Jha et al. 2008)
-The presence of the ApoE4 variant has been linked to worse outcomes in SCI and TBI.(Jha et al. 2008; C. Sun et al. 2011; Smith et al. 2006; Friedman et al. 1999)
-More specifically, the SCI study reported significantly lower change in the median AIS motor score compared the individuals without the ApoE4 allele during rehabilitation.(Jha et al. 2008)
+ApoE is primarily produced by hepatocytes in the liver, but second-most in the brain, synthesised in and secreted by astrocytes, and has been found to an important determinant in response to types of CNS injuries in both animal and human studies.(Teasdale et al. 1997; Poirier 1994) A key function of ApoE is as a ligand for the LDL receptor family of proteins, which mediate trafficking of cholesterol to neurons, which is vital for axonal growth, and for synapse formation and remodelling.(Xu, Finkelstein, and Adlard 2014) Additionally, ApoE is implicated in the clearance of neuronal apoptotic bodies.(Elliott et al. 2007) In humans there are three variants/alleles of ApoE: ApoE2, ApoE3 and ApoE4, which have a frequency of 8.4\%, 77.9\% and 13.7\% globally.(C.-C. Liu et al. 2013) The variant proteins differ by one or two amino acids and have been found to result in substantial physiological alterations.(Mahley and Rall 2000; Jha et al. 2008) The presence of the ApoE4 variant has been linked to worse outcomes in SCI and TBI.(Jha et al. 2008; C. Sun et al. 2011; Smith et al. 2006; Friedman et al. 1999) More specifically, the SCI study reported significantly lower change in the median AIS motor score compared the individuals without the ApoE4 allele during rehabilitation.(Jha et al. 2008)
 
-Prior \emph{in vivo} rodent studies have demonstrated up-regulation of ApoE following SCI and TBI, though ApoE is not observed in neurons of rodents under normal neuropathology, and they only posses a single ApoE allele.(Iwata et al. 2005; Seitz et al. 2003; Mahley, Weisgraber, and Huang 2006)
-A separate rodent study reported ApoE levels decreased for the first 3 days post-injury, and then increased peek expression at 7 days post-injury, a similar pattern to our results.(X. Yang et al. 2018)
-Furthermore, mouse studies have demonstrated replacement of ApoE in neurons with human ApoE4 have impaired neurite outgrowth compared to replacement with ApoE2 or ApoE3, suggesting ApoE4 interferes with neuroplasticity.(Seitz et al. 2003; White et al. 2001)
-The underlying mechanism/s by which ApoE and its alleles effect neuroplasticity is not currently known, but proposals have been made.
-One possibility is reduced lipid transport from astrocytes to neurons, potentially impeding the membrane generation required to support axon growth or dendrite sprouting.
-ApoE has anti-oxidant properties, so others have suggested impaired anti-oxidant activity may contribute.
-ApoE4 has been found to be both secreted less than ApoE2 or ApoE3, and to have inferior anti-oxidant abilities, lending some credence to this idea.(Mishra and Brinton 2018; Miyata and Smith 1996)
-Knowing this, whilst ApoE may make for a useful biomarker for SCI, it will be important that particular variants of ApoE a given patient has could be just as important, if not more so, than simple abundance.
+Prior \emph{in vivo} rodent studies have demonstrated up-regulation of ApoE following SCI and TBI, though ApoE is not observed in neurons of rodents under normal neuropathology, and they only posses a single ApoE allele.(Iwata et al. 2005; Seitz et al. 2003; Mahley, Weisgraber, and Huang 2006) A separate rodent study reported ApoE levels decreased for the first 3 days post-injury, and then increased peek expression at 7 days post-injury, a similar pattern to our results.(X. Yang et al. 2018) Furthermore, mouse studies have demonstrated replacement of ApoE in neurons with human ApoE4 have impaired neurite outgrowth compared to replacement with ApoE2 or ApoE3, suggesting ApoE4 interferes with neuroplasticity.(Seitz et al. 2003; White et al. 2001) The underlying mechanism/s by which ApoE and its alleles effect neuroplasticity is not currently known, but proposals have been made. One possibility is reduced lipid transport from astrocytes to neurons, potentially impeding the membrane generation required to support axon growth or dendrite sprouting. ApoE has anti-oxidant properties, so others have suggested impaired anti-oxidant activity may contribute. ApoE4 has been found to be both secreted less than ApoE2 or ApoE3, and to have inferior anti-oxidant abilities, lending some credence to this idea.(Mishra and Brinton 2018; Miyata and Smith 1996) Knowing this, whilst ApoE may make for a useful biomarker for SCI, it will be important that particular variants of ApoE a given patient has could be just as important, if not more so, than simple abundance.
 
 \hypertarget{serum-amyloid-a1}{%
 \paragraph{Serum Amyloid A1}\label{serum-amyloid-a1}}
 
 SAA1 was less abundant in AIS C improvers at 2-weeks relative to non-improvers, but more abundance in plasma at 3-months (Table \ref{tab:openms-fc-table}.
 SAA1 was also more abundant is AIS A relative to less severe injuries, and in AIS Cs relative to Ds (Table \ref{tab:openms-fc-table}.
-SAA1 is a major acute-phase protein mainly produced in the liver by hepatocytes in response to infection, tissue injury and malignancy.(L. Sun and Ye 2016)
-SAA1 is a precursor of amyloid A (AA), the aberrant deposition of which leads to inflammatory amyloidosis.(Tape et al. 1988)
-There are 5 known SAA1 variants, though currently, no indication of substantial functional differences have been identified.(J. Lu et al. 2014)
-However, some alleles have been linked to disease, including increased amyloidogenesis and tumour suppression.{[}van der Hilst et al. (2008); lung\_saa1\_2015{]}
+SAA1 is a major acute-phase protein mainly produced in the liver by hepatocytes in response to infection, tissue injury and malignancy.(L. Sun and Ye 2016) SAA1 is a precursor of amyloid A (AA), the aberrant deposition of which leads to inflammatory amyloidosis.(Tape et al. 1988) There are 5 known SAA1 variants, though currently, no indication of substantial functional differences have been identified.(J. Lu et al. 2014) However, some alleles have been linked to disease, including increased amyloidogenesis and tumour suppression.{[}van der Hilst et al. (2008); lung\_saa1\_2015{]}
 
-During the APR, plasma levels of SAA increase up to 1000-fold, and so serves as a well-established clinical biomarker for inflammatory disorders.(Gabay and Kushner 1999)
-SAA isoforms produced by hepatocytes during an APR are swiftly released into the blood where they associate with HDL, displacing ApoA1 and becoming an apolipoprotein of HDL.(Banka et al. 1995; Benditt and Eriksen 1977)
-Reverse cholesterol transport, whereby cholesterol in non-hepatic tissues is transported back to the liver, is conducted via plasma components such as HDL, ABCA1 and ABCG1.
-ApoA1 acts as an acceptor for cholesterol in this process, and studies have found that SAA in lipid-free form can similarly function as a cholesterol acceptor for ABCA1.
-Whilst SAA is though to be an important facet of lipid metabolism, its role is likely complex as mice knockout studies which eliminate SAA1 and SAA1 have shown little effect on cholesterol transport, HDL levels and ApoA1 clearance.(de Beer et al. 2010, 2011)
-These studies indicate that the \emph{in vivo} functions of SAA related to lipid metabolism are more complex than prior \emph{in vitro} studies implied.
+During the APR, plasma levels of SAA increase up to 1000-fold, and so serves as a well-established clinical biomarker for inflammatory disorders.(Gabay and Kushner 1999) SAA isoforms produced by hepatocytes during an APR are swiftly released into the blood where they associate with HDL, displacing ApoA1 and becoming an apolipoprotein of HDL.(Banka et al. 1995; Benditt and Eriksen 1977) Reverse cholesterol transport, whereby cholesterol in non-hepatic tissues is transported back to the liver, is conducted via plasma components such as HDL, ABCA1 and ABCG1. ApoA1 acts as an acceptor for cholesterol in this process, and studies have found that SAA in lipid-free form can similarly function as a cholesterol acceptor for ABCA1. Whilst SAA is though to be an important facet of lipid metabolism, its role is likely complex as mice knockout studies which eliminate SAA1 and SAA1 have shown little effect on cholesterol transport, HDL levels and ApoA1 clearance.(de Beer et al. 2010, 2011) These studies indicate that the \emph{in vivo} functions of SAA related to lipid metabolism are more complex than prior \emph{in vitro} studies implied.
 
-SAA1 can both induce anti-inflammatory interleukin 10 (IL-10)-secreting neutrophils, but also promotes the interaction of invariant natural killer T cells with those neutrophils, which limits their suppressive activity by diminishing the production of IL-10 and enhancing the production of IL-12, indicating that SAA1 can have both pro- and anti-inflammatory effects.(Santo et al. 2010)
-There has however been conflicting results reported of SAAs cytokine induction abilities, and some studies have suggested that recombinant human SAA1 provided by some vendors may have additional cytokine-inducing actiity due the altered amino acid sequence.(M.-H. Kim et al. 2013)
+SAA1 can both induce anti-inflammatory interleukin 10 (IL-10)-secreting neutrophils, but also promotes the interaction of invariant natural killer T cells with those neutrophils, which limits their suppressive activity by diminishing the production of IL-10 and enhancing the production of IL-12, indicating that SAA1 can have both pro- and anti-inflammatory effects.(Santo et al. 2010) There has however been conflicting results reported of SAAs cytokine induction abilities, and some studies have suggested that recombinant human SAA1 provided by some vendors may have additional cytokine-inducing actiity due the altered amino acid sequence.(M.-H. Kim et al. 2013)
 
-Macrophages are a major source of SAA in inflammatory tissues, and elevated SAA production has been observed in rheumatoid arthritis, Crohn's disease, Type 2 diabetes and atherosclerosis.(Marzi et al. 2013; Dong et al. 2011; Vallon et al. 2001; C, F, and B 1997; Meek, Urieli-Shoval, and Benditt 1994)
-SAA binding to HDL was reported to increase affinity for macrophages whilst decreasing affinity for hepatocytes.(R. Kisilevsky and Subrahmanyan 1992)
-This change is thought to favour the removal of cholesterol from site of inflammation.(R. Kisilevsky 1991)
-SAA inhibits the binding of the scavenger receptor SR-BI and cholesterol efflux is enhanced in a SR-BI-dependent manner.(Cai et al. 2005; van der Westhuyzen et al. 2005)
-It has been suggested that the SR-BI-mediated re-uptake of cholesterol underpins the role of SAA in cholesterol recycling during tissue repair, where a great deal of cholesterol is required.(Robert Kisilevsky and Manley 2012)
+Macrophages are a major source of SAA in inflammatory tissues, and elevated SAA production has been observed in rheumatoid arthritis, Crohn's disease, Type 2 diabetes and atherosclerosis.(Marzi et al. 2013; Dong et al. 2011; Vallon et al. 2001; C, F, and B 1997; Meek, Urieli-Shoval, and Benditt 1994) SAA binding to HDL was reported to increase affinity for macrophages whilst decreasing affinity for hepatocytes.(R. Kisilevsky and Subrahmanyan 1992) This change is thought to favour the removal of cholesterol from site of inflammation.(R. Kisilevsky 1991) SAA inhibits the binding of the scavenger receptor SR-BI and cholesterol efflux is enhanced in a SR-BI-dependent manner.(Cai et al. 2005; van der Westhuyzen et al. 2005) It has been suggested that the SR-BI-mediated re-uptake of cholesterol underpins the role of SAA in cholesterol recycling during tissue repair, where a great deal of cholesterol is required.(Robert Kisilevsky and Manley 2012)
 
-In blood circulation SAA1 may also function as a immune opsonin for increased neutrophil uptake of Gram-negative bacteria.(Shah, Hari-Dass, and Raynes 2006)
-Both human and mouse SAA proteins have been found to bind retinol with nanomolar affinity that limits bacterial burden in tissues after acute infection.(Derebe et al. 2014)
-Retinol is important to the body's response to microbial infection, so SAA may also have a role in limiting bacterial burden, particularly in the liver, spleen and intestine.
-The aforementioned study demonstrated that mice lacking in both SAA1 and SAA2 have a higher bacterial burden in the liver and spleen following infection.(Derebe et al. 2014)
-All 3 SAA isoforms are found in intestinal epithelium, which is exposed to the gut microbiome, in mice.
+In blood circulation SAA1 may also function as a immune opsonin for increased neutrophil uptake of Gram-negative bacteria.(Shah, Hari-Dass, and Raynes 2006) Both human and mouse SAA proteins have been found to bind retinol with nanomolar affinity that limits bacterial burden in tissues after acute infection.(Derebe et al. 2014) Retinol is important to the body's response to microbial infection, so SAA may also have a role in limiting bacterial burden, particularly in the liver, spleen and intestine.
+The aforementioned study demonstrated that mice lacking in both SAA1 and SAA2 have a higher bacterial burden in the liver and spleen following infection.(Derebe et al. 2014) All 3 SAA isoforms are found in intestinal epithelium, which is exposed to the gut microbiome, in mice.
 The anti-bacterial properties of SAA isoforms may therefore explain the role of SAA as an acute-phase protein that protects the host in tissues and organs exposed to bacteria.
 
 \hypertarget{retinol-binding-protein-4-rbp4}{%
@@ -801,19 +804,11 @@ The anti-bacterial properties of SAA isoforms may therefore explain the role of 
 In plasma within 2-weeks post-injury, RBP4 was less abundant in AIS C improvers relative to AIS D and A, and more abundant in AIS C non-improvers again, relative to AIS D and A (Table \ref{tab:openms-fc-table}.
 Similarly, AIS A plasma had more RBP4 compared to AIS D, and AIS C improvers were also more abundant in RBP4 compared to non-improvers at both 2-weeks and 3-months post-injury (Table \ref{tab:openms-fc-table}.
 
-Vitamin A is a collective term for a group of fat-soluble compounds with a range of essential biological activities including aspects of growth, vision and metabolism.(Blomhoff and Blomhoff 2006)
-Following dietary absorption, vitamin A is ferried from the intestine, with chylomicrons as retinyl esters, to tissues for immediate use or the liver for storage in hepatic stellate cells.
-A subsequent dietary deficiency of vitamin A will result in these liver stores being mobilised by hydrolysing the retinyl esters to release retinol.
-The retinol is then bound by RBP4, which is also mainly synthesised in the liver, and secreted into circulation from hepatocytes, whereupon it is bound by an additional transport protein, transthyretin.(P. A. Peterson 1971)
-The membrane plasma protein STRA6 facilitates retinol transport from RBPs across the cell membrane.(Berry et al. 2012)
-Once delivered to target cells, retinol can either be converted to retinaldehyde, which is required for functional vision, or oxidised to retinoic acid, which is a ligand for nuclear receptors, thus regulating gene expression.(Lane and Bailey 2005; J. E. Balmer and Blomhoff 2002)
+Vitamin A is a collective term for a group of fat-soluble compounds with a range of essential biological activities including aspects of growth, vision and metabolism.(Blomhoff and Blomhoff 2006) Following dietary absorption, vitamin A is ferried from the intestine, with chylomicrons as retinyl esters, to tissues for immediate use or the liver for storage in hepatic stellate cells. A subsequent dietary deficiency of vitamin A will result in these liver stores being mobilised by hydrolysing the retinyl esters to release retinol. The retinol is then bound by RBP4, which is also mainly synthesised in the liver, and secreted into circulation from hepatocytes, whereupon it is bound by an additional transport protein, transthyretin.(P. A. Peterson 1971) The membrane plasma protein STRA6 facilitates retinol transport from RBPs across the cell membrane.(Berry et al. 2012) Once delivered to target cells, retinol can either be converted to retinaldehyde, which is required for functional vision, or oxidised to retinoic acid, which is a ligand for nuclear receptors, thus regulating gene expression.(Lane and Bailey 2005; J. E. Balmer and Blomhoff 2002)
 
-RBPs are localised in the ventral region, associated with motor neurons, in the mammalian developing neural tube.(Pierani et al. 1999; Maden, Ong, and Chytil 1990)
-The role of retinoid signalling in spinal cord and motor neuron differentiation, including development of regions of the spinal cord has been outlined, and implies a possible involvement in maintaining motor neuron integrity.(Colbert et al. 1995; Sockanathan and Jessell 1998)
+RBPs are localised in the ventral region, associated with motor neurons, in the mammalian developing neural tube.(Pierani et al. 1999; Maden, Ong, and Chytil 1990) The role of retinoid signalling in spinal cord and motor neuron differentiation, including development of regions of the spinal cord has been outlined, and implies a possible involvement in maintaining motor neuron integrity.(Colbert et al. 1995; Sockanathan and Jessell 1998)
 
-The mRNA of a rodent homologue of RBP, named cytosolic retinol binding protein, was found to be up-regulated at 24 hours post-SCI and may promote cell proliferation and regeneration by increasing retinoid metabolism.(Song et al. 2001; Hurst et al. 1999)
-Another study of amyotrophic lateral sclerosis (ALS), a neurodegenerative disease, comparing gene expression between post-mortem spinal cord samples of ALS and controls also observed up-regulation of RBP1 in ALS spinal cord.(Malaspina, Kaushik, and Belleroche 2001)
-Furthermore, a transgenic mouse study reported retinoid signalling may contribute to the retained plasticity and regenerative potential of the mature spinal cord.(Haskell et al. 2002)
+The mRNA of a rodent homologue of RBP, named cytosolic retinol binding protein, was found to be up-regulated at 24 hours post-SCI and may promote cell proliferation and regeneration by increasing retinoid metabolism.(Song et al. 2001; Hurst et al. 1999) Another study of amyotrophic lateral sclerosis (ALS), a neurodegenerative disease, comparing gene expression between post-mortem spinal cord samples of ALS and controls also observed up-regulation of RBP1 in ALS spinal cord.(Malaspina, Kaushik, and Belleroche 2001) Furthermore, a transgenic mouse study reported retinoid signalling may contribute to the retained plasticity and regenerative potential of the mature spinal cord.(Haskell et al. 2002)
 
 The results found here support these findings for AIS C improvers relative to non-improvers as improver had increased levels of RBP4.
 Whether this is due to increased expression or due to higher vitamin A intake is unclear from this data, though at 3-months post-injury this is still that case even though patients diets could be more similar throughout hospital admission.
@@ -824,70 +819,42 @@ Whether this is due to increased expression or due to higher vitamin A intake is
 \hypertarget{acute-phase-response}{%
 \paragraph{Acute phase response}\label{acute-phase-response}}
 
-The bodies first response to injury or infections, including SCI, is often referred to as the ``acute phase response'' (APR), which is non-specific, innate reaction that precedes more specific and situational immune reactions.(Gordon and Koj 1985; Gruys et al. 2005)
-This systemic response is largely coordinated by factors released from the liver, but the APRs effects extend to multiple peripheral organs including the kidneys, lungs and spleen.(Bao et al. 2012; S. J. Campbell, Zahid, et al. 2008; Fleming et al. 2012; Gris, Hamilton, and Weaver 2008)
-This hepatic response is typically transient and quickly fades, but prolonged liver inflammation and pathology has been observed in rodent SCI models.(Goodus et al. 2018; Sauerbeck et al. 2014)
+The bodies first response to injury or infections, including SCI, is often referred to as the ``acute phase response'' (APR), which is non-specific, innate reaction that precedes more specific and situational immune reactions.(Gordon and Koj 1985; Gruys et al. 2005) This systemic response is largely coordinated by factors released from the liver, but the APRs effects extend to multiple peripheral organs including the kidneys, lungs and spleen.(Bao et al. 2012; S. J. Campbell, Zahid, et al. 2008; Fleming et al. 2012; Gris, Hamilton, and Weaver 2008) This hepatic response is typically transient and quickly fades, but prolonged liver inflammation and pathology has been observed in rodent SCI models.(Goodus et al. 2018; Sauerbeck et al. 2014)
 
-Basic liver functions are chronically impaired by SCI, including metabolising carbohydrates, fats and proteins, storage of minerals vitamins and glycogen and filtering blood from the digestive tract.(García-López et al. 2007; DeLeve 2007; Farkas and Gater 2018; Chow et al. 2012; Sauerbeck et al. 2014)
-This is likely related to the elevated incidence of metabolic disease in the SCI cohort, including insulin resistance, impaired glucose tolerance and cardiovascular disease.(Bauman and Spungen 2001; Maruyama et al. 2008; Lee et al. 2004; J. Myers, Lee, and Kiratli 2007)
-Long-term survival is noticeably lower relative to the general population and, whilst mortality in the first 2 year following SCI has decreased in recent decades, long-term survival has not.(Strauss et al. 2006; Shavelle et al. 2015)
-More recently, a longitudinal study found SCI patients had a significantly higher incidence of acute pancreatitis relative to a matched healthy cohort.(Ho, Yeh, and Pan 2021)
+Basic liver functions are chronically impaired by SCI, including metabolising carbohydrates, fats and proteins, storage of minerals vitamins and glycogen and filtering blood from the digestive tract.(García-López et al. 2007; DeLeve 2007; Farkas and Gater 2018; Chow et al. 2012; Sauerbeck et al. 2014) This is likely related to the elevated incidence of metabolic disease in the SCI cohort, including insulin resistance, impaired glucose tolerance and cardiovascular disease.(Bauman and Spungen 2001; Maruyama et al. 2008; Lee et al. 2004; J. Myers, Lee, and Kiratli 2007) Long-term survival is noticeably lower relative to the general population and, whilst mortality in the first 2 year following SCI has decreased in recent decades, long-term survival has not.(Strauss et al. 2006; Shavelle et al. 2015) More recently, a longitudinal study found SCI patients had a significantly higher incidence of acute pancreatitis relative to a matched healthy cohort.(Ho, Yeh, and Pan 2021)
 
-The acute (1-7 days) liver response to SCI is well documented; the inflammatory cytokines including TNF\(\alpha\), IL-1\(\alpha\), IL-1\(\beta\) and IL-6, released at the injury site, reach the liver through the bloodstream.(Fleming et al. 2012; Hundt et al. 2011)
-This provokes the liver to enter the APR and produce acute phase proteins (APPs) thus stimulating a greater immune response.(Anthony and Couch 2014; Fleming et al. 2012)
-The hepatocytes that make up the majority of the liver biomass, express receptors that bind the aforementioned inflammatory cytokines; similarly the hepatic macrophage Kupffer cells also bind these cytokines, complement proteins and lipopolysaccharide (LPS) and swiftly remove microorganisms, endotoxins and other debris from the blood.(C.-Y. Yang et al. 2013; Szalai et al. 2000; Crispe 2016; S. J. Campbell et al. 2005)
-Hepatic stellate cells act as sensors of tissue integrity by exposure to signals of oxidative stress, danger/pathogen associated molecular patterns (DAMPs/PAMPs), chemokines/cytokines and factors secreted from neighbour hepatic cells, and can stimulate innate immunity by releasing cytokines and as antigen presenting cells during the APR. (Weiskirchen and Tacke 2014; Fujita and Narumiya 2016)
+The acute (1-7 days) liver response to SCI is well documented; the inflammatory cytokines including TNF\(\alpha\), IL-1\(\alpha\), IL-1\(\beta\) and IL-6, released at the injury site, reach the liver through the bloodstream.(Fleming et al. 2012; Hundt et al. 2011) This provokes the liver to enter the APR and produce acute phase proteins (APPs) thus stimulating a greater immune response.(Anthony and Couch 2014; Fleming et al. 2012) The hepatocytes that make up the majority of the liver biomass, express receptors that bind the aforementioned inflammatory cytokines; similarly the hepatic macrophage Kupffer cells also bind these cytokines, complement proteins and lipopolysaccharide (LPS) and swiftly remove microorganisms, endotoxins and other debris from the blood.(C.-Y. Yang et al. 2013; Szalai et al. 2000; Crispe 2016; S. J. Campbell et al. 2005) Hepatic stellate cells act as sensors of tissue integrity by exposure to signals of oxidative stress, danger/pathogen associated molecular patterns (DAMPs/PAMPs), chemokines/cytokines and factors secreted from neighbour hepatic cells, and can stimulate innate immunity by releasing cytokines and as antigen presenting cells during the APR. (Weiskirchen and Tacke 2014; Fujita and Narumiya 2016)
 
-SCI studies in rodent and canine models have found the APPs serum amyloid (SA) A, SAP, CRP, fibrinogen, haptoglobin and a1-antichymotrypsin are elevated 4-24 hours post-injury in blood.(Pepys and Baltz 1983; Gabay and Kushner 1999; J. C. E. Hall et al. 2012; Steel and Whitehead 1994)
-In rodents, hepatic CD68 mRNA is observed to be elevated within 24 hours post-SCI and CD68+ Kupffer cell numbers increase during the first 7 days post-SCI.(Sauerbeck et al. 2014)
+SCI studies in rodent and canine models have found the APPs serum amyloid (SA) A, SAP, CRP, fibrinogen, haptoglobin and a1-antichymotrypsin are elevated 4-24 hours post-injury in blood.(Pepys and Baltz 1983; Gabay and Kushner 1999; J. C. E. Hall et al. 2012; Steel and Whitehead 1994) In rodents, hepatic CD68 mRNA is observed to be elevated within 24 hours post-SCI and CD68+ Kupffer cell numbers increase during the first 7 days post-SCI.(Sauerbeck et al. 2014)
 
-Furthermore, it has been suggested that liver inflammation and Kupffer cells activity promote recruitment of leukocytes to the injury site in brain or spinal trauma, potentially enhancing CNS injury.(Anthony and Couch 2014; S. J. Campbell et al. 2005)
-For example, a rodent study demonstrated depletion of Kupffer cells prior to injury resulted in few neutrophils infiltrating the injury site.(S. J. Campbell, Zahid, et al. 2008; S. J. Campbell, Anthony, et al. 2008)
+Furthermore, it has been suggested that liver inflammation and Kupffer cells activity promote recruitment of leukocytes to the injury site in brain or spinal trauma, potentially enhancing CNS injury.(Anthony and Couch 2014; S. J. Campbell et al. 2005) For example, a rodent study demonstrated depletion of Kupffer cells prior to injury resulted in few neutrophils infiltrating the injury site.(S. J. Campbell, Zahid, et al. 2008; S. J. Campbell, Anthony, et al. 2008)
 
 \hypertarget{microbiome-sci}{%
 \subsubsection{Microbiome \& SCI}\label{microbiome-sci}}
 
 Circulating factors from the injury site are not the only potential driver of hepatic inflammation.
-Within 24 hours post-SCI in rodents tight junctions between epithelial cells become more permeable, thus allowing gut bacteria and the endotoxins they can produce to enter the bloodstream.(J. Liu et al. 2004)
-This will reach the liver through the portal vein where Kupffer cells function as a ``first line of defence''.(Jenne and Kubes 2013; M. L. Balmer et al. 2014)
-It has been proposed that elevated LPS+ endotoxins caused by the post-SCI ``leaky gut'' causes acute liver inflammation by overloading hepatic filtrations capacity, allowing microbes to bypass the liver and elicit systemic inflammation.(J. Liu et al. 2004; O'Connor et al. 2018)
-The binding of LPS to Kupffer cells results in the production of a range of growth factors, including TNF-\(\alpha\), multiple interleukins and reactive oxygen species (ROS), stimulating bone-marrow-derived monocytes and neutrophils to infiltrate the liver.(S. A. Myers et al. 2019; Milosevic et al. 2019; Kazankov et al. 2019)
-A rodent study found transcription factors for tight junctions down-regulated following SCI, and that application of probiotics improved neurological outcomes.(Kigerl, Mostacada, and Popovich 2018; Kigerl et al. 2016)
-Human studies of the microbiome post-SCI have also demonstrated dysbiosis, both chronically and more acutely post-injury.(Zhang et al. 2018; Gungor et al. 2016; Bazzocchi et al. 2021)
+Within 24 hours post-SCI in rodents tight junctions between epithelial cells become more permeable, thus allowing gut bacteria and the endotoxins they can produce to enter the bloodstream.(J. Liu et al. 2004) This will reach the liver through the portal vein where Kupffer cells function as a ``first line of defence''.(Jenne and Kubes 2013; M. L. Balmer et al. 2014) It has been proposed that elevated LPS+ endotoxins caused by the post-SCI ``leaky gut'' causes acute liver inflammation by overloading hepatic filtrations capacity, allowing microbes to bypass the liver and elicit systemic inflammation.(J. Liu et al. 2004; O'Connor et al. 2018) The binding of LPS to Kupffer cells results in the production of a range of growth factors, including TNF-\(\alpha\), multiple interleukins and reactive oxygen species (ROS), stimulating bone-marrow-derived monocytes and neutrophils to infiltrate the liver.(S. A. Myers et al. 2019; Milosevic et al. 2019; Kazankov et al. 2019) A rodent study found transcription factors for tight junctions down-regulated following SCI, and that application of probiotics improved neurological outcomes.(Kigerl, Mostacada, and Popovich 2018; Kigerl et al. 2016) Human studies of the microbiome post-SCI have also demonstrated dysbiosis, both chronically and more acutely post-injury.(Zhang et al. 2018; Gungor et al. 2016; Bazzocchi et al. 2021)
 
 \hypertarget{drivers-of-liver-steatosis}{%
 \subsubsection{Drivers of liver steatosis}\label{drivers-of-liver-steatosis}}
 
-Steatosis, the abnormal retention of lipids within cells or organs, most commonly associated with the liver, has been observed to increase in rodents during the first week post-injury.(Sauerbeck et al. 2014)
-The liver takes up circulating fatty acids, and when levels exceed the oxidative and secretory limits of the liver, hepatocytes store the excess as triglycerides.(Diraison and Beylot 1998)
-Adipose tissue lipolysis during elevated sympathetic activity leading to spikes in circulating fatty acids has been reported in human subjects following SCI.(Karlsson 1999)
+Steatosis, the abnormal retention of lipids within cells or organs, most commonly associated with the liver, has been observed to increase in rodents during the first week post-injury.(Sauerbeck et al. 2014) The liver takes up circulating fatty acids, and when levels exceed the oxidative and secretory limits of the liver, hepatocytes store the excess as triglycerides.(Diraison and Beylot 1998) Adipose tissue lipolysis during elevated sympathetic activity leading to spikes in circulating fatty acids has been reported in human subjects following SCI.(Karlsson 1999)
 
-\emph{De novo} lipogenesis occurring within the liver can also drive hepatic steatosis.(Lavoie and Gauthier 2006)
-Ceramides are lipid signalling molecules and regulators of apoptosis and inflammation; they can contribute to insulin resistance, oxidative stress and inflammation-induce liver adiposity through sustained Toll-like-receptor(TRL)-4 activation.(Schilling et al. 2013; Bhargava and Lee 2012; Pagadala et al. 2012)
-If released into the circulatory system, ceramides can cause CNS toxicity, including oxidative damage and changes to the aggregation of proteins associated with diseases such as Parkinson's, Huntington's and Alzheimer's.(Pagadala et al. 2012; Vidaurre et al. 2014; Czubowicz et al. 2019)
-Mature and precursors of hepatic ceramides and enzymes which contribute to ceramide synthesis are elevated by 1 day post-injury.(Sauerbeck et al. 2014)
-Endotoxins can also stimulated the synthesis of ceramides and so the aforementioned ``leaky gut'' may also contribute to this elevation.(Chang et al. 2011)
-Ceramide synthesis and lipogenesis genes are also stimulated by TNF-\(\alpha\), which, as touched on in the general introduction (\ref{chap-1-biomarkers}), has been found to be elevated post-SCI, and associated with differential neurological recovery.(Davies, Hayes, and Dekaban 2007; Hasturk et al. 2009; Biglari et al. 2015; Sauerbeck et al. 2014; Bikman 2012)
+\emph{De novo} lipogenesis occurring within the liver can also drive hepatic steatosis.(Lavoie and Gauthier 2006) Ceramides are lipid signalling molecules and regulators of apoptosis and inflammation; they can contribute to insulin resistance, oxidative stress and inflammation-induce liver adiposity through sustained Toll-like-receptor(TRL)-4 activation.(Schilling et al. 2013; Bhargava and Lee 2012; Pagadala et al. 2012) If released into the circulatory system, ceramides can cause CNS toxicity, including oxidative damage and changes to the aggregation of proteins associated with diseases such as Parkinson's, Huntington's and Alzheimer's.(Pagadala et al. 2012; Vidaurre et al. 2014; Czubowicz et al. 2019) Mature and precursors of hepatic ceramides and enzymes which contribute to ceramide synthesis are elevated by 1 day post-injury.(Sauerbeck et al. 2014) Endotoxins can also stimulated the synthesis of ceramides and so the aforementioned ``leaky gut'' may also contribute to this elevation.(Chang et al. 2011) Ceramide synthesis and lipogenesis genes are also stimulated by TNF-\(\alpha\), which, as touched on in the general introduction (\ref{chap-1-biomarkers}), has been found to be elevated post-SCI, and associated with differential neurological recovery.(Davies, Hayes, and Dekaban 2007; Hasturk et al. 2009; Biglari et al. 2015; Sauerbeck et al. 2014; Bikman 2012)
 
 \hypertarget{chronic-liver-inflammation-in-sci}{%
 \subsubsection{Chronic liver inflammation in SCI}\label{chronic-liver-inflammation-in-sci}}
 
 The hepatic APR and associated inflammation that typically follows bodily trauma, subsequently rapidly subsides, whereas post-SCI this hepatic inflammation persists chronically.
-This chronic phase may be due in part to long-term changes in intestinal permeability via fewer tight junctions in intestinal epithelial cells, resulting in gut dysbiosis.(Milosevic et al. 2019; O'Connor et al. 2018; Kigerl, Mostacada, and Popovich 2018; Kigerl et al. 2016)
-Bacterial translocation and gut dysbiosis can be the result of non-mechanical intestinal obstruction, impaired intestinal motility and systemic immune suppression, all of which are potential complications of SCI.(Balzan et al. 2007)
-Specifically, butyrate-producing bacteria have been found to be reduced in SCI relative to a healthy cohort.(Gungor et al. 2016)
-Butyrate is known to modulate epithelial differentiation and cell growth, and suppress macrophages, including CNS inflammation, thus the reduction in butyrate from bacteria may contribute to recovery post-SCI, though links to the liver specifically have not yet been studied.(H. J. Kim et al. 2007; Arpaia et al. 2013; Park et al. 2005; P. S. Chen et al. 2007)
+This chronic phase may be due in part to long-term changes in intestinal permeability via fewer tight junctions in intestinal epithelial cells, resulting in gut dysbiosis.(Milosevic et al. 2019; O'Connor et al. 2018; Kigerl, Mostacada, and Popovich 2018; Kigerl et al. 2016) Bacterial translocation and gut dysbiosis can be the result of non-mechanical intestinal obstruction, impaired intestinal motility and systemic immune suppression, all of which are potential complications of SCI.(Balzan et al. 2007) Specifically, butyrate-producing bacteria have been found to be reduced in SCI relative to a healthy cohort.(Gungor et al. 2016) Butyrate is known to modulate epithelial differentiation and cell growth, and suppress macrophages, including CNS inflammation, thus the reduction in butyrate from bacteria may contribute to recovery post-SCI, though links to the liver specifically have not yet been studied.(H. J. Kim et al. 2007; Arpaia et al. 2013; Park et al. 2005; P. S. Chen et al. 2007)
 
 LPS is another potential modulator of post-SCI chronic liver physiology.
-Kupffer cells, hepatic endothelial cells and hepatocytes all participate in the clearance of LPS via CD14- and TLR4-dependent mechanisms.(Mimura et al. 1995; van Oosten et al. 2001; Vodovotz et al. 2001)
-LPS induced the release of factors such as TNF-\(\alpha\)
+Kupffer cells, hepatic endothelial cells and hepatocytes all participate in the clearance of LPS via CD14- and TLR4-dependent mechanisms.(Mimura et al. 1995; van Oosten et al. 2001; Vodovotz et al. 2001) LPS induced the release of factors such as TNF-\(\alpha\)
 
 \hypertarget{longitudinal-metabolic-health}{%
 \subsubsection{Longitudinal metabolic health}\label{longitudinal-metabolic-health}}
 
-Prior work has found at least 25\% of acute SCI patients to be obese, which is well known to induce low-level systemic inflammation, and that this cohort has significantly worse outcomes compared to non-obese SCI patients (Stenson et al. 2011).
-Alcohol abuse has also been associated with poorer SCI neurological outcomes (Elliot et al. 2002).
-Furthermore, advancing age is associated with increased liver inflammation and the SCI population has followed the general populations ageing trend (Bertolotti et al. 2014; Y. Chen, He, and DeVivo 2016).
+Prior work has found at least 25\% of acute SCI patients to be obese, which is well known to induce low-level systemic inflammation, and that this cohort has significantly worse outcomes compared to non-obese SCI patients (Stenson et al. 2011). Alcohol abuse has also been associated with poorer SCI neurological outcomes (Elliot et al. 2002). Furthermore, advancing age is associated with increased liver inflammation and the SCI population has followed the general populations ageing trend (Bertolotti et al. 2014; Y. Chen, He, and DeVivo 2016).
 Taken together, it is not unreasonable to assume that a large number of SCI patients may have pre-existing liver inflammation at injury.
 This may be an important differentiator that contributes to the degree of neurological recovery a given patient may experience.
 Future experiments investigating neurological outcomes of SCI may benefit from establishing parameters of metabolic health, including the composition of the microbiome, as close to injury as possible, and potentially monitoring changes in these parameters longitudinally.
@@ -932,16 +899,9 @@ Here we explore the potential these proteins have a biomarkers of SCI.
 \subparagraph{Peroxiredoxins}\label{peroxiredoxins}}
 
 Peroxiredoxins are a large and highly conserved family of enzymes that reduce peroxides.
-Peroxiredoxin 2 (PRX-2) is highly abundant in RBCs and intracellularly serves as an important anti-oxidant role in various cells types, including neurons.(Low, Hampton, and Winterbourn 2008)
-By contrast, extracellular PRX-2 has been suggested to act as an inflammatory DAMP, leading microglia and macrophages to release a plethora of pro-inflammatory factors.(Salzano et al. 2014; Garcia-Bonilla and Iadecola 2012; Shichita et al. 2012)
-An \emph{in vitro} primary neurons and microglia co-culture study reported PRX-2 activating microglia via TLR-4, potentially leading to neuronal apoptosis.(Y. Lu et al. 2018)
-A mouse study found over-expression of PRX-2 attenuated oxidative stress and neuronal apoptosis following subarachnoid haemorrhage.(Y. Lu et al. 2019)
-Over-expression of PRX-2 is speculated to protect again ischaemic neuronal injury by modulating the redox-sensitive thioredoxin-apoptosis signal-regulating kinase (ASK) 1 signalling complex.(Gan et al. 2012)
-Several molecular chaperones can interact with ASK1, including thioredoxin and TNF receptor-associated factor 6.(Matsuzawa et al. 2005)
-The dissociation of the thioredoxin-ASK1 complex activates ASK1.
+Peroxiredoxin 2 (PRX-2) is highly abundant in RBCs and intracellularly serves as an important anti-oxidant role in various cells types, including neurons.(Low, Hampton, and Winterbourn 2008) By contrast, extracellular PRX-2 has been suggested to act as an inflammatory DAMP, leading microglia and macrophages to release a plethora of pro-inflammatory factors.(Salzano et al. 2014; Garcia-Bonilla and Iadecola 2012; Shichita et al. 2012) An \emph{in vitro} primary neurons and microglia co-culture study reported PRX-2 activating microglia via TLR-4, potentially leading to neuronal apoptosis.(Y. Lu et al. 2018) A mouse study found over-expression of PRX-2 attenuated oxidative stress and neuronal apoptosis following subarachnoid haemorrhage.(Y. Lu et al. 2019) Over-expression of PRX-2 is speculated to protect again ischaemic neuronal injury by modulating the redox-sensitive thioredoxin-apoptosis signal-regulating kinase (ASK) 1 signalling complex.(Gan et al. 2012) Several molecular chaperones can interact with ASK1, including thioredoxin and TNF receptor-associated factor 6.(Matsuzawa et al. 2005) The dissociation of the thioredoxin-ASK1 complex activates ASK1.
 PRX-2 is oxidised after scavenging free radicals, whereupon its antioxidantive activity is reduced.
-This inactivation can be reversed by the thioredoxin-thioredoxin reductase system, whereby oxidised PRX-2 can regain its activity by reducing thioredoxin, leading to the dissociation of the thioredoxin-ASK1 complex.(Rhee and Woo 2011)
-Additionally, oxidised PRX-1 can inhibit ASK1-induced apoptosis via the thioredoxin-binding domain on ASK1.(S. Y. Kim, Kim, and Lee 2008)
+This inactivation can be reversed by the thioredoxin-thioredoxin reductase system, whereby oxidised PRX-2 can regain its activity by reducing thioredoxin, leading to the dissociation of the thioredoxin-ASK1 complex.(Rhee and Woo 2011) Additionally, oxidised PRX-1 can inhibit ASK1-induced apoptosis via the thioredoxin-binding domain on ASK1.(S. Y. Kim, Kim, and Lee 2008)
 
 PRX-2 was found to be present in AIS C improvers and AIS D patients acutely, and in AIS A and D patients subacutely.
 The differences in abundance between these groups was not statistically significant, though acute AIS D had less PRX-2 relative to subacute AIS D (log\(_2\) fold change -1.9) and subacute AIS A also had less abundant PRX-2 relative to subacute AIS D (log\(_2\) fold change -1.7).
@@ -957,148 +917,79 @@ The acute absence may be a result of an overwhelmed physiology unable to respond
 
 The neuro-inflammatory response begins immediately post-trauma, and involves a complex series of events that can persist well into the chronic phase.
 The sudden emergence of necrotic cell debris and associated DAMPs lead surviving CNS-resident cells to produce cytokines, complement factors and ROS.
-Within minutes CNS cells at the lesion site have been found to secrete several pro-inflammatory mediators, including TNF-\(\alpha\) and interleukins, in both rodent models and human patients with SCI.(Pineau and Lacroix 2006; Chandrasekar et al. 2017; Dalgard et al. 2012; Bastien et al. 2015)
-The resulting inflammatory response occurs in parallel to the mechanical destruction of the blood-spinal cord barrier, and the development of tissue oedema and ischaemia combine to propagate damage to parts of the cord spared by the initial trauma.(Maikos and Shreiber 2007; Ahuja et al. 2017)
+Within minutes CNS cells at the lesion site have been found to secrete several pro-inflammatory mediators, including TNF-\(\alpha\) and interleukins, in both rodent models and human patients with SCI.(Pineau and Lacroix 2006; Chandrasekar et al. 2017; Dalgard et al. 2012; Bastien et al. 2015) The resulting inflammatory response occurs in parallel to the mechanical destruction of the blood-spinal cord barrier, and the development of tissue oedema and ischaemia combine to propagate damage to parts of the cord spared by the initial trauma.(Maikos and Shreiber 2007; Ahuja et al. 2017)
 
-The microglial population at the lesion site have been observed to be significantly depleted immediately post-injury, due to death via both the apoptosis and mechanical injury in a rodent model.(Bellver-Landete et al. 2019)
-Surviving microglia change in shape and migration patterns, and begin to produce ROS, oxidative metabolites an pro-inflammatory cytokines.(Pineau and Lacroix 2006; Bastien and Lacroix 2014)
-These cells can associate with damaged axons rapidly post-injury, but are thought to not actively phagocytose these cells until approximately 4 days post-trauma.(Bellver-Landete et al. 2019; Pineau and Lacroix 2006; Greenhalgh and David 2014)
+The microglial population at the lesion site have been observed to be significantly depleted immediately post-injury, due to death via both the apoptosis and mechanical injury in a rodent model.(Bellver-Landete et al. 2019) Surviving microglia change in shape and migration patterns, and begin to produce ROS, oxidative metabolites an pro-inflammatory cytokines.(Pineau and Lacroix 2006; Bastien and Lacroix 2014) These cells can associate with damaged axons rapidly post-injury, but are thought to not actively phagocytose these cells until approximately 4 days post-trauma.(Bellver-Landete et al. 2019; Pineau and Lacroix 2006; Greenhalgh and David 2014)
 
-The following hours and days post-injury are characterised by a substantive complement system activation and sequential leukocyte migration from the periphery into the injured neural parenchyma.(Brennan et al. 2015; S. L. Peterson and Anderson 2014; Qiao et al. 2006)
-Curiously, though the breakdown of the BSCB would presumably allow unrestricted access of circulating leukocytes into the injured cord segment, recruitment of these cells remains a highly controlled process.(Beck et al. 2010; Brennan et al. 2019)
-A mouse study reported lymphocytes, which account for approximately 80\% of circulating leukocytes, only enter the cord in substantial numbers at least several weeks to months post-injury.(Beck et al. 2010)
-Early infiltrate is instead largely comprised of myeloid cells, predominantly neutrophils, which are a minority of circulating cells but are the swiftest peripheral responders to SCI, with studies detecting them at the lesion site within 4 hours of injury.(Wright et al. 2010)
-Neutrophil numbers have been reported to peak at 1 day post-trauma, but also to remain at the site for a minimum of 42 days post-injury.(Okada 2016; Kigerl, McGaughy, and Popovich 2006)
+The following hours and days post-injury are characterised by a substantive complement system activation and sequential leukocyte migration from the periphery into the injured neural parenchyma.(Brennan et al. 2015; S. L. Peterson and Anderson 2014; Qiao et al. 2006) Curiously, though the breakdown of the BSCB would presumably allow unrestricted access of circulating leukocytes into the injured cord segment, recruitment of these cells remains a highly controlled process.(Beck et al. 2010; Brennan et al. 2019) A mouse study reported lymphocytes, which account for approximately 80\% of circulating leukocytes, only enter the cord in substantial numbers at least several weeks to months post-injury.(Beck et al. 2010) Early infiltrate is instead largely comprised of myeloid cells, predominantly neutrophils, which are a minority of circulating cells but are the swiftest peripheral responders to SCI, with studies detecting them at the lesion site within 4 hours of injury.(Wright et al. 2010) Neutrophil numbers have been reported to peak at 1 day post-trauma, but also to remain at the site for a minimum of 42 days post-injury.(Okada 2016; Kigerl, McGaughy, and Popovich 2006)
 
 This neutrophil recruitment is often viewed as principally detrimental to recovery following SCI, but also wound healing more generally.
-A recent study found circulating neutrophil numbers in admission bloods from human SCI patients were negatively correlated with patient outcomes at discharge.(Brennan et al. 2019)
-The same study utilising a contusive SCI mouse model, showed the extent of neutrophil presence at the lesion site inversely correlated with neurological outcomes, and depletion of said cells with an antibody against Ly6G improver recovery of motor function.(Brennan et al. 2019)
-However, other studies have suggested neutrophil activity which potentially benefits SCI recovery.
-A transgenic mouse contusion model study showed over-expression of secretory leukocyte protease inhibitor, which can arise from neutrophils and activated macrophages, improved locomotive functional outcomes, and reduced markers of secondary injury.(Ghasemlou et al. 2010)
-Another study, using a peripheral nerve injury mouse model, reported neutrophil infiltration and associated cytokine/chemokine production was vital for clearance of myelin debris.(Lindborg, Mack, and Zigmond 2017)
-Additionally, another study using a mouse contusion model found increased lesion sizes and impaired neurological outcomes following neutrophil depletion, though the Gr-1 antibody used also depletes inflammatory monocytes, muddying the picture somewhat.(Stirling et al. 2009)
-Regardless, it is clear that the complexity of the role neutrophils play in the SCI response extends beyond any simple binary beneficial/harmful distinction.
+A recent study found circulating neutrophil numbers in admission bloods from human SCI patients were negatively correlated with patient outcomes at discharge.(Brennan et al. 2019) The same study utilising a contusive SCI mouse model, showed the extent of neutrophil presence at the lesion site inversely correlated with neurological outcomes, and depletion of said cells with an antibody against Ly6G improver recovery of motor function.(Brennan et al. 2019) However, other studies have suggested neutrophil activity which potentially benefits SCI recovery.
+A transgenic mouse contusion model study showed over-expression of secretory leukocyte protease inhibitor, which can arise from neutrophils and activated macrophages, improved locomotive functional outcomes, and reduced markers of secondary injury.(Ghasemlou et al. 2010) Another study, using a peripheral nerve injury mouse model, reported neutrophil infiltration and associated cytokine/chemokine production was vital for clearance of myelin debris.(Lindborg, Mack, and Zigmond 2017) Additionally, another study using a mouse contusion model found increased lesion sizes and impaired neurological outcomes following neutrophil depletion, though the Gr-1 antibody used also depletes inflammatory monocytes, muddying the picture somewhat.(Stirling et al. 2009) Regardless, it is clear that the complexity of the role neutrophils play in the SCI response extends beyond any simple binary beneficial/harmful distinction.
 
-Moving forward in the SCI pathology, newly proliferated and recruited microglia begin actively phagocytosing necrotic cell debris, and begin accumulating around the lesion epicentre.(Greenhalgh and David 2014; Bellver-Landete et al. 2019; Pineau and Lacroix 2006)
-The presence of microglia appears to be vital, particularly during the first week post-SCI, as depletion via the colony stimulating factor-1 inhibitor PLX5622 has been linked to substantially worsened functional outcomes.(Bellver-Landete et al. 2019; Brennan et al. 2018)
-Relatedly, another mouse SCI model study found early enhancement of microglial activation can reduce secondary pathology.(Stirling et al. 2014)
+Moving forward in the SCI pathology, newly proliferated and recruited microglia begin actively phagocytosing necrotic cell debris, and begin accumulating around the lesion epicentre.(Greenhalgh and David 2014; Bellver-Landete et al. 2019; Pineau and Lacroix 2006) The presence of microglia appears to be vital, particularly during the first week post-SCI, as depletion via the colony stimulating factor-1 inhibitor PLX5622 has been linked to substantially worsened functional outcomes.(Bellver-Landete et al. 2019; Brennan et al. 2018) Relatedly, another mouse SCI model study found early enhancement of microglial activation can reduce secondary pathology.(Stirling et al. 2014)
 
 Circulating inflammatory monocytes are also recruited during the first days post-trauma.
-Adoptive transfer experiments have shown recruitment to pick up at approximately 3 days post-injury, and peak at 7 days.(Blomster et al. 2013)
-Whilst monocyte turnover at the lesion appears to be high, infiltrating monocyte-derived macrophages remain at the site of weeks to months post-trauma.(Blomster et al. 2013; Shechter et al. 2009)
-Interestingly, the timing of monocyte recruitment appears to be delayed relative to non-neurological tissue injury.
+Adoptive transfer experiments have shown recruitment to pick up at approximately 3 days post-injury, and peak at 7 days.(Blomster et al. 2013) Whilst monocyte turnover at the lesion appears to be high, infiltrating monocyte-derived macrophages remain at the site of weeks to months post-trauma.(Blomster et al. 2013; Shechter et al. 2009) Interestingly, the timing of monocyte recruitment appears to be delayed relative to non-neurological tissue injury.
 For instance, monocytes are reported to be rapidly recruited to the heart following a myocardial infarction, as early as 1 day post-injury, and their numbers return to baseline by roughly 16 days post-injury.(Nahrendorf et al. 2007)
 
-Owing to the diversity of monocyte subsets and macrophage phenotypes, a complete understanding of their role with respect to SCI pathology is still lacking, and requires under active research.(David and Kroner 2011)
-Some polarisation states associated with recruited macrophages are thought to be implicated in propagating secondary injury via fibrotic scar formation and demyelination of axons.(Kigerl et al. 2009; Popovich et al. 1999; Zhu et al. 2015)
-Similarly, several studies have reported a reduction in infiltration of monocytes/macrophages is associated with better SCI outcomes.(Kigerl et al. 2009; Zhu et al. 2015; Horn et al. 2008)
-Conversely, others have found depletion o circulating monocytes/macrophages significantly increased lesion size and results in worse function outcome, with restoration of blood monocyte numbers attenuating this phenotype.(Shechter et al. 2009)
-More recent \emph{in vitro} studies suggested blood-derived macrophages can suppress microglial phagocytosis without reducing microglial proliferation and extension of processes.(Greenhalgh and David 2014; Greenhalgh et al. 2018)
-This literature represents and ongoing controversy over the role of monocytes/macrophages in relation to recovery post-SCI.
+Owing to the diversity of monocyte subsets and macrophage phenotypes, a complete understanding of their role with respect to SCI pathology is still lacking, and requires under active research.(David and Kroner 2011) Some polarisation states associated with recruited macrophages are thought to be implicated in propagating secondary injury via fibrotic scar formation and demyelination of axons.(Kigerl et al. 2009; Popovich et al. 1999; Zhu et al. 2015) Similarly, several studies have reported a reduction in infiltration of monocytes/macrophages is associated with better SCI outcomes.(Kigerl et al. 2009; Zhu et al. 2015; Horn et al. 2008) Conversely, others have found depletion o circulating monocytes/macrophages significantly increased lesion size and results in worse function outcome, with restoration of blood monocyte numbers attenuating this phenotype.(Shechter et al. 2009) More recent \emph{in vitro} studies suggested blood-derived macrophages can suppress microglial phagocytosis without reducing microglial proliferation and extension of processes.(Greenhalgh and David 2014; Greenhalgh et al. 2018) This literature represents and ongoing controversy over the role of monocytes/macrophages in relation to recovery post-SCI.
 Importantly, many of these studies are based on somewhat crude depletion of cell types, with little discrimination paid toward any potential subpopulations and/or cell polarisation status.
 Given the shear complexity of the pathology at play, more nuanced approaches will likely be needed in future studies to paint a more complete picture.
 
 B cell recruitment is yet wave of immune cell infiltration, thought to occur several days post-injury.
-These cells can form follicle-like structures in combination with T cells, microglia and macrophages from roughly 28 days post-trauma, and remain present and the lesion well into the chronic phase of SCI.(Ankeny, Guan, and Popovich 2009)
-Whilst the extent of B cell presence has been reported to vary between animals, they have been correlated with self-reactive antibodies that recognise epitopes within protein homogenates of the spinal cord.(G. Sun et al. 2017)
-Adoptive transfer experiments in a mouse model isolated antibodies from SCI mice, and found injected them into the neural parenchyma of naïve animals induced significant damage, whereas mice lacking B cells have improved recovery post-SCI.(Ankeny, Guan, and Popovich 2009)
+These cells can form follicle-like structures in combination with T cells, microglia and macrophages from roughly 28 days post-trauma, and remain present and the lesion well into the chronic phase of SCI.(Ankeny, Guan, and Popovich 2009) Whilst the extent of B cell presence has been reported to vary between animals, they have been correlated with self-reactive antibodies that recognise epitopes within protein homogenates of the spinal cord.(G. Sun et al. 2017) Adoptive transfer experiments in a mouse model isolated antibodies from SCI mice, and found injected them into the neural parenchyma of naïve animals induced significant damage, whereas mice lacking B cells have improved recovery post-SCI.(Ankeny, Guan, and Popovich 2009)
 
 Move evidence is needed to establish whether these self-reactive antibodies precede an autoimmune event, or signify a autoimmune disease.
-Alternatively, they may serve as a mechanism for opsonisation and debris clearance from the lesion site.(Nagele et al. 2013)
-Naturally occurring autoantibodies with well-established role in tissue regeneration and repair have been found to be elevated following SCI.(Palmers et al. 2016; Arevalo-Martin et al. 2018)
-Much like the aforementioned monocyte/macrophage controversy, it should be pointed out that any positive effects of these autoantibodies does not preclude any simultaneous negative impacts which could be modulated.
+Alternatively, they may serve as a mechanism for opsonisation and debris clearance from the lesion site.(Nagele et al. 2013) Naturally occurring autoantibodies with well-established role in tissue regeneration and repair have been found to be elevated following SCI.(Palmers et al. 2016; Arevalo-Martin et al. 2018) Much like the aforementioned monocyte/macrophage controversy, it should be pointed out that any positive effects of these autoantibodies does not preclude any simultaneous negative impacts which could be modulated.
 For instance, another study reported naturally occurring IgM antibodies contribute to secondary injury during the more acute phase post-SCI.(Narang et al. 2017)
 
 Neuro-inflammation is less understood at the chronic phase of SCI, as most studies focus on the first hours and days post-injury.
-By this stage, the glial scar has established a well-defined border between the lesion core and the health tissue flanking it.(Sofroniew and Vinters 2010)
-Infiltrating immune cells are largely restricted to within the lesion itself, as opposed to the surrounding spared tissue.
-B and T cells, macrophages and neutrophils have all been detected here many months post-trauma.(Beck et al. 2010; Ankeny, Guan, and Popovich 2009; Prüss et al. 2011)
-The chronic phase is also marked by substantial metabolic dysfunction, characterised by reduced lipid metabolites and increased oxidative stress, in addition to elevated pro-inflammatory mediators.(Dulin et al. 2013)
+By this stage, the glial scar has established a well-defined border between the lesion core and the health tissue flanking it.(Sofroniew and Vinters 2010) Infiltrating immune cells are largely restricted to within the lesion itself, as opposed to the surrounding spared tissue. B and T cells, macrophages and neutrophils have all been detected here many months post-trauma.(Beck et al. 2010; Ankeny, Guan, and Popovich 2009; Prüss et al. 2011) The chronic phase is also marked by substantial metabolic dysfunction, characterised by reduced lipid metabolites and increased oxidative stress, in addition to elevated pro-inflammatory mediators.(Dulin et al. 2013)
 
 There are fewer studies that attempt to elucidate the underlying mechanisms driving this non-resolving inflammatory response in the chronic phase of SCI.
-One study suggested communication with infiltrating monocytes suppresses chronic microglial activation and inflammation after SCI.(Greenhalgh et al. 2018)
-Interruption of this communication was linked to worsened function outcomes, implying the initial microglial response to trauma may be beneficial, their protracted activation can eventually become detrimental.(Bellver-Landete et al. 2019; Greenhalgh et al. 2018)
-Furthermore, a rodent model study of chronic SCI, found use of the anti-inflammatory drug licofelone, applied daily for 1 month at 8 months post-injury, observed some improvement to metabolic functions, but no benefit to locomotor function.(Dulin et al. 2013)
-To summarise, understanding of persistent inflammation during the chronic phase of SCI is lacking, and particularly complicated by the plateaus in locomotive recovery that typically occurs well before the chronic SCI phase is reached.
+One study suggested communication with infiltrating monocytes suppresses chronic microglial activation and inflammation after SCI.(Greenhalgh et al. 2018) Interruption of this communication was linked to worsened function outcomes, implying the initial microglial response to trauma may be beneficial, their protracted activation can eventually become detrimental.(Bellver-Landete et al. 2019; Greenhalgh et al. 2018) Furthermore, a rodent model study of chronic SCI, found use of the anti-inflammatory drug licofelone, applied daily for 1 month at 8 months post-injury, observed some improvement to metabolic functions, but no benefit to locomotor function.(Dulin et al. 2013) To summarise, understanding of persistent inflammation during the chronic phase of SCI is lacking, and particularly complicated by the plateaus in locomotive recovery that typically occurs well before the chronic SCI phase is reached.
 Thus, there is a need for further studies to uncover the role of the various immune cell populations with respect to ongoing neurological dysfunction and pathology during the chronic phase of SCI.
 
 \hypertarget{intravenous-immunoglobulin}{%
 \subparagraph{Intravenous immunoglobulin}\label{intravenous-immunoglobulin}}
 
 Intravenous immunoglobulin (IVIG) is increasingly used as an immunomodulatory strategy for managing acute neurological conditions, including neurotrauma.
-Originally developed as an antibody replacement therapy for immunodeficiency disorders, IVIG is a product comprised primarily of immunoglobulin G (IgG) taken from the blood plasma of healthy donors.(Bayry, Negi, and Kaveri 2011; Schwab and Nimmerjahn 2013)
-IVIG therapy was found to increase platelet number in idiopathic thrombocytopenic purpura (ITP) patients, which lead to an interest in using it as an immunomodulatory therapy.(Imbach et al. 1981)
-Its potent effects and limited side effects have lead high-dose IVIG therapy to be commonly used in a plethora of inflammatory and autoimmune disorders, including ITP, arthritis, Kawasaki's syndrome and Guillian-Barré syndrome.(Lünemann, Nimmerjahn, and Dalakas 2015; Stangel et al. 1998)
+Originally developed as an antibody replacement therapy for immunodeficiency disorders, IVIG is a product comprised primarily of immunoglobulin G (IgG) taken from the blood plasma of healthy donors.(Bayry, Negi, and Kaveri 2011; Schwab and Nimmerjahn 2013) IVIG therapy was found to increase platelet number in idiopathic thrombocytopenic purpura (ITP) patients, which lead to an interest in using it as an immunomodulatory therapy.(Imbach et al. 1981) Its potent effects and limited side effects have lead high-dose IVIG therapy to be commonly used in a plethora of inflammatory and autoimmune disorders, including ITP, arthritis, Kawasaki's syndrome and Guillian-Barré syndrome.(Lünemann, Nimmerjahn, and Dalakas 2015; Stangel et al. 1998)
 
-Some recent research using a contusive SCI mouse model has reported promising results of high-dose IVIG as a therapeutic for SCI.(Brennan et al. 2016)
-The study found that a clinical dose of IVIG (0.5-2g/kg body weight) lead to a 30-40\% reduction in lesion size, and reductions in demyelination, central canal dilation, and axonal degeneration, though doses below 0.5g/kg were ineffective.(Brennan et al. 2016)
-The same study also found albumin treatment did not produce the same effects as IVIG, suggesting simple protein loading is not the causative mechanism.
-Likewise, rodent studies utilising purified human IgG in a high-level (C7-T1) clip aneurysm model, and another lower-level (T9) contusion SCI study, reported similar improvements.(Nguyen et al. 2012; Chio et al. 2019; Gok et al. 2009)
-Additionally, a Phase I/IIa clinical trial aiming to explore the safety and efficacy of IVIG therapy in human SCI patients is approved and underway (ACTRN12616001385437).
+Some recent research using a contusive SCI mouse model has reported promising results of high-dose IVIG as a therapeutic for SCI.(Brennan et al. 2016) The study found that a clinical dose of IVIG (0.5-2g/kg body weight) lead to a 30-40\% reduction in lesion size, and reductions in demyelination, central canal dilation, and axonal degeneration, though doses below 0.5g/kg were ineffective.(Brennan et al. 2016) The same study also found albumin treatment did not produce the same effects as IVIG, suggesting simple protein loading is not the causative mechanism. Likewise, rodent studies utilising purified human IgG in a high-level (C7-T1) clip aneurysm model, and another lower-level (T9) contusion SCI study, reported similar improvements.(Nguyen et al. 2012; Chio et al. 2019; Gok et al. 2009) Additionally, a Phase I/IIa clinical trial aiming to explore the safety and efficacy of IVIG therapy in human SCI patients is approved and underway (ACTRN12616001385437).
 However, whilst there are several pre-clinical studies reporting IVIG treatment can benefit outcomes in CNS injury from a range of neurological conditions, the exact mechanism/s behind any potential neuroprotective effects of IVIG for SCI are currently unclear.(Tzekou and Fehlings 2014)
 
-In TBI mouse models, animals treated with IVIG were shown to have improved neurobehavioural outcomes, and a reduction in neuronal degeneration both acutely and chronically, relative to vehicle-treated controls in rotarod and Morris water maze experiments.(Jeong et al. 2014)
-Further mouse studies using cerebral artery occlusion, a model of stroke, reported high-dose IVIG significantly reduced infract volumes, neurological impairment and mortality rates.(Arumugam et al. 2007; Widiapradja et al. 2012)
-Under condition of BBB/BSCB compromise, IVIG has been found to enter the neural parenchyma within hours of injury.(Brennan et al. 2016; Arumugam et al. 2007)
-SCI studies have found IVIG to localise to oligodendrocytes, astrocytes, neurons, macrophages, microglia, pericytes and blood vessels.(Brennan et al. 2016; Chio et al. 2019)
-Additionally, reductions in immune cells, as indicated by F4/80\(^+\) microglia/macrophages and polymorphonuclear cells in brain and spinal injury models respectively, have also been reported.(Jeong et al. 2014; Nguyen et al. 2012; Chio et al. 2019)
-Relatedly, the aforementioned SCI IVIG mouse study found reduced CD68\(^+\) macrophages at and surrounding the lesion 35 days post-injury.(Brennan et al. 2016)
-Importantly, these studies do not differentiate between resident microglial and infiltrating monocytes/macrophages.
+In TBI mouse models, animals treated with IVIG were shown to have improved neurobehavioural outcomes, and a reduction in neuronal degeneration both acutely and chronically, relative to vehicle-treated controls in rotarod and Morris water maze experiments.(Jeong et al. 2014) Further mouse studies using cerebral artery occlusion, a model of stroke, reported high-dose IVIG significantly reduced infract volumes, neurological impairment and mortality rates.(Arumugam et al. 2007; Widiapradja et al. 2012) Under condition of BBB/BSCB compromise, IVIG has been found to enter the neural parenchyma within hours of injury.(Brennan et al. 2016; Arumugam et al. 2007) SCI studies have found IVIG to localise to oligodendrocytes, astrocytes, neurons, macrophages, microglia, pericytes and blood vessels.(Brennan et al. 2016; Chio et al. 2019) Additionally, reductions in immune cells, as indicated by F4/80\(^+\) microglia/macrophages and polymorphonuclear cells in brain and spinal injury models respectively, have also been reported.(Jeong et al. 2014; Nguyen et al. 2012; Chio et al. 2019) Relatedly, the aforementioned SCI IVIG mouse study found reduced CD68\(^+\) macrophages at and surrounding the lesion 35 days post-injury.(Brennan et al. 2016) Importantly, these studies do not differentiate between resident microglial and infiltrating monocytes/macrophages.
 Thus, further research is needed to understand the influence of IVIG on both recruitment and activation states of these cell subsets.
 
 \hypertarget{speculative-mechanisms-of-action-for-ivig-in-sci}{%
 \subparagraph{Speculative mechanisms of action for IVIG in SCI}\label{speculative-mechanisms-of-action-for-ivig-in-sci}}
 
 As IVIG is made from pooled antibodies taken from thousands of donors, it includes a vast repertoire of antibodies specific against millions of unique antigens, allowing for a diverse variety of effects in differing disease contexts.
-Whilst there is extensive research of IVIG and autoimmune disorders, such as Guillain-Barré syndrome, the immune pathology found in the acute phase of CNS injury is not typically considered to be driven by autoimmune processes.(Lünemann, Nimmerjahn, and Dalakas 2015; Stangel et al. 1998)
-There may be some overlap in therapeutic mechanism, but it seems more likely any benefits are coffered through modulation of the innate rather than adaptive immune responses.
-The potential mechanisms of IVIG can be split between those mediated via the IgG constant (Fc) fragment, which binds the Fc receptors, and the F(ab)`\(_2\) fragment, which governs antigen recognition.(Schwab and Nimmerjahn 2013)
-In the context of neurological diseases, mechanisms related to F(ab)'\(_2\) are thought to potentially bind and therefore neutralise cell surface receptors, complement, cytokines and autoantibodies.
-By contrast, Fc-dependent mechanisms are speculated to include regulation of Fc receptor expression, saturation of the neonatal Fc receptor, block activation of Fc receptors, and modulate T cells.(Schwab and Nimmerjahn 2013; Lünemann, Nimmerjahn, and Dalakas 2015; Dalakas 2014)
-Furthermore, models of neurological injury suggest both F(ab)'\(_2\) and Fc-dependent signalling cascades could be involved in the modulation of several chemokines and cytokines.(Dalakas 2014)
+Whilst there is extensive research of IVIG and autoimmune disorders, such as Guillain-Barré syndrome, the immune pathology found in the acute phase of CNS injury is not typically considered to be driven by autoimmune processes.(Lünemann, Nimmerjahn, and Dalakas 2015; Stangel et al. 1998) There may be some overlap in therapeutic mechanism, but it seems more likely any benefits are coffered through modulation of the innate rather than adaptive immune responses. The potential mechanisms of IVIG can be split between those mediated via the IgG constant (Fc) fragment, which binds the Fc receptors, and the F(ab)`\(_2\) fragment, which governs antigen recognition.(Schwab and Nimmerjahn 2013) In the context of neurological diseases, mechanisms related to F(ab)'\(_2\) are thought to potentially bind and therefore neutralise cell surface receptors, complement, cytokines and autoantibodies. By contrast, Fc-dependent mechanisms are speculated to include regulation of Fc receptor expression, saturation of the neonatal Fc receptor, block activation of Fc receptors, and modulate T cells.(Schwab and Nimmerjahn 2013; Lünemann, Nimmerjahn, and Dalakas 2015; Dalakas 2014) Furthermore, models of neurological injury suggest both F(ab)'\(_2\) and Fc-dependent signalling cascades could be involved in the modulation of several chemokines and cytokines.(Dalakas 2014)
 
 Modulation via the variable F(ab)'\(_2\) region
 
-Self-reactive antibodies have been found circulating in both chronic rodent SCI models and human patients 1 year post-injury.(Ankeny, Guan, and Popovich 2009; Hayes et al. 2002)
-Whilst some studies have suggested potential relevance of naturally occurring autoantibodies (germline encoded and produced by B1 cells) in acute SCI, it remains unclear whether IVIG treatment may have any impact on them.(Palmers et al. 2016; Narang et al. 2017)
-The impact or lack thereof of IVIG on chronic phase SCI autoimmunity also remains to be seen.
+Self-reactive antibodies have been found circulating in both chronic rodent SCI models and human patients 1 year post-injury.(Ankeny, Guan, and Popovich 2009; Hayes et al. 2002) Whilst some studies have suggested potential relevance of naturally occurring autoantibodies (germline encoded and produced by B1 cells) in acute SCI, it remains unclear whether IVIG treatment may have any impact on them.(Palmers et al. 2016; Narang et al. 2017) The impact or lack thereof of IVIG on chronic phase SCI autoimmunity also remains to be seen.
 
 A separate potential F(ab)'\(_2\)-dependent mechanism involves the neutralisation of the cell death mediator Fas (AKA CD95).
-Studies of Lyell's syndrome, a disorder whereby active Fas ligand binds Fas present on keratinocytes, inducing apoptosis, reported IVIG therapy completely inhibited Fas ligand-ind cued cell death both \emph{in vitro} and in human patients.(Viard et al. 1998; Altznauer et al. 2003)
-Importantly, IVIG blocked Fas, as opposed to Fas ligand, in these studies, as this result was only observed with cells pre-treated with IVIG.
-Incubation of IVIG with soluble Fas ligand did not attenuate cell death, implying IVIG contains antibodies specific to Fas.(Viard et al. 1998; Altznauer et al. 2003)
-This modulatory effect of the Fas-Fas ligand pathway may have relevance in SCI, as a study using knock-out mice lacking Fas showed a reduction in both apoptosis at the lesion site and glial scarring, and improved motor function post-SCI.(Sobrido-Cameán and Barreiro-Iglesias 2018; W. R. Yu and Fehlings 2011)
-Neurons and glial cells from post-mortem human patients were found to be more Fas- and Fas ligand-positive, but this was limited to the acute phase of SCI, and not observed chronically, suggesting this pathway is more significant immediately post-njury.(W. R. Yu and Fehlings 2011)
-Therefore, acute IVIG treatment could act by attenuating secondary cell death by blocking Fas, thus disrupting this pathway.
+Studies of Lyell's syndrome, a disorder whereby active Fas ligand binds Fas present on keratinocytes, inducing apoptosis, reported IVIG therapy completely inhibited Fas ligand-ind cued cell death both \emph{in vitro} and in human patients.(Viard et al. 1998; Altznauer et al. 2003) Importantly, IVIG blocked Fas, as opposed to Fas ligand, in these studies, as this result was only observed with cells pre-treated with IVIG. Incubation of IVIG with soluble Fas ligand did not attenuate cell death, implying IVIG contains antibodies specific to Fas.(Viard et al. 1998; Altznauer et al. 2003) This modulatory effect of the Fas-Fas ligand pathway may have relevance in SCI, as a study using knock-out mice lacking Fas showed a reduction in both apoptosis at the lesion site and glial scarring, and improved motor function post-SCI.(Sobrido-Cameán and Barreiro-Iglesias 2018; W. R. Yu and Fehlings 2011) Neurons and glial cells from post-mortem human patients were found to be more Fas- and Fas ligand-positive, but this was limited to the acute phase of SCI, and not observed chronically, suggesting this pathway is more significant immediately post-njury.(W. R. Yu and Fehlings 2011) Therefore, acute IVIG treatment could act by attenuating secondary cell death by blocking Fas, thus disrupting this pathway.
 
-Conversely, agonistic anti-Fas antibodies have also been reported withing IVIG preparations.(Altznauer et al. 2003)
-Whilst it remains unknown how these agents may act in SCI, one could postulate a benefit if they induce apoptosis in circulating leukocytes, which could otherwise do harm.(Schneider et al. 2017)
-Supporting this, papers have found reductions in polymorphonuclear cell populations within the lesion at 1 day post-injury in rodent models.(Nguyen et al. 2012; Chio et al. 2019; Gok et al. 2009)
-However, IVIG-induced apoptosis has only been observed in human leukocytes, not in rodents, casting doubt on this idea.(Altznauer et al. 2003; Schneider et al. 2017)
-Alternatively, the reduced recruitment could be a result of IVIG regulating the expression of adhesion molecules or molecules involved in leukocytes trafficking.
-A feline ischaemia-reperfusion injury model study found IVIG to down-regulate expression of integrins on leukocyte cell surfaces, inhibiting adhesion and subsequent extravasation of the cells into the damaged site.(Gill et al. 2005)
-Again however, these finding are contradicted by an experimental stoke study where IVIG was found to increase leukocyte and platelet trafficking to the injury, leading to formation of aggregates within cerebral vasculature.(Lapointe et al. 2004)
+Conversely, agonistic anti-Fas antibodies have also been reported withing IVIG preparations.(Altznauer et al. 2003) Whilst it remains unknown how these agents may act in SCI, one could postulate a benefit if they induce apoptosis in circulating leukocytes, which could otherwise do harm.(Schneider et al. 2017) Supporting this, papers have found reductions in polymorphonuclear cell populations within the lesion at 1 day post-injury in rodent models.(Nguyen et al. 2012; Chio et al. 2019; Gok et al. 2009) However, IVIG-induced apoptosis has only been observed in human leukocytes, not in rodents, casting doubt on this idea.(Altznauer et al. 2003; Schneider et al. 2017) Alternatively, the reduced recruitment could be a result of IVIG regulating the expression of adhesion molecules or molecules involved in leukocytes trafficking.
+A feline ischaemia-reperfusion injury model study found IVIG to down-regulate expression of integrins on leukocyte cell surfaces, inhibiting adhesion and subsequent extravasation of the cells into the damaged site.(Gill et al. 2005) Again however, these finding are contradicted by an experimental stoke study where IVIG was found to increase leukocyte and platelet trafficking to the injury, leading to formation of aggregates within cerebral vasculature.(Lapointe et al. 2004)
 
 Finally, F(ab)`\(_2\) may act by complement scavenging.
-Both \emph{in vitro} and \emph{in vivo} studies have found the non-antigen-binding regions of F(ab)'\(_2\) can bind and neutralise the complement activation products C3a and C5a, thus preventing complement-mediated tissue damage.(Milan Basta et al. 2003; M. Basta et al. 1989)
-Multiple studies utilising various models of CNS injury have reported IVIG attenuating complement.(Brennan et al. 2016; Arumugam et al. 2007)
-Specifically in SCI, IVIG was found to reduce levels of the complement activation products C3b and C5a within the damaged cord.(Brennan et al. 2016)
-Similarly, an experimental stroke study reported IVIG reducing C3b levels in the infract area.(Arumugam et al. 2007)
-Interestingly, whilst this study found IgG able to bind mouse C3b, supporting the hypothetical neutralisation of complement activation products, they also found IVIG able to attenuate oxygen deprivation-induced production of C3 itself in primary neuron cultures.
+Both \emph{in vitro} and \emph{in vivo} studies have found the non-antigen-binding regions of F(ab)'\(_2\) can bind and neutralise the complement activation products C3a and C5a, thus preventing complement-mediated tissue damage.(Milan Basta et al. 2003; M. Basta et al. 1989) Multiple studies utilising various models of CNS injury have reported IVIG attenuating complement.(Brennan et al. 2016; Arumugam et al. 2007) Specifically in SCI, IVIG was found to reduce levels of the complement activation products C3b and C5a within the damaged cord.(Brennan et al. 2016) Similarly, an experimental stroke study reported IVIG reducing C3b levels in the infract area.(Arumugam et al. 2007) Interestingly, whilst this study found IgG able to bind mouse C3b, supporting the hypothetical neutralisation of complement activation products, they also found IVIG able to attenuate oxygen deprivation-induced production of C3 itself in primary neuron cultures.
 This seems to suggest IVIG is able to scavenge both secreted complement activation products, and their local production.(Arumugam et al. 2007)
 
 Modulation via the constant Fc region
 
 With respect to the Fc region, this portion normally binds to Fc\(\gamma\) receptors (Fc\(\gamma\)Rs), which are present on most leukocytes and resident CNS cells.
-Many Fc\(\gamma\)Rs act as activating receptors, such as inducing phagocytosis in response to opsonised targets, or as an inhibitory receptor that dampens effector cell responses.(Schwab and Nimmerjahn 2013)
-A given cells response to an immunoglobulin isotype is determined by the combination of which Fc\(\gamma\)Rs are expressed by said cell.
-Myeloid cell all express come combination of these activating Fc\(\gamma\)Rs, as do some innate lymphoid cells which do not express more classical antigen receptors, such as natural killer cells, whereas T and B cells do not.(Perussia et al. 1989)
-The inhibitory Fc\(\gamma\)RIIb receptor is also expressed on myeloid cells, in addition to B cells, but not natural killer cells or resting T cells.(Bruhns and Jönsson 2015)
-Whilst there is debate over the expression and function of Fc\(\gamma\)Rs in neurons, \emph{in vitro} work with neuronal cultures has detected mRNA for all Fc\(\gamma\)Rs.(Thom et al. 2017)
-Astrocytes, microglia and oligodendrocyte precursors have also be found to express Fc\(\gamma\)R, and up-regulate them under some disease states.(Thom et al. 2017)
+Many Fc\(\gamma\)Rs act as activating receptors, such as inducing phagocytosis in response to opsonised targets, or as an inhibitory receptor that dampens effector cell responses.(Schwab and Nimmerjahn 2013) A given cells response to an immunoglobulin isotype is determined by the combination of which Fc\(\gamma\)Rs are expressed by said cell.
+Myeloid cell all express come combination of these activating Fc\(\gamma\)Rs, as do some innate lymphoid cells which do not express more classical antigen receptors, such as natural killer cells, whereas T and B cells do not.(Perussia et al. 1989) The inhibitory Fc\(\gamma\)RIIb receptor is also expressed on myeloid cells, in addition to B cells, but not natural killer cells or resting T cells.(Bruhns and Jönsson 2015) Whilst there is debate over the expression and function of Fc\(\gamma\)Rs in neurons, \emph{in vitro} work with neuronal cultures has detected mRNA for all Fc\(\gamma\)Rs.(Thom et al. 2017) Astrocytes, microglia and oligodendrocyte precursors have also be found to express Fc\(\gamma\)R, and up-regulate them under some disease states.(Thom et al. 2017)
 
-Studies utilising just the Fc fragment have been found to be equally effective as normal IVIG in several non-neurological autoimmune diseases, including nephrotoxic nephritis, ITP and K/BxN arthritis models, suggesting Fc\(\gamma\)Rs play a key role in the mechanism of IVIG.(Samuelsson, Towers, and Ravetch 2001; I. K. Campbell et al. 2014; Kaneko et al. 2006)
-With respect to CNS injury, some evidence suggesting a role of Fc\(\gamma\)Rs comes from a mouse study with animals lacking the common \(\gamma\)-chain, and thus no functional Fc\(\gamma\)Rs, which were found to be protected from experimental stroke and SCI.(Ankeny, Guan, and Popovich 2009; Komine-Kobayashi et al. 2004)
+Studies utilising just the Fc fragment have been found to be equally effective as normal IVIG in several non-neurological autoimmune diseases, including nephrotoxic nephritis, ITP and K/BxN arthritis models, suggesting Fc\(\gamma\)Rs play a key role in the mechanism of IVIG.(Samuelsson, Towers, and Ravetch 2001; I. K. Campbell et al. 2014; Kaneko et al. 2006) With respect to CNS injury, some evidence suggesting a role of Fc\(\gamma\)Rs comes from a mouse study with animals lacking the common \(\gamma\)-chain, and thus no functional Fc\(\gamma\)Rs, which were found to be protected from experimental stroke and SCI.(Ankeny, Guan, and Popovich 2009; Komine-Kobayashi et al. 2004)
 
 Within the context of antibody-mediated autoimmune disorders, high-does IVIG may saturate Fc receptor and reduce the half-life of pathogenic endogenous IgG.(Schwab and Nimmerjahn 2013)
 
@@ -1144,7 +1035,7 @@ Furthermore, a metabolomic analysis with a similar sample size would greatly com
 \section*{Supplementary material}\label{sup-data}}
 \addcontentsline{toc}{section}{Supplementary material}
 
-\setcounter{table}{0}  \renewcommand{\thetable}{S\arabic{table}} \setcounter{figure}{0} \renewcommand{\thefigure}{S\arabic{figure}}
+\beginsupplement
 
 \hypertarget{session-information}{%
 \subsection{Session Information}\label{session-information}}
@@ -1207,9 +1098,9 @@ rlang
 
 bookdown
 
-0.25
+0.26
 
-2022-03-16
+2022-04-15
 
 lime
 
@@ -1255,9 +1146,9 @@ cowplot
 
 BiocManager
 
-1.30.16
+1.30.18
 
-2021-06-15
+2022-05-18
 
 data.table
 
@@ -1273,15 +1164,15 @@ naniar
 
 psych
 
-2.2.3
+2.2.5
 
-2022-03-17
+2022-05-01
 
 Hmisc
 
-4.6.0
+4.7.0
 
-2021-10-05
+2022-04-12
 
 Formula
 
@@ -1291,9 +1182,9 @@ Formula
 
 survival
 
-3.2.13
+3.3.1
 
-2021-08-23
+2022-02-20
 
 lattice
 
@@ -1321,15 +1212,15 @@ kableExtra
 
 knitr
 
-1.38
+1.39
 
-2022-03-25
+2022-04-26
 
 rmarkdown
 
-2.13
+2.14
 
-2022-03-09
+2022-04-25
 
 magrittr
 
@@ -1363,9 +1254,9 @@ stringr
 
 dplyr
 
-1.0.8
+1.0.9
 
-2022-02-07
+2022-04-27
 
 purrr
 
@@ -1387,15 +1278,15 @@ tidyr
 
 tibble
 
-3.1.6
+3.1.7
 
-2021-10-25
+2022-04-26
 
 ggplot2
 
-3.3.5
+3.3.6
 
-2021-06-24
+2022-04-27
 
 tidyverse
 
@@ -1639,8 +1530,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Heatmap - iTRAQ - Acute C Improvers VS Subacute Improvers]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks and 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement at 2-weeks and 3-months post-injury.}\label{fig:openms-hmap-acute-sacute-imp-c-1}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -1653,8 +1544,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Heatmap - iTRAQ - Acute Non-Improvers VS Subacute Non-Improvers]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks and 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement at 2-weeks and 3-months post-injury.}\label{fig:openms-hmap-acute-sacute-nonimp-c-1}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -1667,8 +1558,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Heatmap - iTRAQ - Acute C Improvers VS Subacute Improvers]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not from the second 4-plex iTRAQ experiment.}\label{fig:openms-hmap-acute-c-2}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -1681,8 +1572,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Heatmap - iTRAQ - Acute A VS Acute D]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS A and AIS D SCI patients.}\label{fig:openms-hmap-acute-a-d-2}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -1695,8 +1586,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Heatmap - iTRAQ - Acute C Improvers VS Acute D]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and AIS D patients.}\label{fig:openms-hmap-acute-imp-c-d-2}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -1709,8 +1600,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Heatmap - iTRAQ - Acute C Improvers VS Acute A]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and AIS A patients.}\label{fig:openms-hmap-acute-imp-c-a-2}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -1723,8 +1614,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Heatmap - iTRAQ - Acute C Non-Improvers VS Acute A]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement and AIS A patients.}\label{fig:openms-hmap-acute-nonimp-c-a-2}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -1737,14 +1628,14 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Heatmap - iTRAQ - Acute C Non-Improvers VS Acute D]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement and AIS D patients.}\label{fig:openms-hmap-acute-nonimp-c-d-2}
 \end{figure}
 
-\end{landscape}
+\elandscape
 \clearpage
 
 \hypertarget{label-free-data}{%
 \subsubsection{Label-free data}\label{label-free-data}}
 
 \clearpage
-\begin{landscape}
+\blandscape
 
 
 
@@ -1757,8 +1648,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Heatmap - label-free - Acute C Improvers VS Subacute Improvers]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks and 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement at 2-weeks and 3-months post-injury. Grey blocks denote proteins not present in the comparison.}\label{fig:openms-chap4-hmap-acute-sacute-imp-c-1}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -1771,8 +1662,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Heatmap - label-free - Acute C Non-Improvers VS Subacute Non-Improvers]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks and 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement at 2-weeks and 3-months post-injury. Grey blocks denote proteins not present in the comparison.}\label{fig:openms-chap4-hmap-acute-sacute-nonimp-c-1}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -1785,8 +1676,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Heatmap - label-free - Acute A VS Acute D]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS A and AIS D SCI patients. Grey blocks denote proteins not present in the comparison.}\label{fig:openms-chap4-hmap-acute-a-d-2}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -1799,8 +1690,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Heatmap - label-free - Acute C Improvers VS Acute D]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and AIS D patients. Grey blocks denote proteins not present in the comparison.}\label{fig:openms-chap4-hmap-acute-imp-c-d-2}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -1813,8 +1704,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Heatmap - label-free - Acute A VS Acute C Improvers]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and AIS A patients. Grey blocks denote proteins not present in the comparison.}\label{fig:openms-chap4-hmap-acute-imp-c-a-2}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -1827,8 +1718,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Heatmap - label-free - Acute A VS Acute C Non-Improvers]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement and AIS A patients. Grey blocks denote proteins not present in the comparison.}\label{fig:openms-chap4-hmap-acute-nonimp-c-a-2}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -1841,7 +1732,7 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Heatmap - label-free - Acute C Non-Improver VS Acute D]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement and AIS D patients. Grey blocks denote proteins not present in the comparison.}\label{fig:openms-chap4-hmap-acute-nonimp-c-d-2}
 \end{figure}
 
-\end{landscape}
+\elandscape
 \clearpage
 
 \hypertarget{sup-cnetplots}{%
@@ -1863,8 +1754,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Network plot - iTRAQ - Acute C Improvers VS Subacute Improvers]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks and 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement at 2-weeks and 3-months post-injury.}\label{fig:openms-cnetp-acute-sacute-imp-c-1}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -1877,8 +1768,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Network plot - iTRAQ - Acute C Non-Improvers VS Subacute Non-Improvers]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks and 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement at 2-weeks and 3-months post-injury.}\label{fig:openms-cnetp-acute-sacute-nonimp-c-1}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -1891,8 +1782,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Network plot - iTRAQ - Acute C Improvers VS Non-Improvers]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not from the second 4-plex iTRAQ experiment.}\label{fig:openms-cnetp-acute-c-2}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -1905,8 +1796,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Network plot - iTRAQ - Acute A VS Acute D]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS A and AIS D SCI patients.}\label{fig:openms-cnetp-acute-a-d-2}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -1919,8 +1810,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Network plot - iTRAQ - Acute C Improvers VS Acute D]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and AIS D patients.}\label{fig:openms-cnetp-acute-imp-c-d-2}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -1933,8 +1824,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Network plot - iTRAQ - Acute C Improvers VS Acute A]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and AIS A patients.}\label{fig:openms-cnetp-acute-imp-c-a-2}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -1947,8 +1838,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Network plot - iTRAQ - Acute C Non-Improvers VS Acute A]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement and AIS A patients.}\label{fig:openms-cnetp-acute-nonimp-c-a-2}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -1961,7 +1852,7 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Network plot - iTRAQ - Acute C Non-Improvers VS Acute D]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement and AIS D patients.}\label{fig:openms-cnetp-acute-nonimp-c-d-2}
 \end{figure}
 
-\end{landscape}
+\elandscape
 \clearpage
 
 \hypertarget{label-free-data-1}{%
@@ -1980,8 +1871,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Network plot - label-free - Acute C Improvers VS Subacute C Improvers]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks and 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement at 2-weeks and 3-months post-injury.}\label{fig:openms-chap4-cnetp-acute-sacute-imp-c-1}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -1994,8 +1885,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Network plot - label-free - Acute C Non-Imporvers VS Subacute C Non-Improvers]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks and 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement at 2-weeks and 3-months post-injury.}\label{fig:openms-chap4-cnetp-acute-sacute-nonimp-c-1}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -2008,8 +1899,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Network plot - label-free - Acute A VS Acute D]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS A and AIS D SCI patients.}\label{fig:openms-chap4-cnetp-acute-a-d-2}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -2022,8 +1913,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Network plot - label-free - Acute C Improvers VS Acute D]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and AIS D patients.}\label{fig:openms-chap4-cnetp-acute-imp-c-d-2}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -2036,8 +1927,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Network plot - label-free - Acute A VS Acute C Improvers]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and AIS A patients.}\label{fig:openms-chap4-cnetp-acute-imp-c-a-2}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -2050,8 +1941,8 @@ TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925
 \caption[Network plot - label-free - Acute A VS Acute C Non-Improvers]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement and AIS A patients.}\label{fig:openms-chap4-cnetp-acute-nonimp-c-a-2}
 \end{figure}
 
-\end{landscape}
-\begin{landscape}
+\elandscape
+\blandscape
 
 
 
@@ -2305,7 +2196,7 @@ Banka, C. L., T. Yuan, M. C. de Beer, M. Kindy, L. K. Curtiss, and F. C. de Beer
 Bao, Feng, Vanessa Omana, Arthur Brown, and Lynne C. Weaver. 2012. {``The Systemic Inflammatory Response After Spinal Cord Injury in the Rat Is Decreased by {a4B1} Integrin Blockade.''} \emph{Journal of Neurotrauma} 29 (8): 1626--37. \url{https://doi.org/10.1089/neu.2011.2190}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-basta_fab2-mediated_2003}{}}%
-Basta, Milan, Fredric Van Goor, Stefano Luccioli, Eric M. Billings, Alexander O. Vortmeyer, Lajos Baranyi, Janos Szebeni, et al. 2003. {``F(ab){\({'}\)}2-Mediated Neutralization of {C3a} and {C5a} Anaphylatoxins: A Novel Effector Function of Immunoglobulins.''} \emph{Nature Medicine} 9 (4): 431--38. \url{https://doi.org/10.1038/nm836}.
+Basta, Milan, Fredric Van Goor, Stefano Luccioli, Eric M. Billings, Alexander O. Vortmeyer, Lajos Baranyi, Janos Szebeni, et al. 2003. {``F(ab)'2-Mediated Neutralization of {C3a} and {C5a} Anaphylatoxins: A Novel Effector Function of Immunoglobulins.''} \emph{Nature Medicine} 9 (4): 431--38. \url{https://doi.org/10.1038/nm836}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-basta_mechanism_1989}{}}%
 Basta, M, P Kirshbom, M M Frank, and L F Fries. 1989. {``Mechanism of Therapeutic Effect of High-Dose Intravenous Immunoglobulin. {Attenuation} of Acute, Complement-Dependent Immune Damage in a Guinea Pig Model.''} \emph{Journal of Clinical Investigation} 84 (6): 1974--81. \url{https://doi.org/10.1172/JCI114387}.
@@ -2364,6 +2255,9 @@ Blomster, Linda V., Faith H. Brennan, Hong W. Lao, David W. Harle, Alan R. Harve
 \leavevmode\vadjust pre{\hypertarget{ref-bond_incorporation_2007}{}}%
 Bond, Jennifer E., George J. Cianciolo, and Salvatore V. Pizzo. 2007. {``Incorporation of Low Molecular Weight Molecules into Alpha2-{Macroglobulin} by Nucleophilic Exchange.''} \emph{Biochemical and Biophysical Research Communications} 357 (2): 433--38. \url{https://doi.org/10.1016/j.bbrc.2007.03.151}.
 
+\leavevmode\vadjust pre{\hypertarget{ref-boschetti_proteominer_2008}{}}%
+Boschetti, Egisto, and Pier Giorgio Righetti. 2008. {``The {ProteoMiner} in the Proteomic Arena: {A} Non-Depleting Tool for Discovering Low-Abundance Species.''} \emph{Journal of Proteomics}, Proteomic {Technologies}, 71 (3): 255--64. \url{https://doi.org/10.1016/j.jprot.2008.05.002}.
+
 \leavevmode\vadjust pre{\hypertarget{ref-brennan_complement_2015}{}}%
 Brennan, Faith H., Richard Gordon, Hong W. Lao, Patrick J. Biggins, Stephen M. Taylor, Robin J. M. Franklin, Trent M. Woodruff, and Marc J. Ruitenberg. 2015. {``The {Complement Receptor C5aR Controls Acute Inflammation} and {Astrogliosis} Following {Spinal Cord Injury}.''} \emph{Journal of Neuroscience} 35 (16): 6517--31. \url{https://doi.org/10.1523/JNEUROSCI.5218-14.2015}.
 
@@ -2382,9 +2276,6 @@ Brown, Sharon J., Gabriel M. B. Harrington, Charlotte H. Hulme, Rachel Morris, A
 \leavevmode\vadjust pre{\hypertarget{ref-bruhns_mouse_2015}{}}%
 Bruhns, Pierre, and Friederike Jönsson. 2015. {``Mouse and Human {FcR} Effector Functions.''} \emph{Immunological Reviews} 268 (1): 25--51. \url{https://doi.org/10.1111/imr.12350}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-buresova_iram2-macroglobulin_2009}{}}%
-Buresova, Veronika, Ondrej Hajdusek, Zdenek Franta, Daniel Sojka, and Petr Kopacek. 2009. {``{IrAM}\textemdash{{An}} {\(A\)}2-Macroglobulin from the Hard Tick {Ixodes} Ricinus: {Characterization} and Function in Phagocytosis of a Potential Pathogen {Chryseobacterium} Indologenes.''} \emph{Developmental \& Comparative Immunology} 33 (4): 489--98. \url{https://doi.org/10.1016/j.dci.2008.09.011}.
-
 \leavevmode\vadjust pre{\hypertarget{ref-bursill_christina_a_high-density_2010}{}}%
 Bursill Christina A., Castro Maria L., Beattie Douglas T., Nakhla Shirley, van der Vorst Emiel, Heather Alison K., Barter Philip J., and Rye Kerry-Anne. 2010. {``High-{Density Lipoproteins Suppress Chemokines} and {Chemokine Receptors In Vitro} and {In Vivo}.''} \emph{Arteriosclerosis, Thrombosis, and Vascular Biology} 30 (9): 1773--78. \url{https://doi.org/10.1161/ATVBAHA.110.211342}.
 
@@ -2398,7 +2289,7 @@ Cai, Lei, Maria C. de Beer, Frederick C. de Beer, and Deneys R. van der Westhuyz
 Campbell, Ian K, Sylvia Miescher, Donald R Branch, Patrick J Mott, Alan H Lazarus, Dongji Han, Eugene Maraskovsky, et al. 2014. {``Therapeutic Effect of {IVIG} on Inflammatory Arthritis in Mice Is Dependent on the {Fc} Portion and Independent of Sialylation or Basophils.''} \emph{Journal of Immunology (Baltimore, Md.} 192 (11): 5031--38. \url{https://doi.org/10.4049/jimmunol.1301611}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-campbell_hepatic_2008}{}}%
-Campbell, Sandra J., Daniel C. Anthony, Fiona Oakley, Harald Carlsen, Ahmed M. Elsharkawy, Rune Blomhoff, and Derek A. Mann. 2008. {``Hepatic {Nuclear Factor \(\kappa\)B Regulates Neutrophil Recruitment} to the {Injured Brain}.''} \emph{Journal of Neuropathology \& Experimental Neurology} 67 (3): 223--30. \url{https://doi.org/10.1097/NEN.0b013e3181654957}.
+Campbell, Sandra J., Daniel C. Anthony, Fiona Oakley, Harald Carlsen, Ahmed M. Elsharkawy, Rune Blomhoff, and Derek A. Mann. 2008. {``Hepatic {Nuclear Factor kB Regulates Neutrophil Recruitment} to the {Injured Brain}.''} \emph{Journal of Neuropathology \& Experimental Neurology} 67 (3): 223--30. \url{https://doi.org/10.1097/NEN.0b013e3181654957}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-campbell_central_2005}{}}%
 Campbell, Sandra J., V. Hugh Perry, Fernando J. Pitossi, Angus G. Butchart, Mariela Chertoff, Sara Waters, Robert Dempster, and Daniel C. Anthony. 2005. {``Central {Nervous System Injury Triggers Hepatic CC} and {CXC Chemokine Expression} That {Is Associated} with {Leukocyte Mobilization} and {Recruitment} to {Both} the {Central Nervous System} and the {Liver}.''} \emph{The American Journal of Pathology} 166 (5): 1487--97. \url{https://doi.org/10.1016/S0002-9440(10)62365-6}.
@@ -2565,6 +2456,9 @@ Gungor, Bilgi, Emre Adiguzel, Ihsan Gursel, Bilge Yilmaz, and Mayda Gursel. 2016
 \leavevmode\vadjust pre{\hypertarget{ref-gunnarsson_binding_1998}{}}%
 Gunnarsson, Martin, and Poul Erik H. Jensen. 1998. {``Binding of {Soluble Myelin Basic Protein} to {Various Conformational Forms} of {\(A\)}2-{Macroglobulin}.''} \emph{Archives of Biochemistry and Biophysics} 359 (2): 192--98. \url{https://doi.org/10.1006/abbi.1998.0902}.
 
+\leavevmode\vadjust pre{\hypertarget{ref-guo_effects_2010}{}}%
+Guo, Qiang, Shurong Li, Yajie Liang, Yanling Zhang, Jiqiang Zhang, Can Wen, Sen Lin, Hanzhi Wang, and Bingyin Su. 2010. {``Effects of {C3} Deficiency on Inflammation and Regeneration Following Spinal Cord Injury in Mice.''} \emph{Neuroscience Letters} 485 (1): 32--36. \url{https://doi.org/10.1016/j.neulet.2010.08.056}.
+
 \leavevmode\vadjust pre{\hypertarget{ref-hall_docosahexaenoic_2012}{}}%
 Hall, Jodie C. E., John V. Priestley, V. Hugh Perry, and Adina T. Michael-Titus. 2012. {``Docosahexaenoic Acid, but Not Eicosapentaenoic Acid, Reduces the Early Inflammatory Response Following Compression Spinal Cord Injury in the Rat.''} \emph{Journal of Neurochemistry} 121 (5): 738--50. \url{https://doi.org/10.1111/j.1471-4159.2012.07726.x}.
 
@@ -2575,7 +2469,7 @@ Hall, Philip K., Lynn P. Nelles, James Travis, and Ronald C. Roberts. 1981. {``P
 Haskell, Gloria Thompson, Thomas Michael Maynard, Ron Andrew Shatzmiller, and Anthony-Samuel Lamantia. 2002. {``Retinoic Acid Signaling at Sites of Plasticity in the Mature Central Nervous System.''} \emph{Journal of Comparative Neurology} 452 (3): 228--41. \url{https://doi.org/10.1002/cne.10369}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-hasturk_analysis_2009}{}}%
-Hasturk, Askin, Basar Atalay, Tarkan Calisaneller, Ozgur Ozdemir, Hakan Oruckaptan, and Nur Altinors. 2009. {``Analysis of {Serum Levels} After {Rat Spinal Cord Ischemia}/{Reperfusion Injury} and {Correlation} with {Tissue Damage}.''} \emph{Turkish Neurosurgery} 19: 353--59.
+Hasturk, Askin, Basar Atalay, Tarkan Calisaneller, Ozgur Ozdemir, Hakan Oruckaptan, and Nur Altinors. 2009. {``\href{https://www.ncbi.nlm.nih.gov/pubmed/19847755}{Analysis of Serum Pro-Inflammatory Cytokine Levels After Rat Spinal Cord Ischemia/Reperfusion Injury and Correlation with Tissue Damage}.''} \emph{Turkish Neurosurgery} 19 (4): 353--59.
 
 \leavevmode\vadjust pre{\hypertarget{ref-hayes_elevated_2002}{}}%
 Hayes, K.c., T.c.l. Hull, G.a. Delaney, P.j. Potter, K.a.j. Sequeira, K. Campbell, and P.g. Popovich. 2002. {``Elevated {Serum Titers} of {Proinflammatory Cytokines} and {CNS Autoantibodies} in {Patients} with {Chronic Spinal Cord Injury}.''} \emph{Journal of Neurotrauma} 19 (6): 753--61. \url{https://doi.org/10.1089/08977150260139129}.
@@ -2659,7 +2553,7 @@ Kisilevsky, Robert, and Paul N. Manley. 2012. {``Acute-Phase Serum Amyloid {A}: 
 Kisilevsky, R., and L. Subrahmanyan. 1992. {``\href{https://www.ncbi.nlm.nih.gov/pubmed/1602745}{Serum Amyloid {A} Changes High Density Lipoprotein's Cellular Affinity. {A} Clue to Serum Amyloid {A}'s Principal Function}.''} \emph{Laboratory Investigation; a Journal of Technical Methods and Pathology} 66 (6): 778--85.
 
 \leavevmode\vadjust pre{\hypertarget{ref-komine-kobayashi_dual_2004}{}}%
-Komine-Kobayashi, Miki, Nei Chou, Hideki Mochizuki, Atsuhito Nakao, Yoshikuni Mizuno, and Takao Urabe. 2004. {``Dual {Role} of {Fc\(\gamma\) Receptor} in {Transient Focal Cerebral Ischemia} in {Mice}.''} \emph{Stroke} 35 (4): 958--63. \url{https://doi.org/10.1161/01.STR.0000120321.30916.8E}.
+Komine-Kobayashi, Miki, Nei Chou, Hideki Mochizuki, Atsuhito Nakao, Yoshikuni Mizuno, and Takao Urabe. 2004. {``Dual {Role} of {Fcgamma Receptor} in {Transient Focal Cerebral Ischemia} in {Mice}.''} \emph{Stroke} 35 (4): 958--63. \url{https://doi.org/10.1161/01.STR.0000120321.30916.8E}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-kwon_neurochemical_2019}{}}%
 Kwon, Brian K., Ona Bloom, Ina-Beate Wanner, Armin Curt, Jan M. Schwab, James Fawcett, and Kevin K. Wang. 2019. {``Neurochemical Biomarkers in Spinal Cord Injury.''} \emph{Spinal Cord} 57 (10): 819--31. \url{https://doi.org/10.1038/s41393-019-0319-8}.
@@ -2710,7 +2604,7 @@ Lu, Yue, Xiang-Sheng Zhang, Xiao-Ming Zhou, Yong-Yue Gao, Chun-Lei Chen, Jing-Pe
 Lubieniecka, Joanna M., Femke Streijger, Jae H. T. Lee, Nikolay Stoynov, Jie Liu, Randy Mottus, Tom Pfeifer, et al. 2011. {``Biomarkers for {Severity} of {Spinal Cord Injury} in the {Cerebrospinal Fluid} of {Rats}.''} \emph{PLOS ONE} 6 (4): e19247. \url{https://doi.org/10.1371/journal.pone.0019247}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-lunemann_intravenous_2015}{}}%
-Lünemann, Jan D., Falk Nimmerjahn, and Marinos C. Dalakas. 2015. {``Intravenous Immunoglobulin in Neurology\textemdash mode of Action and Clinical Efficacy.''} \emph{Nature Reviews Neurology} 11 (2): 80--89. \url{https://doi.org/10.1038/nrneurol.2014.253}.
+Lünemann, Jan D., Falk Nimmerjahn, and Marinos C. Dalakas. 2015. {``Intravenous Immunoglobulin in Neurology-Mode of Action and Clinical Efficacy.''} \emph{Nature Reviews Neurology} 11 (2): 80--89. \url{https://doi.org/10.1038/nrneurol.2014.253}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-mackness_role_2004}{}}%
 Mackness, Michael I., Paul N. Durrington, and Bharti Mackness. 2004. {``The {Role} of {Paraoxonase} 1 {Activity} in {Cardiovascular Disease}.''} \emph{American Journal of Cardiovascular Drugs} 4 (4): 211--17. \url{https://doi.org/10.2165/00129784-200404040-00002}.
@@ -2803,7 +2697,7 @@ Peterson, P. A. 1971. {``\href{https://www.ncbi.nlm.nih.gov/pubmed/5541771}{Stud
 Peterson, Sheri L., and Aileen J. Anderson. 2014. {``Complement and Spinal Cord Injury: {Traditional} and Non-Traditional Aspects of Complement Cascade Function in the Injured Spinal Cord Microenvironment.''} \emph{Experimental Neurology}, Special {Issue}: {Neuroimmunology} of spinal cord injury, 258 (August): 35--47. \url{https://doi.org/10.1016/j.expneurol.2014.04.028}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-pierani_sonic_1999}{}}%
-Pierani, Alessandra, Susan Brenner-Morton, Chin Chiang, and Thomas M Jessell. 1999. {``A {Sonic Hedgehog}\textendash{{Independent}}, {Retinoid-Activated Pathway} of {Neurogenesis} in the {Ventral Spinal Cord}.''} \emph{Cell} 97 (7): 903--15. \url{https://doi.org/10.1016/S0092-8674(00)80802-8}.
+Pierani, Alessandra, Susan Brenner-Morton, Chin Chiang, and Thomas M Jessell. 1999. {``A {Sonic Hedgehog-Independent}, {Retinoid-Activated Pathway} of {Neurogenesis} in the {Ventral Spinal Cord}.''} \emph{Cell} 97 (7): 903--15. \url{https://doi.org/10.1016/S0092-8674(00)80802-8}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-pineau_proinflammatory_2006}{}}%
 Pineau, Isabelle, and Steve Lacroix. 2006. {``Proinflammatory {Cytokine Synthesis} in the {Injured Mouse Spinal Cord} : {Multiphasic Expression Pattern} and {Identification} of the {Cell Types Involved}.''} \emph{Journal of Comparative Neurology} 285 (2): 267--85. \url{https://doi.org/10.1002/cne.21149}.
@@ -2878,7 +2772,7 @@ Smith, C, D I Graham, L S Murray, J Stewart, and J A R Nicoll. 2006. {``Associat
 Sobrido-Cameán, Daniel, and Antón Barreiro-Iglesias. 2018. {``Role of {Caspase-8} and {Fas} in {Cell Death After Spinal Cord Injury}.''} \emph{Frontiers in Molecular Neuroscience} 11: 101. \url{https://doi.org/10.3389/fnmol.2018.00101}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-sockanathan_motor_1998}{}}%
-Sockanathan, Shanthini, and Thomas M Jessell. 1998. {``Motor {Neuron}\textendash{{Derived Retinoid Signaling Specifies}} the {Subtype Identity} of {Spinal Motor Neurons}.''} \emph{Cell} 94 (4): 503--14. \url{https://doi.org/10.1016/S0092-8674(00)81591-3}.
+Sockanathan, Shanthini, and Thomas M Jessell. 1998. {``Motor {Neuron-Derived Retinoid Signaling Specifies} the {Subtype Identity} of {Spinal Motor Neurons}.''} \emph{Cell} 94 (4): 503--14. \url{https://doi.org/10.1016/S0092-8674(00)81591-3}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-sofroniew_astrocytes_2010}{}}%
 Sofroniew, Michael V., and Harry V. Vinters. 2010. {``Astrocytes: Biology and Pathology.''} \emph{Acta Neuropathologica} 119 (1): 7--35. \url{https://doi.org/10.1007/s00401-009-0619-8}.
