@@ -205,18 +205,14 @@ Additional investigations into the chronology of these proteins, and their level
 # Introduction
 
 Spinal cord injury (SCI) is the transient or permanent loss of normal spinal sensory, motor or autonomic function, and is a major cause of disability.
-Globally, SCI affects around 500,000 people each year and is most commonly the result of road traffic accidents or falls.[@crozier-shaw_management_2020] Patients typically require extensive medical, rehabilitative and social care at high financial cost to healthcare providers. The lifetime cost of care in the UK is estimated to be £1.12 million (mean value) per SCI, with the total cost of SCI in the UK to the NHS being £1.43 billion in 2016.[@mcdaid_understanding_2019] Individuals with SCI show markedly higher rates of mental illness relative to the general population.[@furlan_health_2017] Complications arising post-SCI can be long-lasting and often include pain, spasticity and cardiovascular disease, where the systemic inflammatory response that follows SCI can frequently result in organ complications, particularly in the liver and kidneys.[@gris_systemic_2008; @sun_multiple_2016]
-
-<!-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4303786/ -->
+Globally, SCI affects around 500,000 people each year and is most commonly the result of road traffic accidents or falls.[@crozier-shaw_management_2020] Patients typically require extensive medical, rehabilitative and social care at high financial cost to healthcare providers. The lifetime cost of care in the UK is estimated to be £1.12 million (mean value) per SCI, with the total cost of SCI in the UK to the NHS being £1.43 billion in 2016.[@mcdaid_understanding_2019] Individuals with SCI show markedly higher rates of mental illness relative to the general population.[@furlan_health_2017] Complications arising post-SCI can be long-lasting and often include pain, spasticity and cardiovascular disease, where the systemic inflammatory response that follows SCI can frequently result in organ complications, particularly in the liver and kidneys.[@gris_systemic_2008; @sun_multiple_2016] <!--  can you put this reference in please? https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4303786/ -->
 
 The recovery of neurological function post-SCI is highly variable, requiring any clinical trials to have an impractically large sample size to prove efficacy, hence the translation of novel efficacious therapies is challenging and expensive.[@spiess_conversion_2009] Being able to more accurately predict patient outcomes would aid clinical decisions and facilitate future clinical trials.
 Therefore, novel biomarkers that allow for stratification of injury severity and capacity for neurological recovery would be of high value to the field.
 
 Biomarkers studies in SCI often investigate protein changes in cerebral spinal fluid (CSF) as the closer proximity of this medium is thought to be more reflective of the parenchymal injury.[@kwon_neurochemical_2019; @hulme_developing_2017] Whilst this makes CSF potentially more informative for elucidating the pathology of SCI, the repeated use of CSF for routine analysis presents challenges in clinical care due to the risk and expense associated with the invasiveness of the collection procedure.
 In contrast, systemic biomarkers measurable in the blood represent a source of information that can be accessed and interpreted both a lower cost and risk.
-Studies of traumatic brain injury have demonstrated that protein markers identified in CSF are also detectable in both plasma and serum.[@wang_update_2018] More recently, circulating white blood cell populations have also been identified as potential SCI injury biomarkers, with a 2021 study showing that elevated levels of neutrophils were associated with no AIS grade conversion, while conversely an increase in lymphocytes during the first week post-SCI were associated with an AIS grade improvement.
-
-<!-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8631147/ -->
+Studies of traumatic brain injury have demonstrated that protein markers identified in CSF are also detectable in both plasma and serum.[@wang_update_2018] More recently, circulating white blood cell populations have also been identified as potential SCI injury biomarkers, with a 2021 study showing that elevated levels of neutrophils were associated with no AIS grade conversion, while conversely an increase in lymphocytes during the first week post-SCI were associated with an AIS grade improvement. <!-- can you put this reference in please? https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8631147/ -->
 
 A number of individual proteins have been shown to be altered in the bloods post-SCI, including multiple interleukins (IL), tumour necrosis factor alpha (TNF-$\alpha$) and C-reactive protein (CRP).[@segal_circulating_1997; @hayes_elevated_2002; @frost_inflammatory_2005]
 
@@ -325,7 +321,7 @@ A total of 12 SCX fractions were analysed by nano-electrospray ionisation-liquid
 
 **SECTION TO BE REWRITTEN**
 
-Each fraction ($10 \mu l$) was then analysed by nanoflow LC-ESI--MSMS, as described previously.
+Each fraction ($10 \mu l$) was then analysed by nanoflow LC-ESI-MSMS, as described previously.
 
 <!-- which reference would this be? Also does anything else from this method need adding in as descriptive? -->
 
@@ -1385,7 +1381,7 @@ Both acute C improvers and non-improvers had a lower abundance of $\gamma$ 4 rel
 ### Conclusion {#chap4-conc}
 
 Much like the iTRAQ experiments (\@ref(chap-3-conc)), the majority of proteins identified are functionally associated with the complement cascade.
-Unlike the iTRAQ however, many of the proteins where only detected in one group of the pairwise comparisons, suggesting greater suitability as biomarkers.
+Unlike the iTRAQ however, many of the proteins were only detected in one group of the pairwise comparisons, suggesting greater suitability as biomarkers.
 PRX-2, a protein associated with oxidative stress, is of particular interest, both as a biomarker for improvement in acute AIS C patients, but also mechanistically in relation to functional recovery.
 Furthermore, several immunoglobulins were identified as differentially abundant, though further *in vitro/vivo* work is needed to elucidate the pathophysiological relevance of each precursor.
 The $\lambda$ 2-18 and 3-10 precursors are of particular relevance to acute and subacute AIS C improvement respectively, and both are of interest longitudinally in AIS As, with 2-18 potentially being linked to severity of injury.
