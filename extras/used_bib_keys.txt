@@ -3,10 +3,12 @@ mcdaid_understanding_2019
 furlan_health_2017
 gris_systemic_2008
 sun_multiple_2016
+hagen_acute_2015
 spiess_conversion_2009
 kwon_neurochemical_2019
 hulme_developing_2017
 wang_update_2018
+jogia_peripheral_2021
 segal_circulating_1997
 hayes_elevated_2002
 frost_inflammatory_2005
@@ -69,7 +71,7 @@ hall_proteolytic_1981
 sottrup-jensen_primary_1984
 khan_oxidized_2004
 lin_n-glycosylation_2012
-buresova_iram2-macroglobulin_2009
+buresova_iram-2-macroglobulin_2009
 bond_incorporation_2007
 travis_human_1983
 fujiyoshi_amyloid-_2011
