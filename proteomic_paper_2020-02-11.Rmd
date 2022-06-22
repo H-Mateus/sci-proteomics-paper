@@ -1,5 +1,5 @@
 ---
-title: "A comprehensive proteomic and bioinformatics analysis of human spinal cord injury plasma identifies proteins associated with the complement cascade as potential prognostic indicators of neurological outcome"
+title: "A comprehensive proteomic and bioinformatics analysis of human spinal cord injury plasma identifies proteins associated with the complement cascade and liver function as potential prognostic indicators of neurological outcome"
 output:
   bookdown::word_document2:
     toc: no
@@ -173,17 +173,13 @@ This study has utilised proteomic and bioinformatics methodologies to investigat
 
 Methods and Materials
 
-Blood samples were taken, following informed consent, from ASIA impairment scale (AIS) grade C "Improvers" (AIS grade improvement) and "Non-Improvers" (No AIS change), and AIS grade A and D at \<2 weeks ("Acute") and approx.
-3 months ("Sub-acute") post-injury.
+Blood samples were taken, following informed consent, from ASIA impairment scale (AIS) grade C "Improvers" (AIS grade improvement) and "Non-Improvers" (No AIS change), and AIS grade A and D at \<2 weeks ("Acute") and approx. 3 months ("Sub-acute") post-injury.
 The total protein concentration from each sample was extracted, with pooled samples being labelled and non-pooled samples treated with ProteoMiner™ beads.
 Samples were then analysed using two 4-plex isobaric tag for relative and absolute quantification (iTRAQ) analyses and a label-free experiment for comparison, before quantifying with mass spectrometry.
-Proteomic datasets were analysed using **bioinformatics...**
 
-<!-- Karinas note: In brief description needed here -->
-
-Proteins of interest identified from this analysis were further validated by enzyme-linked immunosorbent assay (ELISA).
-OpenMS (version 2.6.0) was used to process the raw spectra data.
+Proteomic datasets were analysed using OpenMS (version 2.6.0).
 R (version 4.1.4) and in particular, the R packages MSstats (version 4.0.1), STRINGdb (version 2.4.2) and pathview (version 1.32.0) were used for downstream analysis.
+Proteins of interest identified from this analysis were further validated by enzyme-linked immunosorbent assay (ELISA).
 
 <!-- Need to add citations for R packages, though probably not in abstract -->
 
@@ -888,33 +884,54 @@ itraq_up_down$comparison <- itraq_up_down$comparison %>%
 
 # Discussion
 
-This is the first study, to our knowledge, to comprehensively investigate the plasma proteome in SCI patients whose AIS scores either improved or did not improve post injury and also to compare these to AIS grade A and D patients.
-We have used two proteomic techniques allowing us to profile both high and low abundance proteins, in order to identify proteins which may have potential to predict neurological improvement within the acute setting.
+This is the first study, to our knowledge, to investigate the plasma proteome in SCI patients whose AIS scores either improved or did not improve post injury and also to compare these to AIS grade A and D patients.
+We have used two proteomic techniques allowing us to profile both high and low abundance proteins, in order to identify protein candidate biomarkers which may have potential to predict neurological improvement within the acute setting.
 Moreover, this data can better inform us of the biology underlying neurological improvement or stability in a cohort of patients being conservatively managed post SCI.
+
+Briefly, for processing of proteomic data, we compared the performance of the mass spectrometry vendor (ABSciex) provided ProteinPilot (version 4.5) and OpenMS (version 2.6.0).
+As there were only modest difference in both the proteins identified and the respective fold changes (data not shown), we opted to use OpenMS for the greater transparency and reproducibility it offers as open-source software.
 
 This study has highlighted a number of proteins that may be able to discriminate in, the acute phase following injury, between AIS grade C patients who either improve or do not improve by an AIS grade following SCI.
 The most promising of these is Retinol Binding Protein 4 (RBP4) which was demonstrated to be increased in non-improvers compared to improvers in the acute phase.
-Further this change could be confirmed using ELISA, which may provide a more clinically useful means of assessing this protein on a wide scale.
+Further this change could be confirmed using ELISA, which may provide a more clinically useful means of assessment on a wide scale.
 
-RBP4 is synthesised in the liver and binds retinol that is released following vitamin A deficiency.[@peterson_studies_1971] Once delivered to target cells, retinol can either be converted to retinaldehyde, which is required for functional vision, or oxidised to retinoic acid, which is a ligand for nuclear receptors, thus regulating gene expression.[@lane_role_2005; @balmer_gene_2002] The role of retinoid signalling in spinal cord and motor neuron differentiation, including development of regions of the spinal cord has been outlined, and implies a possible involvement in maintaining motor neuron integrity.[@colbert_retinoid_1995; @sockanathan_motor_1998] The mRNA of a rodent homologue of RBP was found to be up-regulated at 24 hours post-SCI and may promote cell proliferation and regeneration by increasing retinoid metabolism.[@song_genechip_2001; @hurst_complexity_1999]
+RBP4 is synthesised in the liver and binds retinol that is released following vitamin A deficiency.[@peterson_studies_1971] 
+Once delivered to target cells, retinol can either be converted to retinaldehyde, which is required for functional vision, or oxidised to retinoic acid, which is a ligand for nuclear receptors, thus regulating gene expression.[@lane_role_2005; @balmer_gene_2002] 
+The role of retinoid signalling in spinal cord and motor neuron differentiation, including development of regions of the spinal cord has been outlined, and implies a possible involvement in maintaining motor neuron integrity.[@colbert_retinoid_1995; @sockanathan_motor_1998] 
+The mRNA of a rodent homologue of RBP was found to be up-regulated at 24 hours post-SCI and may promote cell proliferation and regeneration by increasing retinoid metabolism.[@song_genechip_2001; @hurst_complexity_1999]
 
-Another study of amyotrophic lateral sclerosis (ALS), a neurodegenerative disease, comparing gene expression between post-mortem spinal cord samples of ALS and controls also observed up-regulation of RBP1 in ALS spinal cord.[@malaspina_differential_2001] Furthermore, a transgenic mouse study reported retinoid signalling may contribute to the retained plasticity and regenerative potential of the mature spinal cord.[@haskell_retinoic_2002] The results found here support these findings for AIS C improvers relative to non-improvers as improver had increased levels of RBP4.
-Whether this is due to increased expression or due to higher vitamin A intake is unclear from this data, though at 3-months post-injury this is still that case even though patients diets could be more similar throughout hospital admission.
+Another study of amyotrophic lateral sclerosis (ALS), a neurodegenerative disease, comparing gene expression between post-mortem spinal cord samples of ALS and controls similarly observed up-regulation of RBP1 in ALS spinal cord.[@malaspina_differential_2001] 
+Furthermore, a transgenic mouse study reported retinoid signalling may contribute to the retained plasticity and regenerative potential of the mature spinal cord.[@haskell_retinoic_2002] 
+Collectively, these results might support a hypothesis that AIS C improvers have increased levels of RBP4 and this relates to improved capacity for neuronal regeneration/plasticity.
+Whether this is due to increased expression or due to higher vitamin A dietary intake is unclear from this data.
 
 <!-- MH NOTE: should probably temper the above line by mentioning that the ELISA wasn't significant... -->
 
 Alongside RBP4, a number of other protein abundance differences across the different biological comparisons were identified in proteins associated with liver function.
-Our previous work investigating the potential of routinely measured haematological analytes for predicting neurological outcome in SCI patients also highlighted several proteins that were linked with liver function; thus providing further support to this theory.[@brown_preliminary_2019; @bernardo_harrington_routinely_2020] The pathway analysis specifically indicated that the acute phase response (APR) is implicated.
+Our previous work investigating the potential of routinely measured haematological analytes for predicting neurological outcome in SCI patients also highlighted several proteins that were linked with liver function; thus providing further support to the theory that liver status is relevant to differential functional recover.[@brown_preliminary_2019; @bernardo_harrington_routinely_2020] 
+The pathway analysis specifically indicated that the acute phase response (APR) is implicated.
 
-The APR is the bodies first response to injury or infections, including SCI.
-This systemic response is largely coordinated by factors released from the liver, but the APRs effects extend to multiple peripheral organs including the kidneys, lungs and spleen.[@bao_systemic_2012; @campbell_liver_2008; @fleming_remote_2012; @gris_systemic_2008] This hepatic response is typically transient and quickly fades, but prolonged liver inflammation and pathology has been observed in rodent SCI models.[@goodus_dietary_2018; @sauerbeck_spinal_2015] Basic liver functions are chronically impaired by SCI, including metabolising carbohydrates, fats and proteins, storage of minerals vitamins and glycogen and filtering blood from the digestive tract.[@garcia-lopez_acute_2007; @deleve_hepatic_2007; @farkas_neurogenic_2018; @chow_pharmacology_2012; @sauerbeck_spinal_2015] The acute (1-7 days) liver response to SCI is well documented; the inflammatory cytokines including TNF$\alpha$, IL-1$\alpha$, IL-1$\beta$ and IL-6, released at the injury site, reach the liver through the bloodstream.[@fleming_remote_2012; @hundt_assessment_2011] This provokes the liver to enter the APR and produce acute phase proteins thus stimulating a greater immune response.[@anthony_systemic_2014; @fleming_remote_2012] The hepatocytes that make up the majority of the liver biomass, express receptors that bind the aforementioned inflammatory cytokines; similarly the hepatic macrophage Kupffer cells also bind these cytokines, complement proteins and lipopolysaccharide (LPS) and swiftly remove microorganisms, endotoxins and other debris from the blood.[@yang_clec4f_2013; @szalai_complement-dependent_2000; @crispe_hepatocytes_2016; @campbell_central_2005]
+The APR is the bodies first response to infection or injury, including SCI.
+This systemic response is largely coordinated by factors released from the liver, but the APRs effects extend to multiple peripheral organs including the kidneys, lungs and spleen.[@bao_systemic_2012; @campbell_liver_2008; @fleming_remote_2012; @gris_systemic_2008] 
+This hepatic response is typically transient and quickly fades, but prolonged liver inflammation and pathology has been observed in rodent SCI models.[@goodus_dietary_2018; @sauerbeck_spinal_2015] 
+Basic liver functions are chronically impaired by SCI, including metabolising carbohydrates, fats and proteins, storage of minerals vitamins and glycogen and filtering blood from the digestive tract.[@garcia-lopez_acute_2007; @deleve_hepatic_2007; @farkas_neurogenic_2018; @chow_pharmacology_2012; @sauerbeck_spinal_2015] 
 
-Furthermore, it has been suggested that liver inflammation and Kupffer cells activity promote recruitment of leukocytes to the injury site in brain or spinal trauma, potentially enhancing CNS injury.[@anthony_systemic_2014; @campbell_central_2005] For example, a rodent study demonstrated depletion of Kupffer cells prior to injury resulted in few neutrophils infiltrating the injury site.[@campbell_liver_2008; @campbell_hepatic_2008]
+The acute (1-7 days) liver response to SCI is well documented; the inflammatory cytokines including TNF$\alpha$, IL-1$\alpha$, IL-1$\beta$ and IL-6, released at the injury site, reach the liver through the bloodstream.[@fleming_remote_2012; @hundt_assessment_2011] 
+This provokes the liver to enter the APR and produce acute phase proteins thus stimulating a greater immune response.[@anthony_systemic_2014; @fleming_remote_2012] 
+The hepatocytes that make up the majority of the liver biomass, express receptors that bind the aforementioned inflammatory cytokines; similarly the hepatic macrophage Kupffer cells also bind these cytokines, complement proteins and lipopolysaccharide (LPS) and swiftly remove microorganisms, endotoxins and other debris from the blood.[@yang_clec4f_2013; @szalai_complement-dependent_2000; @crispe_hepatocytes_2016; @campbell_central_2005]
+Furthermore, it has been suggested that liver inflammation and Kupffer cells activity promote recruitment of leukocytes to the injury site in brain or spinal trauma, potentially enhancing CNS injury.[@anthony_systemic_2014; @campbell_central_2005] 
+For example, a rodent study demonstrated depletion of Kupffer cells prior to injury resulted in few neutrophils infiltrating the injury site.[@campbell_liver_2008; @campbell_hepatic_2008]
 
 -   MH NOTE: PRX-2 was one of the most promising proteins from the label-free data. We didn't do any elisas for it, but I think we can argue that the label-free is more statistically robust due to the biological and technical replicates. We could argue that it may not have turned up in the iTRAQ as we didn't use the proteominer beads too I suppose
 
-Another protein this data highlights is Peroxiredoxin 2 (PRX-2), which was detected acutely in AIS C improvers and AIS D patients, and subacutely in AIS A and AIS D. Peroxiredoxins are a large and highly conserved family of enzymes that reduce peroxides.
-PRX-2 is highly abundant in RBCs and intracellularly serves as an important anti-oxidant role in various cells types, including neurons.[@low_peroxiredoxin_2008] By contrast, extracellular PRX-2 has been suggested to act as an inflammatory DAMP, leading microglia and macrophages to release a plethora of pro-inflammatory factors.[@salzano_linkage_2014; @garcia-bonilla_peroxiredoxin_2012; @shichita_peroxiredoxin_2012] An *in vitro* primary neurons and microglia co-culture study reported PRX-2 activating microglia via TLR-4, potentially leading to neuronal apoptosis.[@lu_peroxiredoxin_2018] A mouse study found over-expression of PRX-2 attenuated oxidative stress and neuronal apoptosis following subarachnoid haemorrhage.[@lu_peroxiredoxin_2019] Over-expression of PRX-2 is speculated to protect again ischaemic neuronal injury by modulating the redox-sensitive thioredoxin-apoptosis signal-regulating kinase (ASK) 1 signalling complex.[@gan_transgenic_2012] Several molecular chaperones can interact with ASK1, including thioredoxin and TNF receptor-associated factor 6.[@matsuzawa_ros-dependent_2005] The dissociation of the thioredoxin-ASK1 complex activates ASK1.
+Another protein that out label-free proteomic data highlights is Peroxiredoxin 2 (PRX-2), which was detected acutely in AIS C improvers and AIS D patients, and subacutely in AIS A and AIS D. Peroxiredoxins are a large and highly conserved family of enzymes that reduce peroxides.
+PRX-2 is highly abundant in RBCs and intracellularly serves as an important anti-oxidant role in various cells types, including neurons.[@low_peroxiredoxin_2008] 
+By contrast, extracellular PRX-2 has been suggested to act as an inflammatory DAMP, leading microglia and macrophages to release a plethora of pro-inflammatory factors.[@salzano_linkage_2014; @garcia-bonilla_peroxiredoxin_2012; @shichita_peroxiredoxin_2012] 
+An *in vitro* primary neurons and microglia co-culture study reported PRX-2 activating microglia via TLR-4, potentially leading to neuronal apoptosis.[@lu_peroxiredoxin_2018] 
+A murine study found over-expression of PRX-2 attenuated oxidative stress and neuronal apoptosis following subarachnoid haemorrhage.[@lu_peroxiredoxin_2019] 
+Over-expression of PRX-2 is speculated to protect again ischaemic neuronal injury by modulating the redox-sensitive thioredoxin-apoptosis signal-regulating kinase (ASK) 1 signalling complex.[@gan_transgenic_2012] 
+Several molecular chaperones can interact with ASK1, including thioredoxin and TNF receptor-associated factor 6.[@matsuzawa_ros-dependent_2005] 
+The dissociation of the thioredoxin-ASK1 complex activates ASK1.
 PRX-2 is oxidised after scavenging free radicals, whereupon its antioxidantive activity is reduced.
 This inactivation can be reversed by the thioredoxin-thioredoxin reductase system, whereby oxidised PRX-2 can regain its activity by reducing thioredoxin, leading to the dissociation of the thioredoxin-ASK1 complex.[@rhee_multiple_2011] Additionally, oxidised PRX-1 can inhibit ASK1-induced apoptosis via the thioredoxin-binding domain on ASK1.[@kim_novel_2008]
 
@@ -925,23 +942,19 @@ It should be noted that as plasma was used and cells were lysed, there is no dis
 Perhaps in the more severe AIS A injury, secondary injuries, including oxidative stress, are greater and so persist to the subacute time-point.
 The acute absence may be a result of an overwhelmed physiology unable to respond or prioritise managing oxidative stress.
 
-Pathway analysis from both the iTRAQ and label-free experiments identified the complement and coagulation cascades as a significant pathway.
+Pathway analysis from both the iTRAQ and label-free experiments identified the complement and coagulation cascades as a significant pathway of interest.
 More broadly, the trend in this data is for proteins in the complement pathway is lower abundance, or inhibitory proteins such as C4BP to be more abundant, in the acute improvers.
 C3 for instance, cleavage of which is vital for complement activation, was less abundant in acute AIS C improvers relative to non-improvers.
-This is in line with a genetic C3 knockout study in mice which reported better neurological scores 2 days post-injury, reduced residual consolidated neurological deficit at 21 days and display minor change inreduced gliosis (20% decrease at 1h timepoint) but a three-to-fourfold decrease in neutrophil infiltration, resulting in enhanced regeneration of axons.[@qiao_complement_2006] Another study using a similar C3 knockout model reported improved neurological scores at acute and long-term time points.[@guo_effects_2010]
-
-This result implies the complement cascade is a particularly important component of a differential response to injury which ultimately leads to greater functional recovery.
+This finding is in line with a genetic C3 knockout study in mice which reported better neurological scores 2 days post-injury, reduced residual consolidated neurological deficit at 21 days and display minor change in reduced gliosis (20% decrease at 1h timepoint) but a three-to-fourfold decrease in neutrophil infiltration, resulting in enhanced regeneration of axons.[@qiao_complement_2006] Another study using a similar C3 knockout model reported improved neurological scores at acute and long-term time points.[@guo_effects_2010]
+These results imply that the complement cascade is a particularly important component of a differential response to neurological injury which ultimately leads to greater functional recovery.
 Given the complexity of the complement cascade and the limited time points in this study, further work is needed to elucidate which facets of the cascade are outcome modifying, and at which stages post-injury.
+
 The small number of statistically significant proteins speaks to the variability of human plasma samples, and is likely exacerbated by the inconstant timing of sample collection relative to injury.
-Post-hoc power analysis of the data reveals that to identify a 2.5 fold change with an FDR of 0.5 and a power of 0.9, 14 biological replicates would be needed, in contrast to the 7-11 replicates used across groups here.
-
 Thus, a repeat of this experiment with a larger sample size will likely reveal many more proteins of potential interest.
-Furthermore, a metabolomic analysis with a similar sample size would greatly compliment this work, particularly with regards to investigating further links to the liver.
-Additional investigation of the key proteins, RPB4 and PRX-2 in particular, but also the complement cascade more broadly would also be valuable.
-Quantitation of these proteins both at more acute and chronic time points would be of greatest immediate interest.
-
--   MH note: Haven't added anything about comparing vendor proprietary software and openMS. I go back on forth thinking that could easily be a paper onto itself. Maybe just add a line or two mentioning OpenMS was chosen as it performed similarly to the proprietary stuff and allows for more openness and reproducibility
--   small point, but would it be worth adding subsection to the discussion as I did in the thesis? I think it makes it a more pleasant read personally
+Regardless, this study has highlighted RPB4 and PRX-2 as potential biomarkers of functional recover.
+We have also highlighted the complement cascade as being a particularly important pathway in differential recovery.
+Additional investigation of these proteins, but also the complement cascade more broadly, particularly at more acute time points, would also be valuable.
+Furthermore, a metabolomic analysis with a similar samples would greatly compliment this work, particularly with regards to investigating further links to the livers role in neurological recovery.
 
 ## THE FOLLOW IS COPIED FROM THESIS
 
