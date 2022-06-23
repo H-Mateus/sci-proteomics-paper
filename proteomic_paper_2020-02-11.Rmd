@@ -377,6 +377,10 @@ The `-out_msstats` flag was also used to produce quantitative data for downstrea
 
 ### Network and pathway analysis {#pathway-analysis-chap3}
 
+Protein interation networks were created using the Bioconductor package `STRINGdb` which provides an R interface to STRING version 11.[@szklarczyk_string_2019] 
+Instantiation of the STRINGdb reference class was done with `species` and `score_threshold` set to `9606`, for *Homo sapiens* , and `400` respectively.
+Clustering of networks with `STRINGdb` used the "fastgreedy" algorithm from the `iGraph` package.
+
 The Bioconductor package ReactomePA, which employs the open-source, open access, manually curated and peer-reviewed pathway database Reactome was used for network analysis.[@yu_reactomepa_2016; @jassal_reactome_2020]
 
 ### Enzyme-linked immunosorbent assays
@@ -395,8 +399,6 @@ Statistical analysis was performed using the statistical programming language `r
 Pairwise t tests with bonferroni adjusted P-values with the R `rstatix` package were used to assess differential abundance.
 
 # Results
-
-## Results {#chap-3-results}
 
 Plasma from American Spinal Injury Association (ASIA) grade C SCI patients (total n=17) contrasting those who experienced an AISA grade conversion (n=10), and those who did not (n=7) collected within 2 weeks, and at approximately 3 months post-injury (Improvers n=9 vs Non-improvers n=6).
 Relative protein abundance in AIS grade A (n=10) and grade D (n=11) patients was also examined.
@@ -419,7 +421,7 @@ foldchange_list <- map(foldchange_list, ~ dplyr::distinct(.x))
 foldchange_nrow <- map(foldchange_list, nrow)
 ```
 
-### Comparing OpenMS and ProteinPilot
+<!-- ### Comparing OpenMS and ProteinPilot -->
 
 ```{r, label='openms-fc-table-prep'}
 ## merge list
@@ -537,12 +539,7 @@ names(updown_compare) <- unique(pp_long$comparison)
 
 <!-- At the subacute phase, AIS C improvers had `r as.numeric(protein_up[(protein_up$piv_wide == "Subacute AIS C improvers vs non-improvers"), 2])` and `r as.numeric(pp_updown[(pp_updown$piv_wide == "Subacute AIS C improvers vs non-improvers"),3][2,])` proteins of increased abundance were found, whereas `r as.numeric(protein_down[(protein_down$piv_wide == "Subacute AIS C improvers vs non-improvers"), 2])` and `r as.numeric(pp_updown[(pp_updown$piv_wide == "Subacute AIS C improvers vs non-improvers"),3][1,])` proteins were less abundant, for OpenMS and ProteinPilot respectively (Figure @ref(fig:openms-pp-updown)). -->
 
-<!-- MH note: I've commented out the above, and I assume the below is the rewritten version, maybe double check it all matches Jess -->
-
-<!-- Note JFS: I think its all the same, just writted slightly differently> -->
-
-The AIS A group had `r as.numeric(protein_up[(protein_up$piv_wide == "AIS A vs D"), 2])` and `r as.numeric(pp_updown[(pp_updown$piv_wide == "AIS A vs D"),3][2,])` more abundant and `r as.numeric(protein_down[(protein_down$piv_wide == "AIS A vs D"), 2])` and `r as.numeric(pp_updown[(pp_updown$piv_wide == "AIS A vs D"),3][1,])` less abundant proteins respectively.
-Acutely, AIS C improvers relative to AIS A and D had `r as.numeric(protein_up[(protein_up$piv_wide == "AIS C non-improvers vs A"), 2])` and `r as.numeric(protein_up[(protein_up$piv_wide == "AIS C non-improvers vs D"), 2])` more abundant and `r as.numeric(protein_down[(protein_down$piv_wide == "AIS C non-improvers vs A"), 2])` and `r as.numeric(protein_down[(protein_down$piv_wide == "AIS C non-improvers vs D"), 2])` less abundant for OpenMS, whereas ProteinPilot had `r as.numeric(pp_updown[(pp_updown$piv_wide == "AIS C non-improvers vs A"),3][2,])` and `r as.numeric(pp_updown[(pp_updown$piv_wide == "AIS C non-improvers vs D"),3][2,])` more abundant proteins, and `r as.numeric(pp_updown[(pp_updown$piv_wide == "AIS C non-improvers vs A"),3][1,])` and `r as.numeric(pp_updown[(pp_updown$piv_wide == "AIS C non-improvers vs D"),3][1,])` less abundant.
+<!-- MH note: I've commented out the above, the summarised version was didn't have enough detail so I've removed it -->
 
 (ref:openms-pp-venn) Venn diagram of the overlap in unique proteins identified from analysis with ProteinPilot and OpenMS respectively on data from 2 4-plex iTRAQ experiments.
 
@@ -573,8 +570,6 @@ updown %>%
           legend.position = 'top', legend.direction = "horizontal") +
     scale_fill_manual(values = c("tomato", "steelblue"), name = "")
 ```
-
-\clearpage
 
 ### iTRAQ analyses
 
