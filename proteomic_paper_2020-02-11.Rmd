@@ -164,14 +164,14 @@ theme_set(custom_theme())
 
 # Abstract
 
-Introduction
+## Introduction
 
 Spinal Cord Injury (SCI) is a major cause of disability, with complications post-injury often leading to life-long health issues with need of extensive treatment.
 Neurological outcome post-SCI can be variable and difficult to predict, particularly in incomplete injured patients.
 The identification of specific SCI biomarkers in blood, may be able to improve prognostics in the field.
 This study has utilised proteomic and bioinformatics methodologies to investigate differentially expressed proteins in plasma samples across human SCI cohorts with the aim of identifying prognostic biomarkers and biological pathway alterations that relate to neurological outcome.
 
-Methods and Materials
+## Methods and Materials
 
 Blood samples were taken, following informed consent, from ASIA impairment scale (AIS) grade C "Improvers" (AIS grade improvement) and "Non-Improvers" (No AIS change), and AIS grade A and D at \<2 weeks ("Acute") and approx. 3 months ("Sub-acute") post-injury.
 The total protein concentration from each sample was extracted, with pooled samples being labelled and non-pooled samples treated with ProteoMiner™ beads.
@@ -181,40 +181,34 @@ Proteomic datasets were analysed using OpenMS (version 2.6.0).
 R (version 4.1.4) and in particular, the R packages MSstats (version 4.0.1), STRINGdb (version 2.4.2) and pathview (version 1.32.0) were used for downstream analysis.
 Proteins of interest identified from this analysis were further validated by enzyme-linked immunosorbent assay (ELISA).
 
-<!-- Need to add citations for R packages, though probably not in abstract -->
-
-Results
+## Results
 
 The data demonstrated proteomic differences between the cohorts, with the results from the iTRAQ approach supporting those of the label-free analysis.
 A total of 79 and 87 differentially abundant proteins across AIS and longitudinal groups were identified from the iTRAQ and label-free analyses, respectively.
 Alpha-2-macroglobulin (A2M), retinol binding protein 4 (RBP4), serum amyloid A1 (SAA1), Peroxiredoxin 2, alipoprotein A1 (ApoA1) and several immunoglobulins were identified as biologically relevant and differentially abundant, with potential as individual prognostic biomarkers of neurological outcome.
 Bioinformatics analyses revealed that the majority of differentially abundant proteins were components of the complement cascade and most interacted directly with the liver.
 
-Conclusions
+## Conclusions
 
-Many of the proteins of interest identified using proteomics were detected only in a single group and therefore have potential as a binary (present or absent) biomarkers.
+Many of the proteins of interest identified using proteomics were detected only in a single group and therefore have potential as a binary (present or absent) biomarkers, RBP4 and PRX-2 in particular.
 Additional investigations into the chronology of these proteins, and their levels in other tissues (cerebrospinal fluid in particular) are needed to better understand the underlying pathophysiology, including any potentially modifiable targets.
-**The complement cascasde was confirmed using pathway analysis as...**
-
-<!-- Karina's note: Expand on this if it is going to form the main narrative -->
+Pathway analysis highlighted the complement cascasde as being significant across groups of differential functional recovery.
 
 # Introduction
 
 Spinal cord injury (SCI) is the transient or permanent loss of normal spinal sensory, motor or autonomic function, and is a major cause of disability.
-Globally, SCI affects around 500,000 people each year and is most commonly the result of road traffic accidents or falls.[@crozier-shaw_management_2020] Patients typically require extensive medical, rehabilitative and social care at high financial cost to healthcare providers. The lifetime cost of care in the UK is estimated to be £1.12 million (mean value) per SCI, with the total cost of SCI in the UK to the NHS being £1.43 billion in 2016.[@mcdaid_understanding_2019] Individuals with SCI show markedly higher rates of mental illness relative to the general population.[@furlan_health_2017] Complications arising post-SCI can be long-lasting and often include pain, spasticity and cardiovascular disease, where the systemic inflammatory response that follows SCI can frequently result in organ complications, particularly in the liver and kidneys.[@gris_systemic_2008; @sun_multiple_2016; \@hagen_acute_2015]
+Globally, SCI affects around 500,000 people each year and is most commonly the result of road traffic accidents or falls.[@crozier-shaw_management_2020] Patients typically require extensive medical, rehabilitative and social care at high financial cost to healthcare providers. The lifetime cost of care in the UK is estimated to be £1.12 million (mean value) per SCI, with the total cost of SCI in the UK to the NHS being £1.43 billion in 2016.[@mcdaid_understanding_2019] Individuals with SCI show markedly higher rates of mental illness relative to the general population.[@furlan_health_2017] Complications arising post-SCI can be long-lasting and often include pain, spasticity and cardiovascular disease, where the systemic inflammatory response that follows SCI can frequently result in organ complications, particularly in the liver and kidneys.[@gris_systemic_2008; @sun_multiple_2016; @hagen_acute_2015]
 
 The recovery of neurological function post-SCI is highly variable, requiring any clinical trials to have an impractically large sample size to prove efficacy, hence the translation of novel efficacious therapies is challenging and expensive.[@spiess_conversion_2009] Being able to more accurately predict patient outcomes would aid clinical decisions and facilitate future clinical trials.
 Therefore, novel biomarkers that allow for stratification of injury severity and capacity for neurological recovery would be of high value to the field.
 
 Biomarkers studies in SCI often investigate protein changes in cerebral spinal fluid (CSF) as the closer proximity of this medium is thought to be more reflective of the parenchymal injury.[@kwon_neurochemical_2019; @hulme_developing_2017] Whilst this makes CSF potentially more informative for elucidating the pathology of SCI, the repeated use of CSF for routine analysis presents challenges in clinical care due to the risk and expense associated with the invasiveness of the collection procedure.
 In contrast, systemic biomarkers measurable in the blood represent a source of information that can be accessed and interpreted both a lower cost and risk.
-Studies of traumatic brain injury have demonstrated that protein markers identified in CSF are also detectable in both plasma and serum.[@wang_update_2018] More recently, circulating white blood cell populations have also been identified as potential SCI injury biomarkers, with a 2021 study showing that elevated levels of neutrophils were associated with no AIS grade conversion, while conversely an increase in lymphocytes during the first week post-SCI were associated with an AIS grade improvement.[\@jogia_peripheral_2021]
+Studies of traumatic brain injury have demonstrated that protein markers identified in CSF are also detectable in both plasma and serum.[@wang_update_2018] More recently, circulating white blood cell populations have also been identified as potential SCI injury biomarkers, with a 2021 study showing that elevated levels of neutrophils were associated with no AIS grade conversion, while conversely an increase in lymphocytes during the first week post-SCI were associated with an AIS grade improvement.[@jogia_peripheral_2021]
 
 A number of individual proteins have been shown to be altered in the bloods post-SCI, including multiple interleukins (IL), tumour necrosis factor alpha (TNF-$\alpha$) and C-reactive protein (CRP).[@segal_circulating_1997; @hayes_elevated_2002; @frost_inflammatory_2005]
 
 Further, changes in inflammatory marker levels detected in acute SCI patients were found to be mirrored in donor-matched blood and CSF, albeit at lower absolute concentrations systemically.[@kwon_cerebrospinal_2010]
-
-<!-- I swapped the above 2 sections as per Karinas edit but hopefully the references stay fine -->
 
 Previously, we have shown that routinely collected blood measures associated with liver function and inflammation added predictive value to AIS motor and sensor outcomes at discharge and 12-months post-injury.[@bernardo_harrington_routinely_2020; @brown_preliminary_2019] The current study uses an unbiased shotgun proteomic approach to investigate differentially expressed proteins in SCI patients, coupled with bioinformatics pathway and network analyses.
 
@@ -307,16 +301,10 @@ Tryptic digests were labelled with iTRAQ tags (again according to the manufactur
 Two individual iTRAQ experiments were set up, the first to assess acute and sub-acute improvers or non-improvers and the second to assess acute improvers and non-improvers to AIS grade A and D patients.
 The following tags were used for each group of patient samples 114 tag - acute improvers, 115 tag - sub-acute improvers, 116 tag - acute non-improvers and 117 tag - sub-acute non-improvers for run 1 and 114 tag - acute improvers, 115 tag - acute non-improvers, 116 tag - AIS grade A and 117 tag - AIS grade D for run 2.
 
-#### iTraq mass spectrometry analysis
+#### iTRAQ mass spectrometry analysis
 
-The samples were analysed at the BSRC St. Andrews University Mass Spectrometry and Proteomics Facility using methods previously described.
-
+The samples were analysed at the BSRC St. Andrews University Mass Spectrometry and Proteomics Facility.
 A total of 12 SCX fractions were analysed by nano-electrospray ionisation-liquid chromatography/tandem mass spectrometry (LC-MS/MS) using a TripleTOF 5600 tandem mass spectrometer (AB Sciex, Framingham, MA, USA) as described previously.[@fuller_stathmin_2015]
-
-<!-- Karinas note: This whole section below- try to re-write in brief -->
-
-**SECTION TO BE REWRITTEN**
-
 Each fraction ($10 \mu l$) was then analysed by nanoflow LC-ESI-MSMS, as described previously.
 
 <!-- which reference would this be? Also does anything else from this method need adding in as descriptive? -->
@@ -324,35 +312,24 @@ Each fraction ($10 \mu l$) was then analysed by nanoflow LC-ESI-MSMS, as describ
 ```{=html}
 <!-- Each fraction ($10 \mu l$) was then analysed by nanoflow LC-ESI–MSMS. The peptides were separated using a nanoLC Ultra 2D plus loading pump and nanoLC AS-2 autosampler chromatography system (Eksigent, Redwood City, CA, USA), using a PepMap RSLC column ($75\mu l$ x $15 cm$) and an Acclaim PepMap100 trap ($100\mu m$ x $2 cm$) (ThermoFisher Scientific, Waltham, MA, USA).
 After washing the peptides on the trap column for 20 minutes at $5\mu L$ min$^{-1}$, the trap was switched in line with the column and the peptides eluted with a gradient of increasing MeCN from 95% buffer A (98% H~2~O, 2% MeCN, 0.1% FA), 5% buffer B (2% H~2~O, 98% MeCN, 0.1% FA) to 65% buffer A, 35% buffer B over 60 minutes, then to 50% buffer A, 50% buffer B over a further 20 minutes, before increasing the concentration of buffer B to 95% over a further 10 minutes.
-The column was then washed with 95% buffer B before re-equilibration in 95% buffer A. A flow rate of $300 nL$ min$^{-1}$ was employed. The eluent was sprayed into a TripleTOF 5600 tandem mass spectrometer (ABSciex, Foster City, CA, USA), using a NANOSpray III source, and analyzed in Information Dependent Acquisition (IDA) mode, performing $250 ms$ of MS followed by $100 ms$ MSMS analyses on the 20 most intense peaks with a charge state of +2 to +5. -->
-```
+The column was then washed with 95% buffer B before re-equilibration in 95% buffer A. A flow rate of $300 nL$ min$^{-1}$ was employed. The eluent was sprayed into a TripleTOF 5600 tandem mass spectrometer (ABSciex, Foster City, CA, USA), using a NANOSpray III source, and analyzed in Information Dependent Acquisition (IDA) mode, performing $250 ms$ of MS followed by $100 ms$ MSMS analyses on the 20 most intense peaks with a charge state of +2 to +5. 
+
 Parent (MS) ions were accepted with a mass tolerance of 50 mDa and MSMS was conducted with a rolling collision energy (CE) inclusive of preset iTRAQ CE adjustments.
 Analyzed parent ions were then excluded from analysis for 13 s after 3 occurrences.
+-->
+```
 
 ### Sample preparation and analysis using label-free proteomics {#label-free-sample-prep}
 
 No sample pooling was used, and so each of the 73 samples were maintained separately throughout protein equalisation, mass spectrometry, and label-free quantification steps.
 Thus, protein abundance was quantified for each sample, whereupon mean protein abundance across experimental groups was calculated to assess protein changes.
 
-To reduce the dynamic range of proteins, ProteoMiner™ beads (BioRad, Hemel Hempstead, UK) were used.[@boschetti_proteominer_2008] Total protein was quantitated with a Pierce™ $660 nm$ Protein Assay (Thermo Fisher Scientific, Hemel Hempstead, UK), whereupon 5 mg of total protein was applied to ProteoMiner™ beads, and processed as described previously.[@stoscheck_protein_1987]
-
-<!-- Note MH: dunno what this is  -->
-
-<!-- Note JFS: I cant remember, possibly a title of an image/graph? -->
-
-<!-- 3.7.3.2    LC separation and Quadrupole-Orbitrap instrument -->
+To reduce the dynamic range of proteins, ProteoMiner™ beads (BioRad, Hemel Hempstead, UK) were used.[@boschetti_proteominer_2008] 
+Total protein was quantitated with a Pierce™ $660 nm$ Protein Assay (Thermo Fisher Scientific, Hemel Hempstead, UK), whereupon 5 mg of total protein was applied to ProteoMiner™ beads, and processed as described previously.[@stoscheck_protein_1987; @peffers_comprehensive_2015]
 
 #### Label free mass spectrometry analysis
 
-Tryptic peptides were subjected to LC-MC/MC via a 2-h gradient on a NanoAcquity™ ultraperformance LC (Waters, Manchester, UK) connected to a Q-Exactive Quadrupole-Orbitrap instrument (Thermo-Fisher Scientific Hemel Hempstead, UK) as described **previously**.
-
-<!-- Karinas note: Include Hulme and/or Peffers ref -->
-
-<!-- Karinas note: Try to rewrite the below section in brief -->
-
-**REWRITE IN BRIEF**
-
-<!-- Note JFS: Im not really sure out of this what is important to keep in and what can be kept out? -->
+Tryptic peptides were subjected to LC-MC/MC via a 2-h gradient on a NanoAcquity™ ultraperformance LC (Waters, Manchester, UK) connected to a Q-Exactive Quadrupole-Orbitrap instrument (Thermo-Fisher Scientific Hemel Hempstead, UK).
 
 The Q-Exactive was operated in a data dependent positive electrospray ionisation mode, automatically switching between full scan MS and MS/MS acquisition.
 Survey full scan MS spectra (*m/z* 300--2000) were acquired in the Orbitrap with 70,000 resolution (*m/z* 200) following accumulation of ions to $1\times 10^6$ target value based on the predictive automatic gain control values from the previous full scan.
@@ -360,7 +337,7 @@ Dynamic exclusion was set to 20s, the 10 most intense multiply charged ions ($z 
 The following mass spectrometric conditions were used: spray voltage, 1.9kV, no sheath or axillary gas flow; normalised HCD collision energy 30%; heated capillary temperature, 250°C.
 MS/MS ion selection threshold was set to $1\times 10^4$ count and 2Da isolation width was set.
 
-### iTraq OpenMS analysis {#openms-chap3}
+### iTRAQ OpenMS analysis {#openms-chap3}
 
 TripleTOF 5600 tandem mass spectrometer output files produced in the ABSciex proprietary `.wiff` file format were converted to an open file format, `.mzML` for analysis with OpenMS (version 2.6.0).
 The docker image of ProteoWizard version 3.0.20287 was used for conversion, and peak picking was applied on conversion [@chambers_cross-platform_2012].
@@ -400,13 +377,6 @@ The `-out_msstats` flag was also used to produce quantitative data for downstrea
 
 ### Network and pathway analysis {#pathway-analysis-chap3}
 
-<!-- Karinas note: for this section: Can you please review whether or not these methods reflect what has been included -->
-
-<!-- MH note: if we are including the string plots in the supplementary data then all of this is relevant. If we don't include it at all then the first paragraph can be deleted -->
-
-Protein interation networks were created using the Bioconductor package `STRINGdb` which provides an R interface to STRING version 11.[@szklarczyk_string_2019] Instantiation of the STRINGdb reference class was done with `species` and `score_threshold` set to `9606`, for *Homo sapiens* , and `400` respectively.
-Clustering of networks with `STRINGdb` used the "fastgreedy" algorithm from the `iGraph` package.
-
 The Bioconductor package ReactomePA, which employs the open-source, open access, manually curated and peer-reviewed pathway database Reactome was used for network analysis.[@yu_reactomepa_2016; @jassal_reactome_2020]
 
 ### Enzyme-linked immunosorbent assays
@@ -424,8 +394,6 @@ Protein concentrations were normalised to the sample dilution factor.
 Statistical analysis was performed using the statistical programming language `r R.version$version.string`.
 Pairwise t tests with bonferroni adjusted P-values with the R `rstatix` package were used to assess differential abundance.
 
-\clearpage
-
 # Results
 
 ## Results {#chap-3-results}
@@ -434,10 +402,6 @@ Plasma from American Spinal Injury Association (ASIA) grade C SCI patients (tota
 Relative protein abundance in AIS grade A (n=10) and grade D (n=11) patients was also examined.
 
 In the interest of brevity, only the plots of acute and subactue AIS C improvers VS non-improvers are included here, please see the supplemental data for the other comparisons (section \@ref(sup-data)).
-
-<!-- Karina: have you prepared the appendix? -->
-
-<!-- MH note: I've made the appendix, but the section references will need to be updated, Iv'e done the ones I've noticed, but a good double check will probably be needed -->
 
 <!-- Example appendix references: see section @ref(sup-string-plots) -->
 
