@@ -1,10 +1,6 @@
 ---
 title: "A comprehensive proteomic and bioinformatics analysis of human spinal cord injury plasma identifies proteins associated with the complement cascade and liver function as potential prognostic indicators of neurological outcome"
 output:
-  bookdown::word_document2:
-    toc: no
-    number_sections: yes
-    df_print: kable
   bookdown::pdf_document2:
     toc: no
     #number_sections: yes
@@ -15,6 +11,10 @@ output:
     #includes:
       #in_header: "extras/preamble.tex"
       #in_header: "extras/elife_template.tex" # not working as is, needs fixing
+  bookdown::word_document2:
+    toc: no
+    number_sections: yes
+    df_print: kable
 #documentclass: elife
 #classoption: 9pt,lineno
 authors:
@@ -67,7 +67,7 @@ keywords:
 #link-citations: yes
 #csl: extras/elife.csl
 # geometry: margin=2cm
-# always_allow_html: true
+always_allow_html: true
 date: "`r format(Sys.time())`"
 bibliography: extras/paper_and_pkgs.bib
 header-includes:
@@ -83,8 +83,8 @@ editor_options:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE) #sets these options for whole document
-#options(knitr.kable.NA = '') #sets NAs in tables to be blank
-#options(digits = 4) #sets rounding for the document
+options(knitr.kable.NA = '') #sets NAs in tables to be blank
+options(digits = 4) #sets rounding for the document
 
 # below fixes kable tables in word output
 # options(kableExtra.auto_format = FALSE)
@@ -181,12 +181,13 @@ This study has utilised proteomic and bioinformatics methodologies to investigat
 
 ## Methods and Materials
 
-Blood samples were taken, following informed consent, from ASIA impairment scale (AIS) grade C "Improvers" (AIS grade improvement) and "Non-Improvers" (No AIS change), and AIS grade A and D at \<2 weeks ("Acute") and approx. 3 months ("Sub-acute") post-injury.
+Blood samples were taken, following informed consent, from ASIA impairment scale (AIS) grade C "Improvers" (AIS grade improvement) and "Non-Improvers" (No AIS change), and AIS grade A and D at \<2 weeks ("Acute") and approx.
+3 months ("Sub-acute") post-injury.
 The total protein concentration from each sample was extracted, with pooled samples being labelled and non-pooled samples treated with ProteoMiner™ beads.
 Samples were then analysed using two 4-plex isobaric tag for relative and absolute quantification (iTRAQ) analyses and a label-free experiment for comparison, before quantifying with mass spectrometry.
 
 Proteomic datasets were analysed using OpenMS (version 2.6.0).
-R (version 4.1.4) and in particular, the R packages MSstats (version 4.0.1), STRINGdb (version 2.4.2) and pathview (version 1.32.0) were used for downstream analysis.
+R (version 4.1.4) and in particular, the R packages MSstats (version 4.0.1) and pathview (version 1.32.0) were used for downstream analysis.
 Proteins of interest identified from this analysis were further validated by enzyme-linked immunosorbent assay (ELISA).
 
 ## Results
@@ -312,7 +313,7 @@ The following tags were used for each group of patient samples 114 tag - acute i
 #### iTRAQ mass spectrometry analysis
 
 The samples were analysed at the BSRC St. Andrews University Mass Spectrometry and Proteomics Facility.
-A total of 12 SCX fractions were analysed by nano-electrospray ionisation-liquid chromatography/tandem mass spectrometry (LC-MS/MS) using a TripleTOF 5600 tandem mass spectrometer (AB Sciex, Framingham, MA, USA) as described previously.[@fuller_stathmin_2015]
+A total of 12 SCX fractions were analysed by nano-electrospray ionisation-liquid chromatography/tandem mass spectrometry (LC-MS/MS) using a TripleTOF 5600 tandem mass spectrometer (AB Sciex, Framingham, MA, USA) as described previously.[@fuller_stathmin_2015] 
 Each fraction ($10 \mu l$) was then analysed by nanoflow LC-ESI-MSMS, as described previously.
 
 <!-- which reference would this be? Also does anything else from this method need adding in as descriptive? -->
@@ -326,14 +327,12 @@ Parent (MS) ions were accepted with a mass tolerance of 50 mDa and MSMS was cond
 Analyzed parent ions were then excluded from analysis for 13 s after 3 occurrences.
 -->
 ```
-
 ### Sample preparation and analysis using label-free proteomics {#label-free-sample-prep}
 
 No sample pooling was used, and so each of the 73 samples were maintained separately throughout protein equalisation, mass spectrometry, and label-free quantification steps.
 Thus, protein abundance was quantified for each sample, whereupon mean protein abundance across experimental groups was calculated to assess protein changes.
 
-To reduce the dynamic range of proteins, ProteoMiner™ beads (BioRad, Hemel Hempstead, UK) were used.[@boschetti_proteominer_2008] 
-Total protein was quantitated with a Pierce™ $660 nm$ Protein Assay (Thermo Fisher Scientific, Hemel Hempstead, UK), whereupon 5 mg of total protein was applied to ProteoMiner™ beads, and processed as described previously.[@stoscheck_protein_1987; @peffers_comprehensive_2015]
+To reduce the dynamic range of proteins, ProteoMiner™ beads (BioRad, Hemel Hempstead, UK) were used.[@boschetti_proteominer_2008] Total protein was quantitated with a Pierce™ $660 nm$ Protein Assay (Thermo Fisher Scientific, Hemel Hempstead, UK), whereupon 5 mg of total protein was applied to ProteoMiner™ beads, and processed as described previously.[@stoscheck_protein_1987; @peffers_comprehensive_2015]
 
 #### Label free mass spectrometry analysis
 
@@ -577,17 +576,49 @@ updown %>%
 
 ### iTRAQ analyses
 
+```{r, label='load-fc-data-chap4'}
+## get foldchange data
+load("data/label_free_openms_foldchange_df.rda")
+## filter to significant proteins
+lf_sig <- foldchange_df %>%
+  dplyr::filter(pvalue <= 0.05) %>%
+  dplyr::select(Label, log2FC, gene_name)
+
+## there's a duplicate row, remove it
+lf_sig <- lf_sig %>% dplyr::filter(!(gene_name == "ITIH4" &
+  Label == "Acute C Improvers Vs Subacute D" &
+  log2FC < 2))
+
+names(lf_sig)[3] <- "Protein"
+## need to split up table for space
+lf_labels <- unique(lf_sig$Label)
+lf_sig1 <- lf_sig %>%
+  dplyr::filter(Label %in% lf_labels[1:(length(lf_labels)/2)])
+
+lf_sig2 <- lf_sig %>%
+  dplyr::filter(Label %in% lf_labels[(length(lf_labels)/2+1):length(lf_labels)])
+
+lf_sig_wide1 <- lf_sig1 %>%
+  pivot_wider(names_from = Label, values_from = log2FC) %>%
+  dplyr::arrange(Protein)
+
+lf_sig_wide2 <- lf_sig2 %>%
+  pivot_wider(names_from = Label, values_from = log2FC) %>%
+  dplyr::arrange(Protein)
+```
+
 ### Differential protein abundances
 
 AIS C improvers had 18 more abundant proteins and 49 less abundant proteins at the acute phase relative to non-improvers.
 Similarly, at the subacute phase, AIS C improvers had 34 more abundant proteins and 34 less abundant proteins relative to non-improvers.
 The AIS A group had 56 more abundant and 9 less abundant proteins respectively relative to non-improvers.
 Acutely, AIS C improvers relative to AIS A and D had 21 and 53 more abundant and 46 and 12 less abundant proteins.
-Please see the appendix for a full list of protein changes.
+
+Please see the Tables \@ref(tab:openms-fc-table), \@ref(tab:label-free-fc-table1) & \@ref(tab:label-free-fc-table2) for a full list of protein fold change changes.
 
 ### Heatmaps {#heatmaps-chap3}
 
-The majority of the pathways associated with the proteins identified by these iTRAQ experiments are related to the complement cascade and platelet activity (Figure \@ref(fig:openms-hmap-acute-c-1), \@ref(fig:openms-hmap-subacute-c-1), \@ref(fig:openms-hmap-acute-sacute-imp-c-1), \@ref(fig:openms-hmap-acute-sacute-nonimp-c-1), \@ref(fig:openms-hmap-acute-c-2), \@ref(fig:openms-hmap-acute-a-d-2), \@ref(fig:openms-hmap-acute-imp-c-d-2), \@ref(fig:openms-hmap-acute-imp-c-a-2), \@ref(fig:openms-hmap-acute-nonimp-c-a-2), \@ref(fig:openms-hmap-acute-nonimp-c-d-2)).
+The majority of the pathways associated with the proteins identified by these iTRAQ experiments are related to the complement cascade and platelet activity (Figure \@ref(fig:openms-hmap-acute-c-1), \@ref(fig:openms-hmap-subacute-c-1)).
 There are also several pathways implicated in metabolic processes, particularly with apolipoproteins and retinoids.
 
 ```{=tex}
@@ -622,9 +653,7 @@ heatmap_itraq <- heatmap
 \elandscape
 \clearpage
 ```
-Similarly to the iTRAQ data, many of the Reactome pathways are associated with the complement cascade and platelets activation (Figures \@ref(fig:openms-chap4-hmap-acute-c-1), \@ref(fig:openms-chap4-hmap-subacute-c-1), \@ref(fig:openms-chap4-hmap-acute-sacute-imp-c-1), \@ref(fig:openms-chap4-hmap-acute-sacute-nonimp-c-1), \@ref(fig:openms-chap4-hmap-acute-a-d-2), \@ref(fig:openms-chap4-hmap-acute-imp-c-d-2), \@ref(fig:openms-chap4-hmap-acute-imp-c-a-2), \@ref(fig:openms-chap4-hmap-acute-nonimp-c-a-2), \@ref(fig:openms-chap4-hmap-acute-nonimp-c-d-2)).
-
-Please see appendix section \@ref(sup-heatmaps) for additional plots.
+Similarly to the iTRAQ data, many of the Reactome pathways are associated with the complement cascade and platelets activation (Figures \@ref(fig:openms-chap4-hmap-acute-c-1), \@ref(fig:openms-chap4-hmap-subacute-c-1)).
 
 \blandscape
 
@@ -654,7 +683,7 @@ heatmap$subacute_c_imp_vs_subacute_c_nonimp +
 ```
 ### Network analysis of Differentially Abundant Proteins between AIS C improvers and non-improvers {#cnetplot-chap3}
 
-Similar to the heatmaps, network plots highlighted that the majority of proteins changes were associated with the complement cascade and pathways linked to platelet activity (Figure \@ref(fig:openms-cnetp-acute-c-1), \@ref(fig:openms-cnetp-subacute-c-1), \@ref(fig:openms-cnetp-acute-sacute-imp-c-1), \@ref(fig:openms-cnetp-acute-sacute-nonimp-c-1), \@ref(fig:openms-cnetp-acute-c-2), \@ref(fig:openms-cnetp-acute-a-d-2), \@ref(fig:openms-cnetp-acute-imp-c-d-2), \@ref(fig:openms-cnetp-acute-imp-c-a-2), \@ref(fig:openms-cnetp-acute-nonimp-c-a-2), \@ref(fig:openms-cnetp-acute-nonimp-c-d-2)).
+Similar to the heatmaps, network plots highlighted that the majority of proteins changes were associated with the complement cascade and pathways linked to platelet activity (Figure \@ref(fig:openms-cnetp-acute-c-1), \@ref(fig:openms-cnetp-subacute-c-1)).
 Several proteins were also associated with the regulation of insulin-like growth factor.
 
 \blandscape
@@ -679,9 +708,7 @@ cnetplot_itraq$subacute_c_improvers_vs_nonimprovers_run1
 
 \clearpage
 
-Similarly to the heatmaps and the iTRAQ data, network plots derived using the label-free data highlight the majority of differential proteins are associated with the complement cascade and pathways linked to platelets (Figures \@ref(fig:openms-chap4-cnetp-acute-c-1), \@ref(fig:openms-chap4-cnetp-subacute-c-1), \@ref(fig:openms-chap4-cnetp-acute-sacute-imp-c-1), \@ref(fig:openms-chap4-cnetp-acute-sacute-nonimp-c-1), \@ref(fig:openms-chap4-cnetp-acute-a-d-2), \@ref(fig:openms-chap4-cnetp-acute-imp-c-d-2), \@ref(fig:openms-chap4-cnetp-acute-imp-c-a-2), \@ref(fig:openms-chap4-cnetp-acute-nonimp-c-a-2), \@ref(fig:openms-chap4-cnetp-acute-nonimp-c-d-2)).
-
-Please see appendix section \@ref(sup-cnetplots) for additional plots.
+Similarly to the heatmaps and the iTRAQ data, network plots derived using the label-free data highlight the majority of differential proteins are associated with the complement cascade and pathways linked to platelets (Figures \@ref(fig:openms-chap4-cnetp-acute-c-1), \@ref(fig:openms-chap4-cnetp-subacute-c-1)).
 
 \blandscape
 
@@ -763,8 +790,7 @@ patchwork_plots +
   plot_annotation(tag_levels = 'A')
 ```
 
-```{r, label='load-fc-data-chap4'}
-load("data/label_free_openms_foldchange_df.rda")
+```{r, label='fc-data-chap4'}
 ## get all unique proteins for venn diagram
 label_free_proteins <- unique(foldchange_df$gene_name)
 groups <- unique(foldchange_df$abbrev_labels)
@@ -863,15 +889,13 @@ The pathway analysis specifically indicated that the acute phase response (APR) 
 The APR is the bodies first response to infection or injury, including SCI.
 This systemic response is largely coordinated by factors released from the liver, but the APRs effects extend to multiple peripheral organs including the kidneys, lungs and spleen.[@bao_systemic_2012; @campbell_liver_2008; @fleming_remote_2012; @gris_systemic_2008] 
 This hepatic response is typically transient and quickly fades, but prolonged liver inflammation and pathology has been observed in rodent SCI models.[@goodus_dietary_2018; @sauerbeck_spinal_2014] 
-Basic liver functions are chronically impaired by SCI, including metabolising carbohydrates, fats and proteins, storage of minerals vitamins and glycogen and filtering blood from the digestive tract.[@garcia-lopez_acute_2007; @deleve_hepatic_2007; @farkas_neurogenic_2018; @chow_pharmacology_2012; @sauerbeck_spinal_2014] 
+Basic liver functions are chronically impaired by SCI, including metabolising carbohydrates, fats and proteins, storage of minerals vitamins and glycogen and filtering blood from the digestive tract.[@garcia-lopez_acute_2007; @deleve_hepatic_2007; @farkas_neurogenic_2018; @chow_pharmacology_2012; @sauerbeck_spinal_2014]
 
 The acute (1-7 days) liver response to SCI is well documented; the inflammatory cytokines including TNF$\alpha$, IL-1$\alpha$, IL-1$\beta$ and IL-6, released at the injury site, reach the liver through the bloodstream.[@fleming_remote_2012; @hundt_assessment_2011] 
 This provokes the liver to enter the APR and produce acute phase proteins thus stimulating a greater immune response.[@anthony_systemic_2014; @fleming_remote_2012] 
-The hepatocytes that make up the majority of the liver biomass, express receptors that bind the aforementioned inflammatory cytokines; similarly the hepatic macrophage Kupffer cells also bind these cytokines, complement proteins and lipopolysaccharide (LPS) and swiftly remove microorganisms, endotoxins and other debris from the blood.[@yang_clec4f_2013; @szalai_complement-dependent_2000; @crispe_hepatocytes_2016; @campbell_central_2005]
+The hepatocytes that make up the majority of the liver biomass, express receptors that bind the aforementioned inflammatory cytokines; similarly the hepatic macrophage Kupffer cells also bind these cytokines, complement proteins and lipopolysaccharide (LPS) and swiftly remove microorganisms, endotoxins and other debris from the blood.[@yang_clec4f_2013; @szalai_complement-dependent_2000; @crispe_hepatocytes_2016; @campbell_central_2005] 
 Furthermore, it has been suggested that liver inflammation and Kupffer cells activity promote recruitment of leukocytes to the injury site in brain or spinal trauma, potentially enhancing CNS injury.[@anthony_systemic_2014; @campbell_central_2005] 
 For example, a rodent study demonstrated depletion of Kupffer cells prior to injury resulted in few neutrophils infiltrating the injury site.[@campbell_liver_2008; @campbell_hepatic_2008]
-
--   MH NOTE: PRX-2 was one of the most promising proteins from the label-free data. We didn't do any elisas for it, but I think we can argue that the label-free is more statistically robust due to the biological and technical replicates. We could argue that it may not have turned up in the iTRAQ as we didn't use the proteominer beads too I suppose
 
 Another protein that out label-free proteomic data highlights is Peroxiredoxin 2 (PRX-2), which was detected acutely in AIS C improvers and AIS D patients, and subacutely in AIS A and AIS D. Peroxiredoxins are a large and highly conserved family of enzymes that reduce peroxides.
 PRX-2 is highly abundant in RBCs and intracellularly serves as an important anti-oxidant role in various cells types, including neurons.[@low_peroxiredoxin_2008] 
@@ -882,7 +906,8 @@ Over-expression of PRX-2 is speculated to protect again ischaemic neuronal injur
 Several molecular chaperones can interact with ASK1, including thioredoxin and TNF receptor-associated factor 6.[@matsuzawa_ros-dependent_2005] 
 The dissociation of the thioredoxin-ASK1 complex activates ASK1.
 PRX-2 is oxidised after scavenging free radicals, whereupon its antioxidantive activity is reduced.
-This inactivation can be reversed by the thioredoxin-thioredoxin reductase system, whereby oxidised PRX-2 can regain its activity by reducing thioredoxin, leading to the dissociation of the thioredoxin-ASK1 complex.[@rhee_multiple_2011] Additionally, oxidised PRX-1 can inhibit ASK1-induced apoptosis via the thioredoxin-binding domain on ASK1.[@kim_novel_2008]
+This inactivation can be reversed by the thioredoxin-thioredoxin reductase system, whereby oxidised PRX-2 can regain its activity by reducing thioredoxin, leading to the dissociation of the thioredoxin-ASK1 complex.[@rhee_multiple_2011] 
+Additionally, oxidised PRX-1 can inhibit ASK1-induced apoptosis via the thioredoxin-binding domain on ASK1.[@kim_novel_2008]
 
 The presence of PRX-2 in acute AIS C improvers and absence in acute C non-improvers suggests the protein could indicate a more protective action against oxidative stress, and implies the protein has potential value as a biomarker of functional outcomes.
 Similarly, PRX-2 may be acting as a healthy response to trauma-induced oxidative stress in both acute AIS D, although the persistence to the subacute time-point is less clear.
@@ -894,9 +919,14 @@ The acute absence may be a result of an overwhelmed physiology unable to respond
 Pathway analysis from both the iTRAQ and label-free experiments identified the complement and coagulation cascades as a significant pathway of interest.
 More broadly, the trend in this data is for proteins in the complement pathway is lower abundance, or inhibitory proteins such as C4BP to be more abundant, in the acute improvers.
 C3 for instance, cleavage of which is vital for complement activation, was less abundant in acute AIS C improvers relative to non-improvers.
-This finding is in line with a genetic C3 knockout study in mice which reported better neurological scores 2 days post-injury, reduced residual consolidated neurological deficit at 21 days and display minor change in reduced gliosis (20% decrease at 1h timepoint) but a three-to-fourfold decrease in neutrophil infiltration, resulting in enhanced regeneration of axons.[@qiao_complement_2006] Another study using a similar C3 knockout model reported improved neurological scores at acute and long-term time points.[@guo_effects_2010]
+This finding is in line with a genetic C3 knockout study in mice which reported better neurological scores 2 days post-injury, reduced residual consolidated neurological deficit at 21 days and display minor change in reduced gliosis (20% decrease at 1h timepoint) but a three-to-fourfold decrease in neutrophil infiltration, resulting in enhanced regeneration of axons.[@qiao_complement_2006] 
+Another study using a similar C3 knockout model reported improved neurological scores at acute and long-term time points.[@guo_effects_2010] 
 These results imply that the complement cascade is a particularly important component of a differential response to neurological injury which ultimately leads to greater functional recovery.
 Given the complexity of the complement cascade and the limited time points in this study, further work is needed to elucidate which facets of the cascade are outcome modifying, and at which stages post-injury.
+
+AIS A and D samples were included largely to compare to the AIS C improvers.
+If the improvers were all just a less severe AIS C, we might expect them to be more similar to the AIS D samples, with the non-improvers being closer to the As.
+As this is not what we observed, we can conclude there is more to the differential functional recovery than initial injury severity.
 
 The small number of statistically significant proteins speaks to the variability of human plasma samples, and is likely exacerbated by the inconstant timing of sample collection relative to injury.
 Thus, a repeat of this experiment with a larger sample size will likely reveal many more proteins of potential interest.
@@ -904,6 +934,7 @@ Regardless, this study has highlighted RPB4 and PRX-2 as potential biomarkers of
 We have also highlighted the complement cascade as being a particularly important pathway in differential recovery.
 Additional investigation of these proteins, but also the complement cascade more broadly, particularly at more acute time points, would also be valuable.
 Furthermore, a metabolomic analysis with a similar samples would greatly compliment this work, particularly with regards to investigating further links to the livers role in neurological recovery.
+Similarly, this additional work could complement the AIS A and D sample data, which may reveal further insights from this data.
 
 \newpage
 
@@ -912,6 +943,7 @@ Furthermore, a metabolomic analysis with a similar samples would greatly complim
 ```{=tex}
 \beginsupplement
 ```
+
 ## Session Information
 
 ```{r session-info, echo=FALSE}
@@ -937,7 +969,7 @@ package_versions = function(packages=NULL, base=TRUE, sort=FALSE) {
     }
 }
 package_table = package_versions()
-knitr::kable(package_table, longtable = TRUE, booktabs = TRUE, caption = "Packages Used")
+kbl(package_table, longtable = TRUE, booktabs = TRUE, caption = "Packages Used")
 ```
 
 \clearpage
@@ -945,14 +977,8 @@ knitr::kable(package_table, longtable = TRUE, booktabs = TRUE, caption = "Packag
 ## Fold changes {#sup-foldchanges}
 
 ```{r, label='openms-fc-table'}
-## add "\n" for column line breaks
-## names(fc_openms_wide) <- unlist(map(names(fc_openms_wide), ~
-##                                                                paste(c(substr(.x, 1, 14),
-##                                                                        substr(.x, 15,nchar(.x))),
-##                                                                      collapse="\n")))
-## names(fc_openms_wide)[1] <- "gene"
-knitr::kable(fc_openms_wide, "latex", longtable = T, booktabs = T,
-             caption = "OpenMS log$_2$ fold changes in the plasma proteome of SCI patients. 'Acute' and 'Subacute' samples collected within 2 week and approximately 3-months post-injury repectively.") %>%
+kbl(fc_openms_wide, "latex", longtable = T, booktabs = T, escape = F,
+             caption = "OpenMS log$_2$ fold changes in the plasma proteome of SCI patients from iTRAQ experiments. 'Acute' and 'Subacute' samples collected within 2 week and approximately 3-months post-injury respectively.") %>%
     kable_styling(latex_options =c("repeat_header"), font_size = 5) %>%
     column_spec(2:ncol(fc_openms_wide), width = "1.6cm") %>%
     column_spec(1, width = "0.5cm") %>%
@@ -960,21 +986,26 @@ knitr::kable(fc_openms_wide, "latex", longtable = T, booktabs = T,
     landscape()
 ```
 
-```{r, label='proteinpilot-fc-table'}
-## print table
+```{r, label='label-free-fc-table1'}
+kbl(lf_sig_wide1, "latex",
+  longtable = T, booktabs = T, escape = F,
+  caption = "OpenMS log$_2$ fold changes in the plasma proteome of SCI patients from label-free experiments. 'Acute' and 'Subacute' samples collected within 2 week and approximately 3-months post-injury respectively."
+) %>%
+  kable_styling(latex_options = c("repeat_header"), font_size = 5) %>%
+  column_spec(2:ncol(lf_sig_wide1), width = "1.6cm") %>%
+  column_spec(1, width = "0.5cm") %>%
+  landscape()
+```
 
-kbl(pp_fc_filtered, "latex", longtable = T, booktabs = T,
-    caption = "ProteinPilot fold changes in the plasma proteome of SCI patients. 'Acute' and 'Subacute' samples collected within 2 week and approximately 3-months post-injury repectively.") %>%
-    kable_styling(latex_options =c("repeat_header"), font_size = 6) %>%
-    column_spec(2:ncol(fc_openms_wide), width = "1.6cm") %>%
-    column_spec(1, width = "0.5cm") %>%
-    landscape() #%>%
-    ## column_spec(2:4, width = "4cm") # adding this messes up the scaling and the table is off the page
-## kbl(pp_fc_filtered, "latex", longtable = FALSE, booktabs = TRUE,
-##     caption = "ProteinPilot fold changes in the plasma proteome of SCI patients. 'Acute' and 'Subacute' samples collected within 2 week and approximately 3-months post-injury repectively.") %>%
-##     kable_styling(latex_options =c("scale_down")) %>%
-##     landscape() #%>%
-    ## column_spec(2:4, width = "4cm") # adding this messes up the scaling and the table is off the page
+```{r, label='label-free-fc-table2'}
+kbl(lf_sig_wide2, "latex",
+  longtable = T, booktabs = T, escape = F,
+  caption = "OpenMS log$_2$ fold changes in the plasma proteome of SCI patients from label-free experiments. 'Acute' and 'Subacute' samples collected within 2 week and approximately 3-months post-injury respectively."
+) %>%
+  kable_styling(latex_options = c("repeat_header"), font_size = 5) %>%
+  column_spec(2:ncol(lf_sig_wide2), width = "1.6cm") %>%
+  column_spec(1, width = "0.5cm") %>%
+  landscape()
 ```
 
 # References
