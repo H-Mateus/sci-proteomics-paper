@@ -25,6 +25,7 @@ the_uniprot_consortium_uniprot_2021
 hulstaert_thermorawfileparser_2020
 eng_comet_2013
 choi_msstats_2014
+szklarczyk_string_2019
 yu_reactomepa_2016
 jassal_reactome_2020
 peterson_studies_1971
@@ -40,7 +41,7 @@ bao_systemic_2012
 campbell_liver_2008
 fleming_remote_2012
 goodus_dietary_2018
-sauerbeck_spinal_2015
+sauerbeck_spinal_2014
 garcia-lopez_acute_2007
 deleve_hepatic_2007
 farkas_neurogenic_2018

@@ -108,7 +108,7 @@
 
 \title{A comprehensive proteomic and bioinformatics analysis of human spinal cord injury plasma identifies proteins associated with the complement cascade and liver function as potential prognostic indicators of neurological outcome}
 \author{}
-\date{2022-06-23 09:54:41}
+\date{2022-06-27 14:43:20}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% ELIFE ARTICLE TEMPLATE again
@@ -167,12 +167,13 @@ This study has utilised proteomic and bioinformatics methodologies to investigat
 \hypertarget{methods-and-materials}{%
 \subsection{Methods and Materials}\label{methods-and-materials}}
 
-Blood samples were taken, following informed consent, from ASIA impairment scale (AIS) grade C ``Improvers'' (AIS grade improvement) and ``Non-Improvers'' (No AIS change), and AIS grade A and D at \textless2 weeks (``Acute'') and approx. 3 months (``Sub-acute'') post-injury.
+Blood samples were taken, following informed consent, from ASIA impairment scale (AIS) grade C ``Improvers'' (AIS grade improvement) and ``Non-Improvers'' (No AIS change), and AIS grade A and D at \textless2 weeks (``Acute'') and approx.
+3 months (``Sub-acute'') post-injury.
 The total protein concentration from each sample was extracted, with pooled samples being labelled and non-pooled samples treated with ProteoMiner™ beads.
 Samples were then analysed using two 4-plex isobaric tag for relative and absolute quantification (iTRAQ) analyses and a label-free experiment for comparison, before quantifying with mass spectrometry.
 
 Proteomic datasets were analysed using OpenMS (version 2.6.0).
-R (version 4.1.4) and in particular, the R packages MSstats (version 4.0.1), STRINGdb (version 2.4.2) and pathview (version 1.32.0) were used for downstream analysis.
+R (version 4.1.4) and in particular, the R packages MSstats (version 4.0.1) and pathview (version 1.32.0) were used for downstream analysis.
 Proteins of interest identified from this analysis were further validated by enzyme-linked immunosorbent assay (ELISA).
 
 \hypertarget{results}{%
@@ -287,8 +288,7 @@ The following tags were used for each group of patient samples 114 tag - acute i
 \paragraph{iTRAQ mass spectrometry analysis}\label{itraq-mass-spectrometry-analysis}}
 
 The samples were analysed at the BSRC St.~Andrews University Mass Spectrometry and Proteomics Facility.
-A total of 12 SCX fractions were analysed by nano-electrospray ionisation-liquid chromatography/tandem mass spectrometry (LC-MS/MS) using a TripleTOF 5600 tandem mass spectrometer (AB Sciex, Framingham, MA, USA) as described previously.(Fuller et al. 2015)
-Each fraction (\(10 \mu l\)) was then analysed by nanoflow LC-ESI-MSMS, as described previously.
+A total of 12 SCX fractions were analysed by nano-electrospray ionisation-liquid chromatography/tandem mass spectrometry (LC-MS/MS) using a TripleTOF 5600 tandem mass spectrometer (AB Sciex, Framingham, MA, USA) as described previously.(Fuller et al. 2015) Each fraction (\(10 \mu l\)) was then analysed by nanoflow LC-ESI-MSMS, as described previously.
 
 \hypertarget{label-free-sample-prep}{%
 \subsubsection{Sample preparation and analysis using label-free proteomics}\label{label-free-sample-prep}}
@@ -296,8 +296,7 @@ Each fraction (\(10 \mu l\)) was then analysed by nanoflow LC-ESI-MSMS, as descr
 No sample pooling was used, and so each of the 73 samples were maintained separately throughout protein equalisation, mass spectrometry, and label-free quantification steps.
 Thus, protein abundance was quantified for each sample, whereupon mean protein abundance across experimental groups was calculated to assess protein changes.
 
-To reduce the dynamic range of proteins, ProteoMiner™ beads (BioRad, Hemel Hempstead, UK) were used.(Boschetti and Righetti 2008)
-Total protein was quantitated with a Pierce™ \(660 nm\) Protein Assay (Thermo Fisher Scientific, Hemel Hempstead, UK), whereupon 5 mg of total protein was applied to ProteoMiner™ beads, and processed as described previously.(Stoscheck 1987; Peffers et al. 2015)
+To reduce the dynamic range of proteins, ProteoMiner™ beads (BioRad, Hemel Hempstead, UK) were used.(Boschetti and Righetti 2008) Total protein was quantitated with a Pierce™ \(660 nm\) Protein Assay (Thermo Fisher Scientific, Hemel Hempstead, UK), whereupon 5 mg of total protein was applied to ProteoMiner™ beads, and processed as described previously.(Stoscheck 1987; Peffers et al. 2015)
 
 \hypertarget{label-free-mass-spectrometry-analysis}{%
 \paragraph{Label free mass spectrometry analysis}\label{label-free-mass-spectrometry-analysis}}
@@ -374,25 +373,14 @@ Pairwise t tests with bonferroni adjusted P-values with the R \texttt{rstatix} p
 \hypertarget{results-1}{%
 \section{Results}\label{results-1}}
 
-\hypertarget{chap-3-results}{%
-\subsection{Results}\label{chap-3-results}}
-
 Plasma from American Spinal Injury Association (ASIA) grade C SCI patients (total n=17) contrasting those who experienced an AISA grade conversion (n=10), and those who did not (n=7) collected within 2 weeks, and at approximately 3 months post-injury (Improvers n=9 vs Non-improvers n=6).
 Relative protein abundance in AIS grade A (n=10) and grade D (n=11) patients was also examined.
 
 In the interest of brevity, only the plots of acute and subactue AIS C improvers VS non-improvers are included here, please see the supplemental data for the other comparisons (section \ref{sup-data}).
 
-\hypertarget{comparing-openms-and-proteinpilot}{%
-\subsubsection{Comparing OpenMS and ProteinPilot}\label{comparing-openms-and-proteinpilot}}
-
-The AIS A group had 56 and 26 more abundant and 9 and 6 less abundant proteins respectively.
-Acutely, AIS C improvers relative to AIS A and D had 21 and 53 more abundant and 46 and 12 less abundant for OpenMS, whereas ProteinPilot had 5 and 19 more abundant proteins, and 18 and 6 less abundant.
 
 
 
-
-
-\clearpage
 
 \hypertarget{itraq-analyses}{%
 \subsubsection{iTRAQ analyses}\label{itraq-analyses}}
@@ -404,12 +392,13 @@ AIS C improvers had 18 more abundant proteins and 49 less abundant proteins at t
 Similarly, at the subacute phase, AIS C improvers had 34 more abundant proteins and 34 less abundant proteins relative to non-improvers.
 The AIS A group had 56 more abundant and 9 less abundant proteins respectively relative to non-improvers.
 Acutely, AIS C improvers relative to AIS A and D had 21 and 53 more abundant and 46 and 12 less abundant proteins.
-Please see the appendix for a full list of protein changes.
+
+Please see the Tables \ref{tab:openms-fc-table}, \ref{tab:label-free-fc-table1} \& \ref{tab:label-free-fc-table2} for a full list of protein fold change changes.
 
 \hypertarget{heatmaps-chap3}{%
 \subsubsection{Heatmaps}\label{heatmaps-chap3}}
 
-The majority of the pathways associated with the proteins identified by these iTRAQ experiments are related to the complement cascade and platelet activity (Figure \ref{fig:openms-hmap-acute-c-1}, \ref{fig:openms-hmap-subacute-c-1}, \ref{fig:openms-hmap-acute-sacute-imp-c-1}, \ref{fig:openms-hmap-acute-sacute-nonimp-c-1}, \ref{fig:openms-hmap-acute-c-2}, \ref{fig:openms-hmap-acute-a-d-2}, \ref{fig:openms-hmap-acute-imp-c-d-2}, \ref{fig:openms-hmap-acute-imp-c-a-2}, \ref{fig:openms-hmap-acute-nonimp-c-a-2}, \ref{fig:openms-hmap-acute-nonimp-c-d-2}).
+The majority of the pathways associated with the proteins identified by these iTRAQ experiments are related to the complement cascade and platelet activity (Figure \ref{fig:openms-hmap-acute-c-1}, \ref{fig:openms-hmap-subacute-c-1}).
 There are also several pathways implicated in metabolic processes, particularly with apolipoproteins and retinoids.
 
 \clearpage
@@ -443,9 +432,7 @@ There are also several pathways implicated in metabolic processes, particularly 
 \elandscape
 \clearpage
 
-Similarly to the iTRAQ data, many of the Reactome pathways are associated with the complement cascade and platelets activation (Figures \ref{fig:openms-chap4-hmap-acute-c-1}, \ref{fig:openms-chap4-hmap-subacute-c-1}, \ref{fig:openms-chap4-hmap-acute-sacute-imp-c-1}, \ref{fig:openms-chap4-hmap-acute-sacute-nonimp-c-1}, \ref{fig:openms-chap4-hmap-acute-a-d-2}, \ref{fig:openms-chap4-hmap-acute-imp-c-d-2}, \ref{fig:openms-chap4-hmap-acute-imp-c-a-2}, \ref{fig:openms-chap4-hmap-acute-nonimp-c-a-2}, \ref{fig:openms-chap4-hmap-acute-nonimp-c-d-2}).
-
-Please see appendix section \ref{sup-heatmaps} for additional plots.
+Similarly to the iTRAQ data, many of the Reactome pathways are associated with the complement cascade and platelets activation (Figures \ref{fig:openms-chap4-hmap-acute-c-1}, \ref{fig:openms-chap4-hmap-subacute-c-1}).
 
 \begin{landscape}
 
@@ -480,7 +467,7 @@ Please see appendix section \ref{sup-heatmaps} for additional plots.
 \hypertarget{cnetplot-chap3}{%
 \subsubsection{Network analysis of Differentially Abundant Proteins between AIS C improvers and non-improvers}\label{cnetplot-chap3}}
 
-Similar to the heatmaps, network plots highlighted that the majority of proteins changes were associated with the complement cascade and pathways linked to platelet activity (Figure \ref{fig:openms-cnetp-acute-c-1}, \ref{fig:openms-cnetp-subacute-c-1}, \ref{fig:openms-cnetp-acute-sacute-imp-c-1}, \ref{fig:openms-cnetp-acute-sacute-nonimp-c-1}, \ref{fig:openms-cnetp-acute-c-2}, \ref{fig:openms-cnetp-acute-a-d-2}, \ref{fig:openms-cnetp-acute-imp-c-d-2}, \ref{fig:openms-cnetp-acute-imp-c-a-2}, \ref{fig:openms-cnetp-acute-nonimp-c-a-2}, \ref{fig:openms-cnetp-acute-nonimp-c-d-2}).
+Similar to the heatmaps, network plots highlighted that the majority of proteins changes were associated with the complement cascade and pathways linked to platelet activity (Figure \ref{fig:openms-cnetp-acute-c-1}, \ref{fig:openms-cnetp-subacute-c-1}).
 Several proteins were also associated with the regulation of insulin-like growth factor.
 
 \begin{landscape}
@@ -514,9 +501,7 @@ Several proteins were also associated with the regulation of insulin-like growth
 
 \clearpage
 
-Similarly to the heatmaps and the iTRAQ data, network plots derived using the label-free data highlight the majority of differential proteins are associated with the complement cascade and pathways linked to platelets (Figures \ref{fig:openms-chap4-cnetp-acute-c-1}, \ref{fig:openms-chap4-cnetp-subacute-c-1}, \ref{fig:openms-chap4-cnetp-acute-sacute-imp-c-1}, \ref{fig:openms-chap4-cnetp-acute-sacute-nonimp-c-1}, \ref{fig:openms-chap4-cnetp-acute-a-d-2}, \ref{fig:openms-chap4-cnetp-acute-imp-c-d-2}, \ref{fig:openms-chap4-cnetp-acute-imp-c-a-2}, \ref{fig:openms-chap4-cnetp-acute-nonimp-c-a-2}, \ref{fig:openms-chap4-cnetp-acute-nonimp-c-d-2}).
-
-Please see appendix section \ref{sup-cnetplots} for additional plots.
+Similarly to the heatmaps and the iTRAQ data, network plots derived using the label-free data highlight the majority of differential proteins are associated with the complement cascade and pathways linked to platelets (Figures \ref{fig:openms-chap4-cnetp-acute-c-1}, \ref{fig:openms-chap4-cnetp-subacute-c-1}).
 
 \begin{landscape}
 
@@ -596,20 +581,6 @@ A statistically significant difference was also found between AIS C improvers an
 \caption{\label{fig:patchwork-2}Normalised estimated concentration of \(\alpha\)-2-macroglobulin (A), serum amyloid A1 (B), apolipoprotein A1 (C) and retinol binding protein 4 (D). Estimates were calculated from the optical density of a standard curve produced via a DuoSet® ELISA. Plasma from each patient that made up the pooled iTRAQ samples was assayed and pairwise t-tests with bonferroni adjusted P-values were performed to assess differential abundance.}
 \end{figure}
 
-\hypertarget{stringdb-plots}{%
-\subsubsection{STRINGdb plots}\label{stringdb-plots}}
-
-Network interaction plots generated from the OpenMS processed data via \texttt{STRINGdb} revealed that all test groups contained similar proteins, albeit with different abundances, with no distinct group-specific networks observed (Figures \ref{fig:openms-stringdb-acute-c-imp-vs-non}, \ref{fig:openms-stringdb-sub-cs}, \ref{fig:openms-stringdb-acute-sub-c-imp}, \ref{fig:openms-stringdb-acute-sub-c-nonimp}, \ref{fig:openms-stringdb-a-vs-d}, \ref{fig:openms-stringdb-c-vs-d}, \ref{fig:openms-stringdb-c-vs-a}, \ref{fig:openms-stringdb-c-nonimp-vs-a} and \ref{fig:openms-stringdb-c-nonimp-vs-d}).
-
-Network interaction plots generated of the significant proteins via \texttt{STRINGdb} revealed that all groups contained similarly smaller networks, with many proteins with no know interactions in the STRING database (Figures \ref{fig:openms-stringdb-chap4-acute-c-imp-vs-nonimp}, \ref{fig:openms-stringdb-chap4-sub-cs}, \ref{fig:openms-stringdb-chap4-acute-sub-c-imp}, \ref{fig:openms-stringdb-chap4-acute-sub-c-nonimp}, \ref{fig:openms-stringdb-chap4-a-vs-d}, \ref{fig:openms-stringdb-chap4-c-vs-d}, \ref{fig:openms-stringdb-chap4-c-vs-a}, \ref{fig:openms-stringdb-chap4-c-nonimp-vs-a}, \ref{fig:openms-stringdb-chap4-c-nonimp-vs-d}).
-
-\hypertarget{volcano-plots}{%
-\subsubsection{Volcano plots}\label{volcano-plots}}
-
-The mean number of down-regulated and up-regulated significant proteins in each group is 10.6, and 6.8.
-Between AIS C improvers and non-improvers, 8 and 4 proteins were up- and down-regulated acutely, whereas 6 and 6 were up- and down-regulated subacutely (Figures \ref{fig:volc-plot-c-imp-vs-nonimp} and \ref{fig:volc-plot-subacute-c-imp-vs-nonimp}).
-Longitudinally, AIS C acute improvers had 10 up-regulated and 7 down-regulated proteins relative to subacute improvers, while for non-improvers 6 and 12 were up- and down-regulated respectively (Figures \ref{fig:volc-plot-acute-c-imp-vs-subacute-imp} and \ref{fig:volc-plot-acute-c-nonimp-vs-subacute-nonimp}).
-
 \hypertarget{comparing-itraq-and-label-free-proteins}{%
 \subsubsection{Comparing iTRAQ and label-free proteins}\label{comparing-itraq-and-label-free-proteins}}
 
@@ -631,45 +602,21 @@ This study has highlighted a number of proteins that may be able to discriminate
 The most promising of these is Retinol Binding Protein 4 (RBP4) which was demonstrated to be increased in non-improvers compared to improvers in the acute phase.
 Further this change could be confirmed using ELISA, which may provide a more clinically useful means of assessment on a wide scale.
 
-RBP4 is synthesised in the liver and binds retinol that is released following vitamin A deficiency.(Peterson 1971)
-Once delivered to target cells, retinol can either be converted to retinaldehyde, which is required for functional vision, or oxidised to retinoic acid, which is a ligand for nuclear receptors, thus regulating gene expression.(Lane and Bailey 2005; Balmer and Blomhoff 2002)
-The role of retinoid signalling in spinal cord and motor neuron differentiation, including development of regions of the spinal cord has been outlined, and implies a possible involvement in maintaining motor neuron integrity.(Colbert et al. 1995; Sockanathan and Jessell 1998)
-The mRNA of a rodent homologue of RBP was found to be up-regulated at 24 hours post-SCI and may promote cell proliferation and regeneration by increasing retinoid metabolism.(Song et al. 2001; Hurst et al. 1999)
+RBP4 is synthesised in the liver and binds retinol that is released following vitamin A deficiency.(Peterson 1971) Once delivered to target cells, retinol can either be converted to retinaldehyde, which is required for functional vision, or oxidised to retinoic acid, which is a ligand for nuclear receptors, thus regulating gene expression.(Lane and Bailey 2005; Balmer and Blomhoff 2002) The role of retinoid signalling in spinal cord and motor neuron differentiation, including development of regions of the spinal cord has been outlined, and implies a possible involvement in maintaining motor neuron integrity.(Colbert et al. 1995; Sockanathan and Jessell 1998) The mRNA of a rodent homologue of RBP was found to be up-regulated at 24 hours post-SCI and may promote cell proliferation and regeneration by increasing retinoid metabolism.(Song et al. 2001; Hurst et al. 1999)
 
-Another study of amyotrophic lateral sclerosis (ALS), a neurodegenerative disease, comparing gene expression between post-mortem spinal cord samples of ALS and controls similarly observed up-regulation of RBP1 in ALS spinal cord.(Malaspina, Kaushik, and Belleroche 2001)
-Furthermore, a transgenic mouse study reported retinoid signalling may contribute to the retained plasticity and regenerative potential of the mature spinal cord.(Haskell et al. 2002)
-Collectively, these results might support a hypothesis that AIS C improvers have increased levels of RBP4 and this relates to improved capacity for neuronal regeneration/plasticity.
+Another study of amyotrophic lateral sclerosis (ALS), a neurodegenerative disease, comparing gene expression between post-mortem spinal cord samples of ALS and controls similarly observed up-regulation of RBP1 in ALS spinal cord.(Malaspina, Kaushik, and Belleroche 2001) Furthermore, a transgenic mouse study reported retinoid signalling may contribute to the retained plasticity and regenerative potential of the mature spinal cord.(Haskell et al. 2002) Collectively, these results might support a hypothesis that AIS C improvers have increased levels of RBP4 and this relates to improved capacity for neuronal regeneration/plasticity.
 Whether this is due to increased expression or due to higher vitamin A dietary intake is unclear from this data.
 
 Alongside RBP4, a number of other protein abundance differences across the different biological comparisons were identified in proteins associated with liver function.
-Our previous work investigating the potential of routinely measured haematological analytes for predicting neurological outcome in SCI patients also highlighted several proteins that were linked with liver function; thus providing further support to the theory that liver status is relevant to differential functional recover.(Brown et al. 2019; Bernardo Harrington et al. 2020)
-The pathway analysis specifically indicated that the acute phase response (APR) is implicated.
+Our previous work investigating the potential of routinely measured haematological analytes for predicting neurological outcome in SCI patients also highlighted several proteins that were linked with liver function; thus providing further support to the theory that liver status is relevant to differential functional recover.(Brown et al. 2019; Bernardo Harrington et al. 2020) The pathway analysis specifically indicated that the acute phase response (APR) is implicated.
 
 The APR is the bodies first response to infection or injury, including SCI.
-This systemic response is largely coordinated by factors released from the liver, but the APRs effects extend to multiple peripheral organs including the kidneys, lungs and spleen.(Bao et al. 2012; Campbell, Zahid, et al. 2008; Fleming et al. 2012; Gris, Hamilton, and Weaver 2008)
-This hepatic response is typically transient and quickly fades, but prolonged liver inflammation and pathology has been observed in rodent SCI models.(Goodus et al. 2018; \textbf{sauerbeck\_spinal\_2015?})
-Basic liver functions are chronically impaired by SCI, including metabolising carbohydrates, fats and proteins, storage of minerals vitamins and glycogen and filtering blood from the digestive tract.(García-López et al. 2007; DeLeve 2007; Farkas and Gater 2018; Chow et al. 2012; \textbf{sauerbeck\_spinal\_2015?})
+This systemic response is largely coordinated by factors released from the liver, but the APRs effects extend to multiple peripheral organs including the kidneys, lungs and spleen.(Bao et al. 2012; Campbell, Zahid, et al. 2008; Fleming et al. 2012; Gris, Hamilton, and Weaver 2008) This hepatic response is typically transient and quickly fades, but prolonged liver inflammation and pathology has been observed in rodent SCI models.(Goodus et al. 2018; Sauerbeck et al. 2014) Basic liver functions are chronically impaired by SCI, including metabolising carbohydrates, fats and proteins, storage of minerals vitamins and glycogen and filtering blood from the digestive tract.(García-López et al. 2007; DeLeve 2007; Farkas and Gater 2018; Chow et al. 2012; Sauerbeck et al. 2014)
 
-The acute (1-7 days) liver response to SCI is well documented; the inflammatory cytokines including TNF\(\alpha\), IL-1\(\alpha\), IL-1\(\beta\) and IL-6, released at the injury site, reach the liver through the bloodstream.(Fleming et al. 2012; Hundt et al. 2011)
-This provokes the liver to enter the APR and produce acute phase proteins thus stimulating a greater immune response.(Anthony and Couch 2014; Fleming et al. 2012)
-The hepatocytes that make up the majority of the liver biomass, express receptors that bind the aforementioned inflammatory cytokines; similarly the hepatic macrophage Kupffer cells also bind these cytokines, complement proteins and lipopolysaccharide (LPS) and swiftly remove microorganisms, endotoxins and other debris from the blood.(Yang et al. 2013; Szalai et al. 2000; Crispe 2016; Campbell et al. 2005)
-Furthermore, it has been suggested that liver inflammation and Kupffer cells activity promote recruitment of leukocytes to the injury site in brain or spinal trauma, potentially enhancing CNS injury.(Anthony and Couch 2014; Campbell et al. 2005)
-For example, a rodent study demonstrated depletion of Kupffer cells prior to injury resulted in few neutrophils infiltrating the injury site.(Campbell, Zahid, et al. 2008; Campbell, Anthony, et al. 2008)
-
-\begin{itemize}
-\tightlist
-\item
-  MH NOTE: PRX-2 was one of the most promising proteins from the label-free data. We didn't do any elisas for it, but I think we can argue that the label-free is more statistically robust due to the biological and technical replicates. We could argue that it may not have turned up in the iTRAQ as we didn't use the proteominer beads too I suppose
-\end{itemize}
+The acute (1-7 days) liver response to SCI is well documented; the inflammatory cytokines including TNF\(\alpha\), IL-1\(\alpha\), IL-1\(\beta\) and IL-6, released at the injury site, reach the liver through the bloodstream.(Fleming et al. 2012; Hundt et al. 2011) This provokes the liver to enter the APR and produce acute phase proteins thus stimulating a greater immune response.(Anthony and Couch 2014; Fleming et al. 2012) The hepatocytes that make up the majority of the liver biomass, express receptors that bind the aforementioned inflammatory cytokines; similarly the hepatic macrophage Kupffer cells also bind these cytokines, complement proteins and lipopolysaccharide (LPS) and swiftly remove microorganisms, endotoxins and other debris from the blood.(Yang et al. 2013; Szalai et al. 2000; Crispe 2016; Campbell et al. 2005) Furthermore, it has been suggested that liver inflammation and Kupffer cells activity promote recruitment of leukocytes to the injury site in brain or spinal trauma, potentially enhancing CNS injury.(Anthony and Couch 2014; Campbell et al. 2005) For example, a rodent study demonstrated depletion of Kupffer cells prior to injury resulted in few neutrophils infiltrating the injury site.(Campbell, Zahid, et al. 2008; Campbell, Anthony, et al. 2008)
 
 Another protein that out label-free proteomic data highlights is Peroxiredoxin 2 (PRX-2), which was detected acutely in AIS C improvers and AIS D patients, and subacutely in AIS A and AIS D. Peroxiredoxins are a large and highly conserved family of enzymes that reduce peroxides.
-PRX-2 is highly abundant in RBCs and intracellularly serves as an important anti-oxidant role in various cells types, including neurons.(Low, Hampton, and Winterbourn 2008)
-By contrast, extracellular PRX-2 has been suggested to act as an inflammatory DAMP, leading microglia and macrophages to release a plethora of pro-inflammatory factors.(Salzano et al. 2014; Garcia-Bonilla and Iadecola 2012; Shichita et al. 2012)
-An \emph{in vitro} primary neurons and microglia co-culture study reported PRX-2 activating microglia via TLR-4, potentially leading to neuronal apoptosis.(Lu et al. 2018)
-A murine study found over-expression of PRX-2 attenuated oxidative stress and neuronal apoptosis following subarachnoid haemorrhage.(Lu et al. 2019)
-Over-expression of PRX-2 is speculated to protect again ischaemic neuronal injury by modulating the redox-sensitive thioredoxin-apoptosis signal-regulating kinase (ASK) 1 signalling complex.(Gan et al. 2012)
-Several molecular chaperones can interact with ASK1, including thioredoxin and TNF receptor-associated factor 6.(Matsuzawa et al. 2005)
-The dissociation of the thioredoxin-ASK1 complex activates ASK1.
+PRX-2 is highly abundant in RBCs and intracellularly serves as an important anti-oxidant role in various cells types, including neurons.(Low, Hampton, and Winterbourn 2008) By contrast, extracellular PRX-2 has been suggested to act as an inflammatory DAMP, leading microglia and macrophages to release a plethora of pro-inflammatory factors.(Salzano et al. 2014; Garcia-Bonilla and Iadecola 2012; Shichita et al. 2012) An \emph{in vitro} primary neurons and microglia co-culture study reported PRX-2 activating microglia via TLR-4, potentially leading to neuronal apoptosis.(Lu et al. 2018) A murine study found over-expression of PRX-2 attenuated oxidative stress and neuronal apoptosis following subarachnoid haemorrhage.(Lu et al. 2019) Over-expression of PRX-2 is speculated to protect again ischaemic neuronal injury by modulating the redox-sensitive thioredoxin-apoptosis signal-regulating kinase (ASK) 1 signalling complex.(Gan et al. 2012) Several molecular chaperones can interact with ASK1, including thioredoxin and TNF receptor-associated factor 6.(Matsuzawa et al. 2005) The dissociation of the thioredoxin-ASK1 complex activates ASK1.
 PRX-2 is oxidised after scavenging free radicals, whereupon its antioxidantive activity is reduced.
 This inactivation can be reversed by the thioredoxin-thioredoxin reductase system, whereby oxidised PRX-2 can regain its activity by reducing thioredoxin, leading to the dissociation of the thioredoxin-ASK1 complex.(Rhee and Woo 2011) Additionally, oxidised PRX-1 can inhibit ASK1-induced apoptosis via the thioredoxin-binding domain on ASK1.(Kim, Kim, and Lee 2008)
 
@@ -683,9 +630,12 @@ The acute absence may be a result of an overwhelmed physiology unable to respond
 Pathway analysis from both the iTRAQ and label-free experiments identified the complement and coagulation cascades as a significant pathway of interest.
 More broadly, the trend in this data is for proteins in the complement pathway is lower abundance, or inhibitory proteins such as C4BP to be more abundant, in the acute improvers.
 C3 for instance, cleavage of which is vital for complement activation, was less abundant in acute AIS C improvers relative to non-improvers.
-This finding is in line with a genetic C3 knockout study in mice which reported better neurological scores 2 days post-injury, reduced residual consolidated neurological deficit at 21 days and display minor change in reduced gliosis (20\% decrease at 1h timepoint) but a three-to-fourfold decrease in neutrophil infiltration, resulting in enhanced regeneration of axons.(Qiao et al. 2006) Another study using a similar C3 knockout model reported improved neurological scores at acute and long-term time points.(Guo et al. 2010)
-These results imply that the complement cascade is a particularly important component of a differential response to neurological injury which ultimately leads to greater functional recovery.
+This finding is in line with a genetic C3 knockout study in mice which reported better neurological scores 2 days post-injury, reduced residual consolidated neurological deficit at 21 days and display minor change in reduced gliosis (20\% decrease at 1h timepoint) but a three-to-fourfold decrease in neutrophil infiltration, resulting in enhanced regeneration of axons.(Qiao et al. 2006) Another study using a similar C3 knockout model reported improved neurological scores at acute and long-term time points.(Guo et al. 2010) These results imply that the complement cascade is a particularly important component of a differential response to neurological injury which ultimately leads to greater functional recovery.
 Given the complexity of the complement cascade and the limited time points in this study, further work is needed to elucidate which facets of the cascade are outcome modifying, and at which stages post-injury.
+
+AIS A and D samples were included largely to compare to the AIS C improvers.
+If the improvers were all just a less severe AIS C, we might expect them to be more similar to the AIS D samples, with the non-improvers being closer to the As.
+As this is not what we observed, we can conclude there is more to the differential functional recovery than initial injury severity.
 
 The small number of statistically significant proteins speaks to the variability of human plasma samples, and is likely exacerbated by the inconstant timing of sample collection relative to injury.
 Thus, a repeat of this experiment with a larger sample size will likely reveal many more proteins of potential interest.
@@ -693,6 +643,7 @@ Regardless, this study has highlighted RPB4 and PRX-2 as potential biomarkers of
 We have also highlighted the complement cascade as being a particularly important pathway in differential recovery.
 Additional investigation of these proteins, but also the complement cascade more broadly, particularly at more acute time points, would also be valuable.
 Furthermore, a metabolomic analysis with a similar samples would greatly compliment this work, particularly with regards to investigating further links to the livers role in neurological recovery.
+Similarly, this additional work could complement the AIS A and D sample data, which may reveal further insights from this data.
 
 \newpage
 
@@ -723,229 +674,58 @@ Furthermore, a metabolomic analysis with a similar samples would greatly complim
 ## nickname       One Push-Up
 \end{verbatim}
 
-\label{tab:package-table}Packages Used
-
-package
-
-version
-
-date
-
-base
-
-4.1.3
-
-2022-03-18
-
-MSstats
-
-4.2.0
-
-2021-05-31
-
-STRINGdb
-
-2.6.5
-
-2020-01-10
-
-ReactomePA
-
-1.38.0
-
-2021-10-26
-
-rlang
-
-1.0.2
-
-2022-03-04
-
-bookdown
-
-0.26
-
-2022-04-15
-
-lime
-
-0.5.2
-
-2021-02-24
-
-RColorBrewer
-
-1.1.3
-
-2022-04-03
-
-ggVennDiagram
-
-1.2.0
-
-2021-10-19
-
-DiagrammeR
-
-1.0.9
-
-2022-03-04
-
-lubridate
-
-1.8.0
-
-2021-10-03
-
-patchwork
-
-1.1.1
-
-2020-12-15
-
-cowplot
-
-1.1.1
-
-2020-12-15
-
-readxl
-
-1.4.0
-
-2022-03-28
-
-BiocManager
-
-1.30.18
-
-2022-05-18
-
-knitr
-
-1.39
-
-2022-04-26
-
-data.table
-
-1.14.2
-
-2021-09-23
-
-naniar
-
-0.6.1
-
-2021-05-14
-
-psych
-
-2.2.5
-
-2022-05-01
-
-Hmisc
-
-4.7.0
-
-2022-04-12
-
-Formula
-
-1.2.4
-
-2020-10-16
-
-survival
-
-3.3.1
-
-2022-02-20
-
-lattice
-
-0.20.45
-
-2021-09-18
-
-bibtex
-
-0.4.2.3
-
-2020-09-19
-
-captioner
-
-2.2.3
-
-2015-07-15
-
-forcats
-
-0.5.1
-
-2021-01-27
-
-stringr
-
-1.4.0
-
-2019-02-09
-
-dplyr
-
-1.0.9
-
-2022-04-27
-
-purrr
-
-0.3.4
-
-2020-04-16
-
-readr
-
-2.1.2
-
-2022-01-30
-
-tidyr
-
-1.2.0
-
-2022-01-27
-
-tibble
-
-3.1.7
-
-2022-04-26
-
-ggplot2
-
-3.3.6
-
-2022-04-27
-
-tidyverse
-
-1.3.1
-
-2021-04-15
-
-kableExtra
-
-1.3.4
-
-2021-02-19
-
-rmarkdown
-
-2.14
-
-2022-04-25
+\begin{longtable}[t]{lll}
+\caption{\label{tab:package-table}Packages Used}\\
+\toprule
+package & version & date\\
+\midrule
+base & 4.1.3 & 2022-03-18\\
+MSstats & 4.2.0 & 2021-05-31\\
+STRINGdb & 2.6.5 & 2020-01-10\\
+ReactomePA & 1.38.0 & 2021-10-26\\
+rlang & 1.0.2 & 2022-03-04\\
+\addlinespace
+bookdown & 0.27 & 2022-06-14\\
+lime & 0.5.2 & 2021-02-24\\
+RColorBrewer & 1.1.3 & 2022-04-03\\
+ggVennDiagram & 1.2.0 & 2021-10-19\\
+DiagrammeR & 1.0.9 & 2022-03-04\\
+\addlinespace
+lubridate & 1.8.0 & 2021-10-03\\
+patchwork & 1.1.1 & 2020-12-15\\
+readxl & 1.4.0 & 2022-03-28\\
+BiocManager & 1.30.18 & 2022-05-18\\
+knitr & 1.39 & 2022-04-26\\
+\addlinespace
+data.table & 1.14.2 & 2021-09-23\\
+naniar & 0.6.1 & 2021-05-14\\
+psych & 2.2.5 & 2022-05-01\\
+Hmisc & 4.7.0 & 2022-04-12\\
+Formula & 1.2.4 & 2020-10-16\\
+\addlinespace
+survival & 3.3.1 & 2022-02-20\\
+lattice & 0.20.45 & 2021-09-18\\
+bibtex & 0.4.2.3 & 2020-09-19\\
+captioner & 2.2.3 & 2015-07-15\\
+kableExtra & 1.3.4 & 2021-02-19\\
+\addlinespace
+rmarkdown & 2.14 & 2022-04-25\\
+cowplot & 1.1.1 & 2020-12-15\\
+clusterProfiler & 4.2.2 & 2022-01-13\\
+msigdbr & 7.5.1 & 2022-03-30\\
+forcats & 0.5.1 & 2021-01-27\\
+\addlinespace
+stringr & 1.4.0 & 2019-02-09\\
+dplyr & 1.0.9 & 2022-04-27\\
+purrr & 0.3.4 & 2020-04-16\\
+readr & 2.1.2 & 2022-01-30\\
+tidyr & 1.2.0 & 2022-01-27\\
+\addlinespace
+tibble & 3.1.7 & 2022-04-26\\
+ggplot2 & 3.3.6 & 2022-04-27\\
+tidyverse & 1.3.1 & 2021-04-15\\
+\bottomrule
+\end{longtable}
 
 \clearpage
 
@@ -955,12 +735,12 @@ rmarkdown
 \begin{landscape}\begingroup\fontsize{5}{7}\selectfont
 
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.5cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}}
-\caption{\label{tab:openms-fc-table}OpenMS log$_2$ fold changes in the plasma proteome of SCI patients. 'Acute' and 'Subacute' samples collected within 2 week and approximately 3-months post-injury repectively.}\\
+\caption{\label{tab:openms-fc-table}OpenMS log$_2$ fold changes in the plasma proteome of SCI patients from iTRAQ experiments. 'Acute' and 'Subacute' samples collected within 2 week and approximately 3-months post-injury respectively.}\\
 \toprule
 gene & Acute AIS C improvers vs non-improvers & Subacute AIS C improvers vs non-improvers & AIS C improvers acute vs subacute & AIS C non-improvers acute vs subacute & AIS C improvers vs non-improvers & AIS A vs D & AIS C improvers vs A & AIS C improvers vs D & AIS C non-improvers vs A & AIS C non-improvers vs D\\
 \midrule
 \endfirsthead
-\caption[]{\label{tab:openms-fc-table}OpenMS log$_2$ fold changes in the plasma proteome of SCI patients. 'Acute' and 'Subacute' samples collected within 2 week and approximately 3-months post-injury repectively. \textit{(continued)}}\\
+\caption[]{\label{tab:openms-fc-table}OpenMS log$_2$ fold changes in the plasma proteome of SCI patients from iTRAQ experiments. 'Acute' and 'Subacute' samples collected within 2 week and approximately 3-months post-injury respectively. \textit{(continued)}}\\
 \toprule
 gene & Acute AIS C improvers vs non-improvers & Subacute AIS C improvers vs non-improvers & AIS C improvers acute vs subacute & AIS C non-improvers acute vs subacute & AIS C improvers vs non-improvers & AIS A vs D & AIS C improvers vs A & AIS C improvers vs D & AIS C non-improvers vs A & AIS C non-improvers vs D\\
 \midrule
@@ -969,836 +749,245 @@ gene & Acute AIS C improvers vs non-improvers & Subacute AIS C improvers vs non-
 \endfoot
 \bottomrule
 \endlastfoot
-A1BG & -0.9031824 & -0.1017534 & -0.6087849 & 0.1926441 & 0.2252650 & 0.7937347 & -0.3497633 & 0.4439714 & -0.5750284 & 0.2187064\\
-A2M & -1.0385788 & -0.2464392 & -0.6760613 & 0.1160783 & -1.2300968 & 1.4247538 & -1.6029796 & -0.1782258 & -0.3728828 & 1.0518710\\
-AFM & -0.3788476 & -1.2248641 & 0.4815192 & -0.3644973 & 0.5517904 & 1.1923601 & -1.2566085 & -0.0642484 & -1.8083989 & -0.6160388\\
-AHSG & 1.1794532 & NA & -0.5545288 & NA & NA & NA & NA & NA & NA & NA\\
-AMBP & 0.6562004 & -0.3433433 & 0.8606588 & -0.1388849 & -0.9023293 & NA & 1.2037841 & NA & 2.1061134 & NA\\
+A1BG & -0.9032 & -0.1018 & -0.6088 & 0.1926 & 0.2253 & 0.7937 & -0.3498 & 0.4440 & -0.5750 & 0.2187\\
+A2M & -1.0386 & -0.2464 & -0.6761 & 0.1161 & -1.2301 & 1.4248 & -1.6030 & -0.1782 & -0.3729 & 1.0519\\
+AFM & -0.3788 & -1.2249 & 0.4815 & -0.3645 & 0.5518 & 1.1924 & -1.2566 & -0.0642 & -1.8084 & -0.6160\\
+AHSG & 1.1795 &  & -0.5545 &  &  &  &  &  &  & \\
+AMBP & 0.6562 & -0.3433 & 0.8607 & -0.1389 & -0.9023 &  & 1.2038 &  & 2.1061 & \\
 \addlinespace
-APCS & 0.1498290 & 0.2108936 & -0.0114011 & 0.0496636 & NA & 0.3557242 & NA & NA & -0.0494567 & 0.3062675\\
-APOA1 & -0.1816744 & -0.6923621 & -0.2337557 & -0.7444434 & -0.7677301 & 0.6941282 & -1.3172834 & -0.6231553 & -0.5495533 & 0.1445749\\
-APOA2 & 0.0900143 & -1.1461360 & -0.6667620 & -1.9029124 & NA & NA & NA & NA & NA & NA\\
-APOA4 & 0.1295961 & 0.9636781 & -1.2312803 & -0.3971983 & -1.3254088 & 0.7876011 & -1.3346720 & -0.5470709 & -0.0092632 & 0.7783379\\
-APOB & 0.1379231 & -0.0164100 & -0.6332751 & -0.7876082 & -0.8570393 & 0.5260041 & -1.2345864 & -0.7085823 & -0.3775471 & 0.1484570\\
+APCS & 0.1498 & 0.2109 & -0.0114 & 0.0497 &  & 0.3557 &  &  & -0.0495 & 0.3063\\
+APOA1 & -0.1817 & -0.6924 & -0.2338 & -0.7444 & -0.7677 & 0.6941 & -1.3173 & -0.6232 & -0.5496 & 0.1446\\
+APOA2 & 0.0900 & -1.1461 & -0.6668 & -1.9029 &  &  &  &  &  & \\
+APOA4 & 0.1296 & 0.9637 & -1.2313 & -0.3972 & -1.3254 & 0.7876 & -1.3347 & -0.5471 & -0.0093 & 0.7783\\
+APOB & 0.1379 & -0.0164 & -0.6333 & -0.7876 & -0.8570 & 0.5260 & -1.2346 & -0.7086 & -0.3775 & 0.1485\\
 \addlinespace
-APOE & -1.2133754 & 0.2930673 & -0.6884490 & 0.8179937 & -0.9078302 & 0.7746514 & -1.5477490 & -0.7730977 & -0.6399188 & 0.1347326\\
-APOH & -0.3602386 & -0.7024687 & -0.6444887 & -0.9867188 & -0.9996639 & 2.8143614 & -1.0091799 & 1.8051815 & -0.0095159 & 2.8048455\\
-APOL1 & -1.1790763 & -0.5193515 & -1.0440264 & -0.3843015 & -0.1152769 & 0.5652696 & 0.1299333 & 0.6952029 & 0.2452102 & 0.8104799\\
-APOM & -1.2167971 & -0.6819883 & 0.6934807 & 1.2282895 & NA & 0.6561807 & NA & NA & 0.6664954 & 1.3226762\\
-ATRN & NA & NA & -1.0062957 & NA & NA & NA & NA & NA & NA & NA\\
+APOE & -1.2134 & 0.2931 & -0.6884 & 0.8180 & -0.9078 & 0.7747 & -1.5477 & -0.7731 & -0.6399 & 0.1347\\
+APOH & -0.3602 & -0.7025 & -0.6445 & -0.9867 & -0.9997 & 2.8144 & -1.0092 & 1.8052 & -0.0095 & 2.8048\\
+APOL1 & -1.1791 & -0.5194 & -1.0440 & -0.3843 & -0.1153 & 0.5653 & 0.1299 & 0.6952 & 0.2452 & 0.8105\\
+APOM & -1.2168 & -0.6820 & 0.6935 & 1.2283 &  & 0.6562 &  &  & 0.6665 & 1.3227\\
+ATRN &  &  & -1.0063 &  &  &  &  &  &  & \\
 \addlinespace
-AZGP1 & 1.2191679 & 1.0251503 & 0.0811400 & -0.1128776 & -3.3889514 & -3.6440501 & 0.3702887 & -3.2737614 & 3.7592401 & 0.1151900\\
-C1QB & -0.8410072 & -2.0020393 & 0.7071113 & -0.4539208 & -1.9729191 & 1.3563310 & -2.0066282 & -0.6502972 & -0.0337090 & 1.3226219\\
-C1R & -0.4335115 & -0.7632158 & 0.0366498 & -0.2930545 & -0.1467491 & 0.7976066 & 0.3564300 & 1.1540366 & 0.5031791 & 1.3007857\\
-C1S & 0.0295224 & -0.8193739 & 0.1679558 & -0.6809404 & NA & NA & NA & NA & NA & NA\\
-C2 & NA & NA & NA & NA & -2.5581036 & 2.5640965 & -2.5952702 & -0.0311737 & -0.0371665 & 2.5269300\\
+AZGP1 & 1.2192 & 1.0252 & 0.0811 & -0.1129 & -3.3890 & -3.6441 & 0.3703 & -3.2738 & 3.7592 & 0.1152\\
+C1QB & -0.8410 & -2.0020 & 0.7071 & -0.4539 & -1.9729 & 1.3563 & -2.0066 & -0.6503 & -0.0337 & 1.3226\\
+C1R & -0.4335 & -0.7632 & 0.0366 & -0.2931 & -0.1467 & 0.7976 & 0.3564 & 1.1540 & 0.5032 & 1.3008\\
+C1S & 0.0295 & -0.8194 & 0.1680 & -0.6809 &  &  &  &  &  & \\
+C2 &  &  &  &  & -2.5581 & 2.5641 & -2.5953 & -0.0312 & -0.0372 & 2.5269\\
 \addlinespace
-C3 & -0.7440620 & -0.6968585 & 0.0652375 & 0.1124410 & -1.0730763 & 1.2388421 & -2.1616420 & -0.9227999 & -1.0885657 & 0.1502764\\
-C4BPA & -0.1810388 & -2.4454980 & 1.6627662 & -0.6016930 & -1.2378707 & 1.5489731 & -1.8448914 & -0.2959183 & -0.6070207 & 0.9419523\\
-C5 & -0.5447843 & -0.2031226 & 0.9230001 & 1.2646617 & -0.7200022 & 1.2710496 & -1.6768797 & -0.4058301 & -0.9568775 & 0.3141721\\
-C6 & -1.3936214 & 1.7817023 & -1.3097108 & 1.8656129 & -3.0451914 & 1.7642372 & -3.2550019 & -1.4907647 & -0.2098105 & 1.5544267\\
-C7 & -0.9642124 & 0.8848082 & -0.7827165 & 1.0663041 & 0.9970185 & 0.0708650 & -1.1136320 & -1.0427670 & -2.1106505 & -2.0397855\\
+C3 & -0.7441 & -0.6969 & 0.0652 & 0.1124 & -1.0731 & 1.2388 & -2.1616 & -0.9228 & -1.0886 & 0.1503\\
+C4BPA & -0.1810 & -2.4455 & 1.6628 & -0.6017 & -1.2379 & 1.5490 & -1.8449 & -0.2959 & -0.6070 & 0.9420\\
+C5 & -0.5448 & -0.2031 & 0.9230 & 1.2647 & -0.7200 & 1.2710 & -1.6769 & -0.4058 & -0.9569 & 0.3142\\
+C6 & -1.3936 & 1.7817 & -1.3097 & 1.8656 & -3.0452 & 1.7642 & -3.2550 & -1.4908 & -0.2098 & 1.5544\\
+C7 & -0.9642 & 0.8848 & -0.7827 & 1.0663 & 0.9970 & 0.0709 & -1.1136 & -1.0428 & -2.1107 & -2.0398\\
 \addlinespace
-C8A & -0.5117891 & 0.2736564 & -0.7630145 & 0.0224310 & -2.8108340 & 0.1731241 & -2.1285385 & -1.9554144 & 0.6822955 & 0.8554196\\
-C8B & -2.1950427 & 0.2789045 & -1.5954883 & 0.8784589 & -1.8943958 & -0.4802611 & -0.9597537 & -1.4400148 & 0.9346421 & 0.4543810\\
-C8G & NA & NA & -1.6304866 & NA & NA & NA & NA & NA & NA & NA\\
-C9 & -2.2199059 & 0.4534093 & -1.9249790 & 0.7483361 & -0.7345863 & 0.6495872 & -3.2424254 & -2.5928382 & -2.5078391 & -1.8582519\\
-CD5L & -0.9293248 & -0.6204735 & -0.7145571 & -0.4057058 & -2.4642871 & 0.4482534 & -2.3260120 & -1.8777586 & 0.1382751 & 0.5865285\\
+C8A & -0.5118 & 0.2737 & -0.7630 & 0.0224 & -2.8108 & 0.1731 & -2.1285 & -1.9554 & 0.6823 & 0.8554\\
+C8B & -2.1950 & 0.2789 & -1.5955 & 0.8785 & -1.8944 & -0.4803 & -0.9598 & -1.4400 & 0.9346 & 0.4544\\
+C8G &  &  & -1.6305 &  &  &  &  &  &  & \\
+C9 & -2.2199 & 0.4534 & -1.9250 & 0.7483 & -0.7346 & 0.6496 & -3.2424 & -2.5928 & -2.5078 & -1.8583\\
+CD5L & -0.9293 & -0.6205 & -0.7146 & -0.4057 & -2.4643 & 0.4483 & -2.3260 & -1.8778 & 0.1383 & 0.5865\\
 \addlinespace
-CFH & -1.1239737 & 0.7406948 & -1.6480885 & 0.2165801 & -1.0358708 & 0.1380093 & -1.3260484 & -1.1880391 & -0.2901776 & -0.1521683\\
-CFI & NA & 0.5359696 & NA & 1.2578110 & NA & NA & NA & NA & NA & NA\\
-CLU & -1.1958984 & -0.8681850 & -0.1721921 & 0.1555214 & -1.3664377 & 0.8251962 & -2.1976184 & -1.3724222 & -0.8311807 & -0.0059845\\
-CP & -0.3892064 & 0.2565411 & -0.4537277 & 0.1920199 & -0.6657547 & 0.4235353 & -0.2695812 & 0.1539541 & 0.3961736 & 0.8197089\\
-F12 & 0.4852010 & -0.9397905 & 0.6702925 & -0.7546990 & -0.8534307 & 0.5549559 & -1.3145850 & -0.7596291 & -0.4611543 & 0.0938016\\
+CFH & -1.1240 & 0.7407 & -1.6481 & 0.2166 & -1.0359 & 0.1380 & -1.3260 & -1.1880 & -0.2902 & -0.1522\\
+CFI &  & 0.5360 &  & 1.2578 &  &  &  &  &  & \\
+CLU & -1.1959 & -0.8682 & -0.1722 & 0.1555 & -1.3664 & 0.8252 & -2.1976 & -1.3724 & -0.8312 & -0.0060\\
+CP & -0.3892 & 0.2565 & -0.4537 & 0.1920 & -0.6658 & 0.4235 & -0.2696 & 0.1540 & 0.3962 & 0.8197\\
+F12 & 0.4852 & -0.9398 & 0.6703 & -0.7547 & -0.8534 & 0.5550 & -1.3146 & -0.7596 & -0.4612 & 0.0938\\
 \addlinespace
-F2 & -0.7493082 & -0.7563593 & 0.0982877 & 0.0912367 & -0.5408805 & 1.1677146 & -1.5476188 & -0.3799042 & -1.0067383 & 0.1609763\\
-FCN3 & NA & 0.9644778 & NA & NA & NA & NA & NA & NA & NA & NA\\
-FGA & -0.9591400 & -0.5109050 & 0.4841704 & 0.9324054 & -1.0155684 & 1.0486717 & -1.4707952 & -0.4221236 & -0.4552268 & 0.5934449\\
-FGB & -0.8339088 & -0.1253771 & 0.0684287 & 0.7769604 & -0.8343143 & 1.0951087 & -1.4646547 & -0.3695460 & -0.6303405 & 0.4647683\\
-FGG & -1.1432907 & -0.0247316 & -0.2978078 & 0.8207513 & -0.7191139 & 0.7606622 & -1.0780014 & -0.3173392 & -0.3588876 & 0.4017746\\
+F2 & -0.7493 & -0.7564 & 0.0983 & 0.0912 & -0.5409 & 1.1677 & -1.5476 & -0.3799 & -1.0067 & 0.1610\\
+FCN3 &  & 0.9645 &  &  &  &  &  &  &  & \\
+FGA & -0.9591 & -0.5109 & 0.4842 & 0.9324 & -1.0156 & 1.0487 & -1.4708 & -0.4221 & -0.4552 & 0.5934\\
+FGB & -0.8339 & -0.1254 & 0.0684 & 0.7770 & -0.8343 & 1.0951 & -1.4647 & -0.3695 & -0.6303 & 0.4648\\
+FGG & -1.1433 & -0.0247 & -0.2978 & 0.8208 & -0.7191 & 0.7607 & -1.0780 & -0.3173 & -0.3589 & 0.4018\\
 \addlinespace
-FN1 & -0.2795610 & -0.3153249 & 0.2899102 & 0.2541463 & -0.5777631 & 1.1462731 & -1.2550759 & -0.1088028 & -0.6773129 & 0.4689602\\
-GC & -0.5583474 & 0.4050629 & -0.7950103 & 0.1684001 & -1.8700166 & -0.2961353 & -1.2641016 & -1.5602369 & 0.6059149 & 0.3097797\\
-GSN & 0.0704855 & 0.0479440 & -0.6709561 & -0.6934976 & NA & NA & NA & NA & NA & NA\\
-HABP2 & NA & NA & NA & NA & -0.5367242 & 1.4445961 & -0.7070902 & 0.7375059 & -0.1703660 & 1.2742301\\
-HP & -1.2468596 & 0.5276209 & -0.3488061 & 1.4256744 & -0.6393503 & 0.9683391 & -1.2963281 & -0.3279890 & -0.6569779 & 0.3113613\\
+FN1 & -0.2796 & -0.3153 & 0.2899 & 0.2541 & -0.5778 & 1.1463 & -1.2551 & -0.1088 & -0.6773 & 0.4690\\
+GC & -0.5583 & 0.4051 & -0.7950 & 0.1684 & -1.8700 & -0.2961 & -1.2641 & -1.5602 & 0.6059 & 0.3098\\
+GSN & 0.0705 & 0.0479 & -0.6710 & -0.6935 &  &  &  &  &  & \\
+HABP2 &  &  &  &  & -0.5367 & 1.4446 & -0.7071 & 0.7375 & -0.1704 & 1.2742\\
+HP & -1.2469 & 0.5276 & -0.3488 & 1.4257 & -0.6394 & 0.9683 & -1.2963 & -0.3280 & -0.6570 & 0.3114\\
 \addlinespace
-HPX & -0.4104644 & -0.2880781 & -0.7114901 & -0.5891038 & -0.3597680 & 0.9360243 & -1.1034368 & -0.1674125 & -0.7436687 & 0.1923556\\
-HRG & 0.5979026 & 1.0672891 & 0.0321566 & 0.5015431 & -0.7300739 & 0.6893699 & -0.8231701 & -0.1338002 & -0.0930962 & 0.5962737\\
-IGHA1 & 1.7635882 & 1.3476620 & 0.3628909 & -0.0530353 & -2.0152404 & 0.4328016 & -2.2081140 & -1.7753124 & -0.1928737 & 0.2399280\\
-IGHD & NA & NA & NA & NA & -2.4499647 & 0.4182281 & -3.4284738 & -3.0102457 & -0.9785091 & -0.5602810\\
-IGHG1 & -0.0855309 & 0.9292134 & -0.4962961 & 0.5184482 & -0.0970233 & -1.8091062 & 0.4814333 & -1.3276728 & 0.5784566 & -1.2306496\\
+HPX & -0.4105 & -0.2881 & -0.7115 & -0.5891 & -0.3598 & 0.9360 & -1.1034 & -0.1674 & -0.7437 & 0.1924\\
+HRG & 0.5979 & 1.0673 & 0.0322 & 0.5015 & -0.7301 & 0.6894 & -0.8232 & -0.1338 & -0.0931 & 0.5963\\
+IGHA1 & 1.7636 & 1.3477 & 0.3629 & -0.0530 & -2.0152 & 0.4328 & -2.2081 & -1.7753 & -0.1929 & 0.2399\\
+IGHD &  &  &  &  & -2.4500 & 0.4182 & -3.4285 & -3.0102 & -0.9785 & -0.5603\\
+IGHG1 & -0.0855 & 0.9292 & -0.4963 & 0.5184 & -0.0970 & -1.8091 & 0.4814 & -1.3277 & 0.5785 & -1.2306\\
 \addlinespace
-IGHG2 & 0.9720422 & 0.3501681 & 0.4607992 & -0.1610748 & -0.6249433 & -1.5106734 & 0.2705475 & -1.2401258 & 0.8954908 & -0.6151826\\
-IGHG3 & -0.1941508 & 1.4323226 & -0.9309878 & 0.6954857 & -1.8543540 & -0.3927284 & -1.8870246 & -2.2797530 & -0.0326705 & -0.4253990\\
-IGHM & -0.6318126 & -0.8967300 & -0.4174693 & -0.6823867 & -1.1741740 & 1.7915993 & -2.3508710 & -0.5592717 & -1.1766971 & 0.6149023\\
-IGKC & -0.0697458 & 0.0420359 & -0.1150304 & -0.0032487 & -1.1868447 & -0.2875492 & -1.1765257 & -1.4640749 & 0.0103190 & -0.2772302\\
-IGKV3D-20 & NA & NA & NA & NA & -0.3699302 & -0.0536821 & 0.2114801 & 0.1577980 & 0.5814103 & 0.5277282\\
+IGHG2 & 0.9720 & 0.3502 & 0.4608 & -0.1611 & -0.6249 & -1.5107 & 0.2705 & -1.2401 & 0.8955 & -0.6152\\
+IGHG3 & -0.1942 & 1.4323 & -0.9310 & 0.6955 & -1.8544 & -0.3927 & -1.8870 & -2.2798 & -0.0327 & -0.4254\\
+IGHM & -0.6318 & -0.8967 & -0.4175 & -0.6824 & -1.1742 & 1.7916 & -2.3509 & -0.5593 & -1.1767 & 0.6149\\
+IGKC & -0.0697 & 0.0420 & -0.1150 & -0.0032 & -1.1868 & -0.2875 & -1.1765 & -1.4641 & 0.0103 & -0.2772\\
+IGKV3D-20 &  &  &  &  & -0.3699 & -0.0537 & 0.2115 & 0.1578 & 0.5814 & 0.5277\\
 \addlinespace
-ITIH1 & -0.9766570 & 0.7057133 & -0.5211753 & 1.1611951 & -0.6149247 & 0.5495684 & -0.5039432 & 0.0456252 & 0.1109815 & 0.6605499\\
-ITIH2 & -0.3142692 & -0.5283214 & -0.2363320 & -0.4503842 & -0.7431549 & 0.6757214 & -1.2136587 & -0.5379373 & -0.4705037 & 0.2052177\\
-ITIH3 & -0.5456033 & 0.6138901 & 0.3512683 & 1.5107617 & -2.0564371 & 1.2902341 & -1.8743188 & -0.5840847 & 0.1821183 & 1.4723525\\
-ITIH4 & -0.0669542 & -0.2189363 & 0.3808668 & 0.2288847 & -1.0843698 & 0.9773070 & -1.8198452 & -0.8425382 & -0.7354753 & 0.2418317\\
-KLKB1 & NA & -2.2093082 & NA & -0.2713600 & NA & NA & NA & NA & NA & NA\\
+ITIH1 & -0.9767 & 0.7057 & -0.5212 & 1.1612 & -0.6149 & 0.5496 & -0.5039 & 0.0456 & 0.1110 & 0.6605\\
+ITIH2 & -0.3143 & -0.5283 & -0.2363 & -0.4504 & -0.7432 & 0.6757 & -1.2137 & -0.5379 & -0.4705 & 0.2052\\
+ITIH3 & -0.5456 & 0.6139 & 0.3513 & 1.5108 & -2.0564 & 1.2902 & -1.8743 & -0.5841 & 0.1821 & 1.4724\\
+ITIH4 & -0.0670 & -0.2189 & 0.3809 & 0.2289 & -1.0844 & 0.9773 & -1.8198 & -0.8425 & -0.7355 & 0.2418\\
+KLKB1 &  & -2.2093 &  & -0.2714 &  &  &  &  &  & \\
 \addlinespace
-KNG1 & -0.6198162 & -0.0025326 & -0.0676278 & 0.5496558 & -0.6644071 & 0.8052877 & 0.0312278 & 0.8365155 & 0.6956349 & 1.5009226\\
-LRG1 & -0.7988007 & 0.2565104 & 0.1402188 & 1.1955298 & -0.9515964 & 1.7017682 & -2.1951046 & -0.4933364 & -1.2435082 & 0.4582600\\
-LUM & 0.0832323 & 0.6580097 & -1.2635566 & -0.6887792 & NA & NA & NA & NA & NA & NA\\
-ORM1 & -0.1974770 & 1.1178187 & -0.2240143 & 1.0912814 & -1.9126407 & 1.6761382 & -1.3025982 & 0.3735400 & 0.6100425 & 2.2861806\\
-PGLYRP2 & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA\\
+KNG1 & -0.6198 & -0.0025 & -0.0676 & 0.5497 & -0.6644 & 0.8053 & 0.0312 & 0.8365 & 0.6956 & 1.5009\\
+LRG1 & -0.7988 & 0.2565 & 0.1402 & 1.1955 & -0.9516 & 1.7018 & -2.1951 & -0.4933 & -1.2435 & 0.4583\\
+LUM & 0.0832 & 0.6580 & -1.2636 & -0.6888 &  &  &  &  &  & \\
+ORM1 & -0.1975 & 1.1178 & -0.2240 & 1.0913 & -1.9126 & 1.6761 & -1.3026 & 0.3735 & 0.6100 & 2.2862\\
+PGLYRP2 &  &  &  &  &  &  &  &  &  & \\
 \addlinespace
-PLG & -0.3680073 & 0.0880557 & -0.8410370 & -0.3849741 & -1.0701631 & 2.7112467 & -2.8493306 & -0.1380838 & -1.7791675 & 0.9320793\\
-PROS1 & -0.3300860 & 0.0623958 & -0.7963440 & -0.4038621 & -0.5089636 & 1.5349629 & -3.8745298 & -2.3395668 & -3.3655662 & -1.8306032\\
-RBP4 & 0.4505693 & 0.4185795 & -0.0211740 & -0.0531638 & -4.0971240 & 1.4352287 & -2.9877294 & -1.5525007 & 1.1093946 & 2.5446233\\
-SAA1 & -2.7778116 & 2.3463574 & -0.5151865 & 4.6089825 & -1.3858800 & 2.4855048 & -2.5593861 & -0.0738814 & -1.1735062 & 1.3119986\\
-SERPINA1 & 0.6825593 & 0.0481996 & 1.7824248 & 1.1480651 & -0.0999129 & -0.1558972 & -1.3635079 & -1.5194051 & -1.2635950 & -1.4194922\\
+PLG & -0.3680 & 0.0881 & -0.8410 & -0.3850 & -1.0702 & 2.7112 & -2.8493 & -0.1381 & -1.7792 & 0.9321\\
+PROS1 & -0.3301 & 0.0624 & -0.7963 & -0.4039 & -0.5090 & 1.5350 & -3.8745 & -2.3396 & -3.3656 & -1.8306\\
+RBP4 & 0.4506 & 0.4186 & -0.0212 & -0.0532 & -4.0971 & 1.4352 & -2.9877 & -1.5525 & 1.1094 & 2.5446\\
+SAA1 & -2.7778 & 2.3464 & -0.5152 & 4.6090 & -1.3859 & 2.4855 & -2.5594 & -0.0739 & -1.1735 & 1.3120\\
+SERPINA1 & 0.6826 & 0.0482 & 1.7824 & 1.1481 & -0.0999 & -0.1559 & -1.3635 & -1.5194 & -1.2636 & -1.4195\\
 \addlinespace
-SERPINA3 & -0.7582369 & -0.1617666 & 0.1836958 & 0.7801661 & -0.7417534 & 2.2311097 & -2.0353461 & 0.1957637 & -1.2935927 & 0.9375171\\
-SERPINA4 & 0.0099121 & NA & -1.0180116 & NA & -1.4473701 & NA & -0.6571525 & NA & 0.7902176 & NA\\
-SERPINA5 & NA & NA & NA & 0.2757029 & NA & NA & NA & NA & NA & NA\\
-SERPINC1 & -0.5553486 & -0.2339361 & -0.5421237 & -0.2207112 & -0.7720265 & 1.1066666 & -1.3464506 & -0.2397839 & -0.5744241 & 0.5322425\\
-SERPIND1 & 0.2536120 & NA & 0.0459257 & NA & 0.3050057 & 2.3844297 & -1.6468854 & 0.7375442 & -1.9518911 & 0.4325386\\
+SERPINA3 & -0.7582 & -0.1618 & 0.1837 & 0.7802 & -0.7418 & 2.2311 & -2.0353 & 0.1958 & -1.2936 & 0.9375\\
+SERPINA4 & 0.0099 &  & -1.0180 &  & -1.4474 &  & -0.6572 &  & 0.7902 & \\
+SERPINA5 &  &  &  & 0.2757 &  &  &  &  &  & \\
+SERPINC1 & -0.5553 & -0.2339 & -0.5421 & -0.2207 & -0.7720 & 1.1067 & -1.3465 & -0.2398 & -0.5744 & 0.5322\\
+SERPIND1 & 0.2536 &  & 0.0459 &  & 0.3050 & 2.3844 & -1.6469 & 0.7375 & -1.9519 & 0.4325\\
 \addlinespace
-SERPING1 & -1.1614755 & 0.1191571 & -1.3510892 & -0.0704566 & -0.9301893 & 1.0766804 & -1.0904641 & -0.0137837 & -0.1602748 & 0.9164056\\
-TF & -0.2823635 & -0.1105094 & -0.4843676 & -0.3125135 & -0.7681926 & 0.5875721 & -0.9945649 & -0.4069929 & -0.2263723 & 0.3611997\\
-VTN & -0.6186100 & -0.0323770 & -0.2690009 & 0.3172321 & -1.7234623 & 1.4918535 & -2.1517604 & -0.6599069 & -0.4282982 & 1.0635554\\
-VWF & NA & 1.0585752 & NA & 1.3917877 & -2.5662912 & 0.5161630 & -1.9774026 & -1.4612396 & 0.5888885 & 1.1050516\\*
+SERPING1 & -1.1615 & 0.1192 & -1.3511 & -0.0705 & -0.9302 & 1.0767 & -1.0905 & -0.0138 & -0.1603 & 0.9164\\
+TF & -0.2824 & -0.1105 & -0.4844 & -0.3125 & -0.7682 & 0.5876 & -0.9946 & -0.4070 & -0.2264 & 0.3612\\
+VTN & -0.6186 & -0.0324 & -0.2690 & 0.3172 & -1.7235 & 1.4919 & -2.1518 & -0.6599 & -0.4283 & 1.0636\\
+VWF &  & 1.0586 &  & 1.3918 & -2.5663 & 0.5162 & -1.9774 & -1.4612 & 0.5889 & 1.1051\\*
 \end{longtable}
 \endgroup{}
 \end{landscape}
 
-\begin{landscape}\begingroup\fontsize{6}{8}\selectfont
+\begin{landscape}\begingroup\fontsize{5}{7}\selectfont
 
-\begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.5cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}}
-\caption{\label{tab:proteinpilot-fc-table}ProteinPilot fold changes in the plasma proteome of SCI patients. 'Acute' and 'Subacute' samples collected within 2 week and approximately 3-months post-injury repectively.}\\
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.5cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}}
+\caption{\label{tab:label-free-fc-table1}OpenMS log$_2$ fold changes in the plasma proteome of SCI patients from label-free experiments. 'Acute' and 'Subacute' samples collected within 2 week and approximately 3-months post-injury respectively.}\\
 \toprule
-Protein & AIS C improvers acute vs subacute & Acute AIS C improvers vs non-improvers & Subacute AIS C improvers vs non-improvers & AIS C non-improvers acute vs subacute & AIS C improvers vs non-improvers & AIS C improvers vs A & AIS C improvers vs D & AIS C non-improvers vs A & AIS C non-improvers vs D & AIS A vs D\\
+Protein & Acute A Vs Subacute D & Acute C Improvers Vs Subacute D & Acute C Improvers Vs Subacute A & Acute C Non-Improvers Vs Subacute A & Acute A Vs Acute C Improvers & Acute A Vs Subacute C Non-Improvers & Acute A Vs Subacute A & Acute A Vs Subacute C Improvers & Acute C Non-Improvers Vs Subacute D\\
 \midrule
 \endfirsthead
-\caption[]{\label{tab:proteinpilot-fc-table}ProteinPilot fold changes in the plasma proteome of SCI patients. 'Acute' and 'Subacute' samples collected within 2 week and approximately 3-months post-injury repectively. \textit{(continued)}}\\
+\caption[]{\label{tab:label-free-fc-table1}OpenMS log$_2$ fold changes in the plasma proteome of SCI patients from label-free experiments. 'Acute' and 'Subacute' samples collected within 2 week and approximately 3-months post-injury respectively. \textit{(continued)}}\\
 \toprule
-Protein & AIS C improvers acute vs subacute & Acute AIS C improvers vs non-improvers & Subacute AIS C improvers vs non-improvers & AIS C non-improvers acute vs subacute & AIS C improvers vs non-improvers & AIS C improvers vs A & AIS C improvers vs D & AIS C non-improvers vs A & AIS C non-improvers vs D & AIS A vs D\\
+Protein & Acute A Vs Subacute D & Acute C Improvers Vs Subacute D & Acute C Improvers Vs Subacute A & Acute C Non-Improvers Vs Subacute A & Acute A Vs Acute C Improvers & Acute A Vs Subacute C Non-Improvers & Acute A Vs Subacute A & Acute A Vs Subacute C Improvers & Acute C Non-Improvers Vs Subacute D\\
 \midrule
 \endhead
 
 \endfoot
 \bottomrule
 \endlastfoot
-A1BG & -1.644372 & -1.472312 & NA & NA & NA & NA & NA & NA & NA & NA\\
-A2M & -6.137620 & -9.908319 & NA & 1.380384 & -5.861382 & -3.467369 & NA & 1.659587 & 5.861382 & 3.564511\\
-AFM & NA & 2.511886 & NA & -4.055085 & NA & NA & NA & NA & NA & -3.499452\\
-AHSG & NA & NA & NA & -2.249055 & NA & NA & NA & NA & NA & NA\\
-APCS & NA & 1.870682 & NA & NA & NA & 4.207266 & 1.721869 & NA & NA & NA\\
+AFM &  & -0.7786 &  & -1.1371 &  &  &  &  & -1.3604\\
+AHSG &  & -2.7643 & -3.4309 & -3.3017 &  &  & -1.9761 &  & \\
+APOA4 & -1.0588 &  &  &  &  & -1.2657 &  & -1.1544 & \\
+APOC3 &  &  &  &  & -1.4275 & -1.6878 &  &  & \\
+APOH &  & -1.3700 &  &  &  &  &  &  & -1.5614\\
 \addlinespace
-APOA1 & -11.803206 & -3.698282 & NA & -3.250873 & -2.884031 & -2.884031 & -3.801894 & NA & -1.406047 & NA\\
-APOA2 & -14.321879 & NA & NA & -4.965923 & NA & NA & NA & NA & NA & NA\\
-APOA4 & -11.587774 & -5.915616 & NA & -2.108628 & -2.964831 & -1.555966 & -2.488857 & 1.870682 & NA & -1.629296\\
-APOB & -2.443430 & 3.019952 & NA & -6.025596 & 3.732502 & -1.282331 & 1.367729 & -4.742420 & -2.805434 & 1.721869\\
-APOC1 & NA & NA & NA & -4.528976 & NA & NA & NA & NA & NA & NA\\
+APOL1 &  &  &  &  &  &  & -0.8923 &  & \\
+AQR &  &  &  &  &  &  &  & 0.6965 & \\
+C4BPA &  & 1.2058 &  &  &  &  &  &  & \\
+C4BPB &  & 1.3009 &  &  &  &  &  & 1.3841 & \\
+C8G &  & -1.2253 & -1.0543 &  & 1.1118 &  &  &  & \\
 \addlinespace
-APOC4 & NA & NA & NA & NA & NA & 1.318257 & NA & 4.920395 & NA & -4.528976\\
-APOE & NA & NA & -1.527566 & -1.753880 & NA & -1.836538 & -3.019952 & -1.803018 & -3.019952 & NA\\
-AZGP1 & 2.269865 & 2.630268 & 3.597493 & NA & 1.819701 & 4.446313 & NA & NA & NA & -4.130475\\
-C1QB & NA & NA & NA & NA & NA & -1.513561 & NA & NA & NA & NA\\
-C1R & NA & NA & NA & NA & NA & -4.446313 & NA & NA & NA & NA\\
+C9 & 1.4444 & 1.0533 &  &  &  & 1.0217 &  & 1.2553 & 1.3765\\
+CFH & 0.5112 & 0.5790 &  &  &  &  &  &  & \\
+CFHR1 &  & 0.9812 &  &  &  &  &  & 1.4700 & \\
+CFHR5 & 1.3097 &  &  &  &  &  &  &  & \\
+CLEC3B & -1.9123 & -1.5100 &  &  &  & -1.4447 &  & -1.3585 & -1.6640\\
 \addlinespace
-C3 & 2.754229 & -1.940886 & NA & 3.981072 & -2.398833 & -4.365158 & 1.614359 & -1.976970 & 3.597493 & 6.546362\\
-C4B & 2.269865 & -2.147830 & -1.940886 & 2.654606 & NA & NA & NA & NA & NA & NA\\
-C4BPA & NA & -1.419058 & NA & NA & NA & NA & 1.659587 & -2.013724 & NA & 3.250873\\
-C5 & 1.737801 & NA & NA & 2.228435 & NA & -2.333458 & NA & -1.770109 & NA & 2.167704\\
-C6 & 1.887991 & NA & NA & NA & NA & -2.070141 & -2.805434 & NA & NA & NA\\
+COMP &  & -2.2269 & -2.8311 & -2.3546 &  &  & -2.4495 &  & \\
+CRP & 4.0520 &  &  &  &  & 3.8525 &  &  & 3.3381\\
+ECM1 &  & -1.8865 &  &  &  &  &  &  & \\
+F10 &  & 1.1353 &  &  &  &  &  &  & \\
+F13A1 & -2.0331 & -1.9770 & -1.9454 &  &  & -1.8768 & -2.0015 & -2.0606 & \\
 \addlinespace
-C9 & NA & -2.421029 & NA & 9.908319 & NA & -4.055085 & NA & -1.499685 & 7.177943 & 9.375620\\
-CD5L & NA & -2.831392 & -3.280953 & NA & -1.819701 & -1.819701 & NA & NA & NA & NA\\
-CFB & NA & -1.674943 & 2.535129 & 4.285485 & NA & -2.128139 & 2.032357 & -1.690441 & 2.511886 & 4.055085\\
-CFH & NA & NA & NA & 2.558586 & NA & NA & NA & NA & 2.333458 & 1.803018\\
-CFI & NA & NA & NA & NA & NA & NA & NA & NA & NA & 2.269865\\
+F2 &  & 1.0044 & 0.8140 &  &  &  &  &  & \\
+F7 &  &  &  &  & -0.7634 &  &  &  & \\
+F9 &  & 1.0227 &  &  &  &  &  &  & \\
+FCN3 &  &  &  &  &  & -1.1449 &  & -0.9483 & \\
+FGA & 1.0806 & 0.7180 &  &  &  & 1.0275 &  & 0.7479 & 1.0928\\
 \addlinespace
-CLU & NA & NA & NA & NA & NA & NA & NA & -2.582260 & NA & NA\\
-CP & NA & NA & 2.582260 & 3.019952 & NA & NA & 2.187762 & NA & 2.779713 & NA\\
-F2 & NA & NA & NA & NA & NA & NA & 1.674943 & NA & NA & 1.527566\\
-FGA & 3.467369 & -1.644372 & NA & 12.133888 & -3.531832 & -2.654606 & NA & NA & 5.199960 & 4.092606\\
-FGB & 3.280953 & NA & 2.443431 & 9.204495 & -2.187762 & -1.330454 & 2.654606 & NA & 5.248075 & 3.133286\\
+FGB & 0.7119 & 0.5186 &  & 0.7340 &  & 0.7738 &  & 0.5500 & 0.9761\\
+FGL1 & 2.5544 &  &  &  &  & 2.5246 &  & 2.4956 & \\
+GPLD1 &  &  &  &  & -1.4430 &  &  &  & \\
+GPX3 & 0.8877 & 0.7335 &  &  &  &  &  &  & \\
+HABP2 & 0.9940 & 1.1355 &  &  &  &  &  &  & \\
 \addlinespace
-FGG & 2.032357 & -1.958845 & NA & 9.638290 & -2.312065 & -1.644372 & 4.325138 & NA & 9.204495 & 6.367955\\
-FN1 & 2.582260 & 2.228435 & NA & NA & 1.940886 & -2.466039 & 1.472312 & -4.875285 & NA & 3.404082\\
-GC & NA & NA & NA & NA & NA & NA & 1.541700 & NA & 2.606154 & 2.398833\\
-GSN & -2.312065 & NA & NA & -4.055085 & -3.019952 & NA & -4.365158 & NA & NA & NA\\
-HBA1 & NA & 3.133286 & NA & -4.017908 & NA & NA & NA & NA & -2.654606 & -2.535129\\
+HRG & -0.6336 &  &  &  &  &  &  &  & \\
+HYI &  &  &  &  &  &  & -1.0768 &  & \\
+IGHG2 &  & -1.8011 &  &  &  &  &  &  & \\
+IGHG4 &  &  & -2.2253 & -2.6735 &  &  &  &  & \\
+IGLV3-19 &  &  & -1.9672 &  &  &  &  &  & \\
 \addlinespace
-HBB & NA & 10.000000 & NA & -15.995580 & 5.058247 & 2.167704 & NA & NA & -6.137620 & -2.558586\\
-HP & 3.499452 & NA & 2.511886 & 13.427649 & NA & -2.964831 & NA & NA & 4.092606 & 4.786301\\
-HPX & NA & -2.147830 & NA & NA & NA & NA & 1.995262 & NA & 2.208005 & NA\\
-HRG & NA & NA & NA & NA & NA & 3.531832 & NA & 3.908409 & NA & NA\\
-IGHM & NA & -5.152286 & -3.664376 & NA & -5.199960 & -4.655861 & NA & NA & 3.221069 & 2.937650\\
+ITIH1 &  &  &  &  &  & -1.0172 &  &  & \\
+ITIH4 & 1.9473 & 3.9089 & 0.8010 & 0.8216 &  &  & 0.8095 & 1.3021 & 1.4555\\
+LBP & 2.0666 &  &  &  &  & 1.6765 & 1.7122 & 1.8745 & 1.6204\\
+LGALS3BP &  &  & 1.9633 &  &  &  &  &  & \\
+LUM & -1.3539 & -1.2002 & -1.2800 & -1.4246 &  & -1.6006 & -1.4338 & -1.1914 & -1.3447\\
 \addlinespace
-IGKC & NA & NA & NA & NA & NA & 1.753880 & 5.649370 & 1.786488 & 5.807644 & NA\\
-ITIH1 & NA & NA & NA & NA & NA & NA & NA & -3.597493 & NA & NA\\
-ITIH2 & NA & NA & NA & -1.629296 & NA & -2.089296 & -2.208005 & -2.070141 & -2.208005 & NA\\
-ITIH3 & NA & -2.051162 & NA & 2.466039 & NA & NA & NA & NA & 2.108628 & 2.630268\\
-ITIH4 & 1.819701 & -2.312065 & NA & 3.104560 & -1.836538 & -3.104560 & NA & -1.737801 & 2.376840 & 4.092606\\
+LYZ &  &  &  & 1.2935 &  &  &  &  & \\
+MASP1 &  & 0.9681 &  &  & -1.0112 &  &  &  & \\
+MASP2 &  & 0.9549 & 0.9501 &  &  &  &  &  & \\
+ORM1 &  & -1.2827 &  &  & 1.2451 &  &  &  & \\
+PCOLCE & -1.9201 &  &  &  & -1.7506 &  &  &  & \\
 \addlinespace
-JCHAIN & NA & NA & -4.130475 & NA & -5.011872 & NA & NA & NA & NA & NA\\
-KNG1 & NA & NA & NA & NA & NA & NA & 2.754229 & NA & NA & NA\\
-LPA & NA & NA & 10.764652 & 14.723126 & NA & NA & NA & NA & NA & NA\\
-LRG1 & NA & -2.167704 & NA & 3.047895 & -6.367955 & -9.727472 & NA & -1.629296 & NA & 3.311311\\
-LUM & -4.405549 & NA & NA & -3.250873 & NA & NA & NA & NA & NA & NA\\
+PGLYRP2 & -1.2799 & -0.9299 & -1.1251 & -1.4588 &  & -1.4051 & -1.4751 & -1.2655 & -1.2637\\
+PLG &  & 0.3879 &  &  &  &  &  & 0.3532 & \\
+PRG4 & 1.8915 & 1.9399 & 1.7628 &  &  & 1.4891 & 1.7144 & 1.3478 & \\
+RNASE4 &  &  & 4.3884 &  &  &  & 3.9924 &  & \\
+SAA1 & 5.4086 &  &  &  &  & 4.5431 &  & 3.6939 & 4.3015\\
 \addlinespace
-ORM1 & NA & NA & 16.904409 & NA & NA & NA & 3.630781 & NA & NA & 2.992265\\
-PLG & 1.555966 & NA & NA & NA & 2.312065 & 1.870682 & 2.937650 & NA & NA & NA\\
-RBP4 & NA & 5.495408 & NA & NA & NA & NA & NA & NA & NA & NA\\
-SAA1 & NA & NA & 28.054337 & 51.522865 & NA & NA & NA & NA & NA & NA\\
-SAA4 & NA & NA & NA & NA & NA & -2.805434 & NA & NA & NA & 1.905461\\
+SAA2 &  &  &  &  & 4.4465 &  &  &  & \\
+SERPINA10 &  & 0.9102 &  &  &  &  &  &  & \\
+SERPINA4 & -1.8496 & -1.2216 &  & -1.3820 &  & -1.9414 & -1.5613 & -1.3615 & -1.6703\\
+SERPINF1 & -1.1883 &  &  &  &  &  &  &  & \\
+THBS1 &  &  & 2.8162 &  &  &  &  &  & \\
 \addlinespace
-SERPINA1 & NA & -2.333458 & NA & 7.585776 & -2.754229 & -5.597576 & NA & -2.187762 & 3.221069 & 7.112135\\
-SERPINA3 & 2.108628 & -1.737801 & 3.837072 & 12.705741 & -1.976970 & -5.915616 & NA & -3.250873 & 4.325138 & 12.246162\\
-SERPINC1 & NA & NA & NA & NA & NA & NA & NA & -2.070141 & NA & NA\\
-SERPIND1 & 1.770109 & NA & NA & NA & 2.032357 & NA & NA & NA & NA & NA\\
-SERPINF1 & NA & NA & NA & NA & -4.365158 & -5.248075 & NA & NA & NA & NA\\
-\addlinespace
-SERPINF2 & NA & NA & NA & NA & NA & -4.207266 & NA & -3.467369 & NA & NA\\
-SERPING1 & NA & -2.535129 & NA & 2.964831 & -1.836538 & -4.365158 & NA & -2.488857 & 2.187762 & 5.248075\\
-TF & -2.728978 & NA & -1.527566 & -5.445027 & NA & NA & 1.721869 & NA & NA & NA\\
-TTN & NA & NA & NA & NA & -1.706082 & -2.208005 & -1.770109 & NA & NA & 1.258925\\*
+Trypsin &  & -0.5747 &  &  &  &  &  &  & \\
+VTN &  & 0.7175 & 0.6959 &  &  &  &  & 0.7629 & \\*
 \end{longtable}
 \endgroup{}
 \end{landscape}
 
-\hypertarget{sup-heatmaps}{%
-\subsection{Heatmaps}\label{sup-heatmaps}}
-
-\hypertarget{itraq-data}{%
-\subsubsection{iTRAQ data}\label{itraq-data}}
-
-\begin{landscape}
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-hmap-acute-sacute-imp-c-1-1} 
-
-}
-
-\caption[Heatmap - iTRAQ - Acute C Improvers VS Subacute Improvers]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks and 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement at 2-weeks and 3-months post-injury.}\label{fig:openms-hmap-acute-sacute-imp-c-1}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-hmap-acute-sacute-nonimp-c-1-1} 
-
-}
-
-\caption[Heatmap - iTRAQ - Acute Non-Improvers VS Subacute Non-Improvers]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks and 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement at 2-weeks and 3-months post-injury.}\label{fig:openms-hmap-acute-sacute-nonimp-c-1}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-hmap-acute-c-2-1} 
-
-}
-
-\caption[Heatmap - iTRAQ - Acute C Improvers VS Subacute Improvers]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not from the second 4-plex iTRAQ experiment.}\label{fig:openms-hmap-acute-c-2}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-hmap-acute-a-d-2-1} 
-
-}
-
-\caption[Heatmap - iTRAQ - Acute A VS Acute D]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS A and AIS D SCI patients.}\label{fig:openms-hmap-acute-a-d-2}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-hmap-acute-imp-c-d-2-1} 
-
-}
-
-\caption[Heatmap - iTRAQ - Acute C Improvers VS Acute D]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and AIS D patients.}\label{fig:openms-hmap-acute-imp-c-d-2}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-hmap-acute-imp-c-a-2-1} 
-
-}
-
-\caption[Heatmap - iTRAQ - Acute C Improvers VS Acute A]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and AIS A patients.}\label{fig:openms-hmap-acute-imp-c-a-2}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-hmap-acute-nonimp-c-a-2-1} 
-
-}
-
-\caption[Heatmap - iTRAQ - Acute C Non-Improvers VS Acute A]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement and AIS A patients.}\label{fig:openms-hmap-acute-nonimp-c-a-2}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-hmap-acute-nonimp-c-d-2-1} 
-
-}
-
-\caption[Heatmap - iTRAQ - Acute C Non-Improvers VS Acute D]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement and AIS D patients.}\label{fig:openms-hmap-acute-nonimp-c-d-2}
-\end{figure}
-
-\elandscape
-\clearpage
-
-\hypertarget{label-free-data}{%
-\subsubsection{Label-free data}\label{label-free-data}}
-
-\clearpage
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-hmap-acute-sacute-imp-c-1-1} 
-
-}
-
-\caption[Heatmap - label-free - Acute C Improvers VS Subacute Improvers]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks and 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement at 2-weeks and 3-months post-injury. Grey blocks denote proteins not present in the comparison.}\label{fig:openms-chap4-hmap-acute-sacute-imp-c-1}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-hmap-acute-sacute-nonimp-c-1-1} 
-
-}
-
-\caption[Heatmap - label-free - Acute C Non-Improvers VS Subacute Non-Improvers]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks and 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement at 2-weeks and 3-months post-injury. Grey blocks denote proteins not present in the comparison.}\label{fig:openms-chap4-hmap-acute-sacute-nonimp-c-1}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-hmap-acute-a-d-2-1} 
-
-}
-
-\caption[Heatmap - label-free - Acute A VS Acute D]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS A and AIS D SCI patients. Grey blocks denote proteins not present in the comparison.}\label{fig:openms-chap4-hmap-acute-a-d-2}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-hmap-acute-imp-c-d-2-1} 
-
-}
-
-\caption[Heatmap - label-free - Acute C Improvers VS Acute D]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and AIS D patients. Grey blocks denote proteins not present in the comparison.}\label{fig:openms-chap4-hmap-acute-imp-c-d-2}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-hmap-acute-imp-c-a-2-1} 
-
-}
-
-\caption[Heatmap - label-free - Acute A VS Acute C Improvers]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and AIS A patients. Grey blocks denote proteins not present in the comparison.}\label{fig:openms-chap4-hmap-acute-imp-c-a-2}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-hmap-acute-nonimp-c-a-2-1} 
-
-}
-
-\caption[Heatmap - label-free - Acute A VS Acute C Non-Improvers]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement and AIS A patients. Grey blocks denote proteins not present in the comparison.}\label{fig:openms-chap4-hmap-acute-nonimp-c-a-2}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-hmap-acute-nonimp-c-d-2-1} 
-
-}
-
-\caption[Heatmap - label-free - Acute C Non-Improver VS Acute D]{Heatmap denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement and AIS D patients. Grey blocks denote proteins not present in the comparison.}\label{fig:openms-chap4-hmap-acute-nonimp-c-d-2}
-\end{figure}
-
-\elandscape
-\clearpage
-
-\hypertarget{sup-cnetplots}{%
-\subsection{Cnetplots}\label{sup-cnetplots}}
-
-\hypertarget{itraq-data-1}{%
-\subsubsection{iTRAQ data}\label{itraq-data-1}}
-
-\begin{landscape}
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-cnetp-acute-sacute-imp-c-1-1} 
-
-}
-
-\caption[Network plot - iTRAQ - Acute C Improvers VS Subacute Improvers]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks and 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement at 2-weeks and 3-months post-injury.}\label{fig:openms-cnetp-acute-sacute-imp-c-1}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-cnetp-acute-sacute-nonimp-c-1-1} 
-
-}
-
-\caption[Network plot - iTRAQ - Acute C Non-Improvers VS Subacute Non-Improvers]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks and 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement at 2-weeks and 3-months post-injury.}\label{fig:openms-cnetp-acute-sacute-nonimp-c-1}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-cnetp-acute-c-2-1} 
-
-}
-
-\caption[Network plot - iTRAQ - Acute C Improvers VS Non-Improvers]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and those who did not from the second 4-plex iTRAQ experiment.}\label{fig:openms-cnetp-acute-c-2}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-cnetp-acute-a-d-2-1} 
-
-}
-
-\caption[Network plot - iTRAQ - Acute A VS Acute D]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS A and AIS D SCI patients.}\label{fig:openms-cnetp-acute-a-d-2}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-cnetp-acute-imp-c-d-2-1} 
-
-}
-
-\caption[Network plot - iTRAQ - Acute C Improvers VS Acute D]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and AIS D patients.}\label{fig:openms-cnetp-acute-imp-c-d-2}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-cnetp-acute-imp-c-a-2-1} 
-
-}
-
-\caption[Network plot - iTRAQ - Acute C Improvers VS Acute A]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and AIS A patients.}\label{fig:openms-cnetp-acute-imp-c-a-2}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-cnetp-acute-nonimp-c-a-2-1} 
-
-}
-
-\caption[Network plot - iTRAQ - Acute C Non-Improvers VS Acute A]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement and AIS A patients.}\label{fig:openms-cnetp-acute-nonimp-c-a-2}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-cnetp-acute-nonimp-c-d-2-1} 
-
-}
-
-\caption[Network plot - iTRAQ - Acute C Non-Improvers VS Acute D]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement and AIS D patients.}\label{fig:openms-cnetp-acute-nonimp-c-d-2}
-\end{figure}
-
-\elandscape
-\clearpage
-
-\hypertarget{label-free-data-1}{%
-\subsubsection{Label-free data}\label{label-free-data-1}}
-
-\begin{landscape}
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-cnetp-acute-sacute-imp-c-1-1} 
-
-}
-
-\caption[Network plot - label-free - Acute C Improvers VS Subacute C Improvers]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks and 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement at 2-weeks and 3-months post-injury.}\label{fig:openms-chap4-cnetp-acute-sacute-imp-c-1}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-cnetp-acute-sacute-nonimp-c-1-1} 
-
-}
-
-\caption[Network plot - label-free - Acute C Non-Imporvers VS Subacute C Non-Improvers]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks and 3-months post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement at 2-weeks and 3-months post-injury.}\label{fig:openms-chap4-cnetp-acute-sacute-nonimp-c-1}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-cnetp-acute-a-d-2-1} 
-
-}
-
-\caption[Network plot - label-free - Acute A VS Acute D]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS A and AIS D SCI patients.}\label{fig:openms-chap4-cnetp-acute-a-d-2}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-cnetp-acute-imp-c-d-2-1} 
-
-}
-
-\caption[Network plot - label-free - Acute C Improvers VS Acute D]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and AIS D patients.}\label{fig:openms-chap4-cnetp-acute-imp-c-d-2}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-cnetp-acute-imp-c-a-2-1} 
-
-}
-
-\caption[Network plot - label-free - Acute A VS Acute C Improvers]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who experienced an AIS grade improvement and AIS A patients.}\label{fig:openms-chap4-cnetp-acute-imp-c-a-2}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-cnetp-acute-nonimp-c-a-2-1} 
-
-}
-
-\caption[Network plot - label-free - Acute A VS Acute C Non-Improvers]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement and AIS A patients.}\label{fig:openms-chap4-cnetp-acute-nonimp-c-a-2}
-\end{figure}
-
-\elandscape
-\blandscape
-
-
-
-\begin{figure}
-
-{\centering \includegraphics{proteomic_paper_2020-02-11_files/figure-latex/openms-chap4-cnetp-acute-nonimp-c-d-2-1} 
-
-}
-
-\caption[Network plot - label-free - Acute C Non-Improvers VS Acute D]{Network plot denoting the log\(_2\) fold change of proteins in plasma collected 2-weeks post-injury, and the biological pathways these proteins are associated with on Reactome. This compares AIS C SCI patients who did not experience an AIS grade improvement and AIS D patients.}\label{fig:openms-chap4-cnetp-acute-nonimp-c-d-2}
-\end{figure}
-
+\begin{landscape}\begingroup\fontsize{5}{7}\selectfont
+
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.5cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}>{\raggedleft\arraybackslash}p{1.6cm}}
+\caption{\label{tab:label-free-fc-table2}OpenMS log$_2$ fold changes in the plasma proteome of SCI patients from label-free experiments. 'Acute' and 'Subacute' samples collected within 2 week and approximately 3-months post-injury respectively.}\\
+\toprule
+Protein & Acute D Vs Subacute A & Acute C Improvers Vs Subacute C Improvers & Acute C Non-Improvers Vs Subacute C Non-Improvers & Acute C Non-Improvers Vs Subacute C Improvers & Acute D Vs Subacute D & Acute A Vs Acute D & Acute C Improvers Vs Subacute C Non-Improvers & Acute D Vs Subacute C Improvers & Acute D Vs Subacute C Non-Improvers\\
+\midrule
+\endfirsthead
+\caption[]{\label{tab:label-free-fc-table2}OpenMS log$_2$ fold changes in the plasma proteome of SCI patients from label-free experiments. 'Acute' and 'Subacute' samples collected within 2 week and approximately 3-months post-injury respectively. \textit{(continued)}}\\
+\toprule
+Protein & Acute D Vs Subacute A & Acute C Improvers Vs Subacute C Improvers & Acute C Non-Improvers Vs Subacute C Non-Improvers & Acute C Non-Improvers Vs Subacute C Improvers & Acute D Vs Subacute D & Acute A Vs Acute D & Acute C Improvers Vs Subacute C Non-Improvers & Acute D Vs Subacute C Improvers & Acute D Vs Subacute C Non-Improvers\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
+AFM &  &  & -1.216 & -1.0952 &  &  &  &  & \\
+AHSG & -2.441 &  &  &  &  &  &  &  & \\
+APOH &  &  &  &  & -1.754 &  &  &  & \\
+C1QA &  &  &  & 1.4061 &  &  &  &  & \\
+C4BPA &  & 1.1610 &  &  &  &  &  &  & \\
+\addlinespace
+C4BPB &  & 1.7228 &  &  &  &  &  &  & \\
+C9 &  & 0.8642 &  & 1.1875 &  &  &  &  & \\
+CFHR1 &  & 1.5119 &  & 1.5921 &  &  &  &  & \\
+COMP & -3.071 &  &  &  &  &  &  &  & \\
+CRP &  &  & 3.139 &  &  &  &  &  & \\
+\addlinespace
+F13A1 &  & -2.0045 &  &  &  &  &  &  & \\
+F2 &  & 1.0382 &  &  &  &  &  &  & \\
+F9 &  & 0.9526 &  &  &  &  &  &  & \\
+FGA &  &  & 1.040 &  &  &  &  &  & \\
+FGB &  &  & 1.038 & 0.8142 &  &  &  &  & \\
+\addlinespace
+FGL1 &  &  &  &  &  & 2.371 &  &  & \\
+GPLD1 &  &  &  &  &  & -1.266 &  &  & \\
+HABP2 &  & 1.0118 &  &  &  &  &  &  & \\
+IGLV3-19 & -2.495 &  &  &  &  &  &  &  & \\
+ITIH4 &  &  &  &  & 1.356 &  &  &  & \\
+\addlinespace
+LUM & -1.280 & -1.0377 & -1.591 & -1.1822 & -1.200 &  & -1.447 & -1.038 & -1.447\\
+PGLYRP2 &  & -0.9155 & -1.389 & -1.2493 &  &  &  &  & \\
+PLG &  & 0.4401 &  &  &  &  &  &  & \\
+PRG4 &  & 1.3963 &  &  &  &  &  &  & \\
+RNASE4 & 4.339 &  &  &  &  &  &  &  & \\
+\addlinespace
+SERPINA4 &  &  & -1.762 &  &  & -1.245 &  &  & \\
+VTN &  & 0.9532 &  & 0.7628 &  &  &  &  & \\*
+\end{longtable}
+\endgroup{}
 \end{landscape}
-
-\hypertarget{sup-string-plots}{%
-\subsection{STRINGdb network plots}\label{sup-string-plots}}
-
-\hypertarget{itraq-data-2}{%
-\subsubsection{iTRAQ data}\label{itraq-data-2}}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/stringdb_plots/acute_c_improvers_vs_nonimprovers_run1_2021-03-23} \caption{The interaction network of differentially abundant proteins found in plasma 2-weeks post-injury, between AIS C patients who experienced an AIS grade conversion and those who did not. The coloured ``halo'' denotes fold change whereby green indicates that protein is less abundant and red indicates greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_curated_db.png} and those that are experimentally determined \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_experimentally_determined.png}. Predicted interactions from: gene co-occurence \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_co-occurrence.png}; gene fusions \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_fusions.png}; gene neighbourhood \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_neighbour.png}. Others are from gene co-expression \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_co-expression.png}; text-mining \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_text_mining.png} and protein homology \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_protein-homology.png}.}\label{fig:openms-stringdb-acute-c-imp-vs-non}
-\end{figure}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/stringdb_plots/subacute_c_improvers_vs_nonimprovers_run1_2021-03-23} \caption{Interaction network of differentially abundant proteins from plasma 3-months post-injury, between AIS C patients who experienced an AIS grade conversion and those who did not. The coloured ``halo'' denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_curated_db.png} and those that are experimentally determined \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_experimentally_determined.png}. Predicted interactions from: gene co-occurence \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_co-occurrence.png}; gene fusions \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_fusions.png}; gene neighbourhood \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_neighbour.png}. Others are from gene co-expression \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_co-expression.png}; text-mining \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_text_mining.png} and protein homology \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_protein-homology.png}.}\label{fig:openms-stringdb-sub-cs}
-\end{figure}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/stringdb_plots/acute_c_improvers_vs_subacute_improvers_run1_2021-03-23} \caption[StringDB network plot - iTRAQ - Acute C Improvers VS Subacute Improvers]{Interaction network of differentially abundant proteins from plasma 2-weeks and 3-months post-injury for AIS C patients who experienced an AIS grade conversion. The coloured ``halo'' denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_curated_db.png} and those that are experimentally determined \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_experimentally_determined.png}. Predicted interactions from: gene co-occurence \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_co-occurrence.png}; gene fusions \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_fusions.png}; gene neighbourhood \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_neighbour.png}. Others are from gene co-expression \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_co-expression.png}; text-mining \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_text_mining.png} and protein homology \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_protein-homology.png}.}\label{fig:openms-stringdb-acute-sub-c-imp}
-\end{figure}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/stringdb_plots/acute_c_nonimprovers_vs_subacute_nonimprovers_run1_2021-03-23} \caption[StringDB network plot - iTRAQ - Acute C Non-Improvers VS Subacute Non-Improvers]{Interaction network of differentially abundant proteins from plasma 2-weeks and 3-months post-injury for AIS C patients who did not experience an AIS grade conversion. The coloured ``halo'' denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_curated_db.png} and those that are experimentally determined \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_experimentally_determined.png}. Predicted interactions from: gene co-occurence \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_co-occurrence.png}; gene fusions \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_fusions.png}; gene neighbourhood \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_neighbour.png}. Others are from gene co-expression \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_co-expression.png}; text-mining \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_text_mining.png} and protein homology \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_protein-homology.png}.}\label{fig:openms-stringdb-acute-sub-c-nonimp}
-\end{figure}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/stringdb_plots/a_vs_d_run2_2021-03-23} \caption[StringDB network plot - iTRAQ - Acute A VS Acute D]{Interaction network of differentially abundant proteins from plasma 2-week post-injury, between AIS A and D. The coloured ``halo'' denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_curated_db.png} and those that are experimentally determined \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_experimentally_determined.png}. Predicted interactions from: gene co-occurence \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_co-occurrence.png}; gene fusions \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_fusions.png}; gene neighbourhood \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_neighbour.png}. Others are from gene co-expression \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_co-expression.png}; text-mining \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_text_mining.png} and protein homology \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_protein-homology.png}.}\label{fig:openms-stringdb-a-vs-d}
-\end{figure}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/stringdb_plots/acute_c_improvers_vs_d_run2_2021-03-23} \caption[StringDB network plot - iTRAQ - Acute C Improvers VS Acute D]{Interaction network of differentially abundant proteins from plasma 2-week post-injury, between AIS C improvers and D. The coloured ``halo'' denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_curated_db.png} and those that are experimentally determined \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_experimentally_determined.png}. Predicted interactions from: gene co-occurence \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_co-occurrence.png}; gene fusions \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_fusions.png}; gene neighbourhood \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_neighbour.png}. Others are from gene co-expression \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_co-expression.png}; text-mining \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_text_mining.png} and protein homology \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_protein-homology.png}.}\label{fig:openms-stringdb-c-vs-d}
-\end{figure}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/stringdb_plots/acute_c_improvers_vs_a_run2_2021-03-23} \caption[StringDB network plot - iTRAQ - Acute C Improvers VS Acute A]{Interaction network of differentially abundant proteins from plasma 2-week post-injury, between AIS C improvers and A. The coloured ``halo'' denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_curated_db.png} and those that are experimentally determined \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_experimentally_determined.png}. Predicted interactions from: gene co-occurence \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_co-occurrence.png}; gene fusions \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_fusions.png}; gene neighbourhood \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_neighbour.png}. Others are from gene co-expression \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_co-expression.png}; text-mining \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_text_mining.png} and protein homology \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_protein-homology.png}.}\label{fig:openms-stringdb-c-vs-a}
-\end{figure}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/stringdb_plots/acute_c_nonimprovers_vs_a_run2_2021-03-23} \caption[StringDB network plot - iTRAQ - Acute C Non-Improvers VS Acute A]{Interaction network of differentially abundant proteins from plasma 2-week post-injury, between AIS C non-improvers and A. The coloured ``halo'' denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_curated_db.png} and those that are experimentally determined \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_experimentally_determined.png}. Predicted interactions from: gene co-occurence \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_co-occurrence.png}; gene fusions \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_fusions.png}; gene neighbourhood \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_neighbour.png}. Others are from gene co-expression \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_co-expression.png}; text-mining \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_text_mining.png} and protein homology \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_protein-homology.png}.}\label{fig:openms-stringdb-c-nonimp-vs-a}
-\end{figure}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/stringdb_plots/acute_c_nonimprovers_vs_d_run2_2021-03-23} \caption[StringDB network plot - iTRAQ - Acute C Non-Improvers VS Acute D]{Interaction network of differentially abundant proteins from plasma 2-week post-injury, between AIS C non-improvers and D. The coloured ``halo'' denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_curated_db.png} and those that are experimentally determined \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_experimentally_determined.png}. Predicted interactions from: gene co-occurence \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_co-occurrence.png}; gene fusions \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_fusions.png}; gene neighbourhood \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_neighbour.png}. Others are from gene co-expression \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_co-expression.png}; text-mining \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_text_mining.png} and protein homology \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_protein-homology.png}.}\label{fig:openms-stringdb-c-nonimp-vs-d}
-\end{figure}
-
-\hypertarget{label-free-data-2}{%
-\subsubsection{Label-free data}\label{label-free-data-2}}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/label_free/stringdb_plots/acute_c_imp_vs_acute_c_nonimp_2021-08-06} \caption{The interaction network of differentially abundant proteins found in plasma 2-weeks post-injury, between AIS C patients who experienced an AIS grade conversion and those who did not. The coloured ``halo'' denotes fold change whereby green indicates that protein is less abundant and red indicates greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_curated_db.png} and those that are experimentally determined \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_experimentally_determined.png}. Predicted interactions from: gene co-occurence \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_co-occurrence.png}; gene fusions \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_fusions.png}; gene neighbourhood \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_neighbour.png}. Others are from gene co-expression \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_co-expression.png}; text-mining \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_text_mining.png} and protein homology \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_protein-homology.png}.}\label{fig:openms-stringdb-chap4-acute-c-imp-vs-nonimp}
-\end{figure}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/label_free/stringdb_plots/subacute_c_imp_vs_subacute_c_nonimp_2021-08-06} \caption{Interaction network of differentially abundant proteins from plasma 3-months post-injury, between AIS C patients who experienced an AIS grade conversion and those who did not. The coloured ``halo'' denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_curated_db.png} and those that are experimentally determined \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_experimentally_determined.png}. Predicted interactions from: gene co-occurence \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_co-occurrence.png}; gene fusions \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_fusions.png}; gene neighbourhood \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_neighbour.png}. Others are from gene co-expression \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_co-expression.png}; text-mining \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_text_mining.png} and protein homology \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_protein-homology.png}.}\label{fig:openms-stringdb-chap4-sub-cs}
-\end{figure}
-
-
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/label_free/stringdb_plots/acute_c_imp_vs_subacute_c_imp_2021-08-06} \caption[StringDB network plot - label-free - Acute C Improvers VS Subacute Improvers]{Interaction network of differentially abundant proteins from plasma 2-weeks and 3-months post-injury for AIS C patients who experienced an AIS grade conversion. The coloured ``halo'' denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_curated_db.png} and those that are experimentally determined \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_experimentally_determined.png}. Predicted interactions from: gene co-occurence \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_co-occurrence.png}; gene fusions \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_fusions.png}; gene neighbourhood \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_neighbour.png}. Others are from gene co-expression \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_co-expression.png}; text-mining \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_text_mining.png} and protein homology \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_protein-homology.png}.}\label{fig:openms-stringdb-chap4-acute-sub-c-imp}
-\end{figure}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/label_free/stringdb_plots/acute_c_nonimp_vs_subacute_c_nonimp_2021-08-06} \caption[StringDB network plot - label-free - Acute C Non-Improvers VS Subacute Non-Improvers]{Interaction network of differentially abundant proteins from plasma 2-weeks and 3-months post-injury for AIS C patients who did not experience an AIS grade conversion. The coloured ``halo'' denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_curated_db.png} and those that are experimentally determined \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_experimentally_determined.png}. Predicted interactions from: gene co-occurence \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_co-occurrence.png}; gene fusions \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_fusions.png}; gene neighbourhood \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_neighbour.png}. Others are from gene co-expression \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_co-expression.png}; text-mining \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_text_mining.png} and protein homology \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_protein-homology.png}.}\label{fig:openms-stringdb-chap4-acute-sub-c-nonimp}
-\end{figure}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/label_free/stringdb_plots/acute_a_vs_acute_d_2021-08-06} \caption[StringDB network plot - label-free - Acute A VS Acute D]{Interaction network of differentially abundant proteins from plasma 2-week post-injury, between AIS A and D. The coloured ``halo'' denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_curated_db.png} and those that are experimentally determined \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_experimentally_determined.png}. Predicted interactions from: gene co-occurence \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_co-occurrence.png}; gene fusions \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_fusions.png}; gene neighbourhood \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_neighbour.png}. Others are from gene co-expression \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_co-expression.png}; text-mining \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_text_mining.png} and protein homology \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_protein-homology.png}.}\label{fig:openms-stringdb-chap4-a-vs-d}
-\end{figure}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/label_free/stringdb_plots/acute_c_imp_vs_acute_d_2021-08-06} \caption[StringDB network plot - label-free - Acute C Improvers VS Acute D]{Interaction network of differentially abundant proteins from plasma 2-week post-injury, between AIS C improvers and D. The coloured ``halo'' denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_curated_db.png} and those that are experimentally determined \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_experimentally_determined.png}. Predicted interactions from: gene co-occurence \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_co-occurrence.png}; gene fusions \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_fusions.png}; gene neighbourhood \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_neighbour.png}. Others are from gene co-expression \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_co-expression.png}; text-mining \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_text_mining.png} and protein homology \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_protein-homology.png}.}\label{fig:openms-stringdb-chap4-c-vs-d}
-\end{figure}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/label_free/stringdb_plots/acute_a_vs_acute_c_imp_2021-08-06} \caption[StringDB network plot - label-free - Acute C Improvers VS Acute A]{Interaction network of differentially abundant proteins from plasma 2-week post-injury, between AIS C improvers and A. The coloured ``halo'' denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_curated_db.png} and those that are experimentally determined \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_experimentally_determined.png}. Predicted interactions from: gene co-occurence \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_co-occurrence.png}; gene fusions \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_fusions.png}; gene neighbourhood \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_neighbour.png}. Others are from gene co-expression \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_co-expression.png}; text-mining \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_text_mining.png} and protein homology \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_protein-homology.png}.}\label{fig:openms-stringdb-chap4-c-vs-a}
-\end{figure}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/label_free/stringdb_plots/acute_a_vs_acute_c_nonimp_2021-08-06} \caption[StringDB network plot - label-free - Acute C Non-Improvers VS Acute A]{Interaction network of differentially abundant proteins from plasma 2-week post-injury, between AIS C non-improvers and A. The coloured ``halo'' denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_curated_db.png} and those that are experimentally determined \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_experimentally_determined.png}. Predicted interactions from: gene co-occurence \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_co-occurrence.png}; gene fusions \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_fusions.png}; gene neighbourhood \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_neighbour.png}. Others are from gene co-expression \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_co-expression.png}; text-mining \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_text_mining.png} and protein homology \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_protein-homology.png}.}\label{fig:openms-stringdb-chap4-c-nonimp-vs-a}
-\end{figure}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/label_free/stringdb_plots/acute_c_nonimp_vs_acute_d_2021-08-06} \caption[StringDB network plot - label-free - Acute C Non-Improvers VS Acute D]{Interaction network of differentially abundant proteins from plasma 2-week post-injury, between AIS C non-improvers and D. The coloured ``halo'' denotes fold change whereby green indicates that protein is less abundant and red that there is greater abundance. Edges represent protein-protein associations; these are known interactions from: curated databases \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_curated_db.png} and those that are experimentally determined \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_experimentally_determined.png}. Predicted interactions from: gene co-occurence \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_co-occurrence.png}; gene fusions \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_fusions.png}; gene neighbourhood \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_gene_neighbour.png}. Others are from gene co-expression \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_co-expression.png}; text-mining \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_text_mining.png} and protein homology \includegraphics[width=0.08\textwidth,height=0.02\textheight]{Images/stringdb_protein-homology.png}.}\label{fig:openms-stringdb-chap4-c-nonimp-vs-d}
-\end{figure}
-
-\clearpage
-
-\hypertarget{sup-volc-plots}{%
-\subsection{Volcano plots}\label{sup-volc-plots}}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/label_free/volcano_plots/openms_volcano_plot_2021-08-10_0008} \caption{Volcano plot of log\(_10\) fold change and log\(_10\) adjusted p-value for plasma proteins from 2-weeks post-injury between AIS C patients who experienced an AIS grade conversion and those who did not. Proteins with a fold changes beyond \(\pm 1.2\) and an adjusted p-value less than 0.05 are labelled.}\label{fig:volc-plot-c-imp-vs-nonimp}
-\end{figure}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/label_free/volcano_plots/openms_volcano_plot_2021-08-10_0026} \caption{Volcano plot of log\(_10\) fold change and log\(_10\) adjusted p-value for plasma proteins from 3-months post-injury between AIS C patients who experienced an AIS grade conversion and those who did not. Proteins with a fold changes beyond \(\pm 1.2\) and an adjusted p-value less than 0.05 are labelled.}\label{fig:volc-plot-subacute-c-imp-vs-nonimp}
-\end{figure}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/label_free/volcano_plots/openms_volcano_plot_2021-08-10_0011} \caption{Volcano plot of log\(_10\) fold change and log\(_10\) adjusted p-value for plasma proteins from 2-weeks and 3-months post-injury from AIS C patients who experienced an AIS grade conversion. Proteins with a fold changes beyond \(\pm 1.2\) and an adjusted p-value less than 0.05 are labelled.}\label{fig:volc-plot-acute-c-imp-vs-subacute-imp}
-\end{figure}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/label_free/volcano_plots/openms_volcano_plot_2021-08-10_0017} \caption{Volcano plot of log\(_10\) fold change and log\(_10\) adjusted p-value for plasma proteins from 2-weeks and 3-months post-injury from AIS C patients who did not experience an AIS grade conversion. Proteins with a fold changes beyond \(\pm 1.2\) and an adjusted p-value less than 0.05 are labelled.}\label{fig:volc-plot-acute-c-nonimp-vs-subacute-nonimp}
-\end{figure}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/label_free/volcano_plots/openms_volcano_plot_2021-08-10_0003} \caption{Volcano plot of log\(_10\) fold change and log\(_10\) adjusted p-value for plasma proteins from 2-weeks post-injury between AIS A and AIS D patients. Proteins with a fold changes beyond \(\pm 1.2\) and an adjusted p-value less than 0.05 are labelled.}\label{fig:volc-plot-acute-a-vs-acute-d}
-\end{figure}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/label_free/volcano_plots/openms_volcano_plot_2021-08-10_0004} \caption{Volcano plot of log\(_10\) fold change and log\(_10\) adjusted p-value for plasma proteins from 2-weeks and 3-months post-injury from AIS A patients. Proteins with a fold changes beyond \(\pm 1.2\) and an adjusted p-value less than 0.05 are labelled.}\label{fig:volc-plot-acute-a-vs-subacute-a}
-\end{figure}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/label_free/volcano_plots/openms_volcano_plot_2021-08-10_0022} \caption{Volcano plot of log\(_10\) fold change and log\(_10\) adjusted p-value for plasma proteins from 2-weeks and 3-months post-injury from AIS D patients. Proteins with a fold changes beyond \(\pm 1.2\) and an adjusted p-value less than 0.05 are labelled.}\label{fig:volc-plot-acute-d-vs-subacute-d}
-\end{figure}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/label_free/volcano_plots/openms_volcano_plot_2021-08-10_0009} \caption{Volcano plot of log\(_10\) fold change and log\(_10\) adjusted p-value for plasma proteins from 2-weeks post-injury between AIS C patients who experienced an AIS grade conversion and AIS D patients. Proteins with a fold changes beyond \(\pm 1.2\) and an adjusted p-value less than 0.05 are labelled.}\label{fig:volc-plot-acute-c-imp-vs-acute-d}
-\end{figure}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/label_free/volcano_plots/openms_volcano_plot_2021-08-10_0001} \caption{Volcano plot of log\(_10\) fold change and log\(_10\) adjusted p-value for plasma proteins from 2-weeks post-injury between AIS A patients and AIS C patients who experienced an AIS grade conversion. Proteins with a fold changes beyond \(\pm 1.2\) and an adjusted p-value less than 0.05 are labelled.}\label{fig:volc-plot-acute-a-vs-acute-c-imp}
-\end{figure}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/label_free/volcano_plots/openms_volcano_plot_2021-08-10_0002} \caption{Volcano plot of log\(_10\) fold change and log\(_10\) adjusted p-value for plasma proteins from 2-weeks post-injury between AIS A patients and AIS C patients who did not experience an AIS grade conversion. Proteins with a fold changes beyond \(\pm 1.2\) and an adjusted p-value less than 0.05 are labelled.}\label{fig:volc-plot-acute-a-vs-acute-c-nonimp}
-\end{figure}
-
-
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{figures/openms_protein_quantification/label_free/volcano_plots/openms_volcano_plot_2021-08-10_0014} \caption{Volcano plot of log\(_10\) fold change and log\(_10\) adjusted p-value for plasma proteins from 2-weeks post-injury between AIS C patients who did not experience an AIS grade conversion and AIS D patients. Proteins with a fold changes beyond \(\pm 1.2\) and an adjusted p-value less than 0.05 are labelled.}\label{fig:volc-plot-acute-c-nonimp-vs-acute-d}
-\end{figure}
 
 \hypertarget{references}{%
 \section*{References}\label{references}}
@@ -1964,6 +1153,9 @@ Röst, Hannes L., Timo Sachsenberg, Stephan Aiche, Chris Bielow, Hendrik Weisser
 
 \leavevmode\vadjust pre{\hypertarget{ref-salzano_linkage_2014}{}}%
 Salzano, Sonia, Paola Checconi, Eva-Maria Hanschmann, Christopher Horst Lillig, Lucas D. Bowler, Philippe Chan, David Vaudry, et al. 2014. {``Linkage of Inflammation and Oxidative Stress via Release of Glutathionylated Peroxiredoxin-2, Which Acts as a Danger Signal.''} \emph{Proceedings of the National Academy of Sciences} 111 (33): 12157--62. \url{https://doi.org/10.1073/pnas.1401712111}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-sauerbeck_spinal_2014}{}}%
+Sauerbeck, Andrew D., J. Lukas Laws, Veera V. R. Bandaru, Phillip G. Popovich, Norman J. Haughey, and Dana M. McTigue. 2014. {``Spinal {Cord Injury Causes Chronic Liver Pathology} in {Rats}.''} \emph{Journal of Neurotrauma} 32 (3): 159--69. \url{https://doi.org/10.1089/neu.2014.3497}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-segal_circulating_1997}{}}%
 Segal, J. L., E. Gonzales, S. Yousefi, L. Jamshidipour, and S. R. Brunnemann. 1997. {``Circulating Levels of {IL-2r}, {ICAM-1}, and {IL-6} in Spinal Cord Injuries.''} \emph{Archives of Physical Medicine and Rehabilitation} 78 (1): 44--47. \url{https://doi.org/10.1016/s0003-9993(97)90008-3}.
