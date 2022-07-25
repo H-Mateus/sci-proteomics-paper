@@ -361,7 +361,30 @@ $else$
 $endif$
 \subtitle{$subtitle$}
 $endif$
-\author{$for(author)$$author$$sep$ \and $endfor$}
+$if(author)$
+\author{$for(author)$author$sep$ \and $endfor$}
+$endif$
+% $if(author)$
+%     \usepackage{authblk}
+%     $for(author)$
+%         $if(author.name)$
+%             $if(author.number)$
+%                 \author[$author.number$]{$author.name$}
+%             $else$
+%                 \author[]{$author.name$}
+%             $endif$
+%             $if(author.affiliation)$
+%                 $if(author.email)$
+%                     \affil{$author.affiliation$ \thanks{$author.email$}}
+%                 $else$
+%                     \affil{$author.affiliation$}
+%                 $endif$
+%             $endif$
+%             $else$
+%             \author{$author$}
+%         $endif$
+%     $endfor$
+% $endif$
 \date{$date$}
 $if(beamer)$
 $if(institute)$
