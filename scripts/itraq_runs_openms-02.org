@@ -1,0 +1,769 @@
+#+title: OpenMS Protein Quantification node analysis
+#+author:
+#+date:  2020-10-26
+#+PROPERTY: header-args :tangle openms_protein_quantification.R :session R :results silent
+
+* Analysis
+This script is for analysing the OpenMS protein quantification node output
+
+#+begin_src R
+## load packages
+library(tidyverse)
+library(STRINGdb)
+library(org.Hs.eg.db)
+library(ReactomePA)
+library(gtools)
+library(ggrepel)
+library(gage)
+library(gageData)
+library(pathview)
+library(RColorBrewer)
+## load data
+# need to read in headers and data separately to avoid metadata in first three rows
+read_in_data <- function(file) {
+headers <- read.csv(file, sep = "\t", skip = 3, header = F, nrows = 1)
+prot_quant <- read.csv(file, sep = "\t", skip = 4, header = F)
+colnames(prot_quant) <- headers
+return(prot_quant)
+}
+
+prot_quant <- read_in_data("../../../../proteomic_data/knime_outputs/all_fraction_both_runs_itraq_workflow_2020-10-23/both_runs_protein_quantification.csv")
+prot_quant_run1 <- read_in_data("../../../../proteomic_data/knime_outputs/fractions_merged_itraq_workflow/run1_protein_quantification.csv")
+prot_quant_both_merged <- read_in_data("../../../../proteomic_data/knime_outputs/fractions_merged_itraq_workflow/protein_quantification_both_runs_2020-10-27.csv")
+#+end_src
+
+#+begin_src R
+head(prot_quant)
+str(prot_quant)
+#+end_src
+
+#+RESULTS:
+
+Get more explanatory column names
+#+begin_src R
+update_col_names <- function(df, file, number) {
+                                        # get files names
+file_names <- read.csv(file, sep = "\t")
+a <- file_names$Spectra_Filepath[1:number]
+b <- file_names$Sample[(number + 3):length(file_names$Sample)]
+c <- paste(a, b, sep = "_")
+
+names(df)[5:length(names(df))] <- paste(names(df)[5:length(names(df))], c, sep = "_")
+  return(df)
+  }
+
+prot_quant_run1 <- update_col_names(prot_quant_run1, "../../../../proteomic_data/experimental_design/fractions_merged_run1_experimental_design.tsv", 48)
+prot_quant <- update_col_names(prot_quant, "../../../../proteomic_data/experimental_design/fractions_bothruns_experimental_design.tsv", 96)
+prot_quant_both_merged <- update_col_names(prot_quant_both_merged, "../../../../proteomic_data/experimental_design/knime_ExperimentalDesign_fractions_merged_both_runs.tsv", 8)
+#+end_src
+
+There seems to be more than one accession in the column for some proteins, not sure why
+#+begin_src R
+get_protein_accession <- function(df) {
+                                        # Get protein accession
+# there are multiple accessions in the column
+  library(qdapRegex)
+  protein_accession_list <- rm_between(df$protein, "|", "|", extract = TRUE)
+  df$protein_accession <-sapply(protein_accession_list, "[[", 1)
+ head(df$protein_accession)
+  return(df)
+  }
+
+prot_quant_run1 <- get_protein_accession(prot_quant_run1)
+prot_quant <- get_protein_accession(prot_quant)
+prot_quant_both_merged <- get_protein_accession(prot_quant_both_merged)
+#+end_src
+
+These functions get the name and description of the proteins from uniprot based
+on the accession.
+#+begin_src R
+# functions to get uniprot descriptions from accessions
+find_protein_description <- function(protein_id = ""){
+        require(rvest)  # hadley wickham's package that can harvest html files
+        website <- paste("https://www.uniprot.org/uniprot/", protein_id, sep = "") # website
+        webpage <- read_html(website) # webpage read
+        results <- webpage %>% html_nodes("meta") # get relevant data
+        result <- as.character(results[[4]]) # 4th node is what you want
+        result <- str_remove(result, "<meta content=\"") # strip beginning
+        result <- str_remove(result, "\" name=\"description\">\n") # strip end
+        return(result) # return result
+}
+
+find_protein_name <- function(protein_id = ""){
+        require(rvest)  # hadley wickham's package that can harvest html files
+        website <- paste("https://www.uniprot.org/uniprot/", protein_id, sep = "") # website
+        webpage <- read_html(website) # webpage read
+        name <- webpage %>% html_nodes("head")  %>% html_node("title") # get protein name
+        name <- as.character(name[[1]])
+        name <- str_remove(name, "<title>") # strip beginning
+        name <- str_remove(name, "gene &amp; protein</title>\n") # strip end
+        return(name) # return name
+}
+#+end_src
+
+#+RESULTS:
+
+#+begin_src R
+                                        # Use functions
+prot_quant$protein_name <- unlist(map(prot_quant$protein_accession, ~ find_protein_name(.x)))
+prot_quant$protein_description <- unlist(map(prot_quant$protein_accession, ~ find_protein_description(.x)))
+head(prot_quant)
+prot_quant_run1$protein_name <- unlist(map(prot_quant_run1$protein_accession, ~ find_protein_name(.x)))
+prot_quant_run1$protein_description <- unlist(map(prot_quant_run1$protein_accession, ~ find_protein_description(.x)))
+
+prot_quant_both_merged$protein_name <- unlist(map(prot_quant_both_merged$protein_accession, ~ find_protein_name(.x)))
+prot_quant_both_merged$protein_description <- unlist(map(prot_quant_both_merged$protein_accession, ~ find_protein_description(.x)))
+#+end_src
+
+#+RESULTS:
+| prot_quant_both_merged |
+| prot_quant_both_merged |
+
+#+begin_src R
+                                        # save data
+write_rds(prot_quant, file = "../data/prot_quant_2020-10-26.rds")
+write_rds(prot_quant_run1, file = "../data/prot_quant_run1_2020-10-26.rds")
+write_rds(prot_quant_both_merged, file = "../data/prot_quant_both_merged_2020-10-29.rds")
+#+end_src
+
+#+begin_src R
+## read in data as uniprot function take a while to run
+prot_quant_both_merged <- read_rds("../data/prot_quant_both_merged_2020-10-29.rds")
+
+prot_quant_long<- pivot_longer(prot_quant_both_merged, cols = contains("abundance"),
+             names_to = "group", values_to = "abundance")
+#+end_src
+
+* Visualisations
+
+#+begin_src R
+## get gene names for stringdb
+prot_quant_both_merged$gene_name <- sub(" .*", "", prot_quant_both_merged$protein_name)
+
+# set STRINGdb paramaters -below is setting the species by NCBI taxonomy (9606
+# is human), and the score threshold - should look into what an appropriate
+# value there is
+string_db <- STRINGdb$new(version="11", species=9606,
+                           score_threshold=400, input_directory="" )
+# map gene labels to STRING database labels
+protein_interaction_both <- string_db$map(prot_quant_both_merged, "gene_name")
+# remove duplicate gene
+protein_intereaction_both <- dplyr::distinct(protein_interaction_both, gene_name, .keep_all = TRUE)
+# filter out keratin and trypsin
+protein_interaction_both <- protein_interaction_both %>%
+  dplyr::filter(!grepl("Keratin", protein_name) & !grepl("Trypsin", protein_name))
+#+end_src
+
+#+begin_src R
+## get entrez id fro uniprot accession
+protein_interaction_both$entrezid <- mapIds(org.Hs.eg.db,
+                                            protein_interaction_both$protein_accession,
+                                            'ENTREZID', 'UNIPROT')
+## filter missing ids
+protein_interactions_filtered <- protein_interaction_both %>%
+  dplyr::filter(!is.na(entrezid))
+## get enrighment pathway
+reactome_df <- enrichPathway(gene = protein_interactions_filtered$entrezid,
+                             pAdjustMethod = "bonferroni", readable = TRUE)
+## visualize
+emapplot <- emapplot(reactome_df)
+## need vector of fold changes to be named with entrezid
+## select cols with abundance
+abundance_cols <- protein_interactions_filtered %>%
+  dplyr::select(contains("abundance"))
+## make a list of entrezid named abundance cols
+fold_change <- list()
+for (i in 1:length(abundance_cols)) {
+  fold_change[[i]] <- abundance_cols[[i]]
+  names(fold_change[[i]]) <- protein_interactions_filtered$entrezid
+}
+## get plot titles
+titles <- names(abundance_cols)
+## generate plots
+heatmap <- map2(fold_change, titles, ~ heatplot(reactome_df,
+                                                foldChange = .x) + ggtitle(.y) +
+                                       scale_fill_continuous(name = "abundance",
+                                                             low = "blue", high = "red") +
+                                       scale_y_discrete(labels = function(x) str_wrap(str_replace_all(x, "foo" , " "),
+                                                                                      width = 40)))
+## save all heatmaps in one pdf
+pdf("../figures/mass_spec/reactomepa_heatmaps_2020-11-17.pdf", width = 6, height = 5)
+heatmap
+dev.off()
+
+cnetplot <- map2(fold_change, titles, ~ cnetplot(reactome_df,
+                                                 categorySize = '_pvalue',
+                                                 foldChange = .x) +
+                                        ggtitle(.y) +
+                                        scale_color_continuous(name = "abundance",
+                                                               low = "blue", high = "red"))
+#+end_src
+
+#+RESULTS:
+
+#+begin_src R
+## bargraph of abundance
+protein_interactions_filtered %>%
+  ggplot(aes(x = reorder(gene_name, .data[[names(abundance_cols)[1]]]), y = .data[[names(abundance_cols)[1]]])) +
+  geom_bar(stat="identity", position = position_dodge())
+#+end_src
+
+#+begin_src R
+barplots<- map(names(abundance_cols), ~ggplot(data = protein_interaction_both,
+                                           aes(x = reorder(gene_name, .data[[.x]]), y = .data[[.x]])) +
+                                     geom_bar(stat="identity", position = position_dodge()) +
+                                     xlab("Gene name") +
+                                     ylab("abundance") +
+                                     theme_bw() +
+                                     theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=1))
+            )
+barplots[[1]]
+#+end_src
+
+Get data in long format
+#+begin_src R
+## get data in long format
+protein_interaction_both_wide<- protein_interaction_both %>%
+  pivot_longer(
+    cols = starts_with("abundance"),
+    names_to = "itraq_label",
+    names_prefix = "abundance",
+    values_to = "abundance",
+    values_drop_na = TRUE
+  )
+## create column of group labels
+protein_interaction_both_wide<- protein_interaction_both_wide %>%
+  dplyr::mutate(condition = case_when(
+                  grepl("run1.mzML_114", protein_interaction_both_wide$itraq_label) ~ "c_acute_improve",
+                  grepl("run1.mzML_115", protein_interaction_both_wide$itraq_label) ~ "c_subacute_improve",
+                  grepl("run1.mzML_116", protein_interaction_both_wide$itraq_label) ~ "c_acute_nonimprove",
+                  grepl("run1.mzML_117", protein_interaction_both_wide$itraq_label) ~ "c_subacute_nonimprove",
+                  grepl("run2.mzML_114", protein_interaction_both_wide$itraq_label) ~ "c_acute_improve",
+                  grepl("run2.mzML_115", protein_interaction_both_wide$itraq_label) ~ "c_acute_nonimprove",
+                  grepl("run2.mzML_116", protein_interaction_both_wide$itraq_label) ~ "a",
+                  grepl("run2.mzML_117", protein_interaction_both_wide$itraq_label) ~ "d",
+                  TRUE ~ "standard"
+                ),
+                run = case_when(
+                  grepl("run1.mzML", protein_interaction_both_wide$itraq_label) ~ "1",
+                  grepl("run2.mzML", protein_interaction_both_wide$itraq_label) ~ "2",
+                  TRUE ~ "0")
+                )
+## filter out rows where abundance is 0 and add log2 transformed abudnance
+protein_interaction_both_long <- protein_interaction_both_wide %>%
+  dplyr::filter(abundance > 0) %>%
+  dplyr::mutate(log2_abundance = log2(abundance))
+#+end_src
+
+#+begin_src R
+## save data
+#write.csv(protein_interaction_both_long, "../data/protein_quantification_openms_2020-11-05.csv")
+#+end_src
+
+#+begin_src R
+protein_interaction_both_long %>%
+  ggplot(aes(x = reorder(gene_name, abundance), y = abundance, fill = condition)) +
+  geom_bar(stat="identity", position = position_dodge()) +
+  xlab("Gene name") +
+  ylab("abundance") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=1))
+## save plot
+ggsave("../figures/openms_protein_quantification/all_genes.pdf")
+#+end_src
+
+#+begin_src R
+## plot for each gene
+genes <- unique(protein_interaction_both_long$gene_name)
+## get list of dataframe filtered to one gene each
+test <- map(genes, ~ protein_interaction_both_long %>%
+                     dplyr::filter(gene_name == .x))
+## make plot for each gene
+plots <- map(test, ~ggplot(data = .x, aes(x = reorder(gene_name, abundance),
+                                          y = abundance, colour = condition)) +
+                     geom_bar(stat="identity", position = position_dodge()) +
+                     xlab("Gene name") +
+                     ylab("abundance") +
+                     theme_bw())
+## give list names
+names(plots) <- genes
+#+end_src
+
+#+begin_src R
+## save plots
+map2(plots, names(plots), ~ggsave(filename = paste("../figures/openms_protein_quantification/",
+                                                   .y, ".pdf", sep = ""), .x))
+#+end_src
+
+** Fold changes
+
+#+begin_src R
+## make function to get foldchange for comparison of interest
+## initialise df to store results
+## allresults <- data.frame(gene = NULL,
+##                          protein_score = NULL,
+##                          log2_fold_change = NULL,
+##                          fold_change = NULL,
+##                          comparison = NULL)
+
+get_fold_change <- function(df, comparison, runs){
+  ## convert run col
+  df$run <- as.numeric(df$run)
+  ## get list of proteins
+  protlist <- unique(df$protein)
+  ## initialise df to store results
+  allresults <- data.frame(gene = NULL,
+                           protein_score = NULL,
+                           log2_fold_change = NULL,
+                           fold_change = NULL,
+                           comparison = NULL,
+                           accession = NULL)
+  fold_change_df<- data.frame(gene = NULL,
+                              protein_score = NULL,
+                              log2_fold_change = NULL,
+                              fold_change = NULL,
+                              comparison = NULL,
+                              accession = NULL)
+  ## loop over each protein
+  for(i in 1:length(protlist)){
+    ## filter to protein, condition and run
+    df_filter <- df %>%
+      dplyr::filter(condition %in% comparison) %>%
+      dplyr::filter(protein %in% protlist[i]) %>%
+      dplyr::filter(run %in% runs)
+
+    ## tryCatch is to prevent the for loop stoping in cases where one or
+    ## both groups don't have the protein
+    tryCatch({
+      fold_change_df <- data.frame(gene = unique(df_filter$gene_name),
+                                   protein_score = mean(df_filter$protein_score),
+                                   log2_fold_change = df_filter$log2_abundance[1] - df_filter$log2_abundance[2],
+                                   fold_change = df_filter$abundance[1] - df_filter$abundance[2],
+                                   comparison = paste(comparison[1], comparison[2], sep = "_vs_"),
+                                   accession = df_filter$protein_accession[1])
+    },
+    error = function(e) {
+      cat("ERROR :", conditionMessage(e), "\n")
+    })
+
+    ## save results
+    allresults <- rbind(allresults,
+                        fold_change_df)
+    ## show progress
+    print(i)
+  }
+  return(allresults)
+}
+#+end_src
+
+Don't currently have all comparisons, adding the subacute groups doesn't work for some reason
+[[file:../../../../Documents/org-roam/20210205134747-yakult_study_rjah.org][Yakult Study - RJAH]]
+#+begin_src R
+  ## make list of comparisons of interest
+  conditions <- unique(protein_interaction_both_long$condition)
+  conditions
+  comparisons_of_interest <- list(
+    "acute_c_improvers_vs_nonimprovers_run1" = c("c_acute_improve", "c_acute_nonimprove"),
+    "subacute_c_improvers_vs_nonimprovers_run1" = c("c_subacute_improve", "c_subacute_nonimprove"),
+  "acute_c_improvers_vs_subacute_improvers_run1" = c("c_acute_improve", "c_subacute_improve"),
+"acute_c_nonimprovers_vs_subacute_nonimprovers_run1" = c("c_acute_nonimprove", "c_subacute_nonimprove"),
+    "acute_c_improvers_vs_nonimprovers_run2" = c("c_acute_improve", "c_acute_nonimprove"),
+    "a_vs_d_run2" = c("a", "d"),
+    "acute_c_improvers_vs_a_run2" = c("c_acute_improve", "a"),
+    "acute_c_improvers_vs_d_run2" = c("c_acute_improve", "d"),
+    "acute_c_nonimprovers_vs_a_run2" = c("c_acute_nonimprove", "a"),
+    "acute_c_nonimprovers_vs_d_run2" = c("c_acute_nonimprove", "d"),
+    "subacute_c_improvers_vs_a_run2" = c("c_subacute_improve", "a"),
+    "subacute_c_improvers_vs_d_run2" = c("c_subacute_improve", "d"),
+    "subacute_c_nonimprovers_vs_a_run2" = c("c_subacute_nonimprove", "a"),
+    "subacute_c_nonimprovers_vs_d_run2" = c("c_subacute_nonimprove", "d")
+  )
+  ## make lists of relevant runs
+  runs <- c(rep(list(1), 4), rep(list(2), 6), rep(list(c(1, 2)), 4))
+  #runs <- c(rep(1, 2), rep(2, 10))
+
+  ## use function
+  fold_change_list<- map2(comparisons_of_interest, runs,
+                          ~get_fold_change(protein_interaction_both_long, .x, .y))
+  ## save data
+  saveRDS(fold_change_list, "../data/openms/protein_quantification_foldchanges.rds")
+#+end_src
+
+#+begin_src R
+  ## make volcano plots and save them to a single .pdf
+  pdf("../figures/openms_protein_quantification/volcano_plots_quant_output_2020-11-17.pdf",
+      width = 6, height = 5)
+
+  volc_plots <- map2(fold_change_list,
+                     names(fold_change_list), ~ .x %>%
+                                                  mutate(large_fold_change = ifelse(abs(.x$log2_fold_change) > 1.2,
+                                                                                    "large fold change",
+                                                                                    "small fold change")) %>%
+                                                  ggplot(aes(x = log2_fold_change, y = protein_score)) +
+                                                  ## add labels for significant proteins
+                                                  geom_text_repel(
+                                                      data = filter(.x, abs(log2_fold_change) > 1.2),
+                                                      mapping = aes(label = gene)
+                                                  ) +
+                                                  geom_point(aes(color = large_fold_change)) +
+                                                  ## add lines for significance cut off and +- 1 fold change
+                                                  geom_vline(xintercept = c(-1.2, 1.2), linetype = "dotted") +
+                                                  labs(
+                                                      x = expression(log[2] ~ fold - change),
+                                                      y = expression(Protein - score),
+                                                      title = .y
+                                                  ) +
+                                                  scale_y_continuous(limits = c(min(.x$protein_score),
+                                                  (max(.x$protein_score) + 0.1))) +
+                                                  theme_minimal())
+  ## print plots
+  volc_plots
+
+  dev.off()
+
+#+end_src
+
+#+begin_src R
+## make fold change bar plots
+pdf("../figures/openms_protein_quantification/bargraphs_quant_output_2020-11-17.pdf",
+    width = 8, height = 5)
+
+map2(fold_change_list, names(fold_change_list), ~ .x %>%
+                                                  dplyr::filter(!is.na(log2_fold_change)) %>%
+                                                  ggplot(aes(x = reorder(gene, log2_fold_change),
+                                                             y = log2_fold_change,
+                                                             fill = log2_fold_change)) +
+                                                  geom_bar(stat = "identity",
+                                                           position = position_dodge(),
+                                                           show.legend = FALSE) +
+                                                  labs(y = expression(log[2] ~ fold - change),
+                                                       x = "Gene",
+                                                       title = .y) +
+                                                  theme_minimal() +
+                                                  theme(axis.text.x = element_text(angle = 90,
+                                                                                   vjust = 0.5,
+                                                                                   hjust=1)))
+                                        #scale_x_discrete(guide = guide_axis(n.dodge=3)))
+
+dev.off()
+#+end_src
+
+* STRINGdb network plots
+
+#+begin_src R
+
+  ## function for STRINGdb network plots
+  string_db_network_plots <- function(df, gene_column_string, foldchange_col, file_save) {
+      ## map gene labels to STRING labels
+      test_map <- string_db$map(df, gene_column_string)
+      ## add colour column
+      test_colour <- string_db$add_diff_exp_color(test_map, logFcColStr = foldchange_col)
+      ## get payload id
+      payload_id <- string_db$post_payload(test_colour$STRING_id, colors = test_colour$color)
+      ## extract STRING labels
+      test_hits <- test_map$STRING_id
+      ## create network plot
+      pdf(file_save, width = 9, height = 8)
+      test_plot <- string_db$plot_network(test_hits, payload_id = payload_id)
+      dev.off()
+      ## get enrichment
+      enrichment <- string_db$get_enrichment(test_hits)
+      ## clustering
+      clusters <- string_db$get_clusters(test_hits)
+      ## get png
+      ## string_db$get_png(test_hits, file = file_save)
+      ## return clustering list and enrichment df
+      result_list <- list(enrichment, clusters, payload_id)
+      names(result_list) <- c("enrichment_df", "clusters", "plot_fold_change")
+      return(result_list)
+  }
+#+end_src
+
+#+begin_src R
+  ## list of file paths
+  png_files <- map(names(fold_change_list), ~paste("../figures/openms_protein_quantification/stringdb_plots/", .x, "_2021-03-23.pdf", sep=""))
+  ## use function
+  stringdb_results <- map2(fold_change_list, png_files, ~string_db_network_plots(.x, "gene", "log2_fold_change", .y))
+## save data
+saveRDS(stringdb_results, "../data/openms/protein_quantification_stringdb_results_2021-03-23.rds")
+#+end_src
+
+#+begin_src R
+  ## check cluster legnth
+  map(stringdb_results, ~ length(.x$clusters))
+  ## plot clusters
+  cluster_plot <- function(cluster_list, payload_id, file_path, file_extension = ".pdf"){
+      ## set plot parameters
+      ## par(mfrow=c((length(cluster_list)/2),length(cluster_list)))
+
+      for(i in 1:length(cluster_list)){
+          ## save to pdf
+          pdf(paste(file_path, "_cluster", as.character(i), "_", Sys.Date(), file_extension, sep = ""), height = 10, width = 8)
+          ## generate plot
+          string_db$plot_network(cluster_list[[i]], payload_id = payload_id)
+          dev.off()
+      }
+  }
+#+end_src
+
+#+begin_src R
+  ## svg file names
+  svg_files <- map(names(fold_change_list), ~paste("../figures/openms_protein_quantification/stringdb_cluster_plots/", .x, sep=""))
+  ## use function
+  map2(stringdb_results, svg_files, ~cluster_plot(.x$clusters, .x$plot_fold_change, .y))
+#+end_src
+
+* Pathway analysis
+#+begin_src R
+    ## get entrezid for pathways
+    entrezid <- map(fold_change_list, ~ mapIds(org.Hs.eg.db,
+                                                .x$accession,
+                                                'ENTREZID', 'UNIPROT'))
+    ## get foldchanges
+    foldchanges_df <- map2(fold_change_list, entrezid, ~ dplyr::select(.x, log2_fold_change))
+    ## add together
+    foldchanges_df <- mapply(cbind, foldchanges_df, "entrezid" = entrezid, SIMPLIFY = F)
+    foldchanges <- map(foldchanges_df, ~ setNames(.x$log2_fold_change, as.character(.x$entrezid)))
+
+  ## save foldchange data
+  write_rds(foldchanges, "../data/openms/foldchanges_2021-03-19.rds")
+
+#+end_src
+
+** ReactomePA
+
+*** Heatmaps
+#+begin_src R
+  ## generate heatmap plots
+  ## make plot titles
+  plot_titles <- c("Acute AIS C Improvers VS non-Improvers",
+                   "Subacute AIS C Improvers VS non-Improvers",
+                   "AIS C Improvers acute vs subacute",
+                   "AIS C non-Improvers acute vs subacute",
+                   "Acute AIS C Improvers VS non-Improvers Run 2",
+                   "AIS A VS AIS D",
+                   "Acute AIS C Improvers VS AIS A",
+                   "Acute AIS C Improvers VS AIS D",
+                   "Acute AIS C non-Improvers VS AIS A",
+                   "Acute AIS C non-Improvers VS AIS D",
+                   "Subacute AIS C Improvers VS AIS A",
+                   "Subacute AIS C Improvers VS AIS D",
+                   "Subacute AIS C non-Improvers VS AIS A",
+                   "Subacute AIS C non-Improvers VS AIS D")
+  ## fix colour scale
+  ## get range of foldchanges
+  fc_range <- range(do.call(rbind, map(foldchanges, ~ range(.x, na.rm = TRUE))))
+  myPalette <- colorRampPalette(rev(brewer.pal(11, "Spectral")))
+
+  heatmap <- map2(foldchanges, plot_titles, ~ heatplot(reactome_df,
+                                                       foldChange = .x) + ggtitle(.y) +
+                                                scale_fill_gradientn(name = expression(log[2] ~ fold - change),
+                                                                     colours=myPalette(100),limits=fc_range) +
+                                                scale_y_discrete(labels = function(x) str_wrap(str_replace_all(x, "foo" , " "),
+                                                                                               width = 50)))
+  ## save heatmap plot object
+  write_rds(heatmap, "../data/openms/reactomepa_heatmaps_quantification_output.rds")
+  ## save all heatmaps in one pdf
+  pdf("../figures/mass_spec/reactomepa_heatmaps_2021-01-15.pdf", width = 6, height = 5)
+  heatmap
+  dev.off()
+#+end_src
+
+*** cnetplots
+#+begin_src R
+## other plots
+cnetplot <- map2(foldchanges, plot_titles, ~ cnetplot(reactome_df,
+                                                             categorySize = 'pvalue',
+                                                             foldChange = .x) + ggtitle(.y))
+
+cnetplot_alt <- map2(foldchanges, plot_titles, ~ cnetplot(reactome_df,
+                                                             categorySize = 'pvalue',
+                                                             foldChange = .x,
+                                                             circular = TRUE, colorEdge = TRUE) + ggtitle(.y))
+## save plot object
+write_rds(cnetplot, "../data/openms/reactomepa_cnetplots_quantification_output_2021-01-18.rds")
+write_rds(cnetplot_alt, "../data/openms/reactomepa_cnetplotsalt_quantification_output_2021-01-18.rds")
+## save all in one pdf
+pdf("../figures/mass_spec/reactomepa_cnetplots_2021-01-18.pdf", width = 6, height = 5)
+cnetplot
+dev.off()
+## save alts
+pdf("../figures/mass_spec/reactomepa_cnetplotsalt_2021-01-18.pdf", width = 6, height = 5)
+cnetplot_alt
+dev.off()
+#+end_src
+
+** KEGG Visualisation
+
+#+begin_src R
+  ## bring in gage datasets of interest
+  data("go.sets.hs")
+  data("go.subs.hs")
+  ## get go biological processes (can also get cellular compenent or molecular component)
+  gobpsets <- go.sets.hs[go.subs.hs$BP]
+  gobp_results <- map(foldchanges, ~ gage(.x, gobpsets, same.dir = TRUE))
+  ## check pathways that are upregulated
+  head(gobp_results$a_vs_d_run2$greater)
+
+  ## look at KEGG data
+  data(kegg.sets.hs)
+  ## subset of kegg data that just includes signalling and metabolic pathways
+  data(sigmet.idx.hs)
+  ## subset kegg data
+  kegg.sets.hs <- kegg.sets.hs[sigmet.idx.hs]
+  ## get results
+  kegg_results <- map(foldchanges, ~ gage(.x, kegg.sets.hs, same.dir = TRUE))
+  map(kegg_results, ~ head(.x$greater))
+  map(kegg_results, ~ head(.x$less))
+  ## count how many are signicant
+  head(kegg_results$a_vs_d_run2$less)
+
+  ## try using all genes together
+  all_foldchanges_df <- Reduce(rbind, foldchanges_df)
+  all_foldchanges <- all_foldchanges_df$log2_fold_change
+  names(all_foldchanges) <- all_foldchanges_df$entrezid
+
+  gobp_results_all <- gage(all_foldchanges, gobpsets, same.dir = TRUE)
+  kegg_results_all <- gage(all_foldchanges, kegg.sets.hs, same.dir = TRUE)
+
+  ## go sig
+  ## nothing upreged is sig
+  data.frame(id = rownames(gobp_results_all$greater), as.tibble(gobp_results_all$greater)) %>%
+      dplyr::filter(p.val < 0.05)
+  ## some downregs are though
+  gobp_all_less <- data.frame(id = rownames(gobp_results_all$less), as.tibble(gobp_results_all$less)) %>%
+      dplyr::filter(p.val < 0.05)
+#+end_src
+
+Kegg doesn't seem to return much in either case, go however does
+
+#+begin_src R
+  ## visualise pathways
+  kegg_pathways <- map(kegg_results, ~ data.frame(id = rownames(.x$greater), .x$greater) %>%
+                                       tibble::as.tibble() %>%
+                                       dplyr::filter(!is.na(p.val)) %>%
+                                       .$id %>%
+                                       as.character())
+  ## no difference
+  kegg_pathways_less <- map(kegg_results, ~ data.frame(id = rownames(.x$less), .x$less) %>%
+                                       tibble::as.tibble() %>%
+                                       dplyr::filter(!is.na(p.val)) %>%
+                                       .$id %>%
+                                       as.character())
+  map(kegg_pathways, head)
+  ## get pathway id
+  kegg_path_ids <- map(kegg_pathways, ~ substr(.x, start = 1, stop = 8))
+  kegg_path_ids
+  ## get image
+  test <- sapply(
+    kegg_path_ids$acute_c_improvers_vs_nonimprovers_run1,
+    function(pid) {
+      pathview(
+        gene.data = foldchanges$acute_c_improvers_vs_d_run2,
+        pathway.id = pid, species = "human",
+        kegg.dir = "../figures/kegg_pathways/"
+      )
+    }
+  )
+
+#+end_src
+
+Look at go data
+
+#+begin_src R
+
+go_pathways <- map(gobp_results, ~ data.frame(id = rownames(.x$greater), .x$greater) %>%
+                                     tibble::as.tibble() %>%
+                                     dplyr::filter(p.val < 0.05) %>%
+                                     .$id %>%
+                                     as.character())
+## no difference
+go_pathways_less <- map(gobp_results, ~ data.frame(id = rownames(.x$less), .x$less) %>%
+                                     tibble::as.tibble() %>%
+                                     dplyr::filter(p.val < 0.05) %>%
+                                     .$id %>%
+                                     as.character())
+#+end_src
+
+* Tests
+#+begin_src R
+## fold change for one gene to check that subsequent code works
+igkv3d_foldchange_114vs115_run2 <- protein_interaction_both_long$abundance[1] / protein_interaction_both_long$abundance[2]
+igkv3d_foldchange_114vs115_run2
+test_foldchange <- foldchange(protein_interaction_both_long$abundance[1], protein_interaction_both_long$abundance[2])
+## accession = A0A0C4DH2
+
+## get fold changes
+test <- protein_interaction_both_long %>%
+  ##dplyr::arrange(group) %>%
+  dplyr::group_by(group, protein_accession) %>%
+  ##dplyr::summarise(test = abundance[1], test2 = abundance[2], test3 = abundance[3], test4 = abundance[4], test5 = abundance[5])
+###dplyr::summarise(fold_change = ifelse(abundance[1] >= abundance[2], abundance[1]/abundance[2], -abundance[2]/abundance[1]))
+  ##summarise(mean = mean(abundance), log2 = log2(mean(abundance)))
+  summarise(fold_change = foldchange(abundance, abundance[1]))
+
+test
+## test %>%
+##   dplyr::group_by(group, protein_accession) %>%
+##   dplyr::summarise(fold_change = log2)
+## test %>%
+##   arrange(desc(fold_change)) %>%
+##   filter(fold_change <= igkv3d_foldchange_114vs115_run2)
+res=aggregate(abundance~group + protein_accession,protein_interaction_both_long,mean)
+res["fc",]=c("A.vs.B",as.numeric(res[1,-1])/as.numeric(res[2,-1]))
+#+end_src
+
+#+begin_src R
+## select cols with abundance
+abundance_cols <- prot_quant_both_merged %>%
+  dplyr::select(contains("abundance"))
+## get foldchanges
+map(abundance_cols, ~foldchange(.x, abundance_cols$abundance_1_filefilter_run1.mzML_114))
+#+end_src
+
+#+begin_src R
+# Rename itraq label factor
+old_itraq_labels <- unique(protein_interaction_both_long$itraq_label)
+new_labels <- c("c_improv_acute_run2_114", "c_nonimprov_acute_run2_115",
+                "a_run2_116", "d_run2_117", "c_improv_acute_run1_114",
+                "c_improv_subacute_run1_115", "c_nonimprov_acute_run1_116",
+                "c_nonimprov_run1_117")
+protein_interaction_both_long$itraq_label <- as.factor(protein_interaction_both_long$itraq_label)
+for(i in 1:length(old_itraq_labels)) {
+levels(protein_interaction_both_long$itraq_label)[levels(protein_interaction_both_long$itraq_label)==old_itraq_labels[i]] <- new_labels[i]
+}
+#+end_src
+
+#+begin_src R
+write.csv(protein_interaction_both_long, "../data/openms_quantification_long_2020-11-10.csv")
+## get matrix of abundances
+abundance_wide <- tapply(protein_interaction_both_long$abundance, list(factor(protein_interaction_both_long$protein_accession), factor(protein_interaction_both_long$itraq_label)), sum)
+head(abundance_wide)
+#+end_src
+
+#+begin_src R
+## function to get fold change for all possible comparisons
+fold_change_function<- function(number, abundance_cols){
+  ## initialise list
+  test_list <- list()
+  ## for loop to get foldchange and add name of comparison to list
+  for(i in 1:ncol(abundance_cols)) {
+    test_list[[i]] <- foldchange(abundance_cols[,i], abundance_cols[,number])
+    names(test_list)[i] <- paste(colnames(abundance_cols)[number], "_vs_", colnames(abundance_cols)[i], sep="")
+  }
+  ## remove self comparison
+  test_list[[number]] <- NULL
+  return(test_list)
+}
+## use function
+number_of_groups <- seq(1, ncol(abundance_wide))
+all_fold_changes <- map(number_of_groups, ~fold_change_function(.x, abundance_wide))
+## unlist list of lists
+all_fold_changes <- unlist(all_fold_changes, recursive = FALSE)
+#+end_src
+
+#+begin_src R
+## convert list to dataframe
+all_fold_changes_df <- as.data.frame(do.call(cbind, all_fold_changes))
+head(all_fold_changes_df)
+#+end_src

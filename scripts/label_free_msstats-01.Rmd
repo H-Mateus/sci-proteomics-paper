@@ -1,0 +1,1173 @@
+---
+title: "OpenMS MSstats analysis"
+date: "`r Sys.Date()`"
+author: "Gabriel Mateus Bernardo Harrington"
+output:
+  bookdown::html_document2:
+    highlight: tango
+    number_sections: yes
+    theme: united
+    toc: yes
+    toc_float:
+      collapsed: yes
+    code_download: true
+    code_folding: show
+    df_print: paged
+  pdf_document:
+    toc: no
+bibliography: /home/mateus/Documents/masterLib.bib
+csl: /home/mateus/Documents/citation_styles/elsevier-vancouver.csl
+link-citations: true
+---
+
+```{r, label='setup-options', include=FALSE}
+knitr::opts_chunk$set(
+  eval = TRUE, # eval code chunks
+  echo = TRUE, # include source code
+  #fig.width = 6, # set figure dims
+  #fig.height = 6
+  warning = FALSE, # exclude warnings
+  message = FALSE, # exclude messages
+  error = FALSE # exclude errors
+)
+```
+
+# Learning resources
+
+- For MSstats:
+  1. [good explanation of importing data for MSstats and experimental design structure](https://meenachoi.github.io/MayInstitute2019RstatsMS/day-1-section-1-msstats-introduction-to-data-and-preprocessing.html#load-msstats)
+  1. [Demo of normalisation and run summary](https://meenachoi.github.io/MayInstitute2019RstatsMS/day-1-section-2-msstats-data-processing-normalization-and-run-summarization.html#dataprocess-with-openms-data)
+  1. [Differential abundance and sample size calculation](https://meenachoi.github.io/MayInstitute2019RstatsMS/day-1-section-3-msstats-differential-abundance-and-sample-size-calculation.html)
+  1. [MSstats youtube video demo](https://www.youtube.com/watch?v=30a6sDj8Qlo)
+
+```{r, label='load-packages'}
+library(MSstatsTMT) # for analysis
+library(MSstats)
+library(ggrepel) # for arranging plot labels
+library(marray) # for heatmaps
+library(ggplot2) # for plotting
+library(RColorBrewer)
+library(randomForest) # for random forest modelling
+## for data wrangling
+library(dplyr)
+library(tibble)
+library(tidyr)
+library(purrr)
+library(magrittr)
+library(stringr)
+## for pathway analysis
+library(STRINGdb)
+library(org.Hs.eg.db)
+library(ReactomePA)
+# for kegg and go pathways
+library(gage)
+library(gageData)
+library(pathview)
+```
+
+# Experimental details
+
+This was a label-free proteomics experiment using 73 plasma samples from patients at acute (~2-weeks post-injury) and subacute (~3-months post-injury) with AIS grades D, C and A.
+AIS C patients were grouped into those who experienced and AIS grade improvement and those who didn't at both time points.
+
+The raw mass spectrometry data was processed via [OpenMS](https://www.openms.de/) command line tools.
+The propriotery Thermo .Raw file format was converted to the open .mzML format with the [ThermoRawFileParser](https://github.com/compomics/ThermoRawFileParser) tool via the OpenMS [FileConverter tool](https://abibuilder.informatik.uni-tuebingen.de/archive/openms/Documentation/release/latest/html/TOPP_FileConverter.html).
+
+The subsequent workflow was heavily based on the [KNIME](https://www.knime.com/) workflow found [here](https://github.com/OpenMS/Tutorials/blob/master/Workflows/ProteomicsLFQ_tool_and_MSstats_postprocessing.knwf), which carries the following description:
+
+> Label-free identification and quantification using the comet search engine, the ProteomicsLFQ tool and statistical down-stream processing using MSstats. Compared to the other proteomics LFQ workflows, it is less complex as it combines quantification and inference steps in a single ProtemicLFQ tool.
+
+The `MSstats` output of that workflow is analysed here.
+
+# Data preprocessing
+
+There are several steps to filter out or to modify the data in order to get required information.
+Here is the summary of pre-processing steps in OpenMStoMSstatsFormat function.
+
+```{r, label='msstats-openms-processing'}
+knitr::include_graphics("../figures/MSstats_OpenMS.png")
+```
+
+```{r, label='load-data'}
+## read in data
+openms_out <- read.csv("../data/proteomicslfq_out.csv")
+
+## reformating and pre-processing for OpenMS output
+input_openms <- OpenMStoMSstatsFormat(openms_out,
+                                      removeProtein_with1Feature=TRUE)
+```
+
+## Inspect data
+
+```{r, label='inspect-data'}
+## perliminary checks
+## number of proteins
+length(unique(input_openms$ProteinName))
+## nas
+sum(is.na(input_openms$Intensity))
+## nas and 0s
+sum(!is.na(input_openms$Intensity) & input_openms$Intensity==0)
+table(input_openms$Run)
+## check experimental design
+unique(input_openms[, c('Run', 'BioReplicate', 'Condition')])
+## count group numbers
+unique(input_openms[, c('Run', 'BioReplicate', 'Condition')]) %>%
+    dplyr::count(Condition)
+```
+
+### Summary of dataset
+
+- based on [this workshop](https://github.com/ZenBrayn/asms_2020_fall_workshop)
+  1. Youtube videos of workshop [here](https://www.youtube.com/watch?v=t7VPEFenG74&list=PLQJ_HhUVsNvi1UXwm2GtP1bYzDEYZlql9&index=10)
+
+```{r, label='ggplot-all-proteins'}
+openms_df <- data.frame(input_openms)
+openms_df$log2_intensity <- log2(openms_df$Intensity)
+## get some random samples
+set.seed(1234)
+samples <- sample(unique(openms_df$Run), 20)
+samples
+
+openms_df %>%
+    dplyr::filter(Run == samples) %>%
+    ggplot(aes(x = Run, y = log2_intensity)) +
+    geom_jitter(aes(colour = Condition), size = 0.3, alpha = 0.6) +
+    geom_boxplot(aes(fill = Condition)) +
+    labs(x = "Sample", y = "Intensity",
+         title = "Distribution of log2-intensity by sample") +
+    theme_minimal()
+
+```
+
+```{r, label='summary-stats'}
+## get summary stats
+msstats_summary <- openms_df %>%
+  dplyr::group_by(ProteinName, Run, Condition) %>%
+  dplyr::summarise(
+    mean = mean(log2_intensity),
+    sd = sd(log2_intensity),
+    len = n()
+  )
+## add standard error
+msstats_summary <- mutate(msstats_summary,
+  se = sqrt(sd^2 / len),
+  lower = mean - qt(0.975, len - 1) * se,
+  upper = mean + qt(0.975, len - 1) * se
+)
+## lots of nas
+head(msstats_summary)
+## filter nas
+msstats_summary_filter <- msstats_summary %>%
+    dplyr::filter(!is.na(mean))
+msstats_summary_filter
+```
+
+```{r, label='summary-plots'}
+## plot all proteins
+msstats_summary_filter %>%
+    ggplot(aes(x = Condition, y = mean, colour = Condition)) +
+    geom_jitter(size = 1, alpha = 0.8) +
+    geom_boxplot(aes(fill = Condition)) +
+    labs(x = "Group", y = "Mean log2-intensity",
+         title = "Mean log2-intensity of all proteins") +
+    theme_minimal()
+
+## plot subset of 4 proteins
+set.seed(425)
+samples <- sample(unique(msstats_summary_filter$ProteinName), 4)
+samples
+
+msstats_summary_filter %>%
+    dplyr::filter(ProteinName %in% samples) %>%
+    ggplot(aes(x = Condition, y = mean, colour = Condition)) +
+    geom_jitter(size = 1, alpha = 0.8) +
+    geom_boxplot(aes(fill = Condition)) +
+    facet_wrap( ~ ProteinName) +
+    labs(x = "Group", y = "Mean log2-intensity") +
+    theme_minimal()
+```
+
+# Data processing
+
+Clean, normalise and summarise prior to differential analysis.
+This function takes a while to run
+
+```{r, label='data-process', eval=FALSE}
+openms_processed <- dataProcess(raw = input_openms, logTrans=2,
+                                normalization = 'equalizeMedians',
+                                summaryMethod = 'TMP', MBimpute=TRUE,
+                                censoredInt='NA',
+                                maxQuantileforCensored = 0.999)
+## try quantile normalisation to compare
+openms_processed_quantile <- dataProcess(raw = input_openms,
+                                       logTrans=2, normalization = 'quantile',
+                                       summaryMethod = 'TMP', MBimpute=TRUE,
+                                       censoredInt='NA',
+                                       maxQuantileforCensored = 0.999)
+## save output as this takes a while to run
+save(openms_processed, file = "../data/openms_cmd_proteomicslfq_msstats_processed_2021-07-30.rda")
+save(openms_processed_quantile, file = "../data/openms_cmd_proteomicslfq_msstats_processed_quantile_2021-07-30.rda")
+```
+
+```{r, label='load-processed-data'}
+## load function output
+load("../data/openms_cmd_proteomicslfq_msstats_processed_2021-07-30.rda")
+load("../data/openms_cmd_proteomicslfq_msstats_processed_quantile_2021-07-30.rda")
+map(openms_processed, head)
+```
+
+```{r, label='inspect-protein', eval=FALSE}
+## compare a specific protein with different normalisation methods
+dataProcessPlots(data = openms_processed, type="Profileplot",
+                 featureName="NA", width=7, height=7,
+                 which.Protein = 'sp|P04114|APOB_HUMAN',
+                 address="../figures/openms/ABRF_openms_equalMed_P04114_")
+
+dataProcessPlots(data = openms_processed_quantile, type="Profileplot",
+                 featureName="NA", width=7, height=7,
+                 which.Protein = 'sp|P04114|APOB_HUMAN',
+                 address="../figures/openms/ABRF_openms_quantile_P04114_")
+
+## plot all proteins
+dataProcessPlots(openms_processed, type = "Profileplot",
+                 address = "../figures/openms/openms_2020-07-30_")
+## qc plots of log intensities across MS runs
+dataProcessPlots(openms_processed, type = "QCPlot",
+                 address = "../figures/openms/openms_qcplots_")
+## plot conditions - mean log ratios across conditions
+dataProcessPlots(openms_processed, type = "ConditionPlot",
+                 address = "../figures/openms/openms_conditionplot_")
+```
+
+# Differential abundance and sample size calculation
+
+```{r, label='msstats-groupcomparison'}
+knitr::include_graphics("../figures/MSstats_groupComparison.png")
+```
+
+## Assign contrast matrix
+
+After we normalised the data and summarised each protein’s behaviour across conditions in `dataProcess` step, we are all set to compare protein changes between groups of conditions.
+Within MSstats we can do this with the `groupComparison` function, which takes as input the output of the dataProcess function.
+
+We have to tell groupComparison which are the conditions we would like to compare.
+You can make your `contrast.matrix` in R in a text editor.
+We define our contrast matrix by adding a column for every condition, in alphabetical order.
+We add a row for every comparison we would like to make between groups of conditions.
+
+0 is for conditions we would like to ignore. 1 is for conditions we would like to put in the numerator of the ratio or fold-change. -1 is for conditions we would like to put in the denumerator of the ratio or fold-change.
+
+If you have multiple groups, you can assign any gruop comparisons you are interested in. For example, if you have 4 different conditions, Condition1, Condition2, Condition3, Condition4, there are many possible comparisons.
+
+```{r, label='constrast-matrix'}
+## see all groups
+conditions <- unique(openms_processed$ProteinLevelData$GROUP)
+conditions
+## get all unique combinations
+## all_combinations_matrix <- combn(conditions, 8)
+```
+
+```{r, label='group-comparison', results=FALSE}
+## get group comparison of all groups pairwise
+test <- groupComparison(contrast.matrix = "pairwise",
+                        data = openms_processed)
+```
+
+```{r, label='contrast-matrix-checks'}
+class(test)
+names(test)
+## Show test result
+## Label : which comparison is used
+## log2FC : estimated log2 fold change between the conditions
+## adj.pvalue : adjusted p value
+## issue : detect whether this protein has any issue for comparison
+##    such as, there is measurement in certain group, or no measurement at all.
+## MissingPercentage : the number of missing intensities/total number of intensities
+##     in conditions your are interested in for comparison
+## ImputationPercentage : the number of imputed intensities/total number of intensities
+##     in conditions your are interested in for comparison
+head(test$ComparisonResult)
+
+## After fitting linear model, residuals and fitted values can be shown.
+head(test$ModelQC)
+
+## Fitted model per protein
+head(test$FittedModel)
+
+## check issues column
+## count issues
+dplyr::count(test$ComparisonResult, issue)
+issue_df <- test$ComparisonResult
+## several of the oneConditionMissing issue
+issue_df <- issue_df %>%
+    dplyr::filter(issue == "oneConditionMissing")
+issue_df
+```
+
+Info on the "oneConditionMissing" error [here](https://groups.google.com/g/msstats/c/9ewShY93_PQ) and [here](https://groups.google.com/g/msstats/c/3WNoied2asA/m/3NSEXpRvIAAJ).
+It says that MSstats keep proteins that are entierly missing from one group, but they obviously can't be tested.
+They suggest reporting the pval as NA.
+But I can see one of the proteins has one sample that does have an intensity for a protein...
+I guess this relates to the MSstats preprocessing step that removes features that are all missing or have less than 3 occurances across runs.
+
+How could one protein be in one group but not apear in another?
+It could be that there isn't enough protein to detect, suggestin the fold change would be large.
+
+## Subset of significant comparisons
+
+```{r, label='sig-proteins'}
+head(test$ComparisonResult)
+nrow(test$ComparisonResult)
+## select subset of rows with adj.pvalue < 0.05
+sig_proteins <- test$ComparisonResult %>%
+    dplyr::filter(adj.pvalue < 0.05)
+nrow(sig_proteins)
+head(sig_proteins)
+save(sig_proteins, file = "../data/openms_significant_proteins.rda")
+## select subset of rows with adj.pvalue < 0.05 and log2FC > 1.2
+sig_proteins_up <- sig_proteins[sig_proteins$log2FC > 1.2 ,]
+nrow(sig_proteins_up)
+length(unique(sig_proteins_up$Protein))
+head(sig_proteins_up)
+```
+
+# Visualization of differentially abundant proteins
+
+## Volcano plots
+
+Volcano plots allow us to visually separate strong changes, which are not significant, from strong and significant changes.
+Look for these subjects in the upper right and upper left quadrants of the plot.
+Protein name will be shown only for siginificant proteins.
+
+```{r, label='volcano-plots'}
+## redo labels for plot titles
+foldchange_df <- test$ComparisonResult
+foldchange_df$abbrev_labels <- foldchange_df$Label
+foldchange_df$Label <- str_replace_all(foldchange_df$Label, "_", " ")
+foldchange_df$Label <- str_replace_all(foldchange_df$Label, "nonimp", "Non-Improvers")
+foldchange_df$Label <- str_replace_all(foldchange_df$Label, "imp", "Improvers")
+## capitalise first letter of each word
+foldchange_df$Label <- gsub("(^|[[:space:]])([[:alpha:]])", "\\1\\U\\2", foldchange_df$Label, perl = TRUE)
+## get volcano plots
+groupComparisonPlots(data = foldchange_df, type = 'VolcanoPlot', FCcutoff = 1.2,
+                     address = '../figures/openms/openms_2021-07-30_')
+```
+
+```{r, label='split-volc-pdf'}
+## msstats saves volc plots to single pdf - this splits the pages to seperate pdfs
+staplr::split_pdf("../figures/openms/openms_2021-07-30_VolcanoPlot.pdf",
+                  output_directory = "../figures/openms/",
+                  prefix = "openms_volcano_plot_2021-08-10_")
+```
+
+## Comparison plots
+
+Comparison plots illustrate model-based estimates of log-fold changes, and the associated uncertainty, in several comparisons of conditions for one protein.
+X-axis is the comparison of interest.
+Y-axis is the log fold change.
+The dots are the model-based estimates of log-fold change, and the error bars are the model-based 95% confidence intervals (the option sig can be used to change the significance level of significance).
+For simplicity, the confidence intervals are adjusted for multiple comparisons within protein only, using the Bonferroni approach.
+For proteins with N comparisons, the individual confidence intervals are at the level of 1-sig/N.
+
+```{r, label='comparison-plots'}
+groupComparisonPlots(foldchange_df, type="ComparisonPlot",
+                     address="../figures/openms/openms_2021-07-30_")
+```
+
+# Planning future experimental designs
+
+This last analysis step views the dataset as a pilot study of a future experiment, utilises its variance components, and calculates the minimal number of replicates required in a future experiment to achieve the desired statistical power.
+The calculation is performed by the function `designSampleSize,` which takes as input the fitted model in `groupComparison`.
+Sample size calculation assumes same experimental design (i.e. group comparison, time course or paired design) as in the current dataset, and uses the model fit to estimate the median variance components across all the proteins.
+Finally, sample size calculation assumes that a large proportion of proteins (specifically, 99%) will not change in abundance in the future experiment.
+This assumption also provides conservative results.
+Using the estimated variance components, the function relates the number of biological replicates per condition (`numSample`, rounded to 0 decimal), average statistical power across all the proteins (`power`), minimal fold change that we would like to detect (can be specified as a range, e.g. `desiredFC=c(1.1, 2)`), and the False Discovery Rate (`FDR`).
+The user should specify all these quantities but one, and the function will solve for the remainder.
+The quantity to solve for should be set to `= TRUE`.
+
+```{r, label='calc-power'}
+## calculate the power
+test.power <- designSampleSize(data = test$FittedModel,
+                               desiredFC = c(1.1, 10.0), FDR = 0.05, power = TRUE,
+                               numSample = 3)
+test.power
+```
+
+## Visualizing the relationship between desired fold-change and power
+
+```{r, label='power-vis'}
+designSampleSizePlots(data = test.power)
+```
+
+## Designing sample size for desired fold-change
+
+```{r, label='sample-size-calc'}
+## Minimal number of biological replicates per condition
+samplesize <- designSampleSize(data = test$FittedModel,
+                               desiredFC = c(1.1, 2.5), FDR = 0.05, power = 0.9,
+                               numSample = TRUE)
+samplesize
+```
+
+## Visualizing the relationship between desired fold-change and mininum sample size number
+
+```{r, label='sample-size-vis'}
+designSampleSizePlots(data = samplesize)
+```
+
+```{r, label='sample-size-vis2'}
+## show a more narrow fc range
+samplesize2 <- designSampleSize(data = test$FittedModel,
+                               desiredFC = c(2.5, 8.0), FDR = 0.05, power = 0.9,
+                               numSample = TRUE)
+samplesize2
+designSampleSizePlots(data = samplesize2)
+```
+
+# Protein subject quantification
+
+```{r, label='quantification-image'}
+knitr::include_graphics("../figures/MSstats_workflow_quantification.png")
+```
+
+If there is no technical replicate, subject (or sample) quantification should be the same as run-level summarization.
+If there are technical replicates, subjet-level summarization(quantification) with run-level summarization will be useful for downstream analysis, such as classification.
+
+```{r, label='protein-quantification'}
+## sample level
+sample_quant <- quantification(openms_processed)
+head(sample_quant)
+dim(sample_quant)
+sum(is.na(sample_quant))
+sample_quant_long <- quantification(openms_processed, type='Sample',
+                                   format = "long")
+head(sample_quant_long)
+## group level
+group_quant <- quantification(openms_processed, type='Group')
+head(group_quant)
+dim(group_quant)
+```
+
+
+# Multivariate analysis and classification
+
+Use Rep_2 for validation dataset
+
+```{r, label='get-annotation-info'}
+# use bioreplicates other than 2 as training data
+sample_quant_per_subject <- sample_quant %>%
+    dplyr::select(!contains("Rep_2"))
+dim(sample_quant_per_subject)
+
+train_abun <- sample_quant_per_subject
+colnames(train_abun)
+
+## get annotation information
+colnames(input_openms)
+train_anno <- data.frame(input_openms) %>%
+    dplyr::select(BioReplicate, Condition)
+train_anno <- unique(train_anno)
+head(train_anno)
+dim(train_anno) # row for each sample
+
+## make protein abundance matrix
+proteins <- train_abun$Protein
+train_abun <- train_abun[, -1]
+train_abun <- t(train_abun)
+colnames(train_abun) <- proteins
+dim(train_abun) # there are 59 rows (each row for subject) and 199 columns (one column per protein)
+head(train_abun)[, 1:3]
+```
+
+## Deal with missing values
+
+If there is no intensity at all in certain subject for certain protein, we can’t get subject-summarized for that run.
+
+```{r, label='remove-missings'}
+```
+
+```{r, label='deal-with-nas', eval=FALSE}
+## option 1 - remove na rows
+dim(na.omit(sample_quant))
+
+## option 2 - filter to samples with less than 5% missing
+## function to quantify nas
+pMiss <- function(x){
+  sum(is.na(x))/length(x)*100
+}
+## apply fundtion
+subjectmissing <- apply(sample_quant, 1, pMiss)
+train_abun <- sample_quant[subjectmissing <= 5, ]
+dim(train_abun)
+```
+
+In this case, let’s impute the missing values with minimum value per protein.
+
+```{r, label='impute-minimum'}
+## option 3 - impute minimum
+## add column that matches rownames of matrix
+train_anno$matrix_rownames <- paste(train_anno$Condition, train_anno$BioReplicate, sep = "_")
+## make sure the subject order in train_abun and train_anno consistent
+train_anno <- train_anno[train_anno$matrix_rownames %in% rownames(train_abun),] # remvoe the filtered subjects
+## arrange columns
+train_anno <- dplyr::arrange(train_anno, matrix_rownames)
+train_abun <- train_abun[train_anno$matrix_rownames,]
+
+## function to impute min
+random_imp <- function (a){
+  missing <- is.na(a)
+  n.missing <- sum(missing)
+  a.obs <- a[!missing]
+  imputed <- a
+  # imputed[missing] <- 0 # with zero
+  # imputed[missing] <- median(a.obs) # with median values
+  imputed[missing] <- min(a.obs) # with minimal values
+  return (imputed)
+}
+imputed_train_abun <- apply(train_abun, 2, function(x) random_imp(x))
+imputed_train_abun <- as.data.frame(imputed_train_abun)
+
+sum(is.na(imputed_train_abun))
+```
+
+# Principle component analysis PCA
+
+Input has the row for run (subject) and the column for proteins.
+
+```{r, label='pca'}
+## rows are proteins and columns are subjects
+pc <- prcomp(imputed_train_abun)
+
+## inspect PCA object
+summary(pc)
+names(pc)
+```
+
+## Check the proportion of explained variance
+
+Let’s check the proportion of explained variance.
+The first component has the largest variance.
+In this case, we need several components to capture most of the variation.
+
+```{r, label='pca-plot'}
+percent_var <- pc$sdev^2/sum(pc$sdev^2)
+barplot(percent_var, xlab="Principle component", ylab="% of variance")
+
+cum_var <- cumsum(pc$sdev^2/sum(pc$sdev^2))
+barplot(cum_var, xlab="Principle component", ylab="Cumulative % of variance" )
+```
+
+## Visualization for PC1 vs PC2
+
+Let’s visualise PC1 vs PC2 in scatterplot. 'x' include PC components for each subject.
+In order to distinguish group by colours or shape, add Group information to ggplot.
+The order should be the same as column of input.
+
+```{r, label='pc1-vs-pc2'}
+## create PC1 vs PC2 scatterplot with condition colours
+ggplot(aes(x=PC1, y=PC2, colour=Condition), data=data.frame(pc$x, Condition=train_anno$Condition))+
+    geom_point(size=4, alpha=0.5)+
+    theme_bw()
+```
+
+# Heatmaps
+
+```{r, label='heatmap-prep'}
+## get data as matrix
+ht_data <- t(imputed_train_abun)
+## check the class
+class(ht_data)
+```
+
+First, let’s try to draw heatmap with base function.
+
+```{r, label='heatmap-base'}
+## change the font of row and column label
+heatmap(ht_data, cexRow = 0.3, cexCol = 0.4)
+
+my.colors <- c(maPalette(low = "darkblue", high = "white", k = 7)[-7],
+               "white",
+               maPalette(low = "white", high = "darkred", k = 7)[-1])
+
+heatmap(ht_data, cexRow = 0.3, cexCol = 0.4, col = my.colors)
+
+## don't do cluster on rows
+heatmap(ht_data, cexRow = 0.3, cexCol = 0.4, col = my.colors, Rowv = NA)
+
+## don't do cluster on columns
+heatmap(ht_data, cexRow = 0.3, cexCol = 0.4, col = my.colors, Colv = NA)
+```
+
+## Color bar for group information
+
+Add color side bar at th top of columns to distinguish group information by run.
+
+```{r, label='colour-bar-heatmap'}
+unique(train_anno$Condition)
+## set colours
+group_color <- rep("blue", nrow(imputed_train_abun))
+group_color[train_anno$Condition == "acute_d"] <- "red"
+group_color[train_anno$Condition == "subacute_d"] <- "yellow"
+group_color[train_anno$Condition == "acute_a"] <- "orange"
+group_color[train_anno$Condition == "subacute_a"] <- "green"
+group_color[train_anno$Condition == "acute_c_imp"] <- "cyan"
+group_color[train_anno$Condition == "acute_c_nonimp"] <- "blue"
+group_color[train_anno$Condition == "subacute_c_imp"] <- "violet"
+group_color[train_anno$Condition == "subacute_c_nonimp"] <- "purple"
+
+heatmap(ht_data, ColSideColors=group_color, col = my.colors, cexRow = 0.3, cexCol = 0.4, Rowv = NA)
+```
+
+## Different distance and clustering
+
+Try different distances calculation and clustering methods. Choice of distance metric or clustering matters!
+
+  - Distance options: euclidean (default), maximum, canberra, binary, minkowski, manhattan
+  - Cluster options: complete (default), single, average, mcquitty, median, centroid, ward
+
+ ```{r, label='heatmap-dist-cluster'}
+## can change method for distance calculation
+col_distance <- dist(t(ht_data), method = "euclidean")
+## can change clustering method
+col_cluster <- hclust(col_distance, method = "ward.D")
+
+heatmap(ht_data, cexRow = 0.3, cexCol = 0.4, Rowv = NA,
+        ColSideColors = group_color, col = my.colors,
+        Colv = as.dendrogram(col_cluster))
+```
+
+# Classification
+
+## Training random forest with all the proteins
+
+Random Forest algorithm can be used for both classification and regression applications.
+
+Random Forest algorithm is built in `randomForest` package of R and same name function allows us to use the Random Forest in R.
+
+Some of the commonly used parameters of randomForest functions are
+
+- `formula`: Random Forest Formula
+- `data`: Input data frame
+- `ntree`: Number of decision trees to be grown. Larger the tree, it will be more computationally expensive to build models.
+- `mtry`: It refers to how many variables we should select at a node split. Also as mentioned above, the default value is p/3 for regression and sqrt(p) for classification. We should always try to avoid using smaller values of mtry to avoid overfitting.
+- `nodesize`: nodesize - It refers to how many observations we want in the terminal nodes. This parameter is directly related to tree depth. Higher the number, lower the tree depth. With lower tree depth, the tree might even fail to recognize useful signals from the data. Defaut is 1 for classification.
+- `importance`: Whether independent variable importance in random forest be assessed
+
+Mainly, there are three parameters in the random forest algorithm which you should look at (for tuning): ntree, mtry and nodesize.
+
+```{r, label='random-forest-setup'}
+## set random seed to make results reproducible:
+set.seed(430)
+
+## add group information to the training data
+imputed_train_abun$Condition <- droplevels(as.factor(train_anno$Condition))
+
+## randomForest dosen't allow special symbol in the protein name
+colnames(imputed_train_abun) <- gsub(".*[|]([^|]+)[|].*", "\\1",
+                                     colnames(imputed_train_abun))
+
+## fit random forest
+rf=randomForest(Condition ~ . , data = imputed_train_abun, importance=TRUE)
+rf
+```
+
+Variable importance plot is also a useful tool and can be plotted using varImpPlot function.
+Top 10 proteins are selected and plotted based on Model Accuracy and Gini value.
+We can also get a table with decreasing order of importance based on a measure (1 for model accuracy and 2 node impurity)
+
+```{r, label='random-var-imp'}
+## plot importance of protiens
+varImpPlot(rf, sort = T, main="Variable Importance", n.var=10)
+```
+
+```{r, label='rf-top-proteins'}
+## store the importance of proteins
+var_imp <- data.frame(importance(rf, type=2))
+## make row names as columns
+var_imp$Variables <- row.names(var_imp)
+## order the proteins based on their importance
+var_imp <- var_imp[order(var_imp$MeanDecreaseGini,decreasing = T),]
+
+## select top 10 proteins
+biomarkers <- rownames(var_imp)[1:10]
+biomarkers
+```
+
+## Predict validation cohort
+
+```{r, label='rf-test-data'}
+## select validation data
+valid_abun <- sample_quant %>%
+    dplyr::select(!contains("Rep") | contains("Rep_2"))
+names(valid_abun)
+
+# make protein abundance matrix
+proteins <- valid_abun$Protein
+valid_abun <- valid_abun[, -1]
+valid_abun <- t(valid_abun)
+colnames(valid_abun) <- proteins
+dim(valid_abun) # there are 13 rows (each row for subject) and 199 columns (one column per protein)
+
+valid_anno <- data.frame(input_openms) %>%
+    dplyr::select(BioReplicate, Condition)
+valid_anno <- unique(valid_anno)
+## add column that matches rownames of matrix
+valid_anno$matrix_rownames <- paste(valid_anno$Condition,
+                                    valid_anno$BioReplicate, sep = "_")
+
+## impute minimum
+## make sure the subject order in train_abun and valid_anno consistent
+valid_anno <- valid_anno[valid_anno$matrix_rownames %in%
+                         rownames(valid_abun),] # remvoe the filtered subjects
+## arrange columns
+valid_anno <- dplyr::arrange(valid_anno, matrix_rownames)
+valid_abun <- valid_abun[valid_anno$matrix_rownames,]
+
+imputed_valid_abun <- apply(valid_abun, 2, function(x) random_imp(x))
+imputed_valid_abun <- as.data.frame(imputed_valid_abun)
+sum(is.na(imputed_valid_abun))
+
+## randomForest dosen't allow special symbol in the protein name
+colnames(imputed_valid_abun) <- gsub(".*[|]([^|]+)[|].*", "\\1",
+                                     colnames(imputed_valid_abun))
+inf_cols <- map(imputed_valid_abun, ~ is.infinite(.x)[1]) %>% unlist()
+inf_cols <- unique(names(inf_cols[inf_cols == TRUE]))
+inf_cols
+## replace inf with na
+imputed_valid_abun = na_if(imputed_valid_abun, Inf)
+## replace na with 0
+x = rep(0, length(inf_cols))
+names(x) <- inf_cols
+imputed_valid_abun %<>% replace_na(as.list(x))
+
+## prediction on validation set
+valid_anno$Condition <- droplevels(as.factor(valid_anno$Condition))
+valid_pred <- predict(rf, imputed_valid_abun)
+
+## validation set assessment #1: looking at confusion matrix
+table(data=valid_pred, reference=valid_anno$Condition)
+
+## calculate the predictive accuracy
+misClasificError <- mean(valid_pred != valid_anno$Condition)
+print(paste('Accuracy',1-misClasificError))
+```
+
+# Examine proteins
+
+These functions get the name and description of the proteins from uniprot based on the uniprot accession.
+
+```{r, label='get-uniprot-info'}
+## functions to get uniprot descriptions from accessions
+find_protein_description <- function(protein_id = ""){
+    require(rvest)  # hadley wickham's package that can harvest html files
+    require(stringr) # for str_remove
+    website <- paste("https://www.uniprot.org/uniprot/", protein_id, sep = "") # website
+    webpage <- read_html(website) # webpage read
+    results <- webpage %>% html_nodes("meta") # get relevant data
+    result <- as.character(results[[4]]) # 4th node is what you want
+    result <- str_remove(result, "<meta content=\"") # strip beginning
+    result <- str_remove(result, "\" name=\"description\">\n") # strip end
+    return(result) # return result
+}
+
+find_protein_name <- function(protein_id = ""){
+    require(rvest)  # hadley wickham's package that can harvest html files
+    require(stringr) # for str_remove
+    website <- paste("https://www.uniprot.org/uniprot/", protein_id, sep = "") # website
+    webpage <- read_html(website) # webpage read
+    name <- webpage %>% html_nodes("head")  %>% html_node("title") # get protein name
+    name <- as.character(name[[1]])
+    name <- str_remove(name, "<title>") # strip beginning
+    name <- str_remove(name, "gene &amp; protein</title>\n") # strip end
+    return(name) # return name
+}
+
+## get uniprot accession
+foldchange_df$protein_accession <- gsub(".*[|]([^|]+)[|].*", "\\1",
+                                        foldchange_df$Protein)
+## remove spaces from abbrev labels
+foldchange_df$abbrev_labels <- str_replace(foldchange_df$abbrev_labels, " vs ", "_vs_")
+head(foldchange_df)
+## get column with inf log2fc values as 0
+foldchange_df$log2fc_noinf <- ifelse(is.infinite(foldchange_df$log2FC), 0,
+                                     foldchange_df$log2FC)
+## get column with inf log2fc values as -10 or 10
+foldchange_df %<>%
+    dplyr::mutate(log2fc_noinf = ifelse(is.infinite(log2FC) & log2FC < 0, -10, log2FC)) %>%
+    dplyr::mutate(log2fc_noinf = ifelse(is.infinite(log2FC) & log2FC > 0, 10, log2fc_noinf))
+```
+
+Since there's many rows of the same proteins we run the function on the unique proteins and then merge them back to the dataframe.
+
+```{r, label='use-uniprot-functions', eval=FALSE}
+## Use uniprot functions - use unique to avoid redundant calls
+protein_names <- unlist(map(unique(foldchange_df$protein_accession), ~ find_protein_name(.x)))
+protein_description <- unlist(map(unique(foldchange_df$protein_accession), ~ find_protein_description(.x)))
+## 194 doesn't have an gene name - add something for the later str_split
+protein_names[194] <- paste0("blank - ", protein_names[194])
+## make into dataframe
+protein_info <- data.frame(protein_name = protein_names,
+                           protein_description = protein_description,
+                           protein_accession = unique(foldchange_df$protein_accession))
+## add info to dataframe
+foldchange_df <- merge(foldchange_df, protein_info, by = "protein_accession")
+## get gene names for stringdb
+foldchange_df$gene_name <- sub(" .*", "", foldchange_df$protein_name)
+## get just to protein name
+foldchange_df$protein_name <- map(foldchange_df$protein_name, ~ str_split(.x, " - ")[[1]][2])
+
+## filter out keratin and trypsin
+nrow(foldchange_df)
+foldchange_df <- foldchange_df %>%
+  dplyr::filter(!grepl("Keratin", protein_name) & !grepl("Trypsin", protein_name))
+nrow(foldchange_df)
+
+## add entrezid
+foldchange_df$entrezid <- mapIds(org.Hs.eg.db, foldchange_df$protein_accession, 'ENTREZID', 'UNIPROT')
+
+## filter to significant proteins
+foldchange_df_unfiltered <- foldchange_df
+nrow(foldchange_df)
+foldchange_df %<>%
+    dplyr::filter(adj.pvalue <= 0.05)
+
+nrow(foldchange_df)
+## make list of dataframes per comparison
+foldchange_list <- map(unique(foldchange_df$Label), ~ foldchange_df %>%
+                                                        dplyr::filter(Label == .x))
+
+names(foldchange_list) <- unique(foldchange_df$abbrev_labels)
+## save list
+save(foldchange_list, file = "../data/openms_foldchange_list.rda")
+save(foldchange_df, file = "../data/openms_foldchange_df.rda")
+## save unfiltered data
+foldchange_list_unfiltered <- map(unique(foldchange_df_unfiltered$Label), ~ foldchange_df_unfiltered %>%
+                                                        dplyr::filter(Label == .x))
+names(foldchange_list_unfiltered) <- unique(foldchange_df_unfiltered$abbrev_labels)
+save(foldchange_df_unfiltered, file = "../data/openms_foldchange_df_unfiltered.rda")
+save(foldchange_list_unfiltered, file = "../data/openms_foldchange_list_unfiltered.rda")
+```
+
+Get the proteins in wide format to get a more readable table
+
+```{r, label='wide-protein-df'}
+## select cols of interest
+load("../data/openms_foldchange_df.rda")
+fc_wide_df <- foldchange_df %>%
+    dplyr::select(protein_name, protein_accession, protein_description, log2FC, Label) %>%
+    dplyr::mutate(log2FC = ifelse(is.infinite(log2FC), 0, log2FC)) %>%
+    pivot_wider(names_from = Label, values_from = log2FC)
+## save
+save(fc_wide_df, file = "../data/openms_foldchange_df_wide.rda")
+fc_wide_df
+```
+
+# STRINGdb network plots
+
+```{r, label='stringdb-plot-function'}
+## set STRINGdb paramaters -below is setting the species by NCBI taxonomy (9606
+## is human), and the score threshold - should look into what an appropriate
+## value there is
+string_db <- STRINGdb$new(version="11", species=9606,
+                          score_threshold=400, input_directory="" )
+
+## function for STRINGdb network plots
+string_db_network_plots <- function(df, gene_column_string, foldchange_col, file_save) {
+    ## map gene labels to STRING labels
+    test_map <- string_db$map(df, gene_column_string)
+    ## add colour column
+    test_colour <- string_db$add_diff_exp_color(test_map, logFcColStr = foldchange_col)
+    ## get payload id
+    payload_id <- string_db$post_payload(test_colour$STRING_id, colors = test_colour$color)
+    ## extract STRING labels
+    test_hits <- test_map$STRING_id
+    ## create network plot
+    pdf(file_save, width = 9, height = 8)
+    test_plot <- string_db$plot_network(test_hits, payload_id = payload_id)
+    dev.off()
+    ## get enrichment
+    enrichment <- string_db$get_enrichment(test_hits)
+    ## clustering
+    clusters <- string_db$get_clusters(test_hits)
+    ## get png
+    ## string_db$get_png(test_hits, file = file_save)
+    ## return clustering list and enrichment df
+    result_list <- list(enrichment, clusters, payload_id)
+    names(result_list) <- c("enrichment_df", "clusters", "plot_fold_change")
+    ## print message to see progress
+    print(paste0("Finished saving: ", file_save))
+    return(result_list)
+}
+## test function
+## df <- foldchange_list[[2]]
+## gene_column_string <- "gene_name"
+## foldchange_col <- "log2fc_noinf"
+## foldchange_col <- "log2FC"
+## file_save <- "../figures/openms/stringdb_plots/test.pdf"
+```
+
+```{r, label='stringdb-gen-plots', eval=FALSE}
+## list of file paths
+png_files <- map(names(foldchange_list), ~paste("../figures/openms/stringdb_plots/", .x, "_", Sys.Date(), ".pdf", sep=""))
+png_files <- map(names(foldchange_list), ~paste("../figures/openms/stringdb_plots/", .x, "_2021-08-06.pdf", sep=""))
+## use function
+stringdb_results <- map2(foldchange_list, png_files, ~string_db_network_plots(.x, "gene_name", "log2fc_noinf", .y))
+## save data
+saveRDS(stringdb_results, "../data/openms_stringdb_results_2021-08-06.rds")
+```
+
+## Cluster plots
+
+```{r, label='stringdb-clustplots', eval=FALSE}
+## plot clusters
+cluster_plot <- function(cluster_list, payload_id, file_path,
+                         file_date = Sys.Date(), file_extension = ".pdf"){
+    ## set plot parameters
+    ## par(mfrow=c((length(cluster_list)/2),length(cluster_list)))
+    for(i in 1:length(cluster_list)){
+        ## save to pdf
+        pdf(paste(file_path, "_cluster", as.character(i), "_", file_date,
+                  file_extension, sep = ""), height = 10, width = 8)
+        ## generate plot
+        string_db$plot_network(cluster_list[[i]], payload_id = payload_id)
+        dev.off()
+        ## show progress
+        print(paste0("Saved: ", file_path, "_cluster", as.character(i)))
+    }
+}
+
+## file names
+files <- map(names(foldchange_list), ~paste("../figures/openms/stringdb_cluster_plots/", .x, sep=""))
+## use function
+map2(stringdb_results, files, ~cluster_plot(.x$clusters, .x$plot_fold_change, .y))
+```
+
+Experimenting with viewing the cluster plots.
+
+```{r, label='view-cluster-plot'}
+## read in data
+stringdb_results <- readRDS("../data/openms_stringdb_results_2021-08-06.rds")
+## check cluster legnth
+map(stringdb_results, ~ length(.x$clusters))
+## several are just single proteins
+## check if the 5th plot is always a single protein
+## pdf("../figures/openms/stringdb_test.pdf")
+## map(stringdb_results, ~ string_db$plot_network(.x$clusters[[5]]))
+## dev.off()
+## no - some of the 5th clusters are two or more proteins
+
+## plot first set
+par(mfrow = c(3, 2))
+for(i in seq(1:6)){
+    string_db$plot_network(stringdb_results[[1]]$clusters[[i]],
+                           payload_id = stringdb_results[[1]]$plot_fold_change)
+}
+
+```
+
+The following doesn't render correctly in this html output, but this does work in the bookdown thesis.
+
+(ref:openms-stringdb-cluster) Example caption.
+
+```{r, label='view-cluster-plot2', fig.cap='(ref:openms-stringdb-cluster)', fig.subcap=c('','','',''), fig.ncol = 2, fig.align = "center", out.width = "40%", eval=FALSE}
+## file names for the first comparison
+files_function <- function(file_label, cluster_num = 4, date = Sys.Date(),
+                           location = "../figures/openms/stringdb_cluster_plots/"){
+    map(1:cluster_num, ~paste(location, file_label, "_cluster", .x, "_",
+                              date, ".pdf", sep=""))
+}
+
+## save for thesis
+file_list <- map2(unique(foldchange_df$abbrev_labels), stringdb_results,
+                 ~ files_function(.x, cluster_num = length(.y$clusters), date = "2021-08-10",
+                                  location = "../proteomics/label-free_2021-05/figures/openms/stringdb_cluster_plots/"))
+names(file_list) <- unique(foldchange_df$abbrev_labels)
+save(file_list, file = "../data/opems_stringdb_clusterplot_file_list.rda")
+
+file_list <- map(unique(foldchange_df$abbrev_labels), ~ files_function(.x))
+## save file_list
+## plot another set
+## doesn't work
+## map(files, ~ knitr::include_graphics(.x))
+
+## also not working
+## for(i in 1:length(files)){
+##     knitr::include_graphics(files[[i]])
+## }
+
+knitr::include_graphics(file_list[[1]][[1]])
+knitr::include_graphics(file_list[[1]][[2]])
+knitr::include_graphics(file_list[[1]][[3]])
+knitr::include_graphics(file_list[[1]][[4]])
+```
+
+# Pathway analysis
+
+```{r, label='reactomepa-prep'}
+load("../data/openms_foldchange_list.rda")
+load("../data/openms_foldchange_df.rda")
+## get entrezid for pathways
+entrezid <- map(foldchange_list, ~ .x %>% dplyr::select(entrezid))
+
+## lessen the inf replacement to 5 to make the colour scale more useful
+foldchange_list %<>% map( ~ .x %>%
+    dplyr::mutate(log2fc_noinf = ifelse(is.infinite(log2FC) & log2FC < 0, -5, log2FC)) %>%
+    dplyr::mutate(log2fc_noinf = ifelse(is.infinite(log2FC) & log2FC > 0, 5, log2fc_noinf)))
+## get log2 foldchange column
+foldchanges <- map(foldchange_list, ~ .x %>%
+                                    dplyr::select(log2FC))
+foldchanges <- map(foldchange_list, ~ .x %>%
+                                    dplyr::select(log2fc_noinf))
+## add together
+foldchanges <- mapply(cbind, foldchanges, "entrezid" = entrezid, SIMPLIFY = F)
+## make foldchange vector named with entrezid
+foldchanges_vector <- map(foldchanges, ~ setNames(.x$log2fc_noinf, as.character(.x$entrezid)))
+## check
+foldchanges_vector[[2]]
+
+## get enrighment pathway
+reactome_df <- enrichPathway(gene = foldchange_df$entrezid,
+                             pAdjustMethod = "bonferroni", readable = TRUE)
+```
+
+## ReactomePA
+
+### Heatmaps
+
+```{r, label='reactome-pa-heatmaps'}
+## generate heatmap plots
+## make plot titles
+plot_titles <- unique(foldchange_df$Label)
+
+## fix colour scale
+## get range of foldchanges
+fc_range <- range(do.call(rbind,
+                          map(foldchanges_vector, ~ range(.x, na.rm = TRUE,
+                                                          finite = TRUE))), finite = TRUE)
+myPalette <- colorRampPalette(rev(brewer.pal(11, "Spectral")))
+
+heatmap <- map2(foldchanges_vector, plot_titles, ~ heatplot(reactome_df,
+                                                     foldChange = .x) + ggtitle(.y) +
+                                              scale_fill_gradientn(name = expression(log[2] ~ fold - change),
+                                                                   colours=myPalette(100),limits=fc_range) +
+                                              scale_y_discrete(labels = function(x) str_wrap(str_replace_all(x, "foo" , " "),
+                                                                                             width = 50)))
+heatmap[[2]]
+```
+
+```{r, label='reactome-pa-heamap-save', eval=FALSE}
+## save heatmap plot object
+save(heatmap, file = "../data/openms_reactomepa_heatmaps_output.rda")
+## save all heatmaps in one pdf
+pdf("../figures/openms_reactomepa_heatmaps_2021-08-10.pdf", width = 6, height = 5)
+heatmap
+dev.off()
+```
+
+### Cnetplots
+
+```{r, label='reactome-pa-cnetplots'}
+## get cnetplots
+cnetplot <- map2(foldchanges_vector, plot_titles, ~ cnetplot(reactome_df,
+                                                             categorySize = 'pvalue',
+                                                             foldChange = .x) + ggtitle(.y))
+cnetplot[[2]]
+cnetplot_alt <- map2(foldchanges_vector, plot_titles, ~ cnetplot(reactome_df,
+                                                             categorySize = 'pvalue',
+                                                             foldChange = .x,
+                                                             circular = TRUE, colorEdge = TRUE) + ggtitle(.y))
+cnetplot_alt[[2]]
+```
+
+```{r, label='reactome-pa-cnetplot-save', eval=FALSE}
+## save plot object
+save(cnetplot, file = "../data/openms_reactomepa_cnetplots_output_2021-08-09.rda")
+save(cnetplot_alt, file = "../data/openms_reactomepa_cnetplotsalt_output_2021-08-09.rda")
+## save all in one pdf
+pdf("../figures/openms/reactomepa_cnetplots_2021-08-09.pdf", width = 6, height = 5)
+cnetplot
+dev.off()
+## save alts
+pdf("../figures/openms/reactomepa_cnetplotsalt_2021-08-09.pdf", width = 6, height = 5)
+cnetplot_alt
+dev.off()
+```
+
+## GO and KEGG visualisations
+
+Doing this with the adjusted p.value filtered data returns nothing as significant because there are so few proteins.
+
+```{r, label='pathway-go', eval=FALSE}
+## load unfiltered data
+load("../data/openms_foldchange_list_unfiltered.rda")
+## get entrezid for pathways
+entrezid <- map(foldchange_list_unfiltered, ~ .x %>% dplyr::select(entrezid))
+
+## get log2 foldchange column
+foldchanges <- map(foldchange_list_unfiltered, ~ .x %>%
+                                                   dplyr::select(log2fc_noinf))
+## add together
+foldchanges <- mapply(cbind, foldchanges, "entrezid" = entrezid, SIMPLIFY = F)
+## make foldchange vector named with entrezid
+foldchanges_vector <- map(foldchanges, ~ setNames(.x$log2fc_noinf, as.character(.x$entrezid)))
+
+## bring in gage datasets of interest
+data("go.sets.hs")
+data("go.subs.hs")
+## get go biological processes (can also get cellular compenent or molecular component)
+gobpsets <- go.sets.hs[go.subs.hs$BP]
+gobp_results <- map(foldchanges_vector, ~ gage(.x, gobpsets, same.dir = TRUE))
+## check pathways that are upregulated
+head(gobp_results$acute_a_vs_acute_c_imp$greater)
+all_gos <- map(gobp_results, ~ .x$greater %>%
+                                 as.data.frame() %>%
+                                 dplyr::filter(!is.na(p.val)))
+sig_gos <- map(gobp_results, ~ .x$greater %>%
+                                 as.data.frame() %>%
+                                 dplyr::filter(p.val < 0.05))
+map(sig_gos, ~head(.x, 3))
+```
+
+```{r, label='kegg-plots', eval=FALSE}
+## look at KEGG data
+data(kegg.sets.hs)
+## subset of kegg data that just includes signalling and metabolic pathways
+data(sigmet.idx.hs)
+## subset kegg data
+kegg.sets.hs <- kegg.sets.hs[sigmet.idx.hs]
+## get results
+kegg_results <- map(foldchanges_vector, ~ gage(.x, kegg.sets.hs, same.dir = TRUE))
+## map(kegg_results, ~ head(.x$greater))
+## map(kegg_results, ~ head(.x$less))
+head(kegg_results$acute_a_vs_acute_c_imp$less)
+
+## visualise pathways
+kegg_pathways <- map(kegg_results, ~ data.frame(id = rownames(.x$greater), .x$greater) %>%
+                                       tibble::as_tibble() %>%
+                                       dplyr::filter(!is.na(p.val)) %>%
+                                       .$id %>%
+                                     as.character())
+kegg_pathways_less <- map(kegg_results, ~ data.frame(id = rownames(.x$less), .x$less) %>%
+                                            tibble::as_tibble() %>%
+                                            dplyr::filter(!is.na(p.val)) %>%
+                                            .$id %>%
+                                          as.character())
+map(kegg_pathways, head)
+## get pathway id
+kegg_path_ids <- map(kegg_pathways, ~ substr(.x, start = 1, stop = 8))
+kegg_path_ids
+## get image
+## set dir to save
+setwd("../figures/kegg_pathways/")
+test <- sapply(
+    kegg_path_ids$acute_c_imp_vs_acute_c_nonimp,
+    function(pid) {
+        pathview(
+            gene.data = foldchanges_vector$acute_c_imp_vs_acute_c_nonimp,
+            pathway.id = pid, species = "hsa"
+        )
+    }
+)
+## return wd
+setwd("../../scripts/")
+```
