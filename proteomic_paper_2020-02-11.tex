@@ -1,15 +1,9 @@
-% Elements from default .Rmd template
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% ELIFE ARTICLE TEMPLATE documentclass
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[9pt,lineno]{elife}
-
-
-% Elements from default .Rmd template again
+%
+\documentclass[
+]{article}
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
 \usepackage{iftex}
@@ -39,14 +33,7 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={A comprehensive proteomic and bioinformatics analysis of human spinal cord injury plasma identifies proteins associated with the complement cascade and liver function as potential prognostic indicators of neurological outcome},
-  pdfkeywords={Spinal cord injury, biomarker, proteomics, complement},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -97,6 +84,8 @@
 \newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\usepackage{longtable}
+\usepackage{array}
 \usepackage{pdflscape}
 \newcommand{\blandscape}{\begin{landscape}}
 \newcommand{\elandscape}{\end{landscape}}
@@ -105,52 +94,21 @@
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={A comprehensive proteomic and bioinformatics analysis of human spinal cord injury plasma identifies proteins associated with the complement cascade and liver function as potential prognostic indicators of neurological outcome},
+  pdfauthor={Gabriel Mateus Bernardo Harrington, PhD; Paul Cool, MD; Charlotte Hulme, PhD; Jessica Fisher-Stokes, MRes; Mandy Peffers, PhD; Wagih El Masri, MD; Aheed Osman, MBChB; Joy Roy Chowdhury, MBBS; Naveen Kumar, MBBS; Srinivasa Budithi, MD; Karina Wright, PhD},
+  pdfkeywords={Spinal cord injury, Biomarker, Proteomics, Complement cascade},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
 \title{A comprehensive proteomic and bioinformatics analysis of human spinal cord injury plasma identifies proteins associated with the complement cascade and liver function as potential prognostic indicators of neurological outcome}
-\author{}
-\date{2022-06-27 14:43:20}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% ELIFE ARTICLE TEMPLATE again
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Use the onehalfspacing option for 1.5 line spacing
-% Use the doublespacing option for 2.0 line spacing
-% Please note that these options may affect formatting.
-% Additionally, the use of the \newcommand function should be limited.
-
-\usepackage{lipsum} % Required to insert dummy text
-\usepackage[version=4]{mhchem}
-\usepackage{siunitx}
-\DeclareSIUnit\Molar{M}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% ARTICLE SETUP
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \title{This is the title}
-
-% \author[1*]{Firstname Middlename Surname}
-% \author[1,2\authfn{1}\authfn{3}]{Firstname Middlename Familyname}
-% \author[2\authfn{1}\authfn{4}]{Firstname Initials Surname}
-% \author[2*]{Firstname Surname}
-% \affil[1]{Institution 1}
-% \affil[2]{Institution 2}
-
-% \corr{email1@example.com}{FMS}
-% \corr{email2@example.com}{FS}
-
-% \contrib[\authfn{1}]{These authors contributed equally to this work}
-% \contrib[\authfn{2}]{These authors also contributed equally to this work}
-
-% \presentadd[\authfn{3}]{Department, Institute, Country}
-% \presentadd[\authfn{4}]{Department, Institute, Country}
-% \presentadd[\authfn{5}]{eLife Sciences editorial Office, eLife Sciences, Cambridge, United Kingdom}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% ARTICLE START
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\author{Gabriel Mateus Bernardo Harrington, PhD\footnote{Keele University} \and Paul Cool, MD\footnote{Robert Jones and Agnes Hunt Orthopaedic Hospital NHS Foundation Trust; Keele University} \and Charlotte Hulme, PhD \and Jessica Fisher-Stokes, MRes \and Mandy Peffers, PhD \and Wagih El Masri, MD \and Aheed Osman, MBChB \and Joy Roy Chowdhury, MBBS \and Naveen Kumar, MBBS \and Srinivasa Budithi, MD \and Karina Wright, PhD\footnote{\href{mailto:karina.wright1@nhs.net}{\nolinkurl{karina.wright1@nhs.net}}}}
+\date{2022-07-12}
 
 \begin{document}
-
 \maketitle
 
 \hypertarget{abstract}{%
@@ -167,10 +125,10 @@ This study has utilised proteomic and bioinformatics methodologies to investigat
 \hypertarget{methods-and-materials}{%
 \subsection{Methods and Materials}\label{methods-and-materials}}
 
-Blood samples were taken, following informed consent, from ASIA impairment scale (AIS) grade C ``Improvers'' (AIS grade improvement) and ``Non-Improvers'' (No AIS change), and AIS grade A and D at \textless2 weeks (``Acute'') and approx.
-3 months (``Sub-acute'') post-injury.
+Blood samples were taken, following informed consent, from ASIA impairment scale (AIS) grade C ``Improvers'' (those who experienced an AIS grade improvement) and ``Non-Improvers'' (No AIS change), and AIS grade A and D at \textless2 weeks (``Acute'') and approx. 3 months (``Sub-acute'') post-injury.
 The total protein concentration from each sample was extracted, with pooled samples being labelled and non-pooled samples treated with ProteoMiner™ beads.
 Samples were then analysed using two 4-plex isobaric tag for relative and absolute quantification (iTRAQ) analyses and a label-free experiment for comparison, before quantifying with mass spectrometry.
+Data are available via ProteomeXchange with identifiers PXD035025 and PXD035072 for the iTRAQ and label-free experiments respectively.
 
 Proteomic datasets were analysed using OpenMS (version 2.6.0).
 R (version 4.1.4) and in particular, the R packages MSstats (version 4.0.1) and pathview (version 1.32.0) were used for downstream analysis.
@@ -212,6 +170,12 @@ Previously, we have shown that routinely collected blood measures associated wit
 
 \hypertarget{methods-and-materials-1}{%
 \section{Methods and Materials}\label{methods-and-materials-1}}
+
+\hypertarget{patients}{%
+\subsection{Patients}\label{patients}}
+
+Blood samples were taken from SCI patients who had provided informed consent and in accordance to ethical provided by the National Research Ethics Service {[}NRES{]} Committee North West Liverpool East {[}11/NW/0876{]}.
+``Improvers'' were defined as individuals who experienced an AIS grade improvement from admission to a year post-injury, whereas ``non-improvers'' were defined as patients who saw no change in AIS grade in the same period (Table \ref{tab:patient-demo-chap3}).
 
 \begin{longtable}[t]{lll}
 \caption{\label{tab:patient-demo-chap3}Patient demographics. ± denotes interquartile range}\\
@@ -255,12 +219,6 @@ Age at injury
 (Median years±IQR) & 53±26 & -\\*
 \end{longtable}
 
-\hypertarget{patients}{%
-\subsection{Patients}\label{patients}}
-
-Blood samples were taken from SCI patients who had provided informed consent and in accordance to ethical provided by the National Research Ethics Service {[}NRES{]} Committee North West Liverpool East {[}11/NW/0876{]}.
-``Improvers'' were defined as individuals who experienced an AIS grade improvement from admission to a year post-injury, whereas ``non-improvers'' were defined as patients who saw no change in AIS grade in the same period.
-
 \hypertarget{plasma-collection-and-storage}{%
 \subsection{Plasma collection and storage}\label{plasma-collection-and-storage}}
 
@@ -285,13 +243,16 @@ Two individual iTRAQ experiments were set up, the first to assess acute and sub-
 The following tags were used for each group of patient samples 114 tag - acute improvers, 115 tag - sub-acute improvers, 116 tag - acute non-improvers and 117 tag - sub-acute non-improvers for run 1 and 114 tag - acute improvers, 115 tag - acute non-improvers, 116 tag - AIS grade A and 117 tag - AIS grade D for run 2.
 
 \hypertarget{itraq-mass-spectrometry-analysis}{%
-\paragraph{iTRAQ mass spectrometry analysis}\label{itraq-mass-spectrometry-analysis}}
+\subsubsection{iTRAQ mass spectrometry analysis}\label{itraq-mass-spectrometry-analysis}}
 
 The samples were analysed at the BSRC St.~Andrews University Mass Spectrometry and Proteomics Facility.
-A total of 12 SCX fractions were analysed by nano-electrospray ionisation-liquid chromatography/tandem mass spectrometry (LC-MS/MS) using a TripleTOF 5600 tandem mass spectrometer (AB Sciex, Framingham, MA, USA) as described previously.(Fuller et al. 2015) Each fraction (\(10 \mu l\)) was then analysed by nanoflow LC-ESI-MSMS, as described previously.
+A total of 12 SCX fractions were analysed by nano-electrospray ionisation-liquid chromatography/tandem mass spectrometry (LC-MS/MS) using a TripleTOF 5600 tandem mass spectrometer (AB Sciex, Framingham, MA, USA) as described previously.(Fuller et al. 2015)
+Each fraction (\(10 \mu l\)) was then analysed by nanoflow LC-ESI-MSMS, as described previously.
+
+The mass spectrometry proteomics data have been deposited to the ProteomeXchange Consortium via the PRIDE partner repository with the dataset identifier PXD035025 and 10.6019/PXD035025.(Perez-Riverol et al. 2021)
 
 \hypertarget{label-free-sample-prep}{%
-\subsubsection{Sample preparation and analysis using label-free proteomics}\label{label-free-sample-prep}}
+\subsection{Sample preparation and analysis using label-free proteomics}\label{label-free-sample-prep}}
 
 No sample pooling was used, and so each of the 73 samples were maintained separately throughout protein equalisation, mass spectrometry, and label-free quantification steps.
 Thus, protein abundance was quantified for each sample, whereupon mean protein abundance across experimental groups was calculated to assess protein changes.
@@ -299,7 +260,7 @@ Thus, protein abundance was quantified for each sample, whereupon mean protein a
 To reduce the dynamic range of proteins, ProteoMiner™ beads (BioRad, Hemel Hempstead, UK) were used.(Boschetti and Righetti 2008) Total protein was quantitated with a Pierce™ \(660 nm\) Protein Assay (Thermo Fisher Scientific, Hemel Hempstead, UK), whereupon 5 mg of total protein was applied to ProteoMiner™ beads, and processed as described previously.(Stoscheck 1987; Peffers et al. 2015)
 
 \hypertarget{label-free-mass-spectrometry-analysis}{%
-\paragraph{Label free mass spectrometry analysis}\label{label-free-mass-spectrometry-analysis}}
+\subsubsection{Label free mass spectrometry analysis}\label{label-free-mass-spectrometry-analysis}}
 
 Tryptic peptides were subjected to LC-MC/MC via a 2-h gradient on a NanoAcquity™ ultraperformance LC (Waters, Manchester, UK) connected to a Q-Exactive Quadrupole-Orbitrap instrument (Thermo-Fisher Scientific Hemel Hempstead, UK).
 
@@ -309,8 +270,10 @@ Dynamic exclusion was set to 20s, the 10 most intense multiply charged ions (\(z
 The following mass spectrometric conditions were used: spray voltage, 1.9kV, no sheath or axillary gas flow; normalised HCD collision energy 30\%; heated capillary temperature, 250°C.
 MS/MS ion selection threshold was set to \(1\times 10^4\) count and 2Da isolation width was set.
 
+The mass spectrometry proteomics data have been deposited to the ProteomeXchange Consortium via the PRIDE partner repository with the dataset identifier PXD035072 and 10.6019/PXD035072.(Perez-Riverol et al. 2021)
+
 \hypertarget{openms-chap3}{%
-\subsubsection{iTRAQ OpenMS analysis}\label{openms-chap3}}
+\subsection{iTRAQ OpenMS analysis}\label{openms-chap3}}
 
 TripleTOF 5600 tandem mass spectrometer output files produced in the ABSciex proprietary \texttt{.wiff} file format were converted to an open file format, \texttt{.mzML} for analysis with OpenMS (version 2.6.0).
 The docker image of ProteoWizard version 3.0.20287 was used for conversion, and peak picking was applied on conversion (Chambers et al. 2012).
@@ -333,7 +296,7 @@ Bayesian score estimation and protein inference was performed with \texttt{Epifa
 Finally, \texttt{IDConflictResolver} was used to resolve ambiguous annotations of features with peptide identifications, before quantification with \texttt{ProteinQuantifier}.
 
 \hypertarget{openms-label-free}{%
-\subsubsection{Label free OpenMS analysis}\label{openms-label-free}}
+\subsection{Label free OpenMS analysis}\label{openms-label-free}}
 
 For quantification, the raw spectra files were analysed via OpenMS (version 2.6.0) command line tools, with the workflow from the prior section (\ref{openms-chap3}) adapted to suit a label-free analysis.
 The files were first converted from the proprietary .Raw format to the open .mzML standard with the \texttt{FileConverter} tool via the open-source \texttt{ThermoRawFileParser}.(Röst et al. 2016; Hulstaert et al. 2020) Unless otherwise stated, default arguments were used throughout.
@@ -350,12 +313,12 @@ The \texttt{ProteomicsLFQ} was used for subsequent processing with the flags: \t
 The \texttt{-out\_msstats} flag was also used to produce quantitative data for downstream statistical analysis with the R package \texttt{MSstats}.(Choi et al. 2014)
 
 \hypertarget{pathway-analysis-chap3}{%
-\subsubsection{Network and pathway analysis}\label{pathway-analysis-chap3}}
+\subsection{Network and pathway analysis}\label{pathway-analysis-chap3}}
 
 The Bioconductor package ReactomePA, which employs the open-source, open access, manually curated and peer-reviewed pathway database Reactome was used for network analysis.(Yu and He 2016; Jassal et al. 2020)
 
 \hypertarget{enzyme-linked-immunosorbent-assays}{%
-\subsubsection{Enzyme-linked immunosorbent assays}\label{enzyme-linked-immunosorbent-assays}}
+\subsection{Enzyme-linked immunosorbent assays}\label{enzyme-linked-immunosorbent-assays}}
 
 Four proteins identified by the iTRAQ analysis were measured by enzyme-linked immunoabsorbent assay (ELISA) from non-pooled samples to validate the iTRAQ findings.
 
@@ -383,10 +346,10 @@ In the interest of brevity, only the plots of acute and subactue AIS C improvers
 
 
 \hypertarget{itraq-analyses}{%
-\subsubsection{iTRAQ analyses}\label{itraq-analyses}}
+\subsection{iTRAQ analyses}\label{itraq-analyses}}
 
 \hypertarget{differential-protein-abundances}{%
-\subsubsection{Differential protein abundances}\label{differential-protein-abundances}}
+\subsection{Differential protein abundances}\label{differential-protein-abundances}}
 
 AIS C improvers had 18 more abundant proteins and 49 less abundant proteins at the acute phase relative to non-improvers.
 Similarly, at the subacute phase, AIS C improvers had 34 more abundant proteins and 34 less abundant proteins relative to non-improvers.
@@ -396,7 +359,7 @@ Acutely, AIS C improvers relative to AIS A and D had 21 and 53 more abundant and
 Please see the Tables \ref{tab:openms-fc-table}, \ref{tab:label-free-fc-table1} \& \ref{tab:label-free-fc-table2} for a full list of protein fold change changes.
 
 \hypertarget{heatmaps-chap3}{%
-\subsubsection{Heatmaps}\label{heatmaps-chap3}}
+\subsection{Heatmaps}\label{heatmaps-chap3}}
 
 The majority of the pathways associated with the proteins identified by these iTRAQ experiments are related to the complement cascade and platelet activity (Figure \ref{fig:openms-hmap-acute-c-1}, \ref{fig:openms-hmap-subacute-c-1}).
 There are also several pathways implicated in metabolic processes, particularly with apolipoproteins and retinoids.
@@ -465,7 +428,7 @@ Similarly to the iTRAQ data, many of the Reactome pathways are associated with t
 \clearpage
 
 \hypertarget{cnetplot-chap3}{%
-\subsubsection{Network analysis of Differentially Abundant Proteins between AIS C improvers and non-improvers}\label{cnetplot-chap3}}
+\subsection{Network analysis of Differentially Abundant Proteins between AIS C improvers and non-improvers}\label{cnetplot-chap3}}
 
 Similar to the heatmaps, network plots highlighted that the majority of proteins changes were associated with the complement cascade and pathways linked to platelet activity (Figure \ref{fig:openms-cnetp-acute-c-1}, \ref{fig:openms-cnetp-subacute-c-1}).
 Several proteins were also associated with the regulation of insulin-like growth factor.
@@ -534,7 +497,7 @@ Similarly to the heatmaps and the iTRAQ data, network plots derived using the la
 \clearpage
 
 \hypertarget{kegg-chap3}{%
-\subsubsection{Pathway analysis of Differentially Abundant Proteins between AIS C improvers and non-improvers}\label{kegg-chap3}}
+\subsection{Pathway analysis of Differentially Abundant Proteins between AIS C improvers and non-improvers}\label{kegg-chap3}}
 
 Pathway analysis via the \texttt{pathview} R package returned the complement and coagulation cascade to be on the sole significant KEGG pathway to derive from the OpenMS analysed data.
 The majority of the proteins present in this pathway were less abundant in the 2-week post-injury plasma of AIS C patients who experienced an AIS grade conversion and those who did not (Figure \ref{fig:kegg-complement}).
@@ -565,7 +528,7 @@ The majority of the proteins present in this pathway were less abundant 2-weeks 
 \end{figure}
 
 \hypertarget{validation-of-proteomic-data-using-elisa}{%
-\subsubsection{Validation of Proteomic Data using ELISA}\label{validation-of-proteomic-data-using-elisa}}
+\subsection{Validation of Proteomic Data using ELISA}\label{validation-of-proteomic-data-using-elisa}}
 
 No statistically significant difference between groups for A2M abundance in plasma via DuoSet® ELISAs, though there were outliers in the AIS A and D groups, and particularly in the AIS C patients at 3-months who did not experience an AIS grade conversion (Figure \ref{fig:patchwork-2}).
 
@@ -582,7 +545,7 @@ A statistically significant difference was also found between AIS C improvers an
 \end{figure}
 
 \hypertarget{comparing-itraq-and-label-free-proteins}{%
-\subsubsection{Comparing iTRAQ and label-free proteins}\label{comparing-itraq-and-label-free-proteins}}
+\subsection{Comparing iTRAQ and label-free proteins}\label{comparing-itraq-and-label-free-proteins}}
 
 A total of 87 and 79 unique proteins were identified across the label-free and iTRAQ experiments respectively, with a modest overlap of 26 proteins found using both techniques.
 
@@ -602,23 +565,42 @@ This study has highlighted a number of proteins that may be able to discriminate
 The most promising of these is Retinol Binding Protein 4 (RBP4) which was demonstrated to be increased in non-improvers compared to improvers in the acute phase.
 Further this change could be confirmed using ELISA, which may provide a more clinically useful means of assessment on a wide scale.
 
-RBP4 is synthesised in the liver and binds retinol that is released following vitamin A deficiency.(Peterson 1971) Once delivered to target cells, retinol can either be converted to retinaldehyde, which is required for functional vision, or oxidised to retinoic acid, which is a ligand for nuclear receptors, thus regulating gene expression.(Lane and Bailey 2005; Balmer and Blomhoff 2002) The role of retinoid signalling in spinal cord and motor neuron differentiation, including development of regions of the spinal cord has been outlined, and implies a possible involvement in maintaining motor neuron integrity.(Colbert et al. 1995; Sockanathan and Jessell 1998) The mRNA of a rodent homologue of RBP was found to be up-regulated at 24 hours post-SCI and may promote cell proliferation and regeneration by increasing retinoid metabolism.(Song et al. 2001; Hurst et al. 1999)
+RBP4 is synthesised in the liver and binds retinol that is released following vitamin A deficiency.(Peterson 1971)
+Once delivered to target cells, retinol can either be converted to retinaldehyde, which is required for functional vision, or oxidised to retinoic acid, which is a ligand for nuclear receptors, thus regulating gene expression.(Lane and Bailey 2005; Balmer and Blomhoff 2002)
+The role of retinoid signalling in spinal cord and motor neuron differentiation, including development of regions of the spinal cord has been outlined, and implies a possible involvement in maintaining motor neuron integrity.(Colbert et al. 1995; Sockanathan and Jessell 1998)
+The mRNA of a rodent homologue of RBP was found to be up-regulated at 24 hours post-SCI and may promote cell proliferation and regeneration by increasing retinoid metabolism.(Song et al. 2001; Hurst et al. 1999)
 
-Another study of amyotrophic lateral sclerosis (ALS), a neurodegenerative disease, comparing gene expression between post-mortem spinal cord samples of ALS and controls similarly observed up-regulation of RBP1 in ALS spinal cord.(Malaspina, Kaushik, and Belleroche 2001) Furthermore, a transgenic mouse study reported retinoid signalling may contribute to the retained plasticity and regenerative potential of the mature spinal cord.(Haskell et al. 2002) Collectively, these results might support a hypothesis that AIS C improvers have increased levels of RBP4 and this relates to improved capacity for neuronal regeneration/plasticity.
+Another study of amyotrophic lateral sclerosis (ALS), a neurodegenerative disease, comparing gene expression between post-mortem spinal cord samples of ALS and controls similarly observed up-regulation of RBP1 in ALS spinal cord.(Malaspina, Kaushik, and Belleroche 2001)
+Furthermore, a transgenic mouse study reported retinoid signalling may contribute to the retained plasticity and regenerative potential of the mature spinal cord.(Haskell et al. 2002)
+Collectively, these results might support a hypothesis that AIS C improvers have increased levels of RBP4 and this relates to improved capacity for neuronal regeneration/plasticity.
 Whether this is due to increased expression or due to higher vitamin A dietary intake is unclear from this data.
 
 Alongside RBP4, a number of other protein abundance differences across the different biological comparisons were identified in proteins associated with liver function.
-Our previous work investigating the potential of routinely measured haematological analytes for predicting neurological outcome in SCI patients also highlighted several proteins that were linked with liver function; thus providing further support to the theory that liver status is relevant to differential functional recover.(Brown et al. 2019; Bernardo Harrington et al. 2020) The pathway analysis specifically indicated that the acute phase response (APR) is implicated.
+Our previous work investigating the potential of routinely measured haematological analytes for predicting neurological outcome in SCI patients also highlighted several proteins that were linked with liver function; thus providing further support to the theory that liver status is relevant to differential functional recover.(Brown et al. 2019; Bernardo Harrington et al. 2020)
+The pathway analysis specifically indicated that the acute phase response (APR) is implicated.
 
 The APR is the bodies first response to infection or injury, including SCI.
-This systemic response is largely coordinated by factors released from the liver, but the APRs effects extend to multiple peripheral organs including the kidneys, lungs and spleen.(Bao et al. 2012; Campbell, Zahid, et al. 2008; Fleming et al. 2012; Gris, Hamilton, and Weaver 2008) This hepatic response is typically transient and quickly fades, but prolonged liver inflammation and pathology has been observed in rodent SCI models.(Goodus et al. 2018; Sauerbeck et al. 2014) Basic liver functions are chronically impaired by SCI, including metabolising carbohydrates, fats and proteins, storage of minerals vitamins and glycogen and filtering blood from the digestive tract.(García-López et al. 2007; DeLeve 2007; Farkas and Gater 2018; Chow et al. 2012; Sauerbeck et al. 2014)
+This systemic response is largely coordinated by factors released from the liver, but the APRs effects extend to multiple peripheral organs including the kidneys, lungs and spleen.(Bao et al. 2012; Campbell, Zahid, et al. 2008; Fleming et al. 2012; Gris, Hamilton, and Weaver 2008)
+This hepatic response is typically transient and quickly fades, but prolonged liver inflammation and pathology has been observed in rodent SCI models.(Goodus et al. 2018; Sauerbeck et al. 2014)
+Basic liver functions are chronically impaired by SCI, including metabolising carbohydrates, fats and proteins, storage of minerals vitamins and glycogen and filtering blood from the digestive tract.(García-López et al. 2007; DeLeve 2007; Farkas and Gater 2018; Chow et al. 2012; Sauerbeck et al. 2014)
 
-The acute (1-7 days) liver response to SCI is well documented; the inflammatory cytokines including TNF\(\alpha\), IL-1\(\alpha\), IL-1\(\beta\) and IL-6, released at the injury site, reach the liver through the bloodstream.(Fleming et al. 2012; Hundt et al. 2011) This provokes the liver to enter the APR and produce acute phase proteins thus stimulating a greater immune response.(Anthony and Couch 2014; Fleming et al. 2012) The hepatocytes that make up the majority of the liver biomass, express receptors that bind the aforementioned inflammatory cytokines; similarly the hepatic macrophage Kupffer cells also bind these cytokines, complement proteins and lipopolysaccharide (LPS) and swiftly remove microorganisms, endotoxins and other debris from the blood.(Yang et al. 2013; Szalai et al. 2000; Crispe 2016; Campbell et al. 2005) Furthermore, it has been suggested that liver inflammation and Kupffer cells activity promote recruitment of leukocytes to the injury site in brain or spinal trauma, potentially enhancing CNS injury.(Anthony and Couch 2014; Campbell et al. 2005) For example, a rodent study demonstrated depletion of Kupffer cells prior to injury resulted in few neutrophils infiltrating the injury site.(Campbell, Zahid, et al. 2008; Campbell, Anthony, et al. 2008)
+The acute (1-7 days) liver response to SCI is well documented; the inflammatory cytokines including TNF\(\alpha\), IL-1\(\alpha\), IL-1\(\beta\) and IL-6, released at the injury site, reach the liver through the bloodstream.(Fleming et al. 2012; Hundt et al. 2011)
+This provokes the liver to enter the APR and produce acute phase proteins thus stimulating a greater immune response.(Anthony and Couch 2014; Fleming et al. 2012)
+The hepatocytes that make up the majority of the liver biomass, express receptors that bind the aforementioned inflammatory cytokines; similarly the hepatic macrophage Kupffer cells also bind these cytokines, complement proteins and lipopolysaccharide (LPS) and swiftly remove microorganisms, endotoxins and other debris from the blood.(Yang et al. 2013; Szalai et al. 2000; Crispe 2016; Campbell et al. 2005)
+Furthermore, it has been suggested that liver inflammation and Kupffer cells activity promote recruitment of leukocytes to the injury site in brain or spinal trauma, potentially enhancing CNS injury.(Anthony and Couch 2014; Campbell et al. 2005)
+For example, a rodent study demonstrated depletion of Kupffer cells prior to injury resulted in few neutrophils infiltrating the injury site.(Campbell, Zahid, et al. 2008; Campbell, Anthony, et al. 2008)
 
 Another protein that out label-free proteomic data highlights is Peroxiredoxin 2 (PRX-2), which was detected acutely in AIS C improvers and AIS D patients, and subacutely in AIS A and AIS D. Peroxiredoxins are a large and highly conserved family of enzymes that reduce peroxides.
-PRX-2 is highly abundant in RBCs and intracellularly serves as an important anti-oxidant role in various cells types, including neurons.(Low, Hampton, and Winterbourn 2008) By contrast, extracellular PRX-2 has been suggested to act as an inflammatory DAMP, leading microglia and macrophages to release a plethora of pro-inflammatory factors.(Salzano et al. 2014; Garcia-Bonilla and Iadecola 2012; Shichita et al. 2012) An \emph{in vitro} primary neurons and microglia co-culture study reported PRX-2 activating microglia via TLR-4, potentially leading to neuronal apoptosis.(Lu et al. 2018) A murine study found over-expression of PRX-2 attenuated oxidative stress and neuronal apoptosis following subarachnoid haemorrhage.(Lu et al. 2019) Over-expression of PRX-2 is speculated to protect again ischaemic neuronal injury by modulating the redox-sensitive thioredoxin-apoptosis signal-regulating kinase (ASK) 1 signalling complex.(Gan et al. 2012) Several molecular chaperones can interact with ASK1, including thioredoxin and TNF receptor-associated factor 6.(Matsuzawa et al. 2005) The dissociation of the thioredoxin-ASK1 complex activates ASK1.
+PRX-2 is highly abundant in RBCs and intracellularly serves as an important anti-oxidant role in various cells types, including neurons.(Low, Hampton, and Winterbourn 2008)
+By contrast, extracellular PRX-2 has been suggested to act as an inflammatory DAMP, leading microglia and macrophages to release a plethora of pro-inflammatory factors.(Salzano et al. 2014; Garcia-Bonilla and Iadecola 2012; Shichita et al. 2012)
+An \emph{in vitro} primary neurons and microglia co-culture study reported PRX-2 activating microglia via TLR-4, potentially leading to neuronal apoptosis.(Lu et al. 2018)
+A murine study found over-expression of PRX-2 attenuated oxidative stress and neuronal apoptosis following subarachnoid haemorrhage.(Lu et al. 2019)
+Over-expression of PRX-2 is speculated to protect again ischaemic neuronal injury by modulating the redox-sensitive thioredoxin-apoptosis signal-regulating kinase (ASK) 1 signalling complex.(Gan et al. 2012)
+Several molecular chaperones can interact with ASK1, including thioredoxin and TNF receptor-associated factor 6.(Matsuzawa et al. 2005)
+The dissociation of the thioredoxin-ASK1 complex activates ASK1.
 PRX-2 is oxidised after scavenging free radicals, whereupon its antioxidantive activity is reduced.
-This inactivation can be reversed by the thioredoxin-thioredoxin reductase system, whereby oxidised PRX-2 can regain its activity by reducing thioredoxin, leading to the dissociation of the thioredoxin-ASK1 complex.(Rhee and Woo 2011) Additionally, oxidised PRX-1 can inhibit ASK1-induced apoptosis via the thioredoxin-binding domain on ASK1.(Kim, Kim, and Lee 2008)
+This inactivation can be reversed by the thioredoxin-thioredoxin reductase system, whereby oxidised PRX-2 can regain its activity by reducing thioredoxin, leading to the dissociation of the thioredoxin-ASK1 complex.(Rhee and Woo 2011)
+Additionally, oxidised PRX-1 can inhibit ASK1-induced apoptosis via the thioredoxin-binding domain on ASK1.(Kim, Kim, and Lee 2008)
 
 The presence of PRX-2 in acute AIS C improvers and absence in acute C non-improvers suggests the protein could indicate a more protective action against oxidative stress, and implies the protein has potential value as a biomarker of functional outcomes.
 Similarly, PRX-2 may be acting as a healthy response to trauma-induced oxidative stress in both acute AIS D, although the persistence to the subacute time-point is less clear.
@@ -630,7 +612,9 @@ The acute absence may be a result of an overwhelmed physiology unable to respond
 Pathway analysis from both the iTRAQ and label-free experiments identified the complement and coagulation cascades as a significant pathway of interest.
 More broadly, the trend in this data is for proteins in the complement pathway is lower abundance, or inhibitory proteins such as C4BP to be more abundant, in the acute improvers.
 C3 for instance, cleavage of which is vital for complement activation, was less abundant in acute AIS C improvers relative to non-improvers.
-This finding is in line with a genetic C3 knockout study in mice which reported better neurological scores 2 days post-injury, reduced residual consolidated neurological deficit at 21 days and display minor change in reduced gliosis (20\% decrease at 1h timepoint) but a three-to-fourfold decrease in neutrophil infiltration, resulting in enhanced regeneration of axons.(Qiao et al. 2006) Another study using a similar C3 knockout model reported improved neurological scores at acute and long-term time points.(Guo et al. 2010) These results imply that the complement cascade is a particularly important component of a differential response to neurological injury which ultimately leads to greater functional recovery.
+This finding is in line with a genetic C3 knockout study in mice which reported better neurological scores 2 days post-injury, reduced residual consolidated neurological deficit at 21 days and display minor change in reduced gliosis (20\% decrease at 1h timepoint) but a three-to-fourfold decrease in neutrophil infiltration, resulting in enhanced regeneration of axons.(Qiao et al. 2006)
+Another study using a similar C3 knockout model reported improved neurological scores at acute and long-term time points.(Guo et al. 2010)
+These results imply that the complement cascade is a particularly important component of a differential response to neurological injury which ultimately leads to greater functional recovery.
 Given the complexity of the complement cascade and the limited time points in this study, further work is needed to elucidate which facets of the cascade are outcome modifying, and at which stages post-injury.
 
 AIS A and D samples were included largely to compare to the AIS C improvers.
@@ -674,8 +658,13 @@ Similarly, this additional work could complement the AIS A and D sample data, wh
 ## nickname       One Push-Up
 \end{verbatim}
 
-\begin{longtable}[t]{lll}
-\caption{\label{tab:package-table}Packages Used}\\
+\clearpage
+
+\begin{table}
+
+\caption{\label{tab:package-table}Packages Used}
+\centering
+\begin{tabular}[t]{lll}
 \toprule
 package & version & date\\
 \midrule
@@ -683,7 +672,7 @@ base & 4.1.3 & 2022-03-18\\
 MSstats & 4.2.0 & 2021-05-31\\
 STRINGdb & 2.6.5 & 2020-01-10\\
 ReactomePA & 1.38.0 & 2021-10-26\\
-rlang & 1.0.2 & 2022-03-04\\
+rlang & 1.0.3 & 2022-06-27\\
 \addlinespace
 bookdown & 0.27 & 2022-06-14\\
 lime & 0.5.2 & 2021-02-24\\
@@ -691,46 +680,48 @@ RColorBrewer & 1.1.3 & 2022-04-03\\
 ggVennDiagram & 1.2.0 & 2021-10-19\\
 DiagrammeR & 1.0.9 & 2022-03-04\\
 \addlinespace
-lubridate & 1.8.0 & 2021-10-03\\
 patchwork & 1.1.1 & 2020-12-15\\
-readxl & 1.4.0 & 2022-03-28\\
+cowplot & 1.1.1 & 2020-12-15\\
 BiocManager & 1.30.18 & 2022-05-18\\
 knitr & 1.39 & 2022-04-26\\
-\addlinespace
-data.table & 1.14.2 & 2021-09-23\\
 naniar & 0.6.1 & 2021-05-14\\
+\addlinespace
 psych & 2.2.5 & 2022-05-01\\
 Hmisc & 4.7.0 & 2022-04-12\\
 Formula & 1.2.4 & 2020-10-16\\
-\addlinespace
 survival & 3.3.1 & 2022-02-20\\
 lattice & 0.20.45 & 2021-09-18\\
+\addlinespace
 bibtex & 0.4.2.3 & 2020-09-19\\
 captioner & 2.2.3 & 2015-07-15\\
 kableExtra & 1.3.4 & 2021-02-19\\
-\addlinespace
 rmarkdown & 2.14 & 2022-04-25\\
-cowplot & 1.1.1 & 2020-12-15\\
-clusterProfiler & 4.2.2 & 2022-01-13\\
-msigdbr & 7.5.1 & 2022-03-30\\
-forcats & 0.5.1 & 2021-01-27\\
+minpack.lm & 1.2.2 & 2022-04-13\\
 \addlinespace
+MASS & 7.3.57 & 2022-04-05\\
+data.table & 1.14.2 & 2021-09-23\\
+lubridate & 1.8.0 & 2021-10-03\\
+janitor & 2.1.0 & 2021-01-04\\
+RPostgreSQL & 0.7.3 & 2021-10-22\\
+\addlinespace
+DBI & 1.1.3 & 2022-06-18\\
+readxl & 1.4.0 & 2022-03-28\\
+forcats & 0.5.1 & 2021-01-27\\
 stringr & 1.4.0 & 2019-02-09\\
 dplyr & 1.0.9 & 2022-04-27\\
+\addlinespace
 purrr & 0.3.4 & 2020-04-16\\
 readr & 2.1.2 & 2022-01-30\\
 tidyr & 1.2.0 & 2022-01-27\\
-\addlinespace
 tibble & 3.1.7 & 2022-04-26\\
 ggplot2 & 3.3.6 & 2022-04-27\\
+\addlinespace
 tidyverse & 1.3.1 & 2021-04-15\\
 \bottomrule
-\end{longtable}
+\end{tabular}
+\end{table}
 
 \clearpage
-
-\hypertarget{sup-foldchanges}{%
-\subsection{Fold changes}\label{sup-foldchanges}}
 
 \begin{landscape}\begingroup\fontsize{5}{7}\selectfont
 
@@ -1139,6 +1130,9 @@ McDaid, David, A.-La Park, Angela Gall, Mariel Purcell, and Mark Bacon. 2019. {`
 \leavevmode\vadjust pre{\hypertarget{ref-peffers_comprehensive_2015}{}}%
 Peffers, M. J., B. McDermott, P. D. Clegg, and C. M. Riggs. 2015. {``Comprehensive Protein Profiling of Synovial Fluid in Osteoarthritis Following Protein Equalization.''} \emph{Osteoarthritis and Cartilage} 23 (7): 1204--13. \url{https://doi.org/10.1016/j.joca.2015.03.019}.
 
+\leavevmode\vadjust pre{\hypertarget{ref-perez-riverol_pride_2021}{}}%
+Perez-Riverol, Yasset, Jingwen Bai, Chakradhar Bandla, David García-Seisdedos, Suresh Hewapathirana, Selvakumar Kamatchinathan, Deepti J Kundu, et al. 2021. {``The {PRIDE} Database Resources in 2022: A Hub for Mass Spectrometry-Based Proteomics Evidences.''} \emph{Nucleic Acids Research} 50 (D1): D543--52. \url{https://doi.org/10.1093/nar/gkab1038}.
+
 \leavevmode\vadjust pre{\hypertarget{ref-peterson_studies_1971}{}}%
 Peterson, P. A. 1971. {``\href{https://www.ncbi.nlm.nih.gov/pubmed/5541771}{Studies on the Interaction Between Prealbumin, Retinol-Binding Protein, and Vitamin {A}}.''} \emph{The Journal of Biological Chemistry} 246 (1): 44--49.
 
@@ -1194,6 +1188,5 @@ Yang, Chih-Ya, Jiun-Bo Chen, Ting-Fen Tsai, Yi-Chen Tsai, Ching-Yen Tsai, Pi-Hui
 Yu, Guangchuang, and Qing-Yu He. 2016. {``{ReactomePA}: An {R}/{Bioconductor} Package for Reactome Pathway Analysis and Visualization.''} \emph{Molecular BioSystems} 12 (2): 477--79. \url{https://doi.org/10.1039/c5mb00663e}.
 
 \end{CSLReferences}
-
 
 \end{document}

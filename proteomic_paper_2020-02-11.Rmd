@@ -1,84 +1,135 @@
 ---
 title: "A comprehensive proteomic and bioinformatics analysis of human spinal cord injury plasma identifies proteins associated with the complement cascade and liver function as potential prognostic indicators of neurological outcome"
+# output:
+#   rticles::arxiv_article:
+#     pandoc_args:
+#       - --filter=pandoc-crossref
+# authors:
+#   - name: Gabriel Mateus Bernardo Harrington
+#     affiliation: Keele Univeristy
+#     email: g.m.bernardo.harrington@keele.ac.uk
+#   - name: Paul Cool
+#     affiliation: Robert Jones and Agnes Hunt Orthopaedic Hospital
+#     email: paul.cool@nhs.net
+#   - name: Charlotte Hulme
+#     affiliation: Keele Univeristy
+#     email: charlotte.hulme@nhs.net
+#   - name: Jessica Fisher-Stokes
+#     affiliation: Keele Univeristy
+#     email: j.b.fisher-stokes@keele.ac.uk
+#   - name: Mandy Peffers
+#     affiliation: University of Liverpool
+#     email: m.j.peffers@liverpool.ac.uk
+#   - name: Wagih El Masri
+#     affiliation: Robert Jones and Agnes Hunt Orthopaedic Hospital
+#     email: bellstonehse@btinternet.com
+#   - name: Aheed Osman
+#     affiliation: Robert Jones and Agnes Hunt Orthopaedic Hospital
+#     email: aheed.osman@nhs.net
+#   - name: Joy Roy Chowdhury
+#     affiliation: Robert Jones and Agnes Hunt Orthopaedic Hospital
+#     email: joy.chowdhury@nhs.net
+#   - name: Naveen Kumar
+#     affiliation: Robert Jones and Agnes Hunt Orthopaedic Hospital
+#     email: n.kumar1@nhs.net
+#   - name: Srinivasa Budithi
+#     affiliation: Robert Jones and Agnes Hunt Orthopaedic Hospital
+#     email: sbudithi@nhs.net
+#   - name: Karina Wright
+#     affiliation: Keele Univeristy
+#     email: karina.wright1@nhs.net
 output:
   bookdown::pdf_document2:
     toc: no
     #number_sections: yes
     keep_tex: yes
     df_print: kable
-    template: extras/elife-template.tex
-    #fig_crop: no
-    #includes:
-      #in_header: "extras/preamble.tex"
-      #in_header: "extras/elife_template.tex" # not working as is, needs fixing
+    # template: extras/elife-template.tex
+    # pandoc_args:
+    #   - --filter=pandoc-crossref
+    #   - --lua-filter=extras/scholarly-metadata.lua
+    #   - --lua-filter=extras/author-info-blocks.lua
+    #   - --template=extras/mytemplate.tex
   bookdown::word_document2:
     toc: no
     number_sections: yes
     df_print: kable
 #documentclass: elife
 #classoption: 9pt,lineno
-authors:
- - name: Gabriel Mateus Bernardo Harrington, PhD
-   email: g.m.bernardo.harrington@keele.ac.uk
-   telephone: 0169140-4138
-   #address: Some Institute of Technology
-   institute: [UofK, CU]
- - name: Paul Cool, MD
-   email: paul.cool@nhs.net
-   institute: [RJAH, UofK]
- - name: Charlotte Hulme, PhD
-   email: charlotte.hulme@nhs.net
-   institute: [UofK]
- - name: Jessica Fisher-Stokes, MRes
-   email: j.b.fisher-stokes@keele.ac.uk
-   institute: [UofK]
- - name: Mandy Peffers, PhD
-   email: m.j.peffers@liverpool.ac.uk
-   institute: [UoL]
- - name: Wagih El Masri, MD
-   email: bellstonehse@btinternet.com
-   institute: [RJAH]
- - name: Aheed Osman, MBChB
-   email: aheed.osman@nhs.net
-   institute: [RJAH]
- - name: Joy Roy Chowdhury, MBBS
-   email: joy.chowdhury@nhs.net
-   institute: [RJAH]
- - name: Naveen Kumar, MBBS
-   email: n.kumar1@nhs.net
-   institute: [RJAH]
- - name: Srinivasa Budithi, MD
-   email: sbudithi@nhs.net
-   institute: [RJAH]
- - name: Karina Wright, PhD
-   email: karina.wright1@nhs.net
-   institute: [UofK, RJAH]
-   corresponding_author: yes   
-institute:
-  - UofK: Keele University, Staffordshire, United Kingdom, ST5 5BG
-  - RJAH: Robert Jones and Agnes Hunt Orthopaedic Hospital NHS Foundation Trust, Oswestry, United Kingdom, SY10 7AG
-  - UoL: University of Liverpool, Liverpool, United Kingdom, L69 7ZX
-  - UC: Cardiff University, Cardiff, Wales, United Kingdom, CF10 3AT
+# author:
+#  - name: Gabriel Mateus Bernardo Harrington, PhD
+#    email: g.m.bernardo.harrington@keele.ac.uk
+#    #telephone: 0169140-4138
+#    #address: Some Institute of Technology
+#    institute: [UofK, CU]
+#  - name: Paul Cool, MD
+#    email: paul.cool@nhs.net
+#    institute: [RJAH, UofK]
+#  - name: Charlotte Hulme, PhD
+#    email: charlotte.hulme@nhs.net
+#    institute: [UofK]
+#  - name: Jessica Fisher-Stokes, MRes
+#    email: j.b.fisher-stokes@keele.ac.uk
+#    institute: [UofK]
+#  - name: Mandy Peffers, PhD
+#    email: m.j.peffers@liverpool.ac.uk
+#    institute: [UoL]
+#  - name: Wagih El Masri, MD
+#    email: bellstonehse@btinternet.com
+#    institute: [RJAH]
+#  - name: Aheed Osman, MBChB
+#    email: aheed.osman@nhs.net
+#    institute: [RJAH]
+#  - name: Joy Roy Chowdhury, MBBS
+#    email: joy.chowdhury@nhs.net
+#    institute: [RJAH]
+#  - name: Naveen Kumar, MBBS
+#    email: n.kumar1@nhs.net
+#    institute: [RJAH]
+#  - name: Srinivasa Budithi, MD
+#    email: sbudithi@nhs.net
+#    institute: [RJAH]
+#  - name: Karina Wright, PhD
+#    email: karina.wright1@nhs.net
+#    institute: [UofK, RJAH]
+#    corresponding_author: yes   
+# institute:
+#   - UofK: Keele University, Staffordshire, United Kingdom, ST5 5BG
+#   - RJAH: Robert Jones and Agnes Hunt Orthopaedic Hospital NHS Foundation Trust, Oswestry, United Kingdom, SY10 7AG
+#   - UoL: University of Liverpool, Liverpool, United Kingdom, L69 7ZX
+#   - UC: Cardiff University, Cardiff, Wales, United Kingdom, CF10 3AT
+author:
+ - Gabriel Mateus Bernardo Harrington, PhD^[Keele University]
+ - Paul Cool, MD^[Robert Jones and Agnes Hunt Orthopaedic Hospital NHS Foundation Trust; Keele University]
+ - Charlotte Hulme, PhD
+ - Jessica Fisher-Stokes, MRes
+ - Mandy Peffers, PhD
+ - Wagih El Masri, MD
+ - Aheed Osman, MBChB
+ - Joy Roy Chowdhury, MBBS
+ - Naveen Kumar, MBBS
+ - Srinivasa Budithi, MD
+ - Karina Wright, PhD^[karina.wright1@nhs.net]
 keywords:
   - Spinal cord injury
-  - biomarker
-  - proteomics
-  - complement
+  - Biomarker
+  - Proteomics
+  - Complement cascade
 #link-citations: yes
 #csl: extras/elife.csl
 # geometry: margin=2cm
 always_allow_html: true
-date: "`r format(Sys.time())`"
+date: "`r format(Sys.Date())`"
 bibliography: extras/paper_and_pkgs.bib
+#biblio-style: unsrt
 header-includes:
+   - \usepackage{longtable}
+   - \usepackage{array}
    - \usepackage{pdflscape}
    - \newcommand{\blandscape}{\begin{landscape}}
    - \newcommand{\elandscape}{\end{landscape}}
    - \usepackage{float} \floatplacement{figure}{H} 
    - \newcommand{\beginsupplement}{\setcounter{table}{0}  \renewcommand{\thetable}{S\arabic{table}} \setcounter{figure}{0} \renewcommand{\thefigure}{S\arabic{figure}}}
-editor_options: 
-  markdown: 
-    wrap: sentence
 ---
 
 ```{r setup, include=FALSE}
@@ -181,10 +232,10 @@ This study has utilised proteomic and bioinformatics methodologies to investigat
 
 ## Methods and Materials
 
-Blood samples were taken, following informed consent, from ASIA impairment scale (AIS) grade C "Improvers" (AIS grade improvement) and "Non-Improvers" (No AIS change), and AIS grade A and D at \<2 weeks ("Acute") and approx.
-3 months ("Sub-acute") post-injury.
+Blood samples were taken, following informed consent, from ASIA impairment scale (AIS) grade C "Improvers" (those who experienced an AIS grade improvement) and "Non-Improvers" (No AIS change), and AIS grade A and D at \<2 weeks ("Acute") and approx. 3 months ("Sub-acute") post-injury.
 The total protein concentration from each sample was extracted, with pooled samples being labelled and non-pooled samples treated with ProteoMiner™ beads.
 Samples were then analysed using two 4-plex isobaric tag for relative and absolute quantification (iTRAQ) analyses and a label-free experiment for comparison, before quantifying with mass spectrometry.
+Data are available via ProteomeXchange with identifiers PXD035025 and PXD035072 for the iTRAQ and label-free experiments respectively.
 
 Proteomic datasets were analysed using OpenMS (version 2.6.0).
 R (version 4.1.4) and in particular, the R packages MSstats (version 4.0.1) and pathview (version 1.32.0) were used for downstream analysis.
@@ -240,7 +291,10 @@ prot_demo <- proteom_demo %>%
     dplyr::select(!c(hos_num, dob, doi))
 ```
 
-<!-- this table needs to be moved ? -->
+## Patients
+
+Blood samples were taken from SCI patients who had provided informed consent and in accordance to ethical provided by the National Research Ethics Service [NRES] Committee North West Liverpool East [11/NW/0876].
+"Improvers" were defined as individuals who experienced an AIS grade improvement from admission to a year post-injury, whereas "non-improvers" were defined as patients who saw no change in AIS grade in the same period (Table \@ref(tab:patient-demo-chap3)).
 
 ```{r, label='patient-demo-chap3'}
 ## summarise params function
@@ -284,11 +338,6 @@ knitr::kable(demo_sum, "latex", longtable = TRUE, booktabs = TRUE,
   pack_rows("AIS change", 10, 13)
 ```
 
-## Patients
-
-Blood samples were taken from SCI patients who had provided informed consent and in accordance to ethical provided by the National Research Ethics Service [NRES] Committee North West Liverpool East [11/NW/0876].
-"Improvers" were defined as individuals who experienced an AIS grade improvement from admission to a year post-injury, whereas "non-improvers" were defined as patients who saw no change in AIS grade in the same period.
-
 ## Plasma collection and storage
 
 Plasma samples were collected within 2 weeks of injury (acute) and at approximately 3 months post-injury (subacute).
@@ -310,11 +359,13 @@ Tryptic digests were labelled with iTRAQ tags (again according to the manufactur
 Two individual iTRAQ experiments were set up, the first to assess acute and sub-acute improvers or non-improvers and the second to assess acute improvers and non-improvers to AIS grade A and D patients.
 The following tags were used for each group of patient samples 114 tag - acute improvers, 115 tag - sub-acute improvers, 116 tag - acute non-improvers and 117 tag - sub-acute non-improvers for run 1 and 114 tag - acute improvers, 115 tag - acute non-improvers, 116 tag - AIS grade A and 117 tag - AIS grade D for run 2.
 
-#### iTRAQ mass spectrometry analysis
+### iTRAQ mass spectrometry analysis
 
 The samples were analysed at the BSRC St. Andrews University Mass Spectrometry and Proteomics Facility.
 A total of 12 SCX fractions were analysed by nano-electrospray ionisation-liquid chromatography/tandem mass spectrometry (LC-MS/MS) using a TripleTOF 5600 tandem mass spectrometer (AB Sciex, Framingham, MA, USA) as described previously.[@fuller_stathmin_2015] 
 Each fraction ($10 \mu l$) was then analysed by nanoflow LC-ESI-MSMS, as described previously.
+
+The mass spectrometry proteomics data have been deposited to the ProteomeXchange Consortium via the PRIDE partner repository with the dataset identifier PXD035025 and 10.6019/PXD035025.[@perez-riverol_pride_2021]
 
 <!-- which reference would this be? Also does anything else from this method need adding in as descriptive? -->
 
@@ -327,14 +378,15 @@ Parent (MS) ions were accepted with a mass tolerance of 50 mDa and MSMS was cond
 Analyzed parent ions were then excluded from analysis for 13 s after 3 occurrences.
 -->
 ```
-### Sample preparation and analysis using label-free proteomics {#label-free-sample-prep}
+
+## Sample preparation and analysis using label-free proteomics {#label-free-sample-prep}
 
 No sample pooling was used, and so each of the 73 samples were maintained separately throughout protein equalisation, mass spectrometry, and label-free quantification steps.
 Thus, protein abundance was quantified for each sample, whereupon mean protein abundance across experimental groups was calculated to assess protein changes.
 
 To reduce the dynamic range of proteins, ProteoMiner™ beads (BioRad, Hemel Hempstead, UK) were used.[@boschetti_proteominer_2008] Total protein was quantitated with a Pierce™ $660 nm$ Protein Assay (Thermo Fisher Scientific, Hemel Hempstead, UK), whereupon 5 mg of total protein was applied to ProteoMiner™ beads, and processed as described previously.[@stoscheck_protein_1987; @peffers_comprehensive_2015]
 
-#### Label free mass spectrometry analysis
+### Label free mass spectrometry analysis
 
 Tryptic peptides were subjected to LC-MC/MC via a 2-h gradient on a NanoAcquity™ ultraperformance LC (Waters, Manchester, UK) connected to a Q-Exactive Quadrupole-Orbitrap instrument (Thermo-Fisher Scientific Hemel Hempstead, UK).
 
@@ -344,7 +396,9 @@ Dynamic exclusion was set to 20s, the 10 most intense multiply charged ions ($z 
 The following mass spectrometric conditions were used: spray voltage, 1.9kV, no sheath or axillary gas flow; normalised HCD collision energy 30%; heated capillary temperature, 250°C.
 MS/MS ion selection threshold was set to $1\times 10^4$ count and 2Da isolation width was set.
 
-### iTRAQ OpenMS analysis {#openms-chap3}
+The mass spectrometry proteomics data have been deposited to the ProteomeXchange Consortium via the PRIDE partner repository with the dataset identifier PXD035072 and 10.6019/PXD035072.[@perez-riverol_pride_2021]
+
+## iTRAQ OpenMS analysis {#openms-chap3}
 
 TripleTOF 5600 tandem mass spectrometer output files produced in the ABSciex proprietary `.wiff` file format were converted to an open file format, `.mzML` for analysis with OpenMS (version 2.6.0).
 The docker image of ProteoWizard version 3.0.20287 was used for conversion, and peak picking was applied on conversion [@chambers_cross-platform_2012].
@@ -366,7 +420,7 @@ The files for each run output by `IDMapper` were then merged with `FileMerger`.
 Bayesian score estimation and protein inference was performed with `Epifany` and the following flags: `-greedy_group_resolution remove_proteins_wo_evidence -algorithm:keep_best_PSM_only false` Decoys were removed and 0.05 FDR filtering was done via `IDFilter` with `-score:protgroup 0.05 -remove_decoys`.
 Finally, `IDConflictResolver` was used to resolve ambiguous annotations of features with peptide identifications, before quantification with `ProteinQuantifier`.
 
-### Label free OpenMS analysis {#openms-label-free}
+## Label free OpenMS analysis {#openms-label-free}
 
 For quantification, the raw spectra files were analysed via OpenMS (version 2.6.0) command line tools, with the workflow from the prior section (\@ref(openms-chap3)) adapted to suit a label-free analysis.
 The files were first converted from the proprietary .Raw format to the open .mzML standard with the `FileConverter` tool via the open-source `ThermoRawFileParser`.[@rost_openms_2016; @hulstaert_thermorawfileparser_2020] Unless otherwise stated, default arguments were used throughout.
@@ -382,11 +436,11 @@ For peptide level score estimation and filtering `PercolatorAdapter` was used wi
 The `ProteomicsLFQ` was used for subsequent processing with the flags: `-proteinFDR 0.05 -targeted_only true`.
 The `-out_msstats` flag was also used to produce quantitative data for downstream statistical analysis with the R package `MSstats`.[@choi_msstats_2014]
 
-### Network and pathway analysis {#pathway-analysis-chap3}
+## Network and pathway analysis {#pathway-analysis-chap3}
 
 The Bioconductor package ReactomePA, which employs the open-source, open access, manually curated and peer-reviewed pathway database Reactome was used for network analysis.[@yu_reactomepa_2016; @jassal_reactome_2020]
 
-### Enzyme-linked immunosorbent assays
+## Enzyme-linked immunosorbent assays
 
 Four proteins identified by the iTRAQ analysis were measured by enzyme-linked immunoabsorbent assay (ELISA) from non-pooled samples to validate the iTRAQ findings.
 
@@ -574,7 +628,7 @@ updown %>%
     scale_fill_manual(values = c("tomato", "steelblue"), name = "")
 ```
 
-### iTRAQ analyses
+## iTRAQ analyses
 
 ```{r, label='load-fc-data-chap4'}
 ## get foldchange data
@@ -607,7 +661,7 @@ lf_sig_wide2 <- lf_sig2 %>%
   dplyr::arrange(Protein)
 ```
 
-### Differential protein abundances
+## Differential protein abundances
 
 AIS C improvers had 18 more abundant proteins and 49 less abundant proteins at the acute phase relative to non-improvers.
 Similarly, at the subacute phase, AIS C improvers had 34 more abundant proteins and 34 less abundant proteins relative to non-improvers.
@@ -616,7 +670,7 @@ Acutely, AIS C improvers relative to AIS A and D had 21 and 53 more abundant and
 
 Please see the Tables \@ref(tab:openms-fc-table), \@ref(tab:label-free-fc-table1) & \@ref(tab:label-free-fc-table2) for a full list of protein fold change changes.
 
-### Heatmaps {#heatmaps-chap3}
+## Heatmaps {#heatmaps-chap3}
 
 The majority of the pathways associated with the proteins identified by these iTRAQ experiments are related to the complement cascade and platelet activity (Figure \@ref(fig:openms-hmap-acute-c-1), \@ref(fig:openms-hmap-subacute-c-1)).
 There are also several pathways implicated in metabolic processes, particularly with apolipoproteins and retinoids.
@@ -681,7 +735,7 @@ heatmap$subacute_c_imp_vs_subacute_c_nonimp +
 \elandscape
 \clearpage
 ```
-### Network analysis of Differentially Abundant Proteins between AIS C improvers and non-improvers {#cnetplot-chap3}
+## Network analysis of Differentially Abundant Proteins between AIS C improvers and non-improvers {#cnetplot-chap3}
 
 Similar to the heatmaps, network plots highlighted that the majority of proteins changes were associated with the complement cascade and pathways linked to platelet activity (Figure \@ref(fig:openms-cnetp-acute-c-1), \@ref(fig:openms-cnetp-subacute-c-1)).
 Several proteins were also associated with the regulation of insulin-like growth factor.
@@ -734,7 +788,7 @@ cnetplot$subacute_c_imp_vs_subacute_c_nonimp
 \elandscape
 \clearpage
 ```
-### Pathway analysis of Differentially Abundant Proteins between AIS C improvers and non-improvers {#kegg-chap3}
+## Pathway analysis of Differentially Abundant Proteins between AIS C improvers and non-improvers {#kegg-chap3}
 
 Pathway analysis via the `pathview` R package returned the complement and coagulation cascade to be on the sole significant KEGG pathway to derive from the OpenMS analysed data.
 The majority of the proteins present in this pathway were less abundant in the 2-week post-injury plasma of AIS C patients who experienced an AIS grade conversion and those who did not (Figure \@ref(fig:kegg-complement)).
@@ -754,7 +808,7 @@ The majority of the proteins present in this pathway were less abundant 2-weeks 
 knitr::include_graphics("figures/kegg_pathways/hsa04610.pathview_label-free.png")
 ```
 
-### Validation of Proteomic Data using ELISA
+## Validation of Proteomic Data using ELISA
 
 No statistically significant difference between groups for A2M abundance in plasma via DuoSet® ELISAs, though there were outliers in the AIS A and D groups, and particularly in the AIS C patients at 3-months who did not experience an AIS grade conversion (Figure \@ref(fig:patchwork-2)).
 
@@ -823,7 +877,8 @@ names(pos_neg) <- groups
 <!-- The data processed by `MSstats` was filtered to proteins with a adjusted P-value of < 0.05 and a log$_2$ FC of > $\pm1.2$.
 The total number of significant proteins is `nrow(foldchange_df)`. -->
 ```
-### Comparing iTRAQ and label-free proteins
+
+## Comparing iTRAQ and label-free proteins
 
 A total of `r length(label_free_proteins)` and `r nrow(fc_openms_wide)` unique proteins were identified across the label-free and iTRAQ experiments respectively, with a modest overlap of 26 proteins found using both techniques.
 
@@ -950,6 +1005,8 @@ Similarly, this additional work could complement the AIS A and D sample data, wh
 R.version
 ```
 
+\clearpage
+
 ```{r package-table, echo=FALSE}
 # devtools::session_info()
 package_versions = function(packages=NULL, base=TRUE, sort=FALSE) {
@@ -969,12 +1026,10 @@ package_versions = function(packages=NULL, base=TRUE, sort=FALSE) {
     }
 }
 package_table = package_versions()
-kbl(package_table, longtable = TRUE, booktabs = TRUE, caption = "Packages Used")
+kbl(package_table, booktabs = T, caption = "Packages Used")
 ```
 
 \clearpage
-
-## Fold changes {#sup-foldchanges}
 
 ```{r, label='openms-fc-table'}
 kbl(fc_openms_wide, "latex", longtable = T, booktabs = T, escape = F,

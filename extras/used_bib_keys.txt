@@ -17,6 +17,7 @@ bernardo_harrington_routinely_2020
 brown_preliminary_2019
 stoscheck_protein_1987
 fuller_stathmin_2015
+perez-riverol_pride_2021
 boschetti_proteominer_2008
 peffers_comprehensive_2015
 chambers_cross-platform_2012
@@ -25,7 +26,6 @@ the_uniprot_consortium_uniprot_2021
 hulstaert_thermorawfileparser_2020
 eng_comet_2013
 choi_msstats_2014
-szklarczyk_string_2019
 yu_reactomepa_2016
 jassal_reactome_2020
 peterson_studies_1971
